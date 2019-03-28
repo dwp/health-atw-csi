@@ -5,7 +5,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form id="form" method="post" action="date">
+    <form id="form" method="post" action="job_company_name">
 
 
     <h1 class="govuk-heading-m govuk-!-margin-bottom-4">
@@ -48,7 +48,7 @@
       </div>
     </div>
 
-    <input type="submit" class="govuk-button" value="Continue" id="submit"><!-- date -->
+    <input type="submit" class="govuk-button" value="Continue" id="submit"><!-- job_company_name -->
 
     </form>
 
@@ -56,7 +56,7 @@
         document.getElementById('form').addEventListener('submit', e => {
           e.preventDefault();
           if (document.getElementById('terminal-1').checked) {
-            window.location = 'date';
+            window.location = 'job_company_name';
           } else {
             window.location = 'cant_help_paid';
           }

@@ -5,18 +5,18 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form id="form" method="post" action="customer_contact">		
+    <form id="form" method="post" action="customer_condition">		
 
 
 		<div class="govuk-form-group">
 		  <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
 		    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
                     <h1 class="govuk-heading-m govuk-!-margin-bottom-4">
-                            Customer details:
+                            Personal details:
                         </h1>
                 
                         <h2 class="govuk-heading-l govuk-!-margin-bottom-2">
-                            Please enter your date of birth
+                            Enter your date of birth
                         </h2>
 				</legend>
 
@@ -53,7 +53,7 @@
 		  </fieldset>
 		</div>
 
-		<input type="submit" class="govuk-button" value="Continue" id="submit"><!-- customer_contact -->	
+		<input type="submit" class="govuk-button" value="Continue" id="submit"><!-- customer_condition -->	
 
  	</form>
 	<script>
@@ -70,7 +70,7 @@
 			if (yrs < minAllowedAge || yrs > maxAllowedAge) {
         window.location = 'cant_help_age';
       } else {
-        window.location = 'confirmation_auto';
+        window.location = 'customer_condition';
       }
     })
 	</script>

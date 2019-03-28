@@ -5,7 +5,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form id="form" method="post" action="interviewer_details">		
+    <form id="form" method="post" action="interview_duration">		
 
 
 		<div class="govuk-form-group">
@@ -13,11 +13,11 @@
 		    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
 						<h1 class="govuk-heading-m govuk-!-margin-bottom-4">
 								Interview Questions:
-							</h1>
+						</h1>
 					
-							<h2 class="govuk-heading-l govuk-!-margin-bottom-2">
-									When is the interview scheduled?
-							</h2>
+						<h2 class="govuk-heading-l govuk-!-margin-bottom-2">
+								When is the interview scheduled?
+						</h2>
 				</legend>
 				
 				<details class="govuk-details">
@@ -70,10 +70,24 @@
 		  </fieldset>
 		</div>
 
-		<input type="submit" class="govuk-button" value="Continue" id="submit"><!-- interviewer_details -->	
+		<input type="submit" class="govuk-button" value="Continue" id="submit"><!-- interview_duration -->	
 
  	</form>
 
+	 <script>
+    document.getElementById('form').addEventListener('submit', e => {
+      e.preventDefault();
+			var interviewDate = new Date(	document.getElementById('date-year').value,
+				document.getElementById('date-month').value,
+				document.getElementById('date-day').value);
+		
+			if (interviewDate.getTime() < new Date().getTime()) {
+        window.location = 'cant_help_date';
+      } else {
+        window.location = 'interview_duration';
+      }
+    })
+	</script>
  </div>
 </div> 	
 
