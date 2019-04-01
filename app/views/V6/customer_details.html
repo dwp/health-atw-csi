@@ -105,7 +105,7 @@
     </form>
 		<script>
 			const minAllowedAge = 16;
-			const maxAllowedAge = 110;
+			const maxReasonableAge = 110;
 			document.getElementById('form').addEventListener('submit', e => {
 				e.preventDefault();
 				var dob = new Date(	document.getElementById('date-year').value,
@@ -113,8 +113,7 @@
 					document.getElementById('date-day').value);
 				var ageDate = new Date(Date.now() - dob.getTime());
 				const yrs = Math.abs(ageDate.getUTCFullYear() - 1970);
-				maxAllowedAge
-				if (yrs < minAllowedAge || yrs > maxAllowedAge) {
+				if (yrs < minAllowedAge || yrs > maxReasonableAge) {
 					window.location = 'sorry/cant_help_age';
 				} else {
 					window.location = 'deaf';
