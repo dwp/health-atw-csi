@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Prototype start page
+{% endblock %}
+
+{% block header %}
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Get Commmunication Support at Interview
+        <!-- {% if serviceName %} {{ serviceName }} {% endif %} -->
+      </h1>
+
+      <p>Use this service to:</p>
+
+      <ul class="govuk-list">
+        <li>Apply for Commmunication Support at Interview (CSI)</li>
+        <li>Application takes around 5 minutes</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Before you start</h2>
+
+      <p>You can’t apply for this service if you’re younger than 16, applying for a volunteer role or not a resident of the UK.</p>
+
+      <a href="customer/name" role="button" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8">Start now</a>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Access to Work helpline
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <p>Telephone: 0800 121 7479</p>
+            <p>Textphone: 0800 121 7579</p> 
+            <p>NGT text relay (if you cannot hear or speak on the phone): 18001 then 0800 121 7479 
+              Monday to Friday, 8am to 7:30pm</p>    
+            <li>
+              <a href="#">
+                Find out about call charges
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <h2 class="govuk-heading-m" id="subsection-title">
+            British Sign Language (BSL) video relay service
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <p>To use this you must:</p>
+            <ul class="govuk-!-font-size-16">
+                <li>first check you can use the service</li>
+                <li><a href="#">go to the video relay service</a></li>
+            </ul>
+            <p>Monday to Friday, 8am to 7:30pm</p>
+          </nav>
+      </aside>
+
+    </div>
+  </div>
+{% endblock %}

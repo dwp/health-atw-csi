@@ -106,8 +106,8 @@
 		<script>
 			const minAllowedAge = 16;
 			const maxReasonableAge = 110;
-			document.getElementById('form').addEventListener('submit', e => {
-				e.preventDefault();
+			document.getElementById('form').addEventListener('submit', function(event) {
+				event.preventDefault();
 				var dob = new Date(	document.getElementById('date-year').value,
 					document.getElementById('date-month').value,
 					document.getElementById('date-day').value);

@@ -53,8 +53,8 @@
     </form>
 
     <script>
-        document.getElementById('form').addEventListener('submit', e => {
-          e.preventDefault();
+        document.getElementById('form').addEventListener('submit', function(event) {
+          event.preventDefault();
           if (document.getElementById('terminal-1').checked) {
             window.location = 'interview_details';
           } else {
