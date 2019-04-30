@@ -5,7 +5,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form id="form" method="post" action="condition">		
+    <form id="form" method="post" action="deaf">
 
 
 		<div class="govuk-form-group">
@@ -14,7 +14,7 @@
                     <h1 class="govuk-heading-l govuk-!-margin-bottom-4">
                             Personal details
                         </h1>
-                
+
                         <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
                             What is your date of birth?
                         </h2>
@@ -53,7 +53,7 @@
 		  </fieldset>
 		</div>
 
-		<input type="submit" class="govuk-button" value="Continue" id="submit"><!-- customer_condition -->	
+		<input type="submit" class="govuk-button" value="Continue" id="submit"><!-- customer_condition -->
 
  	</form>
 	<script>
@@ -70,11 +70,11 @@
 			if (yrs < minAllowedAge || yrs > maxAllowedAge) {
         window.location = '../sorry/cant_help_age';
       } else {
-        window.location = 'condition';
+        window.location = 'deaf';
       }
     })
 	</script>
  </div>
-</div> 	
+</div>
 
 {% endblock %}
