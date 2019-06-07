@@ -5,7 +5,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form id="form" method="post" action="job_company_name">
+    <form id="form" method="post" action="interview_date">
 
 
     <h1 class="govuk-heading-l govuk-!-margin-bottom-4">
@@ -41,7 +41,7 @@
         document.getElementById('form').addEventListener('submit', function (event)  {
           event.preventDefault();
           if (document.getElementById('terminal-1').checked) {
-            window.location = 'interview_company_name';
+            window.location = 'interview_date';
           } else {
             window.location = '../sorry/cant_help_paid';
           }
