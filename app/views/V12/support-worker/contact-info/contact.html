@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+<!-- Adds a class to increase vertical spacing for pages without a back button -->
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block pageTitle %}
+  Check your answers
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+    <main class="govuk-main-wrapper" id="main-content" role="main">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-quarters-from-desktop">
+          <!--<h1 class="govuk-heading-l govuk-!-margin-bottom-4">
+                  Contact
+              </h1>-->
+
+            <h1 class="govuk-heading-xl">How would you like to be contacted?</h1>
+
+            <p>We need to contact you to ask for more information or to confirm your application.
+            Use an email address that you can check every day, such as a personal one.</p>
+            <form id="form" method="post" action="text-message">
+
+            <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                        <h1 class="govuk-fieldset__heading">
+                        
+                        </h1>
+                      </legend>
+                      <span id="waste-hint" class="govuk-hint">
+                        Select all that apply.
+                      </span>
+                      <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste">
+                            Email address
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                            Textphone
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                            NGT relay
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+            </div>
+
+              <!--<form id="form" method="post" action="text-message">
+
+                <span id="changed-name-hint" class="govuk-hint"></span>
+
+                <div class="govuk-form-group">
+                  <div class="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="terminal-1" name="terminal" type="radio" value="yes">
+                      <label class="govuk-label govuk-radios__label" for="terminal-1">
+                        Email address
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="terminal-2" name="terminal" type="radio" value="no" aria-controls="no-reveal">
+                      <label class="govuk-label govuk-radios__label" for="terminal-2">
+                        Textphone
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="terminal-3" name="terminal" type="radio" value="no" aria-controls="no-reveal">
+                      <label class="govuk-label govuk-radios__label" for="terminal-3">
+                        NGT relay
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <script>
+                  document.getElementById('form').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    if (document.getElementById('terminal-1').checked) {
+                      window.location = '../contact-info/text-message';
+                    } else if (document.getElementById('terminal-1').checked) {
+                      window.location = '../contact-info/text-message';
+                    } else {
+                        window.location = '../contact-info/text-message';
+                      }
+                    }
+                  })
+                </script>-->
+
+                <button class="govuk-button" data-module="govuk-button">
+                  Continue
+                </button>
+          </form>
+        </div>
+      </div>
+    </main>
+	</div>
+
+	{% endblock %}
