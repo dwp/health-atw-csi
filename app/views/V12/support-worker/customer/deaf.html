@@ -7,11 +7,11 @@
 
     <form id="form" method="post" action="job/paid_work">
 
-    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">
+    <!--<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
         Personal details
-    </h1>
+    </h1>-->
 
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
+    <h2 class="govuk-heading-xl govuk-!-margin-bottom-2">
         Do you need communication support because you are Deaf or hard of hearing?
     </h2>
 
@@ -40,9 +40,9 @@
       document.getElementById('form').addEventListener('submit', function(event) {
         event.preventDefault();
         if (document.getElementById('terminal-1').checked) {
-          window.location = '../job/paid_work';
+          window.location = '../contact-info/talk-phone';
         } else {
-          window.location = 'condition';
+          window.location = '../contact-info/talk-phone';
         }
       })
     </script>
