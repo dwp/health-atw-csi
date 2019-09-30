@@ -4,7 +4,7 @@
 {% set mainClasses = "govuk-main-wrapper--l" %}
 
 {% block pageTitle %}
-  Check your answers
+  What is your mobile phone number
 {% endblock %}
 
 {% block content %}
@@ -15,25 +15,17 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-three-quarters-from-desktop">
 
-              <form id="form" method="post" action="../check_your_answers">
+              <form id="form" method="post" action="check-your-answers">
 
-                <h1 class="govuk-heading-xl">How else can we contact you?</h1>
-
-                <p>Include a mobile number if you would like to receive text message updates about your application.</p>
+                <h1 class="govuk-heading-xl">What is your mobile phone number?</h1>
 
                 <div class="govuk-form-group">
                         <label class="govuk-label" for="event-name">
-                        Email
+                          Mobile phone number
                         </label>
-                        <input class="govuk-input" id="event-name" name="event-name" type="email">
-                </div>
-
-                <div class="govuk-form-group">
-                        <label class="govuk-label" for="event-name">
-                        Alternative phone number
-                        </label>
-                        <input class="govuk-input" id="event-name" name="event-name" type="number">
-                </div>
+                        <span id="event-name-hint" class="govuk-hint"></span>
+                        <input class="govuk-input" id="event-name" name="event-name" type="number" type="number" pattern="[0-9]* aria-describedby="event-name-hint">
+                 </div>
 
                 <button class="govuk-button" data-module="govuk-button">
                   Continue
