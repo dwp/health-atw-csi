@@ -1,19 +1,11 @@
-{% extends "layout.html" %}
-
-<!-- Adds a class to increase vertical spacing for pages without a back button -->
-{% set mainClasses = "govuk-main-wrapper--l" %}
+{% extends folder + "/_BASE.html" %}
 
 {% block pageTitle %}
   What is your mobile phone number
 {% endblock %}
 
-{% block content %}
+{% block service %}
 
-<div class="govuk-width-container">
-
-    <main class="govuk-main-wrapper " id="main-content" role="main">
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-three-quarters-from-desktop">
 
               <form id="form" method="post" action="check-your-answers">
 
@@ -31,9 +23,5 @@
                   Continue
                 </button>
           </form>
-        </div>
-      </div>
-    </main>
-	</div>
 
 	{% endblock %}

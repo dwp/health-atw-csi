@@ -1,9 +1,9 @@
-{% extends "layout.html" %}
+{% extends folder + "/_BASE.html" %}
 
-{% block content %}
+{% set backHidden =  true %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+{% block service %}
+
 
     <form id="form" method="post" action="interview-date">
 
@@ -40,20 +40,6 @@
 
     </form>
 
-<!--
-    <script>
-        document.getElementById('form').addEventListener('submit', function (event)  {
-          event.preventDefault();
-          if (document.getElementById('check-cost-1').checked) {
-            window.location = 'your-name';
-          } else {
-            window.location = 'have-total-cost-no';
-          }
-        })
-    </script>
--->
-  <div><!-- govuk-grid-column-two-thirds -->
-<div><!-- govuk-grid-row -->
 {% endblock %}
 
 {% block pageScripts %}

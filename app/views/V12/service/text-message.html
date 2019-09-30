@@ -1,19 +1,13 @@
-{% extends "layout.html" %}
+{% extends folder + "/_BASE.html" %}
 
-<!-- Adds a class to increase vertical spacing for pages without a back button -->
-{% set mainClasses = "govuk-main-wrapper--l" %}
+
 
 {% block pageTitle %}
   Do you want to receive text messages with updates about your application
 {% endblock %}
 
-{% block content %}
+{% block service %}
 
-<div class="govuk-width-container">
-
-    <main class="govuk-main-wrapper " id="main-content" role="main">
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-three-quarters-from-desktop">
 
               <form id="form" method="post" action="">
 
@@ -56,9 +50,6 @@
                   Continue
                 </button>
           </form>
-        </div>
-      </div>
-    </main>
-	</div>
+
 
 	{% endblock %}

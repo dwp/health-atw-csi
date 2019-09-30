@@ -1,20 +1,11 @@
-{% extends "layout.html" %}
-
-<!-- Adds a class to increase vertical spacing for pages without a back button -->
-{% set mainClasses = "govuk-main-wrapper--l" %}
+{% extends folder + "/_BASE.html" %}
 
 {% block pageTitle %}
   How would you like to be contacted?
 {% endblock %}
 
-{% block content %}
+{% block service %}
 
-<div class="govuk-width-container">
-
-    <main class="govuk-main-wrapper" id="main-content" role="main">
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-three-quarters-from-desktop">
-            <!--<h1 class="govuk-heading-xl">How would you like to be contacted?</h1>-->
 
 
             <form id="form" method="post" action="text-message">
@@ -124,9 +115,5 @@
                   Continue
                 </button>
           </form>
-        </div>
-      </div>
-    </main>
-	</div>
 
 	{% endblock %}

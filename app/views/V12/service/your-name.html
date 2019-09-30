@@ -1,10 +1,8 @@
 
-{% extends "layout.html" %}
+{% extends folder + "/_BASE.html" %}
 
-{% block content %}
+{% block service %}
 
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
 
         <form id="form" method="post" action="address">
 
@@ -26,6 +24,4 @@
 
         </form>
 
-    <div><!-- govuk-grid-column-two-thirds -->
-<div><!-- govuk-grid-row -->
 {% endblock %}

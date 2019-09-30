@@ -13,3 +13,8 @@ $govuk-global-styles: true;
 @import "components/cookie-banner";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+#ad-helpline {
+    border-top: 3px solid #2ba197;
+    padding-top: 15px;
+}
