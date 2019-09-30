@@ -8,14 +8,13 @@
 {% endblock %}
 
 {% block content %}
-
 <div class="govuk-width-container">
 
     <main class="govuk-main-wrapper " id="main-content" role="main">
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-three-quarters-from-desktop">
 
-          <h1 class="govuk-heading-l">Please give upto five examples of things you need to do for your job and how your disability
+          <h1 class="govuk-heading-l">Please give up to five examples of things you need to do for your job and how your disability
                                         makes this harder</h1>
       <form id="form" method="post" action="gathering-info-added-2">
                   <div class="govuk-form-group">
@@ -43,7 +42,7 @@
                     <label class="govuk-label" for="event-name">
                       How I could be helped to do this better (if known)
                     </label>
-                    <input class="govuk-input" id="event-name" name="event-name" type="text">
+                    <input class="govuk-input" id="helped-better" name="event-name" type="text">
                   </div>
 
                   <div class="govuk-form-group">
@@ -56,8 +55,14 @@
                   <button class="govuk-button" data-module="govuk-button">
                       Add another example
                   </button>
-
               </form>
+              <script type="text/javascript">
+                helpme = document.getElementById('helped-better').value
+                console.log(helpme);
+                console.log(carName);
+
+              </script>
+
         </div>
       </div>
     </main>
