@@ -22,14 +22,14 @@
     <div class="govuk-form-group">
       <div class="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="terminal-1" name="terminal" type="radio" value="yes">
-          <label class="govuk-label govuk-radios__label" for="terminal-1">
+          <input class="govuk-radios__input" id="check-cost-1" name="check-cost" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="check-cost-1">
             Yes
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="terminal-2" name="terminal" type="radio" value="no" aria-controls="no-reveal">
-          <label class="govuk-label govuk-radios__label" for="terminal-2">
+          <input class="govuk-radios__input" id="check-cost-2" name="check-cost" type="radio" value="no" aria-controls="no-reveal">
+          <label class="govuk-label govuk-radios__label" for="check-cost-2">
             No
           </label>
         </div>
@@ -40,17 +40,30 @@
 
     </form>
 
+<!--
     <script>
         document.getElementById('form').addEventListener('submit', function (event)  {
           event.preventDefault();
-          if (document.getElementById('terminal-1').checked) {
+          if (document.getElementById('check-cost-1').checked) {
             window.location = 'your-name';
           } else {
             window.location = 'have-total-cost-no';
           }
         })
     </script>
-
+-->
   <div><!-- govuk-grid-column-two-thirds -->
 <div><!-- govuk-grid-row -->
 {% endblock %}
+
+{% block pageScripts %}
+ <script>
+ $( "#yes" ).click(function() {
+  $("form").attr("action", "your-name")
+ });
+ $( "#no" ).click(function() {
+  $("form").attr("action", "have-total-cost-no")
+ });
+ </script>
+
+ {% endblock %}
