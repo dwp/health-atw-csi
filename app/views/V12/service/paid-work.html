@@ -1,9 +1,5 @@
-{% extends "layout.html" %}
-
-{% block content %}
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+{% extends folder + "/_BASE.html" %}
+{% block service %}
 
     <form id="form" method="post" action="interview-date">
 
@@ -37,17 +33,14 @@
 
     </form>
 
-    <script>
-        document.getElementById('form').addEventListener('submit', function (event)  {
-          event.preventDefault();
-          if (document.getElementById('terminal-1').checked) {
-            window.location = 'interview-date';
-          } else {
-            window.location = 'sorry/cant_help_paid';
-          }
-        })
-    </script>
 
-  <div><!-- govuk-grid-column-two-thirds -->
-<div><!-- govuk-grid-row -->
 {% endblock %}
+
+<script>
+$( "#yes" ).click(function() {
+ $("form").attr("action", "yinterview-date")
+});
+$( "#no" ).click(function() {
+ $("form").attr("action", "sorry/cant_help_paid")
+});
+</script>

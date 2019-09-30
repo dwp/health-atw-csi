@@ -1,18 +1,16 @@
-{% extends "layout.html" %}
+{% extends folder + "/_BASE.html" %}
 
-<!-- Adds a class to increase vertical spacing for pages without a back button -->
-{% set mainClasses = "govuk-main-wrapper--l" %}
+{% set hideHelp = true  %}
+{% set backHidden = true %}
 
 {% block pageTitle %}
   Confirmation page
 {% endblock %}
 
-{% block content %}
 
-	<div class="govuk-width-container">
-		<main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
-			<div class="govuk-grid-row">
-				<div class="govuk-grid-column-two-thirds">
+{% block service %}
+
+
 					<div class="govuk-panel govuk-panel--confirmation">
 						<h1 class="govuk-panel__title">
 							Application sent
@@ -27,8 +25,4 @@
 						<p>An adviser will tell you the decision, using your preferred contact method, within 2 working days.</p>
 					  <p><a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)</p>
           </div>
-				</div>
-			</div>
-		</main>
-	</div>
 {% endblock %}
