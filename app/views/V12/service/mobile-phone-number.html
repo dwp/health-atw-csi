@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+<!-- Adds a class to increase vertical spacing for pages without a back button -->
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block pageTitle %}
+  What is your mobile phone number
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-quarters-from-desktop">
+
+              <form id="form" method="post" action="check-your-answers">
+
+                <h1 class="govuk-heading-xl">What is your mobile phone number?</h1>
+
+                <div class="govuk-form-group">
+                        <label class="govuk-label" for="event-name">
+                          Mobile phone number
+                        </label>
+                        <span id="event-name-hint" class="govuk-hint"></span>
+                        <input class="govuk-input" id="event-name" name="event-name" type="number" type="number" pattern="[0-9]* aria-describedby="event-name-hint">
+                 </div>
+
+                <button class="govuk-button" data-module="govuk-button">
+                  Continue
+                </button>
+          </form>
+        </div>
+      </div>
+    </main>
+	</div>
+
+	{% endblock %}
