@@ -4,7 +4,7 @@
 {% set mainClasses = "govuk-main-wrapper--l" %}
 
 {% block pageTitle %}
-  Check your answers
+  Do you want to receive text messages with updates about your application
 {% endblock %}
 
 {% block content %}
@@ -46,7 +46,7 @@
                             if (document.getElementById('text-message').checked) {
                               window.location = '../contact-info/mobile-phone-number';
                             } else {
-                              window.location = '../job/paid_work';
+                              window.location = '../check_your_answers';
                             }
                           })
                         </script>
