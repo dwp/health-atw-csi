@@ -1,0 +1,288 @@
+{% extends "layout.html" %}
+
+<!-- Adds a class to increase vertical spacing for pages without a back button -->
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block pageTitle %}
+  Check your answers
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-full-width-thirds-from-desktop">
+
+          <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
+
+          <h2 class="govuk-heading-m">Personal details</h2>
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p>{{ data['first-name'] }}
+                    {{ data['last-name'] }}</p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="customer_name">
+                  Change
+                  <span class="govuk-visually-hidden"> name</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Date of birth
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p>{{ data['date-day'] }}</p>
+                <p>{{ data['date-month'] }}</p>
+                <p>{{ data['date-year'] }}</p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="customer_name">
+                  Change
+                  <span class="govuk-visually-hidden"> name</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p>{{ data['address-line-1'] }}
+                  {{ data['address-line-2'] }} <br>
+                  {{ data['address-town'] }} <br>
+                  {{ data['address-county'] }} <br>
+                  {{ data['address-postcode'] }} <br>
+                  </p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="customer_address">
+                  Change
+                  <span class="govuk-visually-hidden"> address</span>
+                </a>
+              </dd>
+            </div>
+
+						<h2 class="govuk-heading-m govuk-!-margin-top-6">Job interview details</h2>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                 Interview Date
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p>{{ data['date-day'] }}</p>
+                <p>{{ data['date-month'] }}</p>
+                <p>{{ data['date-year'] }}</p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="job_company_name">
+                  Change
+                  <span class="govuk-visually-hidden">Interview date</span>
+                </a>
+              </dd>
+            </div>
+
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								Company name
+							</dt>
+							<dd class="govuk-summary-list__value">
+								<p>{{ data['full-name'] }}</p>
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<a class="govuk-link" href="job_company_name">
+									Change
+									<span class="govuk-visually-hidden">Company name</span>
+								</a>
+							</dd>
+						</div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Company address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p>{{ data['address-line-1'] }}
+                  {{ data['address-line-2'] }} <br>
+                  {{ data['address-town'] }} <br>
+                  {{ data['address-county'] }} <br>
+                  {{ data['address-postcode'] }} <br>
+                  </p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="interview_date.html">
+                  Change
+                  <span class="govuk-visually-hidden">interview location</span>
+                </a>
+              </dd>
+						</div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Interview length
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p>{{ data['address-line-1'] }}
+                </p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="interview_date.html">
+                  Change
+                  <span class="govuk-visually-hidden">interview length</span>
+                </a>
+              </dd>
+						</div>
+
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								Company contact name
+							</dt>
+							<dd class="govuk-summary-list__value">
+								<p class="govuk-body">
+                  {{ data['interviewer-name'] }}
+                </p>
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<a class="govuk-link" href="interview_date">
+									Change
+									<span class="govuk-visually-hidden">company contact</span>
+								</a>
+							</dd>
+						</div>
+
+            <div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								Company email address
+							</dt>
+							<dd class="govuk-summary-list__value">
+								<p class="govuk-body">
+                  {{ data['contact-by-email'] }}</p>
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<a class="govuk-link" href="interview_date">
+									Change
+									<span class="govuk-visually-hidden">company contact</span>
+								</a>
+							</dd>
+						</div>
+
+            <div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								Company contact phone number
+							</dt>
+							<dd class="govuk-summary-list__value">
+								<p class="govuk-body">
+                  {{ data['contact-by-phone'] }}</p>
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<a class="govuk-link" href="interview_date">
+									Change
+									<span class="govuk-visually-hidden">company contact</span>
+								</a>
+							</dd>
+						</div>
+
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								Total cost
+							</dt>
+							<dd class="govuk-summary-list__value">
+                <p class="govuk-body">
+                  {{ data['support-worker-pay'] }}</p>
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<a class="govuk-link" href="interviewer_details">
+									Change
+									<span class="govuk-visually-hidden">support worker cost</span>
+								</a>
+							</dd>
+						</div>
+
+						<h2 class="govuk-heading-m govuk-!-margin-top-6">Contact details</h2>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Email address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">
+                  {{ data['contact-by-email'] }}
+                </p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="customer_contact">
+                  Change
+                  <span class="govuk-visually-hidden"> customer contact</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Phone number
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">
+                  {{ data['contact-by-phone'] }}
+                </p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="customer_contact">
+                  Change
+                  <span class="govuk-visually-hidden"> customer contact</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                NGT relay
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">
+                  {{ data['contact-by-ngt'] }}
+                </p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="customer_contact">
+                  Change
+                  <span class="govuk-visually-hidden"> customer contact</span>
+                </a>
+              </dd>
+            </div>
+
+					</dl>
+
+          <h2 class="govuk-heading-m">Declaration</h2>
+					<div class="govuk-body">
+						<p>By sending this application you are confirming that the information is correct as far as you know.</p>
+
+            <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive">Warning</span>
+                It might be a criminal offence if you knowingly give false information.
+              </strong>
+            </div>
+					</div>
+          <form action="confirmation" method="post" novalidate>
+
+            <input type="hidden" name="answers-checked" value="true">
+
+            <button type="submit" class="govuk-button">
+              Accept and send
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+	</div>
+
+	{% endblock %}

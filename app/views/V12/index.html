@@ -1,0 +1,28 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  CSI Prototype
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+      Usability testing
+        <span class="govuk-caption-xl">{{releaseVersion}}</span>
+      </h1>{{releaseVersion | log }}
+
+      <p>
+        Examples to be tested with users
+      </p>
+
+      <li><a href="gathering-info">Apply Questions Work and Condition Example 1</a></li>
+      <li><a href="atw-example-2/difficult-tasks">Apply Questions Work and Condition Example 2</a></li>
+      <li><a href="support-worker/job/support-worker-page">Communication support at Interview</a></li>
+      <li><a href="apply">Full journey from GOV.UK page</a></li>
+    </div>
+</div>
+
+{% endblock %}
