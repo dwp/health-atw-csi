@@ -10,22 +10,22 @@
 {% block content %}
 
 <div class="govuk-width-container">
-
     <main class="govuk-main-wrapper " id="main-content" role="main">
       <div class="govuk-grid-row">
-        <div class="govuk-grid-column-three-quarters-from-desktop">
+        <div class="govuk-grid-full-width-thirds-from-desktop">
 
           <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
 
-          <h2 class="govuk-heading-m">About the claim</h2>
+          <h2 class="govuk-heading-m">Personal details</h2>
 
           <dl class="govuk-summary-list govuk-!-margin-bottom-9">
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                What is the interview date?
+                Name
               </dt>
               <dd class="govuk-summary-list__value">
-                test data
+                <p>{{ data['first-name'] }}
+                    {{ data['last-name'] }}</p>
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="customer_name">
@@ -36,12 +36,31 @@
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Is the interview for a paid job?
+                Date of birth
               </dt>
               <dd class="govuk-summary-list__value">
-                test data
-                <br>test data
-                <br>test data
+                <p>{{ data['date-day'] }}</p>
+                <p>{{ data['date-month'] }}</p>
+                <p>{{ data['date-year'] }}</p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="customer_name">
+                  Change
+                  <span class="govuk-visually-hidden"> name</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p>{{ data['address-line-1'] }}
+                  {{ data['address-line-2'] }} <br>
+                  {{ data['address-town'] }} <br>
+                  {{ data['address-county'] }} <br>
+                  {{ data['address-postcode'] }} <br>
+                  </p>
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="customer_address">
@@ -50,43 +69,32 @@
                 </a>
               </dd>
             </div>
+
+						<h2 class="govuk-heading-m govuk-!-margin-top-6">Job interview details</h2>
+
             <div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-									How much does the support worker cost?
-							</dt>
-							<dd class="govuk-summary-list__value">
-									test data
-							</dd>
-							<dd class="govuk-summary-list__actions">
-									<a class="govuk-link" href="customer_dob.html">
-									Change
-									<span class="govuk-visually-hidden"> date of birth</span>
-									</a>
-							</dd>
-						</div>
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-								Who needs communication support?
-							</dt>
-							<dd class="govuk-summary-list__value">
-								test data
-							</dd>
-							<dd class="govuk-summary-list__actions">
-								<a class="govuk-link" href="customer_condition">
-									Change
-									<span class="govuk-visually-hidden"> Condition</span>
-								</a>
-							</dd>
-						</div>
-
-						<h2 class="govuk-heading-m govuk-!-margin-top-6">Personal Details</h2>
+              <dt class="govuk-summary-list__key">
+                 Interview Date
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p>{{ data['date-day'] }}</p>
+                <p>{{ data['date-month'] }}</p>
+                <p>{{ data['date-year'] }}</p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="job_company_name">
+                  Change
+                  <span class="govuk-visually-hidden">Interview date</span>
+                </a>
+              </dd>
+            </div>
 
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
-								Date of birth
+								Company name
 							</dt>
 							<dd class="govuk-summary-list__value">
-								test data
+								<p>{{ data['full-name'] }}</p>
 							</dd>
 							<dd class="govuk-summary-list__actions">
 								<a class="govuk-link" href="job_company_name">
@@ -95,92 +103,152 @@
 								</a>
 							</dd>
 						</div>
+
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Why do you need communication support?
+                Company address
               </dt>
               <dd class="govuk-summary-list__value">
-                <p class="govuk-body">test data</p>
+                <p>{{ data['address-line-1'] }}
+                  {{ data['address-line-2'] }} <br>
+                  {{ data['address-town'] }} <br>
+                  {{ data['address-county'] }} <br>
+                  {{ data['address-postcode'] }} <br>
+                  </p>
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="interview_date.html">
                   Change
-                  <span class="govuk-visually-hidden"> contact details</span>
+                  <span class="govuk-visually-hidden">interview location</span>
                 </a>
               </dd>
-						</div>
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-								What is your name?
-							</dt>
-							<dd class="govuk-summary-list__value">
-								<p class="govuk-body">{{ data['first-name'] }}
-{{ data['last-name'] }}</p>
-							</dd>
-							<dd class="govuk-summary-list__actions">
-								<a class="govuk-link" href="interview_date">
-									Change
-									<span class="govuk-visually-hidden"> interview date</span>
-								</a>
-							</dd>
-						</div>
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-								What is your address?
-							</dt>
-							<dd class="govuk-summary-list__value">
-								<p class="govuk-body"> test data</p>
-								<p class="govuk-body"> test data</p>
-							</dd>
-							<dd class="govuk-summary-list__actions">
-								<a class="govuk-link" href="interviewer_details">
-									Change
-									<span class="govuk-visually-hidden"> interviewer details</span>
-								</a>
-							</dd>
-						</div>
-            <div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-								Where are you having your interview?
-							</dt>
-							<dd class="govuk-summary-list__value">
-								<p class="govuk-body"> test data</p>
-								<p class="govuk-body"> test data</p>
-							</dd>
-							<dd class="govuk-summary-list__actions">
-								<a class="govuk-link" href="interviewer_details">
-									Change
-									<span class="govuk-visually-hidden"> interviewer details</span>
-								</a>
-							</dd>
-						</div>
-
-
-						<h2 class="govuk-heading-m govuk-!-margin-top-6">Contact details</h2>
-
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-								Company contact
-							</dt>
-							<dd class="govuk-summary-list__value">
-								<p class="govuk-body">test data</p>
-								<p class="govuk-body">test data</p>
-							</dd>
-							<dd class="govuk-summary-list__actions">
-								<a class="govuk-link" href="customer_contact">
-									Change
-									<span class="govuk-visually-hidden"> customer contact</span>
-								</a>
-							</dd>
 						</div>
 
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Your contact details
+                Interview length
               </dt>
               <dd class="govuk-summary-list__value">
-                <p class="govuk-body">test data</p>
-                <p class="govuk-body">test data</p>
+                <p>{{ data['address-line-1'] }}
+                </p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="interview_date.html">
+                  Change
+                  <span class="govuk-visually-hidden">interview length</span>
+                </a>
+              </dd>
+						</div>
+
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								Company contact name
+							</dt>
+							<dd class="govuk-summary-list__value">
+								<p class="govuk-body">
+                  {{ data['interviewer-name'] }}
+                </p>
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<a class="govuk-link" href="interview_date">
+									Change
+									<span class="govuk-visually-hidden">company contact</span>
+								</a>
+							</dd>
+						</div>
+
+            <div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								Company email address
+							</dt>
+							<dd class="govuk-summary-list__value">
+								<p class="govuk-body">
+                  {{ data['contact-by-email'] }}</p>
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<a class="govuk-link" href="interview_date">
+									Change
+									<span class="govuk-visually-hidden">company contact</span>
+								</a>
+							</dd>
+						</div>
+
+            <div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								Company contact phone number
+							</dt>
+							<dd class="govuk-summary-list__value">
+								<p class="govuk-body">
+                  {{ data['contact-by-phone'] }}</p>
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<a class="govuk-link" href="interview_date">
+									Change
+									<span class="govuk-visually-hidden">company contact</span>
+								</a>
+							</dd>
+						</div>
+
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								Total cost
+							</dt>
+							<dd class="govuk-summary-list__value">
+                <p class="govuk-body">
+                  {{ data['support-worker-pay'] }}</p>
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<a class="govuk-link" href="interviewer_details">
+									Change
+									<span class="govuk-visually-hidden">support worker cost</span>
+								</a>
+							</dd>
+						</div>
+
+						<h2 class="govuk-heading-m govuk-!-margin-top-6">Contact details</h2>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Email address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">
+                  {{ data['contact-by-email'] }}
+                </p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="customer_contact">
+                  Change
+                  <span class="govuk-visually-hidden"> customer contact</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Phone number
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">
+                  {{ data['contact-by-phone'] }}
+                </p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="customer_contact">
+                  Change
+                  <span class="govuk-visually-hidden"> customer contact</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                NGT relay
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">
+                  {{ data['contact-by-ngt'] }}
+                </p>
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="customer_contact">

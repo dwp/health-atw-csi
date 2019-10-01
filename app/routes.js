@@ -26,5 +26,5 @@ router.use('/', (req, res, next) => {
 });
 
 // Start folder specific routes
-// router.use('/V12', require('./views/V12/_routes'));
+router.use('/V12', require('./views/V12/_routes'));
 module.exports = router
