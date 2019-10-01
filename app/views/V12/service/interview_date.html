@@ -1,10 +1,8 @@
+{% extends folder + "/_BASE.html" %}
 
-{% extends "layout.html" %}
+{% set backHidden =  true %}
 
-{% block content %}
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+{% block service %}
 
 		<form id="form" method="post" action="interview_company_name">
 
@@ -53,7 +51,7 @@
 
 		</form>
 
-		<script>
+	<!--	<script>
 			document.getElementById('form').addEventListener('submit', function(event) {
 				event.preventDefault();
 				var interviewDate = new Date(	document.getElementById('date-year').value,
@@ -67,7 +65,5 @@
 				}
 			})
 		</script>
-
-	<div><!-- govuk-grid-column-two-thirds -->
-<div><!-- govuk-grid-row -->
+-->
 {% endblock %}

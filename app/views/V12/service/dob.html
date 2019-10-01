@@ -1,13 +1,12 @@
 {% extends folder + "/_BASE.html" %}
 {% block service %}
 
-    <form id="form" method="post" action="deaf">
+    <form id="form" method="post" action="dob-router">
 
 
 		<div class="govuk-form-group">
 		  <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
 		    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-              
 
                         <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">
                             What is your date of birth?
@@ -50,6 +49,7 @@
 		<input type="submit" class="govuk-button" value="Continue" id="submit"><!-- customer_condition -->
 
  	</form>
+  <!--
 	<script>
 		const minAllowedAge = 16;
 		const maxAllowedAge = 110;
@@ -68,6 +68,6 @@
       }
     })
 	</script>
-
+-->
 
 {% endblock %}
