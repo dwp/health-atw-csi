@@ -221,7 +221,6 @@ if (useAutoStoreData === 'true') {
   }
 }
 
-
 // Logging session data
  if (useLogging !== 'false') {
   app.use((req, res, next) => {
