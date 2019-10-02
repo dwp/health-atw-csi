@@ -28,6 +28,19 @@ var yrs = Math.abs(temp - 1970);
 
 });
 
+router.all('/service/paid-work-router', function(req, res, next){
+  if (req.session.data['paid-work'] == "No") {
+    return res.redirect ('sorry/cant_help_paid');
+  } else {
+    return res.redirect('interview-date');
+  }
+
+
+  next();
+
+
+});
+
 
 router.all('/service/interview-date-router', function(req, res, next){
   var interviewDate = new Date( req.session.data['interview-date-year'], req.session.data['interview-date-month'], req.session.data['interview-date-day']);
