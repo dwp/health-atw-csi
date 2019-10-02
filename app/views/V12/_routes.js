@@ -12,14 +12,14 @@ router.all('/service/dob-router', function(req, res, next){
   console.log("today is " + today);
   var dob = new Date( req.session.data['date-year'], req.session.data['date-month'], req.session.data['date-day']);
 console.log(dob);
-  var ageDate = today - dob.getTime();
+  var ageDate =  new Date(today - dob.getTime());
   console.log(ageDate);
   var temp = ageDate.getFullYear();
 var yrs = Math.abs(temp - 1970);
   if (yrs < minAllowedAge || yrs > maxAllowedAge) {
-    return res.redirect ('../sorry/cant_help_age');
+    return res.redirect ('sorry/cant_help_age');
   } else {
-    return res.redirect('interview-date');
+    return res.redirect('address');
   }
 
 
@@ -28,6 +28,20 @@ var yrs = Math.abs(temp - 1970);
 
 });
 
+
+router.all('/service/interview-date-router', function(req, res, next){
+  var interviewDate = new Date( req.session.data['interview-date-year'], req.session.data['interview-date-month'], req.session.data['interview-date-day']);
+  if (interviewDate.getTime() < new Date().getTime()) {
+    return res.redirect ('sorry/cant_help_date');
+  } else {
+    return res.redirect('interview-company-name');
+  }
+
+
+  next();
+
+
+});
 
 /*
   const minAllowedAge = 16;
