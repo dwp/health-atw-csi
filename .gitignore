@@ -3,11 +3,11 @@ usage-data-config.json
 # ignore extension SCSS because it's dynamically generated
 lib/extensions/_extensions.scss
 .env
-.sass-cache
+# .sass-cache
 .DS_Store
 .start.pid
 .port.tmp
-public
-node_modules/*
+# public
+# node_modules/*
 .tmuxp.*
 package-lock.json
