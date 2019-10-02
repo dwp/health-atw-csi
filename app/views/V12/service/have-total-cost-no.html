@@ -2,16 +2,32 @@
 {% block service %}
 
     <h2 class="govuk-heading-xl govuk-!-margin-bottom-2">
-      [You need to get the total costs before you complete this service]
+      You need to ask your BSL interpreter or support worker how much it will cost
     </h2>
 
-[need to tell users that thet can get it from GOV.UK ]
+
 
 <p>
-[information and link to GOV.UK with the information]
+  Ask the person who will help you to communicate at the interview what their total cost will be. Ask them to include:
+</P>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>their travel costs</li>
+  <li>administrative costs</li>
+  <li>VAT</li>
+</ul>
+
+<p>
+  Once you know the total cost, you can complete the application.
 </p>
 
-<a href="apply" class="govuk__button">Exit to GOV.UK</a>
-
-
+<!-- <p>
+<a href="/{{folder}}/apply#what-youll-need-to-provide">[link to anchor in guidance]</a>
+</p> -->
+<p>
+{{ govukButton({
+  href: "apply",
+  text: "Exit to GOV.UK"
+}) }}
+<p>
 {% endblock %}
