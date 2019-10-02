@@ -1,19 +1,16 @@
+{% extends folder + "/_BASE.html" %}
 
-{% extends "layout.html" %}
 
-{% block content %}
+{% block service %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+		<form id="form" method="post" action="interview-date-router">
 
-		<form id="form" method="post" action="interview_company_name">
-
-		<h1 class="govuk-heading-l govuk-!-margin-bottom-4">
+		<!--<h1 class="govuk-heading-l govuk-!-margin-bottom-4">
 				Your job interview
-		</h1>
+		</h1>-->
 
-		<h2 class="govuk-heading-m govuk-!-margin-bottom-2">
-						What date is your job interview?
+		<h2 class="govuk-heading-xl govuk-!-margin-bottom-2">
+						What is the interview date?
 		</h2>
 		<span id="dob-hint" class="govuk-hint">
 
@@ -23,26 +20,26 @@
 			<div class="govuk-date-input" id="date">
 				<div class="govuk-date-input__item">
 					<div class="govuk-form-group">
-						<label class="govuk-label govuk-date-input__label" for="date-day">
+						<label class="govuk-label govuk-date-input__label" for="interview-date-day">
 							Day
 						</label>
-						<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-day" name="date-day" type="number" pattern="[0-9]*">
+						<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="interview-date-day" name="interview-date-day" type="number" pattern="[0-9]*">
 					</div>
 				</div>
 				<div class="govuk-date-input__item">
 					<div class="govuk-form-group">
-						<label class="govuk-label govuk-date-input__label" for="date-month">
+						<label class="govuk-label govuk-date-input__label" for="interview-date-month">
 							Month
 						</label>
-						<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-month" name="date-month" type="number" pattern="[0-9]*">
+						<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="interview-date-month" name="interview-date-month" type="number" pattern="[0-9]*">
 					</div>
 				</div>
 				<div class="govuk-date-input__item">
 					<div class="govuk-form-group">
-						<label class="govuk-label govuk-date-input__label" for="date-year">
+						<label class="govuk-label govuk-date-input__label" for="interview-date-year">
 							Year
 						</label>
-						<input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-year" name="date-year" type="number" pattern="[0-9]*">
+						<input class="govuk-input govuk-date-input__input govuk-input--width-4" id="interview-date-year" name="interview-date-year" type="number" pattern="[0-9]*">
 					</div>
 				</div>
 			</div>
@@ -53,7 +50,7 @@
 
 		</form>
 
-		<script>
+	<!--	<script>
 			document.getElementById('form').addEventListener('submit', function(event) {
 				event.preventDefault();
 				var interviewDate = new Date(	document.getElementById('date-year').value,
@@ -63,11 +60,9 @@
 				if (interviewDate.getTime() < new Date().getTime()) {
 					window.location = '../sorry/cant_help_date';
 				} else {
-					window.location = 'interview_company_name';
+					window.location = 'paid_work';
 				}
 			})
 		</script>
-
-	<div><!-- govuk-grid-column-two-thirds -->
-<div><!-- govuk-grid-row -->
+-->
 {% endblock %}
