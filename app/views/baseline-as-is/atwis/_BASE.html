@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    containerClasses: "govuk-width-container"
+  }) }}
+  {% block atwisHeader %}
+    <div class="nav-horizontal">
+      <div class="govuk-width-container">
+        <ul class="nav-pri">
+          <li{% if yourCases %} class="active"{% endif %}><a href="your-cases">Your cases</a></li>
+          <li{% if Unallocated %} class="active"{% endif %}><a href="unallocated">Unallocated</a></li>
+          <li{% if Search %} class="active"{% endif %}><a href="search">Search</a></li>
+        </ul>
+      </div>
+    </div>
+    {% block banner %}{% endblock %}
+  {% endblock %}
+{% endblock %}
+
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <!-- extra agent-only css  -->
+<link href="/public/stylesheets/atwis.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}

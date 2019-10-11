@@ -7,6 +7,9 @@ const minAllowedAge = 16;
 const maxAllowedAge = 110;
 const today = new Date(Date.now());
 
+const faker = require('faker')
+const moment = require('moment')
+
 router.all('/service/dob-router', function(req, res, next){
   console.log("min age is " + minAllowedAge + "and max age is " + maxAllowedAge);
   console.log("today is " + today);
@@ -56,24 +59,74 @@ router.all('/service/interview-date-router', function(req, res, next){
 
 });
 
-/*
-  const minAllowedAge = 16;
-  const maxAllowedAge = 110;
-  document.getElementById('form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    var dob = new Date(	document.getElementById('date-year').value,
-      document.getElementById('date-month').value,
-      document.getElementById('date-day').value);
-    var ageDate = new Date(Date.now() - dob.getTime());
-    const yrs = Math.abs(ageDate.getUTCFullYear() - 1970);
+  router.get(`/atwis/your-cases`, (req, res) => {
+    let showNotice = req.session.showNotice
+    req.session.showNotice = false
+    res.render(res.locals.folder + `/atwis/your-cases`, {
+      cases: req.session.data['your-cases'],
+      yourCases: true,
+      showNotice: showNotice
+    })
+  })
 
-    if (yrs < minAllowedAge || yrs > maxAllowedAge) {
-      window.location = '../sorry/cant_help_age';
+  router.post(`/atwis/your-cases/`, (req, res) => {
+    req.session.showNotice = req.session.data['your-cases'].length >= 5
+
+    if (!req.session.showNotice) {
+      req.session.data['your-cases'].push({
+        name: faker.name.firstName() + ' ' + faker.name.lastName(),
+        specialism: 'Pan disability',
+        type: 'New application',
+        date: moment().format('D MMMM Y - HH:mm')
+      })
+    }
+    res.redirect('your-cases')
+  })
+
+  router.get(`/atwis/case`, (req, res) => {
+    console.log("render");
+    res.render(res.locals.folder + `/atwis/case`, {
+      specialisms: req.session.data.specialisms,
+      advisers: req.session.data.advisers
+    })
+  })
+
+  router.post(`/atwis/mark-as-complete`, (req, res) => {
+    if (!req.body.copied) {
+      res.render(res.locals.folder + `/atwis/mark-as-complete`, {
+        error: true
+      })
+      return
+    }
+
+    if (req.body.copied === 'yes') {
+      req.session.data['your-cases'].map((c, i, a) => {
+        if (c.name === req.query.n) {
+          a.splice(i, 1)
+        }
+      })
+
+      res.redirect('your-cases')
     } else {
-      window.location = 'interview_date';
+      res.redirect(`case?n=${req.query.n}#application`)
     }
   })
- */
+
+  router.get(`/atwis/unallocated`, (req, res) => {
+    res.render(res.locals.folder + `/atwis/unallocated`, {
+      cases: req.session.data['unallocated-cases'],
+      Unallocated: true
+    })
+  })
+
+  router.get(`/atwis/search`, (req, res) => {
+    res.render(res.locals.folder + `/atwis/search`, {
+      Search: true,
+      cases: req.session.data['unallocated-cases'].filter(c => {
+        if (req.session.data.q) return c.name.toLowerCase().indexOf(req.session.data.q.toLowerCase()) > -1
+      })
+    })
+  })
 
 
 
