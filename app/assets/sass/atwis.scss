@@ -1,0 +1,30 @@
+
+
+// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+.govuk-width-container {
+  max-width: 1280px
+}
+
+.govuk-header__container {
+  margin-bottom: 0
+}
+.govuk-header__logotype-text {
+  display: none
+}
+
+.govuk-header,
+.govuk-header__container {
+  border-bottom: none
+}
+
+.govuk-footer {
+  margin-top: 100px
+}
+
+// .govuk-tabs__panel {
+//   border: none !important
+// }
+
+.govuk-select {
+  background-color: white;
+}

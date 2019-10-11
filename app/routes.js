@@ -20,6 +20,9 @@ router.use('/', (req, res, next) => {
   res.locals.prevURL = req.get('Referrer');
   res.locals.folder = req.folder;
   res.locals.subfolder = req.subfolder;
+  res.locals.name = req.query.n
+  res.locals.unallocated = req.query.ua
+
   console.log('folder : ' + res.locals.folder + ', subfolder : ' + res.locals.subfolder  );
   console.log('previous page is: ' + res.locals.prevURL + " and current page is " + req.url + " " + res.locals.currentURL );
   next();
