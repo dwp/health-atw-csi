@@ -19,7 +19,7 @@
       <ul class="govuk-list">
 
                 <li><a class="govuk-link" href="/{{folder}}/atwis/your-cases">ATWIS screens</a></li>
-                <li><a class="govuk-link" href="https://confluence.service.dwpcloud.uk/display/ATW/4.+DISC">DiSC screens (on confluence)</a></li>
+                <li><a class="govuk-link" href="/{{folder}}/disc/index">Selected DISC screens</a> (and remaining screens <a class="govuk-link" href="https://confluence.service.dwpcloud.uk/display/ATW/4.+DISC">on confluence</a>)</li>
                 <li><a class="govuk-link" href="https://confluence.service.dwpcloud.uk/display/ATW/CSI+AS+IS+Information?preview=/123827198/124098915/dwp_t394541%20(DP221%20-%20CSI%20Claim%20form)%20(2).pdf">Claim form (on confluence)</a></li>
               </ul>
 
@@ -123,22 +123,22 @@
 
 {{ govukDetails({
   summaryText: "Other versions",
-  text:
+  html:
 ' <ul class="govuk-list">
     <li>
       <a class="govuk-link" href="gathering-info">Apply Questions Work and Condition Example 1</a>
     </li>
     <li>
-      <a class="govuk-link" href="atw-example-2/difficult-tasks">Apply Questions Work and Condition Example 2</a>>
+      <a class="govuk-link" href="atw-example-2/difficult-tasks">Apply Questions Work and Condition Example 2</a>
     </li>
     <li>
       <a class="govuk-link" <a href="support-worker/job/support-worker-page">Communication support at Interview</a>
     </li>
-  </ul>
 
   <li>
     <a class="govuk-link" href="/' + folder + '/service/alternative-contact">Alternative contact</a>
   </li>
+</ul>
 
 <p>Screens without a home</p>
 <ul class="govuk-list">
@@ -150,7 +150,7 @@
     <a class="govuk-link" href="/' + folder + '/service/talk-phone">Talk phone</a>
   </li>
 </ul>
-'          }) }}
+'       | safe    }) }}
 
     </div>
 </div>
