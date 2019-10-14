@@ -29,8 +29,10 @@
       {{ govukDetails({
         summaryText: "List of all screens in journey",
         html:
-'  <ul class="govuk-list">
-  <h3 class="govuk-heading-m">Citizen-facing</h3>
+'
+<h3 class="govuk-heading-m">Citizen-facing</h3>
+
+<ul class="govuk-list">
 
           <li>
             <a class="govuk-link" href="/' + folder + '/apply">Guidance</a>
@@ -90,11 +92,6 @@
             <a class="govuk-link" href="/' + folder + '/service/support-worker-page">What is the total cost of the BSL interpreter or support worker that you need at the interview?</a>
           </li>
 
-
-
-
-
-
           <li>
             <a class="govuk-link" href="/' + folder + '/service/contact">How would you like to be contacted?</a>
           </li>
@@ -119,6 +116,14 @@
             <a class="govuk-link" href="/' + folder + '/service/timed-out">Timed out</a>
           </li>
         </ul>
+
+        <p>After the service</p>
+        <ul class="govuk-list">
+
+                  <li>
+                    <a class="govuk-link" href="/' + folder + '/service/confirmation-phone">SMS confirmation</a>
+                  </li>
+                  </ul>
 
         <h3 class="govuk-heading-m">ATWIS</h3>
         <ul class="govuk-list">
