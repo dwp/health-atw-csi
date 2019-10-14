@@ -19,8 +19,9 @@
       <ul class="govuk-list">
 
                 <li><a class="govuk-link" href="/{{folder}}/atwis/your-cases">ATWIS screens</a></li>
-                <li><a class="govuk-link" href="https://confluence.service.dwpcloud.uk/display/ATW/4.+DISC">DiSC screens (on confluence)</a></li>
+                <li><a class="govuk-link" href="/{{folder}}/disc/index">Selected DiSC screens</a> (and remaining screens <a class="govuk-link" href="https://confluence.service.dwpcloud.uk/display/ATW/4.+DISC">on confluence</a>)</li>
                 <li><a class="govuk-link" href="https://confluence.service.dwpcloud.uk/display/ATW/CSI+AS+IS+Information?preview=/123827198/124098915/dwp_t394541%20(DP221%20-%20CSI%20Claim%20form)%20(2).pdf">Claim form (on confluence)</a></li>
+<li>Data mapping (<a href="https://confluence.service.dwpcloud.uk/display/ATW/3.+CSI+Phase+2">on Confluence)</a></li>
               </ul>
 
 
@@ -29,6 +30,7 @@
         summaryText: "List of all screens in journey",
         html:
 '  <ul class="govuk-list">
+  <h3 class="govuk-heading-m">Citizen-facing</h3>
 
           <li>
             <a class="govuk-link" href="/' + folder + '/apply">Guidance</a>
@@ -118,27 +120,61 @@
           </li>
         </ul>
 
+        <h3 class="govuk-heading-m">ATWIS</h3>
+        <ul class="govuk-list">
+
+                  <li><a class="govuk-link" href="/' + folder + '/atwis/your-cases">Your cases</a></li>
+                  <li><a class="govuk-link" href="/' + folder + '/atwis/search">Search</a></li>
+                  <li><a class="govuk-link" href="/' + folder + '/atwis/unallocated">Unallocated</a></li>
+                  <li><a class="govuk-link" href="/' + folder + '/atwis/case">Case</a></li>
+                  <li><a class="govuk-link" href="/' + folder + '/atwis/awtis-case">ATWIS case</a></li>
+                  <li><a class="govuk-link" href="/' + folder + '/atwis/update-panels">Update panels</a></li>
+                  <li><a class="govuk-link" href="/' + folder + '/atwis/mark-as-complete">Mark as complete</a></li>
+
+                              </ul>
+
+
+        <h3 class="govuk-heading-m">DiSC selected screens</h3>
+
+        <ul class="govuk-list">
+
+                  <li><a class="govuk-link" href="/' + folder + '/disc/index">Home</a></li>
+                  <li><a class="govuk-link" href="/' + folder + '/disc/search">Search</a></li>
+                  <li><a class="govuk-link" href="/' + folder + '/disc/results">Results</a></li>
+                  <li><a class="govuk-link" href="/' + folder + '/disc/customer">Customer</a></li>
+                  <li><a class="govuk-link" href="/' + folder + '/disc/customer-update">Customer update</a></li>
+                  <li><a class="govuk-link" href="/' + folder + '/disc/customer-note">Customer note</a></li>
+                  <li><a class="govuk-link" href="/' + folder + '/disc/customer-note-update">Customer note and update</a></li>
+                  <li><a class="govuk-link" href="/' + folder + '/disc/csi-empty">CSI empty</a></li>
+                  <li><a class="govuk-link" href="/' + folder + '/disc/csi">CSI</a></li>
+                  <li><a class="govuk-link" href="/' + folder + '/disc/csi-update">CSI update</a></li>
+                  <li><a class="govuk-link" href="/' + folder + '/disc/payment">Payment</a></li>
+                  <li><a class="govuk-link" href="/' + folder + '/disc/transfer">Transfer</a></li>
+
+                              </ul>
+
+
 '          }) }}
 
 
 {{ govukDetails({
   summaryText: "Other versions",
-  text:
+  html:
 ' <ul class="govuk-list">
     <li>
       <a class="govuk-link" href="gathering-info">Apply Questions Work and Condition Example 1</a>
     </li>
     <li>
-      <a class="govuk-link" href="atw-example-2/difficult-tasks">Apply Questions Work and Condition Example 2</a>>
+      <a class="govuk-link" href="atw-example-2/difficult-tasks">Apply Questions Work and Condition Example 2</a>
     </li>
     <li>
       <a class="govuk-link" <a href="support-worker/job/support-worker-page">Communication support at Interview</a>
     </li>
-  </ul>
 
   <li>
     <a class="govuk-link" href="/' + folder + '/service/alternative-contact">Alternative contact</a>
   </li>
+</ul>
 
 <p>Screens without a home</p>
 <ul class="govuk-list">
@@ -150,7 +186,7 @@
     <a class="govuk-link" href="/' + folder + '/service/talk-phone">Talk phone</a>
   </li>
 </ul>
-'          }) }}
+'       | safe    }) }}
 
     </div>
 </div>
