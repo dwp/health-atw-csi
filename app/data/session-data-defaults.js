@@ -25,60 +25,88 @@ module.exports = {
     'name': 'Dereck Smith',
     'specialism': '',
     'type': 'Renewal',
+    'priority' : "true",
     'date': '28 June 2018 - 13:23'
   }, {
     'name': 'Maximillia Erdman',
     'specialism': 'Pan disability',
     'type': 'New application',
+      'priority' : false,
     'date': '28 June 2018 - 14:23'
   }, {
     'name': 'Sonya Corkery',
     'specialism': '',
     'type': 'Renewal',
+          'priority' : false,
     'date': '28 June 2018 - 15:23'
   }, {
     'name': 'Adaline Mann',
     'specialism': 'Pan disability',
     'type': 'New application',
+          'priority' : false,
     'date': '28 June 2018 - 16:23'
   }, {
     'name': 'Arlo Spinka',
     'specialism': 'Pan disability',
     'type': 'New application',
+          'priority' : false,
     'date': '28 June 2018 - 17:23'
   }, {
     'name': 'Norma Heller',
     'specialism': 'Pan disability',
     'type': 'New application',
+          'priority' : false,
     'date': '28 June 2018 - 18:23'
   }, {
     'name': 'Lavonne Smitham',
     'specialism': 'Pan disability',
     'type': 'New application',
+          'priority' : false,
     'date': '28 June 2018 - 19:23'
   }, {
     'name': 'Royce Ryan',
     'specialism': '',
     'type': 'Renewal',
+          'priority' : false,
     'date': '28 June 2018 - 20:23'
   }, {
     'name': 'Vernice Trantow',
     'specialism': 'Pan disability',
     'type': 'New application',
+          'priority' : false,
     'date': '28 June 2018 - 21:23'
   }, {
     'name': 'Thomas King',
     'specialism': 'Pan disability',
     'type': 'New application',
+          'priority' : false,
     'date': '28 June 2018 - 22:23'
   }],
 
   'your-cases': [{
     'name': 'Oliver Reed',
     'specialism': 'Pan disability',
-    'type': 'New application',
+    'type': 'CSI',
+          'priority' : "true",
     'date': '28 June 2018 - 12:23'
-  }],
+  }, {
+    'name': 'Sam Andrews',
+    'specialism': 'CSI',
+    'type': 'CSI',
+    'disc' : true,
+          'priority' : "true",
+    'date': '14 October 2018 - 08:22'
+  } , {
+    'name': 'Alex Smith',
+    'specialism': 'Pan disability',
+    'type': 'Renewal',
+    'disc' : true,
+          'priority' : "false",
+    'date': '28 June 2018 - 12:23'
+  }
+
+
+],
 
   'advisers': [
     'John Goldsmith',

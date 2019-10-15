@@ -83,6 +83,31 @@ router.all('/service/interview-date-router', function(req, res, next){
     res.redirect('your-cases')
   })
 
+
+  router.get(`/atwis/your-cases-update`, (req, res) => {
+    let showNotice = req.session.showNotice
+    req.session.showNotice = false
+    res.render(res.locals.folder + `/atwis/your-cases-update`, {
+      cases: req.session.data['your-cases'],
+      yourCases: true,
+      showNotice: showNotice
+    })
+  })
+
+  router.post(`/atwis/your-cases-update/`, (req, res) => {
+    req.session.showNotice = req.session.data['your-cases'].length >= 5
+
+    if (!req.session.showNotice) {
+      req.session.data['your-cases'].push({
+        name: faker.name.firstName() + ' ' + faker.name.lastName(),
+        specialism: 'Pan disability',
+        type: 'New application',
+        date: moment().format('D MMMM Y - HH:mm')
+      })
+    }
+    res.redirect('your-cases-update')
+  })
+
   router.get(`/atwis/case`, (req, res) => {
     console.log("render");
     res.render(res.locals.folder + `/atwis/case`, {
@@ -90,6 +115,8 @@ router.all('/service/interview-date-router', function(req, res, next){
       advisers: req.session.data.advisers
     })
   })
+
+
 
   router.post(`/atwis/mark-as-complete`, (req, res) => {
     if (!req.body.copied) {
