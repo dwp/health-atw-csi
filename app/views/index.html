@@ -5,25 +5,76 @@
   CSI Prototype
 {% endblock %}
 
+{% set serviceName = "Apply for commmunication support at interview (Access to Work)" %}
+
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full-width">
       <h1 class="govuk-heading-xl">
-        Communication Support at Interview Prototype
-        <span class="govuk-caption-xl">{{releaseVersion}}</span>
-      </h1>{{releaseVersion | log }}
-      <p>
-        This is a first pass at Communication Support at Interview prototyping.
-      </p>
+        CSI end-to-end journey prototype
+        <span class="govuk-caption-xl">Running on {{releaseVersion}} of the GOV.UK prototype kit</span>
+      </h1>
 
       <p>
-        It takes you through possible journeys of applying for Communication Support at Interview (CSI).
+        Journey for applying for Communication Support at Interview (CSI) and managing applications.
       </p>
 
-      <h2 class="govuk-heading-m">Versions</h2>
 
-      <p>These are the existing prototype versions for CSI.</p>
+      {{ govukTable({
+        caption: "Version history for current team",
+        captionClasses: "govuk-heading-m",
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: "Version"
+          },
+          {
+            text: "Date added"
+          },
+          {
+            text: "Description"
+          },
+          {
+            text: "Link"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Baseline"
+            },
+            {
+              text: "4 October 2019"
+            },
+            {
+              text: "As-is CSI journey across online service, comms, ATWIS and DiSC"
+            },
+            {
+              html: '<a href="/baseline-as-is/index">Go to baseline</a>'
+            }
+          ],
+          [
+            {
+              text: "V12"
+            },
+            {
+              text: "24 September 2019"
+            },
+            {
+              text: "Testing application with Deaf participants in Manchester 3 October"
+            },
+            {
+                html: '<a href="/V12/index">Go to V12</a>'
+            }
+          ]
+        ]
+      }) }}
+
+      <h3 class="govuk-heading-m">
+        Versions from previous team
+      </h3>
+<ul>
       <li><a href="/V1/start">V1</a></li>
       <li><a href="/V2/start">V2</a></li>
       <li><a href="/V3/start">V3</a></li>
@@ -34,11 +85,9 @@
       <li><a href="/V8/landing/start">V8</a></li>
       <li><a href="/V9/landing/start">V9</a></li>
       <li><a href="/V10/landing/start">V10</a></li>
-      <!--<li><a href="/V10-updated/updated-content/who-needs-support">V10 updated content</a></li>
+      <li><a href="/V10-updated/updated-content/who-needs-support">V10 updated content</a></li>
       <li><a href="/V11/updated-content/total_cost">V11 support worker question</a></li>
-      <li><a href="/V12/gathering-info">V12</a></li>-->
-      <li><a href="/V12/index">User testing 03/10/19</a></li>
-      <li><a href="/baseline-as-is/index">Baseline AS-IS prototype</a></li>
+</ul>
 
     </div>
 </div>
