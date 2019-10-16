@@ -1,20 +1,24 @@
 {% extends folder + "/_BASE.html" %}
 {% block service %}
 
-    <form id="form" method="post" action="dob-router">
+
+
+    <form id="form" method="post" action="address">
 
 
 		<div class="govuk-form-group">
 		  <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
 		    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-
-                        <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">
-                            What is your date of birth?
+                    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+                            Personal details
                         </h1>
+
+                        <h2 class="govuk-heading-l govuk-!-margin-bottom-2">
+                            What is your date of birth?
+                        </h2>
 				</legend>
 
 		    <span id="dob-hint" class="govuk-hint">
-
 		      For example, 31 3 1990
 		    </span>
 		    <div class="govuk-date-input" id="date">
@@ -49,7 +53,6 @@
 		<input type="submit" class="govuk-button" value="Continue" id="submit"><!-- customer_condition -->
 
  	</form>
-  <!--
 	<script>
 		const minAllowedAge = 16;
 		const maxAllowedAge = 110;
@@ -62,12 +65,12 @@
 			const yrs = Math.abs(ageDate.getUTCFullYear() - 1970);
 			maxAllowedAge
 			if (yrs < minAllowedAge || yrs > maxAllowedAge) {
-        window.location = '../sorry/cant_help_age';
+        window.location = './sorry/cant-help-age';
       } else {
-        window.location = 'interview_date';
+        window.location = 'address';
       }
     })
 	</script>
--->
+ 
 
 {% endblock %}
