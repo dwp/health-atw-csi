@@ -36,6 +36,10 @@ $govuk-assets-path: '/govuk/assets/';
    padding-bottom: 10px;
  }
 
+ .govuk-header__content {
+   padding-left:0; 
+ }
+
 .navigation-global ul:after {
   content: "";
   display: block;
@@ -49,6 +53,7 @@ $govuk-assets-path: '/govuk/assets/';
 .navigation-global ul {
   margin: 0 auto;
   max-width: 960px;
+  padding-left: 0;
 }
 
 .navigation-global li {
