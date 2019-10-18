@@ -4,12 +4,12 @@
 
 <div class="govuk-width-container">
 
-  <main class="govuk-main-wrapper">
+  <main class="govuk-main-wrapper govuk-!-padding-top-0">
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <span class="govuk-caption-xl">[Claimant name]</span>
-        <h1 class="govuk-heading-xl">ZSQYR5
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-1">ZSQYR5
   <!-- <span><strong class="app-c-tag">[claim status]</strong></span> -->
               </h1>
 
@@ -24,7 +24,7 @@
         <nav class="navigation-secondary">
                 <ul>
                   <li>
-                    <a href="{% if not (page == 'task-list') %}index{% else %}#" class="active" aria-current="section{% endif %}">Task list</a>
+                    <a href="{% if not (page == 'task-list') %}index{% else %}#" class="active" aria-current="section{% endif %}">Your tasks</a>
                   </li>
                   <li>
                     <a href="{% if not (page == 'claim') %}claim{% else %}#" class="active" aria-current="section{% endif %}">Claim details</a>
@@ -55,7 +55,6 @@
             <h3 class="govuk-heading-s dwp-timeline__title">Claim disallowed</h3>
             <p class="dwp-timeline__info">
               <span class="govuk-visually-hidden visually-hidden">Claim disallowed</span>
-              <span class="dwp-timeline__author">by John Smith</span>
               <span class="dwp-timeline__date">1 January 2018 at 13:02</span>
             </p>
             <p class="dwp-timeline__body">
@@ -67,7 +66,6 @@
             <h3 class="govuk-heading-s dwp-timeline__title">Marriage verified</h3>
             <p class="dwp-timeline__info">
               <span class="govuk-visually-hidden visually-hidden">Marriage verified</span>
-              <span class="dwp-timeline__author">by John Smith</span>
               <span class="dwp-timeline__date">1 January 2018 at 13:21</span>
             </p>
             <p class="dwp-timeline__body">

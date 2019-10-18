@@ -1,10 +1,16 @@
 {% set page = "claim" %}
 
+{% set title = "Claim details" %}
+
 {% extends "./_CSIBASE.html" %}
 
 {% block csi %}
 
 <h2 class="govuk-heading-m govuk-!-margin-top-6">Personal details</h2>
+
+
+
+
 
 
 <dl class="govuk-summary-list govuk-!-margin-bottom-9 " >
@@ -17,7 +23,7 @@
           {{ data['last-name'] | default("Smith") | safe }}</p>
     </dd>
     <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="your-name">
+      <a class="govuk-link" href="#">
         Change
         <span class="govuk-visually-hidden"> name</span>
       </a>
@@ -32,7 +38,7 @@
       <p>{{ data['date-day'] | default("1") | safe }} {{ data['date-month'] | default("3") | toMonth | safe }} {{ data['date-year'] | default("2000") | safe }}</p>
     </dd>
     <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="dob">
+      <a class="govuk-link" href="#">
         Change
         <span class="govuk-visually-hidden"> date of birth</span>
       </a>
@@ -43,15 +49,20 @@
       Address
     </dt>
     <dd class="govuk-summary-list__value">
+{% if not data['address-line-1'] %}
+<p>An address<br>Somewhere<br>Ne98 1zz</p>
+{% else %}
+
       <p>{{ data['address-line-1'] }}
         {{ data['address-line-2'] }} <br>
         {{ data['address-town'] }} <br>
         {{ data['address-county'] }} <br>
         {{ data['address-postcode'] }} <br>
         </p>
+{% endif %}
     </dd>
     <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="address">
+      <a class="govuk-link" href="#">
         Change
         <span class="govuk-visually-hidden"> address</span>
       </a>
@@ -66,7 +77,7 @@
       {{data['deaf']| default("Yes") | safe }}
     </dd>
     <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="deaf">
+      <a class="govuk-link" href="#">
         Change
         <span class="govuk-visually-hidden"> if you need communication support because you are Deaf or hard of hearing</span>
       </a>
@@ -85,7 +96,7 @@ What disability or health condition do you need communication support for?
 {{data['condition']| default("Something else") | safe }}
 </dd>
 <dd class="govuk-summary-list__actions">
-<a class="govuk-link" href="condition">
+<a class="govuk-link" href="#">
 Change
 <span class="govuk-visually-hidden"> what disability or health condition you need communication support for</span>
 </a>
@@ -107,7 +118,7 @@ Change
 
     </dd>
     <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="paid-work">
+      <a class="govuk-link" href="#">
         Change
         <span class="govuk-visually-hidden">Is the interview for a paid job? </span>
       </a>
