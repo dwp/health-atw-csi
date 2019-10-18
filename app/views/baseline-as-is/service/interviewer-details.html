@@ -1,16 +1,20 @@
 {% extends folder + "/_BASE.html" %}
 {% block service %}
 
-    <form id="form" method="post" action="support-worker-page">
 
-    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">
-        Who can we contact at the company?
+    <form id="form" method="post" action="total-cost">
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+        Your job interview
     </h1>
+    <h2 class="govuk-heading-l govuk-!-margin-bottom-2">
+        Who can we contact at the company?
+    </h2>
     <span id="national-insurance-number-hint" class="govuk-hint">
         We’ll only contact this person after your job interview to confirm it has taken place.
     </span>
     <label class="govuk-label" for="more-detail">
-    Name
+
     </label>
     <div class="govuk-form-group govuk-!-margin-bottom-8">
       <input class="govuk-input govuk-input--width-11" id="interviewer-name" name="interviewer-name" type="text" aria-describedby="interviewer-name-hint">
@@ -20,13 +24,16 @@
     <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="citizenship-conditional-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-            <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
+            <h2 class="govuk-heading-l govuk-!-margin-bottom-2">
               How can we contact them?
             </h2>
+            <span id="national-insurance-number-hint" class="govuk-hint">
+                Select at least one
+            </span>
           </legend>
           <div class="govuk-checkboxes" data-module="govuk-checkboxes">
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="citizenship-conditional-1" name="interviewer-contact-preference" type="checkbox" value="Email" data-aria-controls="conditional-citizenship-conditional-1">
+              <input class="govuk-checkboxes__input" id="citizenship-conditional-1" name="company-contact-preference" type="checkbox" value="email" data-aria-controls="conditional-citizenship-conditional-1">
               <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional-1">
                 Email
               </label>
@@ -41,7 +48,7 @@
 
             </div>
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="interviewer-contact-preference" type="checkbox" value="Phone" data-aria-controls="conditional-citizenship-conditional-2">
+              <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="company-contact-preference" type="checkbox" value="phone" data-aria-controls="conditional-citizenship-conditional-2">
               <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional-2">
                 Phone
               </label>

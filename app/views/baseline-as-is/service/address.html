@@ -1,13 +1,15 @@
 {% extends folder + "/_BASE.html" %}
 {% block service %}
 
-
-
         <form id="form" method="post" action="deaf">
 
-        <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">
-            What is your address?
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+            Personal details
         </h1>
+
+        <h2 class="govuk-heading-l govuk-!-margin-bottom-2">
+            What is your address?
+        </h2>
 
         <fieldset class="govuk-fieldset">
 
@@ -52,6 +54,4 @@
         <input type="submit" class="govuk-button" value="Continue" id="submit"><!-- dob -->
 
     </form>
-
-
 {% endblock %}
