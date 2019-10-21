@@ -1,36 +1,39 @@
-{% set link = "../index" %}
+{% set link = "complete" %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
 
 {% block csi %}
 
+
+<h1 class="govuk-heading-xl">[Now send and print the form]</h1>
+
+<p>[It is available on the shared drive at X.]</p>
+
+{{ govukButton({
+  text: "[print claim form]",
+  classes: "govuk-button--secondary"
+}) }}
+
+
 {{ govukRadios({
-       idPrefix: "where-do-you-live",
-       name: "where-do-you-live",
+       idPrefix: "send",
+       name: "send",
        fieldset: {
          legend: {
-           text: "Where do you live?",
-           isPageHeading: true,
-           classes: "govuk-fieldset__legend--xl"
+           text: "[Have you printed out and sent the claim form?]",
+           isPageHeading: false,
+           classes: "govuk-fieldset__legend--m"
          }
        },
        items: [
          {
-           value: "england",
-           text: "England"
+           value: "yes",
+           text: "Yes"
          },
          {
-           value: "scotland",
-           text: "Scotland"
-         },
-         {
-           value: "wales",
-           text: "Wales"
-         },
-         {
-           value: "northern-ireland",
-           text: "Northern Ireland"
+           value: "no",
+           text: "No"
          }
        ]
      }) }}
