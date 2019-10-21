@@ -5,13 +5,10 @@
 
 {% block csi %}
 
-<h1 class="govuk-heading-xl">Interview decision</h1>
+<h1 class="govuk-heading-xl">Application decision</h1>
 
-<p>The interview is happening in [add data field here when ready].</p>
-
-<p>The interview length is [add data field here when ready].</p>
-
-<p>The quote for the interpreter or support worker is [add data field here when ready].</p>
+<p>Based on the information provided, is this application eligible
+  for communication support at interview?</p>
 
 {% include folder + "/" + subfolder + "/_CLAIMDETAILS.html" %}
 
@@ -20,7 +17,6 @@
        name: "decision",
        fieldset: {
          legend: {
-           text: "What is your decision?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
