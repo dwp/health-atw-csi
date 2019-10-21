@@ -84,6 +84,31 @@ router.all('/service/interview-date-router', function(req, res, next){
   })
 
 
+  router.get(`/concepts/your-cases`, (req, res) => {
+    let showNotice = req.session.showNotice
+    req.session.showNotice = false
+    res.render(res.locals.folder + `/concepts/your-cases`, {
+      cases: req.session.data['your-cases'],
+      yourCases: true,
+      showNotice: showNotice
+    })
+  })
+
+  router.post(`/concepts/your-cases/`, (req, res) => {
+    req.session.showNotice = req.session.data['your-cases'].length >= 5
+
+    if (!req.session.showNotice) {
+      req.session.data['your-cases'].push({
+        name: faker.name.firstName() + ' ' + faker.name.lastName(),
+        specialism: 'Pan disability',
+        type: 'New application',
+        date: moment().format('D MMMM Y - HH:mm')
+      })
+    }
+    res.redirect('your-cases')
+  })
+
+
   router.get(`/atwis/your-cases-update`, (req, res) => {
     let showNotice = req.session.showNotice
     req.session.showNotice = false

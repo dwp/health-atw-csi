@@ -1,36 +1,38 @@
-{% set link = "../index" %}
+{% set link = "complete" %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
 
 {% block csi %}
 
+<h1 class="govuk-heading-xl">Application decision</h1>
+
+<p>Based on the information provided, is this application eligible
+  for communication support at interview?</p>
+
+{% include folder + "/" + subfolder + "/_CLAIMDETAILS.html" %}
+
 {{ govukRadios({
-       idPrefix: "where-do-you-live",
-       name: "where-do-you-live",
+       idPrefix: "decision",
+       name: "decision",
        fieldset: {
          legend: {
-           text: "Where do you live?",
-           isPageHeading: true,
-           classes: "govuk-fieldset__legend--xl"
+           isPageHeading: false,
+           classes: "govuk-fieldset__legend--m"
          }
        },
        items: [
          {
-           value: "england",
-           text: "England"
+           value: "accept",
+           text: "Accept"
          },
          {
-           value: "scotland",
-           text: "Scotland"
+           value: "reject",
+           text: "Reject"
          },
          {
-           value: "wales",
-           text: "Wales"
-         },
-         {
-           value: "northern-ireland",
-           text: "Northern Ireland"
+           value: "more",
+           text: "Ask for more information"
          }
        ]
      }) }}
