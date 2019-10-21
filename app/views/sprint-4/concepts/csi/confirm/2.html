@@ -1,25 +1,25 @@
-{% set link = "2" %}
+{% set link = "complete" %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
 
 {% block csi %}
 
-<h1 class="govuk-heading-xl">Employer contact</h1>
+<h1 class="govuk-heading-xl">Check that the interview happened</h1>
 
 
-<p>You need to contact [name]. They work at [company].</p>
+<p>The interview should have happened with [name].</p>
 
-<p>Their contact details are [details]</p>
+<p>The interview should have happened on [add data field here when ready]. It was [length data]</p>
 
-<p>[do we need to make the journey different for if it's email or phone? if phone they just need to send the email. Or it could be automatic!]</p>
+<p>[something about that they should have completed the claim form potentially?]</p>
 
 {{ govukRadios({
        idPrefix: "employer",
        name: "employer",
        fieldset: {
          legend: {
-           text: "[Have contacted the employer?]",
+           text: "[Did the interview happen?]",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
