@@ -1,23 +1,23 @@
-{% set link = "2" %}
-{% set personalDetails =  true  %}
+{% set link = "../index" %}
+{% set communicationDetails =  true  %}
 {% set hideChange = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
 
 {% block csi %}
 
-<h1 class="govuk-heading-xl">Personal details</h1>
+<h1 class="govuk-heading-xl">Communication details</h1>
 
 
 
 {% include folder + "/" + subfolder + "/_CLAIMDETAILS.html" %}
 
 {{ govukRadios({
-       idPrefix: "personal",
-       name: "personal",
+       idPrefix: "communication",
+       name: "communication",
        fieldset: {
          legend: {
-           text: "Are the personal details complete and correct?",
+           text: "Are the communication details complete and correct?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }

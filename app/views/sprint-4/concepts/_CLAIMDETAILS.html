@@ -1,15 +1,10 @@
-{% set page = "claim" %}
 
-{% set title = "Claim details" %}
-
-{% extends folder + "/" + subfolder + "/csi/_CSIBASE.html" %}
-
-{% block csi %}
-
+{% if claim %}
 <h2 class="govuk-heading-m govuk-!-margin-top-6">Personal details</h2>
+{% endif %}
 
 
-
+{% if personalDetails or claim %}
 
 <dl class="govuk-summary-list govuk-!-margin-bottom-9 " >
   <div class="govuk-summary-list__row ">
@@ -82,12 +77,14 @@
     <dd class="govuk-summary-list__value">
       {{data['deaf']| default("Yes") | safe }}
     </dd>
+{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="#">
         Change
         <span class="govuk-visually-hidden"> if you need communication support because you are Deaf or hard of hearing</span>
       </a>
     </dd>
+{% endif %}
   </div>
 
 
@@ -101,19 +98,24 @@ What disability or health condition do you need communication support for?
 <dd class="govuk-summary-list__value">
 {{data['condition']| default("Something else") | safe }}
 </dd>
+{% if not hideChange %}
 <dd class="govuk-summary-list__actions">
 <a class="govuk-link" href="#">
 Change
 <span class="govuk-visually-hidden"> what disability or health condition you need communication support for</span>
 </a>
 </dd>
+{% endif %}
 </div>
 
 {% endif %}
 </dl>
+{% endif %}
 
+{% if claim %}
   <h2 class="govuk-heading-m govuk-!-margin-top-6">Job interview details</h2>
-
+{% endif %}
+{% if interviewDetails or claim %}
   <dl class="govuk-summary-list">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
@@ -123,12 +125,14 @@ Change
       <p>{{ data['paid-work'] | default("Yes") | safe }}</p>
 
     </dd>
+{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="#">
         Change
         <span class="govuk-visually-hidden">Is the interview for a paid job? </span>
       </a>
     </dd>
+{% endif %}
   </div>
 
   <div class="govuk-summary-list__row">
@@ -138,12 +142,15 @@ Change
     <dd class="govuk-summary-list__value">
       <p>{{ data['interview-date-day'] }} {{ data['interview-date-month'] }} {{ data['interview-date-year'] }}</p>
     </dd>
+
+{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="interview-date">
         Change
         <span class="govuk-visually-hidden">interview date</span>
       </a>
     </dd>
+{% endif %}
   </div>
 
   <div class="govuk-summary-list__row">
@@ -153,12 +160,14 @@ Change
     <dd class="govuk-summary-list__value">
       <p>{{ data['full-name'] }}</p>
     </dd>
+{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="interview-company-name">
         Change
         <span class="govuk-visually-hidden">company name</span>
       </a>
     </dd>
+{% endif %}
   </div>
 
   <div class="govuk-summary-list__row">
@@ -173,12 +182,14 @@ Change
         {{ data['address-postcode'] }} <br>
         </p>
     </dd>
+{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="interview-address.html">
         Change
         <span class="govuk-visually-hidden">interview location</span>
       </a>
     </dd>
+{% endif %}
   </div>
 
   <div class="govuk-summary-list__row">
@@ -189,12 +200,14 @@ Change
       <p>{{ data['duration'] }}
       </p>
     </dd>
+{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="interview-length.html">
         Change
         <span class="govuk-visually-hidden">interview length</span>
       </a>
     </dd>
+{% endif %}
   </div>
 
   <div class="govuk-summary-list__row">
@@ -206,12 +219,14 @@ Change
         {{ data['interviewer-name'] }}
       </p>
     </dd>
+{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="interviewer-details">
         Change
         <span class="govuk-visually-hidden">company contact</span>
       </a>
     </dd>
+{% endif %}
   </div>
 
               <div class="govuk-summary-list__row">
@@ -224,12 +239,14 @@ Change
                     {{ data['interviewer-contact-preference'] | default("Email, Phone") | safe  }}
                   </p>
                 </dd>
+{% if not hideChange %}
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="contact">
                     Change
                     <span class="govuk-visually-hidden"> customer contact</span>
                   </a>
                 </dd>
+{% endif %}
               </div>
 
 {% if not data['interviewer-contact-preference'] or  ( data['interviewer-contact-preference'] and  ("Email" in  data['interviewer-contact-preference'])) %}
@@ -243,12 +260,14 @@ Change
       <p class="govuk-body">
         {{ data['contact-by-email'] }}</p>
     </dd>
+  {% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="interviewer-details">
         Change
         <span class="govuk-visually-hidden">company contact</span>
       </a>
     </dd>
+  {% endif  %}
   </div>
 {%  endif %}
 {% if not data['interviewer-contact-preference'] or  ( data['interviewer-contact-preference'] and  ("Phone" in  data['interviewer-contact-preference'])) %}
@@ -261,12 +280,14 @@ Change
       <p class="govuk-body">
         {{ data['contact-by-phone'] }}</p>
     </dd>
+{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="interviewer-details">
         Change
         <span class="govuk-visually-hidden">company contact</span>
       </a>
     </dd>
+{% endif %}
   </div>
 {%  endif %}
   <div class="govuk-summary-list__row">
@@ -277,16 +298,22 @@ Change
       <p class="govuk-body">
         {{ data['support-worker-pay'] }}</p>
     </dd>
+{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="support-worker-page">
         Change
         <span class="govuk-visually-hidden">support worker cost</span>
       </a>
     </dd>
+{% endif %}    
   </div>
 </dl>
-    <h2 class="govuk-heading-m govuk-!-margin-top-6">Contact details</h2>
 
+{% endif %}
+{% if claim %}
+    <h2 class="govuk-heading-m govuk-!-margin-top-6">Contact details</h2>
+    {% endif %}
+{% if communicationDetails or claim %}
   <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -297,12 +324,15 @@ Change
                     {{ data['contact-preference'] | default("Email, Textphone, NGT relay") }}
                   </p>
                 </dd>
+  {% if not hideChange %}
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link" href="contact">
                     Change
                     <span class="govuk-visually-hidden">customer contact</span>
                   </a>
                 </dd>
+{% endif %}
+
               </div>
 {% if not data['contact-preference'] or  ( data['contact-preference'] and  ("Email" in  data['contact-preference'])) %}
   <div class="govuk-summary-list__row">
@@ -314,12 +344,14 @@ Change
         {{ data['contact-by-email'] | default("test@example.com") | safe }}
       </p>
     </dd>
+{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="contact">
         Change
         <span class="govuk-visually-hidden"> customer contact</span>
       </a>
     </dd>
+{% endif %}
   </div>
 {% endif %}
 
@@ -333,12 +365,14 @@ Change
         {{ data['contact-by-phone'] | default("0999999999") | safe }}
       </p>
     </dd>
+{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="contact">
         Change
         <span class="govuk-visually-hidden"> customer contact</span>
       </a>
     </dd>
+{% endif %}
   </div>
 {% endif %}
 {% if not data['contact-preference'] or  ( data['contact-preference'] and ("NGT relay" in  data['contact-preference'])) %}
@@ -351,12 +385,14 @@ Change
         {{ data['contact-by-ngt'] | default("0999999999") | safe }}
       </p>
     </dd>
+{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="contact">
         Change
         <span class="govuk-visually-hidden"> customer contact</span>
       </a>
     </dd>
+{% endif %}
   </div>
 {% endif %}
   <div class="govuk-summary-list__row">
@@ -369,12 +405,14 @@ Change
         {{ data['text-message']| default("No") | safe  }}
       </p>
     </dd>
+{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="text-message">
         Change
         <span class="govuk-visually-hidden"> Do you want to receive text messages with updates about your application?</span>
       </a>
     </dd>
+{% endif %}
   </div>
 
 {% if data['text-message'] and data['text-message'] == "Yes" %}
@@ -389,16 +427,18 @@ Change
         {{ data['text-message-number' ) | default("No") | safe }}
       </p>
     </dd>
+{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="text-message">
         Change
         <span class="govuk-visually-hidden"> mobile phone number</span>
       </a>
     </dd>
+{% endif %}
   </div>
 {% endif %}
 
 </dl>
 
 
-{% endblock %}
+{% endif %}
