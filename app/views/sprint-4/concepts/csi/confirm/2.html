@@ -1,28 +1,25 @@
-{% set link = "2" %}
+{% set link = "complete" %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
 
 {% block csi %}
 
+<h1 class="govuk-heading-xl">Check that the interview happened</h1>
 
 
-<h1 class="govuk-heading-xl">[Now send and print the forms and letters]</h1>
+<p>The interview should have happened with [name].</p>
 
-<p>[It is available on the shared drive at X.]</p>
+<p>The interview should have happened on [add data field here when ready]. It was [length data]</p>
 
-{{ govukButton({
-  text: "[print claim form]",
-  classes: "govuk-button--secondary"
-}) }}
-
+<p>[something about that they should have completed the claim form potentially?]</p>
 
 {{ govukRadios({
-       idPrefix: "send",
-       name: "send",
+       idPrefix: "employer",
+       name: "employer",
        fieldset: {
          legend: {
-           text: "[Have you printed out and sent the claim form?]",
+           text: "[Did the interview happen?]",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }

@@ -21,14 +21,27 @@
 
 {% if end %}
 
+<h2 class="govuk-heading-m">What happens next</h2>
+
+
 <p>You have completed all tasks.</p>
 
 <p>The case will be removed from your tasks.</p>
 
+{% if end == "payments" %}
+<p>It will be sent to the payments team.</p>
+
+{% else %}
+
 <p>It will be allocated to someone after the interview date.</p>
 
+<p>[user] has also been sent a confirmation SMS of the decision.</p>
+
+{% endif %}
+
+
 {{ govukButton({
-      href: "",
+      href: "/" + folder + "/" + subfolder + "/your-cases",
           text: "Return to your cases"
         }) }}
 
