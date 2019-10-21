@@ -51,25 +51,60 @@
       <div class="govuk-grid-column-one-third">
         <h2 class="govuk-heading-m">Claim history</h2>
         <ol class="dwp-timeline">
+
+{% if  data['employer'] =="yes" %}
           <li class="dwp-timeline__entry">
-            <h3 class="govuk-heading-s dwp-timeline__title">Claim disallowed</h3>
+            <h3 class="govuk-heading-s dwp-timeline__title">Interview confirmed</h3>
             <p class="dwp-timeline__info">
-              <span class="govuk-visually-hidden visually-hidden">Claim disallowed</span>
-              <span class="dwp-timeline__date">1 January 2018 at 13:02</span>
+              <span class="dwp-timeline__date">1 November 2019</span>
             </p>
             <p class="dwp-timeline__body">
-              Claimant over state pension age.
+              Employer contacted. Claim transferred to payments team.
             </p>
           </li>
-
+{% endif %}
+{% if interview or (data['notifications'] =="yes") %}
           <li class="dwp-timeline__entry">
-            <h3 class="govuk-heading-s dwp-timeline__title">Marriage verified</h3>
+            <h3 class="govuk-heading-s dwp-timeline__title">Confirmation sent</h3>
             <p class="dwp-timeline__info">
-              <span class="govuk-visually-hidden visually-hidden">Marriage verified</span>
-              <span class="dwp-timeline__date">1 January 2018 at 13:21</span>
+              <span class="dwp-timeline__date">24 October 2019</span>
             </p>
             <p class="dwp-timeline__body">
-              Marriage certificate uploaded to DRS.
+              Letter, claim form and SMS notification sent.
+            </p>
+          </li>
+{% endif %}
+
+
+{% if interview or (data['decision'] == "accept")%}
+          <li class="dwp-timeline__entry">
+            <h3 class="govuk-heading-s dwp-timeline__title">Decision made</h3>
+            <p class="dwp-timeline__info">
+              <span class="dwp-timeline__date">24 October 2019</span>
+            </p>
+            <p class="dwp-timeline__body">
+              Application approved.
+            </p>
+          </li>
+{% endif %}
+{% if interview or data['communication'] %}
+          <li class="dwp-timeline__entry">
+            <h3 class="govuk-heading-s dwp-timeline__title">Application checked</h3>
+            <p class="dwp-timeline__info">
+              <span class="dwp-timeline__date">24 October 2019</span>
+            </p>
+            <p class="dwp-timeline__body">
+              All application details complete.
+            </p>
+          </li>
+{% endif %}
+          <li class="dwp-timeline__entry">
+            <h3 class="govuk-heading-s dwp-timeline__title">Application allocated</h3>
+            <p class="dwp-timeline__info">
+              <span class="dwp-timeline__date">23 October 2019</span>
+            </p>
+            <p class="dwp-timeline__body">
+              Allocated to adviser.
             </p>
           </li>
         </ol>
