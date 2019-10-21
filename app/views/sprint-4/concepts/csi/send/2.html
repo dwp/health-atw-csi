@@ -1,4 +1,4 @@
-{% set link = "2" %}
+{% set link = "complete" %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
@@ -6,22 +6,22 @@
 {% block csi %}
 
 
-<h1 class="govuk-heading-xl">[Now send and print the forms and letters]</h1>
+<h1 class="govuk-heading-xl">[Send an SMS receipt to the customer]</h1>
 
-<p>[It is available on the shared drive at X.]</p>
+<p>[You will need to use REACH for this ]</p>
 
-{{ govukButton({
-  text: "[print claim form]",
-  classes: "govuk-button--secondary"
-}) }}
+<p>[The template is IS THERE A TEMPLATE?]</p>
 
+<p>[The phone number is 071111 11111]</p>
+
+<p>[Placeholder 1 is X]</p>
 
 {{ govukRadios({
-       idPrefix: "send",
-       name: "send",
+       idPrefix: "notifications",
+       name: "notifications",
        fieldset: {
          legend: {
-           text: "[Have you printed out and sent the claim form?]",
+           text: "[Have you sent a notification to the citizen?]",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }

@@ -4,7 +4,7 @@
 
 {% block csi %}
 
-
+{% if not interview %}
               <ol class="app-task-list">
                       <li>
                         <h2 class="app-task-list__section">
@@ -33,16 +33,17 @@
                                 Send confirmation letter
                               </a>
                             </span>
-        {% if interview or (data['send'] =="yes") %}<strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong> {% elif data['send'] %}<strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">[In progress]</strong>{% endif %}
+        {% if interview or (data['notifications'] =="yes") %}<strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong> {% elif data['send'] %}<strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">[In progress]</strong>{% endif %}
                           </li>
                         </ul>
                       </li>
                       <li>
+{% else %}  <!-- scenario if interview is true -->
                         <h2 class="app-task-list__section">
                           <span class="app-task-list__section-number">2. </span> After the interview
                         </h2>
 
-{% if interview %}
+
                         <ul class="app-task-list__items">
                           <li class="app-task-list__item">
                             <span class="app-task-list__task-name">
@@ -65,9 +66,35 @@
                     </ol>
 
 
-{% else %}
-<p>[You can't complete this until after the interview]</p>
 {% endif %}
 
+
+{% endblock %}
+
+
+
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: "https://govuk-prototype-kit.herokuapp.com/",
+          text: "GOV.UK Prototype Kit " + releaseVersion
+        },
+        {
+          href: "/prototype-admin/clear-data",
+          text: "Clear data"
+        },
+        {
+          href: "index",
+          text: "Index before interview"
+        },
+        {
+          href: "index-interview",
+          text: "Index after interview"
+        }
+      ]
+    }
+  }) }}
 
 {% endblock %}
