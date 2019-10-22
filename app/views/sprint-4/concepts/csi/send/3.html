@@ -1,4 +1,4 @@
-{% set link = "3" %}
+{% set link = "complete" %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
@@ -6,18 +6,26 @@
 {% block csi %}
 
 
-<h1 class="govuk-heading-xl">Send a confirmation text message</h1>
 
-<p>Open REACH and select the <strong>Confirmation</strong> template.</p>
+<h1 class="govuk-heading-xl">Print and send the form and cover note</h1>
 
-<p>Send the text message to 07893938493.</p>
+<p>Find the application form and cover note on the shared drive. Print and send
+   it to the following address:</p>
+
+  <div class="govuk-inset-text">
+  4 Rose Close<br>
+  Herbiton<br>
+  HE32 3GR
+</div>
+
+
 
 {{ govukRadios({
-       idPrefix: "notifications",
-       name: "notifications",
+       idPrefix: "send",
+       name: "send",
        fieldset: {
          legend: {
-           text: "Have you sent the text message?",
+           text: "Have you printed and sent the claim form?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }

@@ -7,14 +7,19 @@
 
 
 
-<h1 class="govuk-heading-xl">[Now send and print the forms and letters]</h1>
+<h1 class="govuk-heading-xl">Send a confirmation email</h1>
 
-<p>[It is available on the shared drive at X.]</p>
+<p>Copy and paste the following text into an email and send it to:
+  <strong>john.smith@email.com</strong></p>
 
-{{ govukButton({
-  text: "[print claim form]",
-  classes: "govuk-button--secondary"
-}) }}
+  <div class="govuk-inset-text">
+  Your application for interview support<br>
+  <br>
+  Your application for Communication Support at Interview has been accepted.
+  You can now confirm and book your sign language interpreter or support worker.
+  If you need to make any changes to your personal information or interview details,
+  call us on 0800 121 7479.
+</div>
 
 
 {{ govukRadios({
@@ -22,7 +27,7 @@
        name: "send",
        fieldset: {
          legend: {
-           text: "[Have you printed out and sent the claim form?]",
+           text: "Have you sent the email?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
