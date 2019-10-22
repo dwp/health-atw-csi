@@ -83,6 +83,48 @@ module.exports = {
     'date': '28 June 2018 - 22:23'
   }],
 
+  'csi-info': [{
+    'name': 'Thomas Brown',
+    'dob-day': '12',
+    'dob-month': 'June',
+    'dob-year': '1985',
+    'address-line-one': '14 Kings Road',
+    'address-line-two': '',
+    'address-town': 'Birmingham',
+    'address-county': 'Midlands',
+    'address-postcode': 'B1 1EQ',
+    'interview-date-day': '12',
+    'interview-date-month': 'December',
+    'interview-date-year': '2019',
+    'full-name': 'Tesco',
+    'company-address-line-one': '101 Kent Way',
+    'company-address-line-two': '',
+    'company-address-town': 'Birmingham',
+    'company-address-county': 'Midlands',
+    'company-address-postcode': 'B4 8RT',
+    'duration': '1 hour',
+    'interviewer-name': 'Terry Gibson',
+    'interviewer-contact-preference': 'Email',
+    'support-worker-pay': '100',
+    'contact-by-email': 'email@email.com',
+    'contact-by-phone': '07192838482'
+
+  }, {
+    'name': 'Sam Andrews',
+    'specialism': 'CSI',
+    'type': 'CSI',
+    'disc' : true,
+          'priority' : "true",
+    'date': '14 October 2018 - 08:22'
+  } , {
+    'name': 'Alex Smith',
+    'specialism': 'Pan disability',
+    'type': 'Renewal',
+    'disc' : true,
+          'priority' : "false",
+    'date': '28 June 2018 - 12:23'
+  }],
+
   'your-cases': [{
     'name': 'Oliver Reed',
     'specialism': 'Pan disability',
