@@ -62,38 +62,30 @@
             </p>
           </li>
 {% endif %}
+{% if data['sent-email']  %}
+          <li class="dwp-timeline__entry">
+            <h3 class="govuk-heading-s dwp-timeline__title">Email sent </h3>
+            <p class="dwp-timeline__info">
+              <span class="dwp-timeline__date">5 November 2019</span>
+            </p
+          </li>
+{% endif %}
+
 {% if interview or (data['notifications'] =="yes") %}
           <li class="dwp-timeline__entry">
             <h3 class="govuk-heading-s dwp-timeline__title">Confirmation sent</h3>
             <p class="dwp-timeline__info">
               <span class="dwp-timeline__date">24 October 2019</span>
             </p>
-            <p class="dwp-timeline__body">
-              Letter, claim form and SMS notification sent.
-            </p>
+
           </li>
 {% endif %}
 
-
-{% if interview or (data['decision'] == "accept")%}
-          <li class="dwp-timeline__entry">
-            <h3 class="govuk-heading-s dwp-timeline__title">Decision made</h3>
-            <p class="dwp-timeline__info">
-              <span class="dwp-timeline__date">24 October 2019</span>
-            </p>
-            <p class="dwp-timeline__body">
-              Application approved.
-            </p>
-          </li>
-{% endif %}
-{% if interview or data['communication'] %}
+{% if interview or data['interview'] %}
           <li class="dwp-timeline__entry">
             <h3 class="govuk-heading-s dwp-timeline__title">Application checked</h3>
             <p class="dwp-timeline__info">
               <span class="dwp-timeline__date">24 October 2019</span>
-            </p>
-            <p class="dwp-timeline__body">
-              All application details complete.
             </p>
           </li>
 {% endif %}
@@ -102,9 +94,7 @@
             <p class="dwp-timeline__info">
               <span class="dwp-timeline__date">23 October 2019</span>
             </p>
-            <p class="dwp-timeline__body">
-              Allocated to adviser.
-            </p>
+
           </li>
         </ol>
       </div>

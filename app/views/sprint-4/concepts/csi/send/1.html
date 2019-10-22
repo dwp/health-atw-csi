@@ -10,9 +10,7 @@
 <h1 class="govuk-heading-xl">Send a confirmation email</h1>
 
 <p>Copy and paste the following text into an email and send it to:
-
   <strong>[john.smith@email.com]</strong></p>
-
 
   <div class="govuk-inset-text">
   Your application for interview support<br>
@@ -25,6 +23,7 @@
 
 
 {{ govukRadios({
+    classes: "govuk-radios--inline",
        idPrefix: "send",
        name: "send",
        fieldset: {

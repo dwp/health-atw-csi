@@ -20,7 +20,7 @@
 {{ govukButton({
           text: "Save and continue"
         }) }}
-<P><a href="/{{folder}}/{{subfolder}}/csi/index" class="govuk-link govuk-link--no-visited-state">Return to application</a></p>
+<P><a href="/{{folder}}/{{subfolder}}/csi/index{% if interviewLink %}-interview{% endif  %}" class="govuk-link govuk-link--no-visited-state">Return to application</a></p>
 
 </form>
 </div>
