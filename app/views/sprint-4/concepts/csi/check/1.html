@@ -6,13 +6,14 @@
 
 {% block csi %}
 
-<h1 class="govuk-heading-xl">Personal and contact details</h1>
+<h1 class="govuk-heading-xl">Personal details</h1>
 
 
 
 {% include folder + "/" + subfolder + "/_CLAIMDETAILS.html" %}
 
 {{ govukRadios({
+  classes: "govuk-radios--inline",
        idPrefix: "personal",
        name: "personal",
        fieldset: {
