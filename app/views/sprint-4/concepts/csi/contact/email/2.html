@@ -1,0 +1,27 @@
+{% extends folder + "/" + subfolder + "/_BASE.html" %}
+
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+    <h1 class="govuk-heading-xl">You have sent an email</h1>
+
+
+
+         {{ govukButton({]
+           href: "../../index",
+                   text: "Continue"
+                 })
+               }}
+
+
+</div>
+</div>
+
+{% endblock %}
