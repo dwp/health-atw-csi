@@ -13,11 +13,12 @@
 {% include folder + "/" + subfolder + "/_CLAIMDETAILS.html" %}
 
 {{ govukRadios({
+  classes: "govuk-radios--inline",
        idPrefix: "interview",
        name: "interview",
        fieldset: {
          legend: {
-           text: "Is this complete?",
+           text: "Are these details complete?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }

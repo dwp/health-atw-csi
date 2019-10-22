@@ -13,8 +13,9 @@
 {% include folder + "/" + subfolder + "/_CLAIMDETAILS.html" %}
 
 {{ govukRadios({
-       idPrefix: "interview",
-       name: "interview",
+  classes: "govuk-radios--inline",
+       idPrefix: "contact",
+       name: "contact",
        fieldset: {
          legend: {
            text: "Are these details complete?",
