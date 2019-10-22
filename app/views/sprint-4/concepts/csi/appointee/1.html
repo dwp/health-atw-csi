@@ -1,24 +1,22 @@
-{% set link = "../../confirm/1" %}
+{% set link = "../check/3" %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
 
 {% block csi %}
 
-<h1 class="govuk-heading-xl">Phone the employer</h1>
+<h1 class="govuk-heading-xl">[Check for appointee]</h1>
 
-
-<p>Check that Thomas Brown attended his interview.</p>
-
-<p>Contact Terry Gibson at Tesco on 07192838482.</p>
+<p>[Check on CIS if {{ data['csi-info'][0]['name'] | safe }} has apointee]</p>
 
 
 {{ govukRadios({
-       idPrefix: "employer",
-       name: "employer",
+  classes: "govuk-radios--inline",
+       idPrefix: "appointee",
+       name: "appointee",
        fieldset: {
          legend: {
-           text: "Has the employer responded?",
+           text: "Does " + data['csi-info'][0]['name']  + " have an appointee?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
