@@ -1,24 +1,25 @@
 {% set link = "../../confirm/1" %}
-
+{% set interviewLink = "true" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
 
 {% block csi %}
 
-<h1 class="govuk-heading-xl">Phone the employer</h1>
+<h1 class="govuk-heading-xl">Phone employer</h1>
 
 
-<p>Check that Thomas Brown attended his interview.</p>
+<p>You need to contact [name]. They work at [company].</p>
 
-<p>Contact Terry Gibson at Tesco on 07192838482.</p>
+<p>Their contact details are [details]</p>
 
 
 {{ govukRadios({
+    classes: "govuk-radios--inline",
        idPrefix: "employer",
        name: "employer",
        fieldset: {
          legend: {
-           text: "Has the employer responded?",
+           text: "[Has the employer responded?]",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
