@@ -96,7 +96,7 @@ module.exports = {
     'interview-date-day': '12',
     'interview-date-month': 'December',
     'interview-date-year': '2019',
-    'full-name': 'Tesco',
+    'company-name': 'Tesco',
     'company-address-line-one': '101 Kent Way',
     'company-address-line-two': '',
     'company-address-town': 'Birmingham',
