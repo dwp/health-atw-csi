@@ -1,23 +1,24 @@
-{% set link = "3" %}
+{% set link = "../../confirm/1" %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
 
 {% block csi %}
 
+<h1 class="govuk-heading-xl">Phone employer</h1>
 
-<h1 class="govuk-heading-xl">Send a confirmation text message</h1>
 
-<p>Open REACH and select the <strong>Confirmation</strong> template.</p>
+<p>You need to contact [name]. They work at [company].</p>
 
-<p>Send the text message to 07893938493.</p>
+<p>Their contact details are [details]</p>
+
 
 {{ govukRadios({
-       idPrefix: "notifications",
-       name: "notifications",
+       idPrefix: "employer",
+       name: "employer",
        fieldset: {
          legend: {
-           text: "Have you sent the text message?",
+           text: "[Has the employer responded?]",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
