@@ -1,2 +1,28 @@
-{% set end = "true" %}
-{% extends folder + "/" + subfolder + "/csi/_COMPLETE.html" %}
+{% extends folder + "/" + subfolder + "/_BASE.html" %}
+
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-xl">Tasks complete</h1>
+
+    <P>All tasks have been completed and information saved.
+    The case will be reallocated after the interview date.</p>
+
+    <br>
+
+{{ govukButton({
+      href: "/" + folder + "/" + subfolder + "/your-cases",
+          text: "Return to your cases"
+        }) }}
+
+
+</div>
+</div>
+
+{% endblock %}
