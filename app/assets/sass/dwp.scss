@@ -37,7 +37,7 @@ $govuk-assets-path: '/govuk/assets/';
  }
 
  .govuk-header__content {
-   padding-left:0; 
+   padding-left:0;
  }
 
 .navigation-global ul:after {
@@ -236,4 +236,12 @@ background-color: #b58840;
 background-color: #df3034;
 }
 
-//
+// verification
+
+.verified-badge {
+    color: #6f777b;
+    float: right;
+    font-size: .7em;
+    margin: .4em 0 0;
+    position: relative;
+}

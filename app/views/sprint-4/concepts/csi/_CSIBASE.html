@@ -31,9 +31,14 @@
 <!--                  <li>
                     <a href="#">Interview</a>
                   </li> -->
+
+        {% if interview %}
+
                   <li>
-                    <a href="{% if not (page == 'evidence') %}evidence{% if interview %}-interview{% endif %}{% else %}#" class="active" aria-current="section{% endif %}">Evidence</a>
+                    <a href="{% if not (page == 'evidence') %}evidence{% else %}#" class="active" aria-current="section{% endif %}">Evidence</a>
                   </li>
+
+      {% endif %}
                 </ul>
               </nav>
 
@@ -57,14 +62,14 @@
             <p class="dwp-timeline__info">
               <span class="dwp-timeline__date">1 November 2019</span>
             </p>
-            <p class="dwp-timeline__body">
+        <!--    <p class="dwp-timeline__body">
               Employer contacted. Claim transferred to payments team.
             </p>
-          </li>
+          </li> -->
 {% endif %}
 {% if data['sent-email']  %}
           <li class="dwp-timeline__entry">
-            <h3 class="govuk-heading-s dwp-timeline__title">Email sent </h3>
+            <h3 class="govuk-heading-s dwp-timeline__title">Email sent to employer</h3>
             <p class="dwp-timeline__info">
               <span class="dwp-timeline__date">5 November 2019</span>
             </p
