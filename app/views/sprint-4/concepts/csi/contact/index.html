@@ -4,13 +4,13 @@
 
 
 {% block csi %}
-<h1 class="govuk-heading-xl">Contact history</h1>
+<h1 class="govuk-heading-xl">Contact the employer</h1>
 
 {% if data['sent-email'] %}
 <ol class="dwp-timeline">
 
   <li class="dwp-timeline__entry">
-    <h3 class="govuk-heading-s dwp-timeline__title">Email sent</h3>
+    <h3 class="govuk-heading-s dwp-timeline__title">Email sent to employer</h3>
     <p class="dwp-timeline__info">
       <span class="dwp-timeline__date">5 November 2019</span>
     </p>
@@ -38,7 +38,7 @@
          {
            id: "reminder",
            value: "reminder",
-           text: "Send a reminder email"
+           text: "Send an email"
          },
          {
            id: "phone",
@@ -48,7 +48,7 @@
          {
            id: "update",
            value: "update",
-           text: "Add an email update"
+           text: "Add an update"
          }
        ]
      }) }}
