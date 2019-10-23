@@ -88,23 +88,6 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key govuk-!-width-one-half">
-      How can we contact you?
-    </dt>
-    <dd class="govuk-summary-list__value">
-      {{ data['interviewer-contact-preference'] | default("Email, Phone") | safe  }}
-    </dd>
-{% if not hideChange %}
-    <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="#">
-        Change
-        <span class="govuk-visually-hidden">company contact preference</span>
-      </a>
-    </dd>
-{% endif %}
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key govuk-!-width-one-half">
       Email
     </dt>
     <dd class="govuk-summary-list__value">
@@ -282,17 +265,13 @@
       Company address
       </dt>
           <dd class="govuk-summary-list__value">
-            {% if not data['address-line-1'] %}
-            <p>12 Barley Street<br>Birmingham<br>B2 8FG</p>
-            {% else %}
 
-      <p>{{ data['csi-info'][0]['address-line-1'] }}
-        {{ data['csi-info'][0]['address-line-2'] }} <br>
-        {{ data['csi-info'][0]['address-town'] }} <br>
-        {{ data['csi-info'][0]['address-county'] }} <br>
-        {{ data['csi-info'][0]['address-postcode'] }} <br>
+     <p>{{ data['csi-info'][0]['company-address-line-one'] }} <br>
+        {{ data['csi-info'][0]['company-address-town'] }} <br>
+        {{ data['csi-info'][0]['company-address-county'] }} <br>
+        {{ data['csi-info'][0]['company-address-postcode'] }} <br>
         </p>
-      {% endif %}
+
           </dd>
 {% if not hideChange %}
           <dd class="govuk-summary-list__actions">
@@ -310,23 +289,6 @@
       </dt>
           <dd class="govuk-summary-list__value">
           {{ data['csi-info'][0]['interviewer-name'] }}
-          </dd>
-{% if not hideChange %}
-          <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
-          Change
-          <span class="govuk-visually-hidden"> what disability or health condition you need communication support for</span>
-          </a>
-          </dd>
-{% endif %}
-  </div>
-
-  <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-      How can we contact them?
-      </dt>
-          <dd class="govuk-summary-list__value">
-          {{ data['interviewer-contact-preference'] | default("Email, Phone") | safe  }}
           </dd>
 {% if not hideChange %}
           <dd class="govuk-summary-list__actions">
