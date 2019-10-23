@@ -10,7 +10,7 @@
 <h1 class="govuk-heading-xl">Send a confirmation email</h1>
 
 <p>Copy and paste the following text into an email and send it to:
-  <strong>thomas@email.com</strong></p>
+  <strong>{{ data['csi-info'][0]['contact-by-email'] | safe }}</strong></p>
 
   <div class="govuk-inset-text">
   Your application for interview support<br>

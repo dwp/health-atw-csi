@@ -86,55 +86,16 @@
       </a>
     </dd>
   </div>
-</dl>
-
-<h2 class="govuk-heading-m govuk-!-margin-top-6">Contact details</h2>
-    <dl class="govuk-summary-list">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-              Company contact
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <p class="govuk-body">
-              {{ data['csi-info'][0]['interviewer-name'] }}
-            </p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="interviewer-details">
-              Change
-              <span class="govuk-visually-hidden">company contact</span>
-            </a>
-          </dd>
-        </div>
-
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        How can we contact them?
-
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        <p class="govuk-body">
-                          {{ data['interviewer-contact-preference'] | default("Email, Phone") | safe  }}
-                        </p>
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="contact">
-                          Change
-                          <span class="govuk-visually-hidden"> customer contact</span>
-                        </a>
-                      </dd>
-                    </div>
 
       {% if not data['interviewer-contact-preference'] or  ( data['interviewer-contact-preference'] and  ("Email" in  data['interviewer-contact-preference'])) %}
 
-
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Company contact email address
+            Email address
           </dt>
           <dd class="govuk-summary-list__value">
             <p class="govuk-body">
-              {{ data['contact-by-email'] }}</p>
+              {{ data['csi-info'][0]['contact-by-email'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="interviewer-details">
@@ -148,11 +109,11 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Company contact phone number
+            Phone number
           </dt>
           <dd class="govuk-summary-list__value">
             <p class="govuk-body">
-              {{ data['contact-by-phone'] }}</p>
+              {{ data['csi-info'][0]['contact-by-phone'] }}</p>
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="interviewer-details">
@@ -245,7 +206,7 @@
       Company name
     </dt>
     <dd class="govuk-summary-list__value">
-      <p>{{ data['csi-info'][0]['full-name'] }}</p>
+      <p>{{ data['csi-info'][0]['company-name'] }}</p>
     </dd>
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="interview-company-name">
@@ -294,34 +255,16 @@
     </dd>
   </div>
 
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  How can we contact them?
-
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  <p class="govuk-body">
-                    {{ data['interviewer-contact-preference'] | default("Email, Phone") | safe  }}
-                  </p>
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="contact">
-                    Change
-                    <span class="govuk-visually-hidden"> customer contact</span>
-                  </a>
-                </dd>
-              </div>
-
 {% if not data['interviewer-contact-preference'] or  ( data['interviewer-contact-preference'] and  ("Email" in  data['interviewer-contact-preference'])) %}
 
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-      Company contact email address
+      Email address
     </dt>
     <dd class="govuk-summary-list__value">
       <p class="govuk-body">
-        {{ data['contact-by-email'] }}</p>
+        {{ data['csi-info'][0]['company-email-address'] }}</p>
     </dd>
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="interviewer-details">
@@ -335,11 +278,11 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-      Company contact phone number
+      Phone number
     </dt>
     <dd class="govuk-summary-list__value">
       <p class="govuk-body">
-        {{ data['contact-by-phone'] }}</p>
+        {{ data['csi-info'][0]['company-phone'] }}</p>
     </dd>
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="interviewer-details">
