@@ -23,26 +23,57 @@
                           <li class="app-task-list__item">
                             <span class="app-task-list__task-name">
                               <a href="check/3" aria-describedby="eligibility-completed">
-                                Check quote
+                                Check interview details
                               </a>
                             </span>
   {% if interview or data['interview'] %}                          <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>{% endif %}
                           </li>
+</ul>
+</li>
+</ol>
 
-                          <li class="app-task-list__item">
-                            <span class="app-task-list__task-name">
-                              <a href="send/1" aria-describedby="read-declaration-completed">
-                                Send confirmation letter
-                              </a>
-                            </span>
-        {% if interview or (data['notifications'] =="yes") %}<strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong> {% elif data['send'] %}<strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">[In progress]</strong>{% endif %}
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
+<ol class="app-task-list">
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">2. </span> Send confirmation
+          </h2>
+          <ul class="app-task-list__items">
+
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="send/1" aria-describedby="read-declaration-completed">
+                  Send a confirmation email
+                </a>
+              </span>
+{% if interview or (data['send'] =="yes") %}<strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong> {% elif data['send'] %}<strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">[In progress]</strong>{% endif %}
+</li>
+<li class="app-task-list__item">
+  <span class="app-task-list__task-name">
+    <a href="send/2" aria-describedby="read-declaration-completed">
+      Send a confirmation text message
+    </a>
+  </span>
+{% if interview or (data['notifications'] =="yes") %}<strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong> {% elif data['send'] %}<strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">[In progress]</strong>{% endif %}
+</li>
+<li class="app-task-list__item">
+  <span class="app-task-list__task-name">
+    <a href="send/3" aria-describedby="read-declaration-completed">
+      Print and send the form and cover note
+    </a>
+  </span>
+{% if interview or (data['claim'] =="yes") %}<strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong> {% elif data['send'] %}<strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">[In progress]</strong>{% endif %}
+</li>
+
+</ul>
+</li>
+</ol>
+
 {% else %}  <!-- scenario if interview is true -->
+<ol class="app-task-list">
+        <li>
                         <h2 class="app-task-list__section">
-                          <span class="app-task-list__section-number">2. </span> After the interview
+                          <span class="app-task-list__section-number">3. </span> After the interview
                         </h2>
 
 
@@ -95,6 +126,10 @@
         {
           href: "index",
           text: "Index before interview"
+        },
+        {
+          href: "index-waiting",
+          text: "Index waiting"
         },
         {
           href: "index-interview",

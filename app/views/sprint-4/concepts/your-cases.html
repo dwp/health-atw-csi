@@ -37,6 +37,10 @@
     <h2 class="govuk-heading-m">Your priority cases </h2>
 
 
+{% if waiting or empty %}
+<p>You have no priority cases.</P>
+
+{% else %}
 
     <table class="govuk-table">
       <thead class="govuk-table__head">
@@ -51,26 +55,19 @@
         <tbody>
 
 
-          {% for case in cases %}
-
-{% if case.priority == "true" and not case.disc %}
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">{{ case.name }}</td>
-              <td class="govuk-table__cell">{{ case.specialism }}</td>
-              <td class="govuk-table__cell">{{ case.type }}</td>
-              <td class="govuk-table__cell">{{ case.date }}</td>
-              <td class="govuk-table__cell"><a href="{% if case.type == "CSI" %}csi/index{% if interview %}-interview{% endif %}{% else %}case{%endif %}?n={{ case.name }}&s={{case.specialism}}">View case</a></td>
+              <td class="govuk-table__cell">{{ data['csi-info'][0]['name'] }}</td>
+              <td class="govuk-table__cell">CSI</td>
+              <td class="govuk-table__cell">CSI</td>
+              <td class="govuk-table__cell">24 October 2019 13:02</td>
+              <td class="govuk-table__cell"><a href="csi/index{% if interview %}-interview{% endif %}">View case</a></td>
             </tr>
-{% endif %}
-          {% endfor %}
       </tbody>
     </table>
 
+{% endif %}
     <h2 class="govuk-heading-m">Your cases </h2>
 
-{% if not cases  %}
-Test
-{% else %}
     <table class="govuk-table">
       <thead class="govuk-table__head">
           <tr class="govuk-table__row">
@@ -82,22 +79,31 @@ Test
           </tr>
         </thead>
         <tbody>
-          {% for case in cases %}
+          {% for case in data['unallocated-cases'] %}
 
-{% if not (case.priority == "true") and not case.disc %}
 
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">{{ case.name }}</td>
               <td class="govuk-table__cell">{{ case.specialism }}</td>
               <td class="govuk-table__cell">{{ case.type }}</td>
               <td class="govuk-table__cell">{{ case.date }}</td>
-              <td class="govuk-table__cell"><a href="case?n={{ case.name }}">View case</a></td>
+              <td class="govuk-table__cell"><a href="#">View case</a></td>
             </tr>
-{% endif %}
           {% endfor %}
+
+          {% if waiting %} <!-- option to show that case is there but at the bottom for now -->
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{ data['csi-info'][0]['name'] }}</td>
+            <td class="govuk-table__cell">CSI</td>
+            <td class="govuk-table__cell">CSI</td>
+            <td class="govuk-table__cell">24 October 2019 13:02</td>
+            <td class="govuk-table__cell"><a href="csi/index-waiting">View case</a></td>
+          </tr>
+          {% endif %}
+
       </tbody>
     </table>
-{% endif %}
+
 
       {% endset -%}
 
@@ -105,68 +111,12 @@ Test
       {% set disc %}
       <h2 class="govuk-heading-m">Your priority cases </h2>
 
+<p>You have no priority cases.</P>
 
-
-      <table class="govuk-table">
-        <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th class="govuk-table__header">Name</th>
-              <th class="govuk-table__header">Specialism</th>
-              <th class="govuk-table__header">Case type</th>
-              <th class="govuk-table__header">Date submitted</th>
-              <th class="govuk-table__header"></th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for case in cases %}
-
-    {% if case.priority == "true" and case.disc %}
-
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">{{ case.name }}</td>
-                <td class="govuk-table__cell">{{ case.specialism }}</td>
-                <td class="govuk-table__cell">{{ case.type }}</td>
-                <td class="govuk-table__cell">{{ case.date }}</td>
-                <td class="govuk-table__cell"><a href="case{% if case.type == 'CSI'%}-csi-disc{% endif %}?n={{ case.name }}&s={{case.specialism}}">View case</a></td>
-              </tr>
-    {% endif %}
-            {% endfor %}
-        </tbody>
-      </table>
 
       <h2 class="govuk-heading-m">Your cases </h2>
 
-    {% if not cases  %}
-    Test
-    {% else %}
-      <table class="govuk-table">
-        <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th class="govuk-table__header">Name</th>
-              <th class="govuk-table__header">Specialism</th>
-              <th class="govuk-table__header">Case type</th>
-              <th class="govuk-table__header">Date submitted</th>
-              <th class="govuk-table__header"></th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for case in cases %}
-
-    {% if not (case.priority == "true") and case.disc %}
-
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">{{ case.name }}</td>
-                <td class="govuk-table__cell">{{ case.specialism }}</td>
-                <td class="govuk-table__cell">{{ case.type }}</td>
-                <td class="govuk-table__cell">{{ case.date }}</td>
-                <td class="govuk-table__cell"><a href="case{% if case.type == 'CSI'%}-csi-disc{% endif %}?n={{ case.name }}">View case</a></td>
-              </tr>
-    {% endif %}
-            {% endfor %}
-        </tbody>
-      </table>
-    {% endif %}
-
+<p>You have no cases.</P>
         {% endset -%}
 
 
@@ -193,4 +143,34 @@ Test
 
   </div>
 </div>
+{% endblock %}
+
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: "https://govuk-prototype-kit.herokuapp.com/",
+          text: "GOV.UK Prototype Kit " + releaseVersion
+        },
+        {
+          href: "/prototype-admin/clear-data",
+          text: "Clear data"
+        },
+        {
+          href: "your-cases",
+          text: "Cases before interview"
+        },
+        {
+          href: "your-cases-waiting",
+          text: "Cases waiting"
+        },
+        {
+          href: "your-cases-interview",
+          text: "Cases after interview"
+        }
+      ]
+    }
+  }) }}
+
 {% endblock %}

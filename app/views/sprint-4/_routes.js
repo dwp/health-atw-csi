@@ -185,6 +185,7 @@ router.all('/service/interview-date-router', function(req, res, next){
 
 //concepts stuff
 
+/*
 router.get(`/concepts/your-cases`, (req, res) => {
   let showNotice = req.session.showNotice
   req.session.showNotice = false
@@ -257,5 +258,7 @@ router.post(`/concepts/your-cases-empty/`, (req, res) => {
   }
   res.redirect('your-cases-empty')
 })
+
+*/
 
 module.exports = router
