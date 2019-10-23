@@ -5,26 +5,28 @@
 
 {% block csi %}
 
-<h1 class="govuk-heading-xl">Email employer</h1>
+<h1 class="govuk-heading-xl">Email the employer</h1>
 
+<p>Check that Thomas Brown attended his interview.</p>
 
 <p>Copy and paste the following text into an email and send it to:
-  <strong>[name]</strong></p>
+  <strong>terry@email.com</strong></p>
 
   <div class="govuk-inset-text">
-  [test]<br>
+  DWP confirmation of interview attendance<br>
   <br>
- [information here ]
+  Thomas Brown told us that he would be attending an interview at Tesco on 12
+  December 2019. We need confirmation that Thomas attended the interview so that
+  we can pay for his communication support costs.
 </div>
 
 
 {{ govukRadios({
-    classes: "govuk-radios--inline",
-       idPrefix: "sent-email",
-       name: "sent-email",
+       idPrefix: "employer",
+       name: "employer",
        fieldset: {
          legend: {
-           text: "[Have you send an email?]",
+           text: "Have you sent the email?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
