@@ -1,3 +1,4 @@
+{% set interview = true %}
 {% set page = "evidence" %}
 {% set title = "Evidence" %}
 
@@ -7,6 +8,12 @@
 
 <h2 class="govuk-heading-m govuk-!-margin-top-6">Interview with employer</h2>
 
+{% if data['employer'] %}
+{% set confirmation = "Employer confirmed" %}
+{% else %}
+{% set confirmation = "Confirmation from employer needed" %}
+{% endif %}
+
     {{ govukSummaryList({
       classes: 'govuk-!-margin-bottom-9',
       rows: [
@@ -15,12 +22,12 @@
             text: "Inteview confirmation"
           },
           value: {
-            text: "Confirmation from employer needed"
+            text: confirmation
           },
           actions: {
             items: [
               {
-                href: "#",
+                href: "contact/index",
                 text: "Change",
                 visuallyHiddenText: "name"
               }
@@ -30,6 +37,7 @@
       ]
     }) }}
 
+<!--
     <h2 class="govuk-heading-m govuk-!-margin-top-6">Claim form</h2>
 
         {{ govukSummaryList({
@@ -54,5 +62,6 @@
             }
           ]
         }) }}
+-->
 
 {% endblock %}
