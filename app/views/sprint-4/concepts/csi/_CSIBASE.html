@@ -31,9 +31,14 @@
 <!--                  <li>
                     <a href="#">Interview</a>
                   </li> -->
+
+        {% if interview %}
+
                   <li>
-                    <a href="{% if not (page == 'evidence') %}evidence{% if interview %}-interview{% endif %}{% else %}#" class="active" aria-current="section{% endif %}">Evidence</a>
+                    <a href="{% if not (page == 'evidence') %}evidence{% else %}#" class="active" aria-current="section{% endif %}">Evidence</a>
                   </li>
+
+      {% endif %}
                 </ul>
               </nav>
 

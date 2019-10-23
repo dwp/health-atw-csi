@@ -54,6 +54,8 @@
                                 Contact employer
                               </a>
                             </span>
+                            {% if data['employer'] =="yes" %}<strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong> {% elif data['sent-email'] %}<strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">[In progress]</strong>{% endif %}
+
                           </li>
                           <li class="app-task-list__item">
                             <span class="app-task-list__task-name">
@@ -63,6 +65,8 @@
 
                               </a>
                             </span>
+                            {% if data['employer'] =="yes" %}<strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong> {% endif %}
+
                                               </li>
 
                         </ul>
