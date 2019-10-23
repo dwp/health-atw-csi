@@ -201,7 +201,7 @@
     </dt>
     <dd class="govuk-summary-list__value">
       <p class="govuk-body">
-        {{ data['csi-info'][0]['support-worker-pay'] }}
+        {{ data['csi-info'][0]['support-worker-pay'] | toMoney | safe }}
       </p>
     </dd>
 {% if not hideChange %}

@@ -1,13 +1,11 @@
-{% set link = "../index" %}
-
+{% set link = "../index-interview" %}
+{% set interviewLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
+{% set title =  "Contact the employer" %}
 
 {% block csi %}
-<h1 class="govuk-heading-xl">Contact the employer</h1>
-
-
-{% if data['email-employer'] %}
+{% if data['sent-email'] %}
 <ol class="dwp-timeline">
 
   <li class="dwp-timeline__entry">
@@ -23,8 +21,8 @@
 {% endif %}
 
 {{ govukRadios({
-       idPrefix: "do",
-       name: "do",
+       idPrefix: "_do",
+       name: "_do",
        fieldset: {
          legend: {
            text: "What do you want to do?",

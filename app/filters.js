@@ -51,5 +51,9 @@ module.exports = function (env) {
       }
     }
 
+    filters.toMoney = function(x){
+      return("£" + x );
+    }
+
   return filters
 }

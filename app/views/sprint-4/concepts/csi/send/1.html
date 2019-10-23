@@ -3,11 +3,10 @@
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
 
+{% set title =  "Send a confirmation email" %}
+
 {% block csi %}
 
-
-
-<h1 class="govuk-heading-xl">Send a confirmation email</h1>
 
 <p>Copy and paste the following text into an email and send it to:
   <strong>{{ data['csi-info'][0]['contact-by-email'] | safe }}</strong></p>

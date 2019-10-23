@@ -50,7 +50,7 @@
       Address
     </dt>
     <dd class="govuk-summary-list__value">
-{% if not data['address-line-1'] %}
+{% if not data['csi-info'][0]['address-line-1'] %}
 <p>12 Barley Street<br>Birmingham<br>B2 8FG</p>
 {% else %}
 
@@ -170,7 +170,7 @@
   </dt>
   <dd class="govuk-summary-list__value">
     <p class="govuk-body">
-      {{ data['csi-info'][0]['support-worker-pay'] }}</p>
+      {{ data['csi-info'][0]['support-worker-pay'] | toMoney | safe }}</p>
   </dd>
   <dd class="govuk-summary-list__actions">
     <a class="govuk-link" href="support-worker-page">
