@@ -1,5 +1,5 @@
 {% set link = "../../confirm/1" %}
-{% set interviewLink = "true" %}
+
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
 
@@ -14,7 +14,6 @@
 
 
 {{ govukRadios({
-    classes: "govuk-radios--inline",
        idPrefix: "employer",
        name: "employer",
        fieldset: {
