@@ -6,6 +6,10 @@
 {% block csi %}
 <h1 class="govuk-heading-xl">Contact the employer</h1>
 
+<p>You have not contacted the employer.<p>
+
+
+{% if data['email-employer'] %}
 <ol class="dwp-timeline">
 
   <li class="dwp-timeline__entry">
@@ -13,12 +17,12 @@
     <p class="dwp-timeline__info">
       <span class="dwp-timeline__date">1 November 2019</span>
     </p>
-    <p class="dwp-timeline__body">
+<!--    <p class="dwp-timeline__body">
       [notes if needed]
-    </p>
+    </p> -->
   </li>
 </ol>
-
+{% endif %}
 
 {{ govukRadios({
        idPrefix: "do",
