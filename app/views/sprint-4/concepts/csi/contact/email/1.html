@@ -1,5 +1,5 @@
 {% set link = "2" %}
-{% set interviewLink = "true" %}
+
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
 
@@ -7,8 +7,7 @@
 
 <h1 class="govuk-heading-xl">Email the employer</h1>
 
-<p>Check that Thomas Brown attended his interview.
-
+<p>Check that Thomas Brown attended his interview.</p>
 
 <p>Copy and paste the following text into an email and send it to:
   <strong>{{ data['csi-info'][0]['company-email-address'] }}</strong></p>
@@ -20,7 +19,6 @@
   December 2019. We need confirmation that Thomas attended the interview so that
   we can pay for his communication support costs.
 </div>
-
 
 
 {{ govukRadios({
