@@ -34,7 +34,7 @@
 <nav class="navigation-global">
   <ul>
     <li>
-      <a href="/{{folder}}/{{subfolder}}/your-cases" class="active" aria-current="page">Your cases</a>
+      <a href="/{{folder}}/{{subfolder}}/your-cases{% if interview %}-interview{% elif waiting %}-waiting{% else %}{% endif %}" class="active" aria-current="page">Your cases</a>
     </li>
 
     <li>
@@ -46,6 +46,7 @@
     </li>
   </ul>
   </div>
+
 
 {% endblock %}
 
