@@ -17,7 +17,8 @@
                                 Check for appointee
                               </a>
                             </span>
-                          {% if interview or data['appointee'] %} <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>{% endif %}
+                {% if data['appointee'] %}
+                <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>{% endif %}
                           </li>
 
                           <li class="app-task-list__item">
@@ -26,7 +27,8 @@
                                 Check interview details
                               </a>
                             </span>
-  {% if interview or data['interview'] %}                          <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>{% endif %}
+  {% if data['interview'] %}
+  <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>{% endif %}
                           </li>
 </ul>
 </li>
@@ -46,7 +48,8 @@
                   Send a confirmation email
                 </a>
               </span>
-{% if interview or (data['send'] =="yes") %}<strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong> {% elif data['send'] %}<strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">In progress</strong>{% endif %}
+{% if data['send'] =="yes" %}
+<strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong>{% endif %}
 </li>
 <li class="app-task-list__item">
   <span class="app-task-list__task-name">
@@ -54,7 +57,8 @@
       Send a confirmation text message
     </a>
   </span>
-{% if interview or (data['notifications'] =="yes") %}<strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong> {% elif data['send'] %}<strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">In progress</strong>{% endif %}
+{% if  data['notifications'] == "yes" %}
+<strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong> {% endif %}
 </li>
 <li class="app-task-list__item">
   <span class="app-task-list__task-name">
@@ -62,7 +66,8 @@
       Print and send the form and cover note
     </a>
   </span>
-{% if interview or (data['claim'] =="yes") %}<strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong> {% elif data['send'] %}<strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">In progress</strong>{% endif %}
+{% if data['claim'] == "yes" %}
+<strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong>{% endif %}
 </li>
 
 </ul>

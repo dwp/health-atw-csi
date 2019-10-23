@@ -107,7 +107,7 @@ module.exports = {
     'duration': '1 hour',
     'interviewer-name': 'Terry Gibson',
     'interviewer-contact-preference': 'Email',
-    'support-worker-pay': '£200',
+    'support-worker-pay': '200',
     'contact-by-email': 'thomas.brown@outlook.com',
     'contact-by-phone': '07192838482'
 

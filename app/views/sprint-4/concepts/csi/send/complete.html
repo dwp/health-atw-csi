@@ -1,15 +1,12 @@
-{% extends folder + "/" + subfolder + "/_BASE.html" %}
+{% set  hideForm = true %}
+{% set hideBack = true %}
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+
+{% set title = "Tasks complete" %}
 
 
+{% block csi %}
 
-
-{% block content %}
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-
-    <h1 class="govuk-heading-xl">Tasks complete</h1>
 
     <P>All tasks have been completed and information saved.
     The case will be available in <strong>Your priority cases</strong> after the
@@ -21,9 +18,5 @@
       href: "/" + folder + "/" + subfolder + "/your-cases-waiting",
           text: "Return to your cases"
         }) }}
-
-
-</div>
-</div>
 
 {% endblock %}

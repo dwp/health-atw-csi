@@ -2,10 +2,10 @@
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
+{% set title =  "Check for appointee" %}
+
 
 {% block csi %}
-
-<h1 class="govuk-heading-xl">Check for appointee</h1>
 
 <p>Check on CIS if {{ data['csi-info'][0]['name'] | safe }} has an appointee.</p>
 
