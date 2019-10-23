@@ -93,8 +93,8 @@ module.exports = {
     'address-town': 'Birmingham',
     'address-county': 'Midlands',
     'address-postcode': 'B1 1EQ',
-    'interview-date-day': '12',
-    'interview-date-month': 'December',
+    'interview-date-day': '1',
+    'interview-date-month': 'November',
     'interview-date-year': '2019',
     'company-name': 'Tesco',
     'company-address-line-one': '101 Kent Way',
@@ -107,7 +107,7 @@ module.exports = {
     'duration': '1 hour',
     'interviewer-name': 'Terry Gibson',
     'interviewer-contact-preference': 'Email',
-    'support-worker-pay': '£100',
+    'support-worker-pay': '£200',
     'contact-by-email': 'thomas.brown@outlook.com',
     'contact-by-phone': '07192838482'
 
