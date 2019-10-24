@@ -1,4 +1,4 @@
-{% set link = "../appointee/1" %}
+{% set link = "2" %}
 {% set personalDetails =  true  %}
 {% set hideChange = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
@@ -12,7 +12,7 @@
 
 
 
-{% include folder + "/" + subfolder + "/_CLAIMDETAILS.html" %}
+{% include folder + "/" + subfolder + "/csi/_CLAIMDETAILS.html" %}
 
 {{ govukRadios({
   classes: "govuk-radios--inline",
