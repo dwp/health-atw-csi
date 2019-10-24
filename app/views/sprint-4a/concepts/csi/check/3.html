@@ -1,23 +1,24 @@
-{% set link = "../send/1" %}
-{% set interviewDetails =  true  %}
+{% set link = "4" %}
+{% set companyDetails =  true  %}
 {% set hideChange = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
-{% set title =  "Job interview details" %}
-
 
 {% block csi %}
+
+<h1 class="govuk-heading-xl">Check company details</h1>
+
 
 
 {% include folder + "/" + subfolder + "/_CLAIMDETAILS.html" %}
 
 {{ govukRadios({
   classes: "govuk-radios--inline",
-       idPrefix: "interview",
-       name: "interview",
+       idPrefix: "company",
+       name: "company",
        fieldset: {
          legend: {
-           text: "Are these details complete and the cost reasonable?",
+           text: "Are these details complete?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
