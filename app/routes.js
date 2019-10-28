@@ -33,4 +33,5 @@ router.use('/V12', require('./views/V12/_routes'));
 router.use('/baseline-as-is', require('./views/baseline-as-is/_routes'));
 router.use('/sprint-4', require('./views/sprint-4/_routes'));
 router.use('/sprint-4a', require('./views/sprint-4a/_routes'));
+router.use('/sprint-5', require('./views/sprint-5/_routes'));
 module.exports = router
