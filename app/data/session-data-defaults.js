@@ -128,7 +128,7 @@ module.exports = {
   }],
 
   'your-cases': [{
-    'name': 'Oliver Reed',
+    'name': 'Thomas Brown',
     'specialism': 'Pan disability',
     'type': 'CSI',
           'priority' : "true",
