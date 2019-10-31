@@ -54,6 +54,13 @@ module.exports = function (env) {
     filters.toMoney = function(x){
       return("£" + x );
     }
+    filters.firstName = function(x){
+      return x.substr(0,x.indexOf(' ')); // "72"
+}
+filters.lastName = function(x){
+  return x.substr(x.indexOf(' ')+1);
+
+}
 
   return filters
 }

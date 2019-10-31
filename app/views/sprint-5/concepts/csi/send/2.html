@@ -1,4 +1,4 @@
-{% set link = "complete" %}
+{% set link = "3" %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
@@ -8,24 +8,261 @@
 {% block csi %}
 
 
-<p>Find the application form and cover note on the shared drive. Print and send
-   it to the following address:</p>
+<p>Download the form and fill in the following information.</p>
 
-  <div class="govuk-inset-text">
-  12 Barley Street<br>
-  Birmingham<br>
-  B2 8FG
-</div>
+
+<h2 class="govuk-heading-m">Page 1</h2>
+
+     {{ govukSummaryList({
+       classes: 'govuk-!-margin-bottom-9',
+       rows: [
+         {
+           key: {
+             text: "Surname"
+           },
+           value: {
+             text: data['csi-info'][0]['name'] | lastName | safe
+           }
+         },
+         {
+           key: {
+             text: "First name"
+           },
+           value: {
+             text: data['csi-info'][0]['name'] | firstName | safe
+           }
+         },
+
+         {
+           key: {
+             text: "Date of birth"
+           },
+           value: {
+             text: (data['csi-info'][0]['dob-day'] + " " +  data['csi-info'][0]['dob-month'] | toMonth + " " +  data['csi-info'][0]['dob-year']) | safe
+
+           }
+         },
+         {
+           key: {
+             text: "Deaf/condition"
+           },
+           value: {
+             text: "[? to check ]"
+
+           }
+         },
+         {
+           key: {
+             text: "Home address"
+           },
+           value: {
+             html:  (data['csi-info'][0]['address-line-one'] +  "<br>" + data['csi-info'][0]['address-town']+  "<br>" + data['csi-info'][0]['address-county'] +  "<br>" + data['csi-info'][0]['address-postcode']) | safe
+
+
+
+
+           }
+         },
+         {
+           key: {
+             text: "Home number"
+           },
+           value: {
+             text: data['csi-info'][0]['contact-by-phone']  | safe
+           }
+         },
+         {
+           key: {
+             text: "Email address"
+           },
+           value: {
+             text: data['csi-info'][0]['contact-by-email'] | safe
+
+           }
+         }
+       ]
+     }) }}
+
+     <h2 class="govuk-heading-m">Page 2</h2>
+
+          {{ govukSummaryList({
+            classes: 'govuk-!-margin-bottom-9',
+            rows: [
+              {
+                key: {
+                  text: "Name of employer"
+                },
+                value: {
+                  text: data['csi-info'][0]['company-name'] | safe
+                }
+              },
+              {
+                key: {
+                  text: "Employer address"
+                },
+                value: {
+                  text: (data['csi-info'][0]['company-address-line-one'] +  "<br>" + data['csi-info'][0]['company-address-town']+  "<br>" + data['csi-info'][0]['company-address-county'] +  "<br>" + data['csi-info'][0]['company-address-postcode']) | safe
+                }
+              },
+
+              {
+                key: {
+                  text: "Contact number"
+                },
+                value: {
+                  text: data['csi-info'][0]['contact-by-phone']
+
+                }
+              },
+              {
+                key: {
+                  text: "Contact name"
+                },
+                value: {
+                  text: data['csi-info'][0]['interviewer-name']
+
+                }
+              },
+              {
+                key: {
+                  text: "Date of interview"
+                },
+                value: {
+                  text: (data['csi-info'][0]['interview-date-day'] + " " +  data['csi-info'][0]['interview-date-month'] | toMonth + " " +  data['csi-info'][0]['interview-date-year']) | safe
+
+
+
+                }
+              }
+            ]
+          }) }}
+
+          <h2 class="govuk-heading-m">Page 3</h2>
+
+<p class="govuk-body">Nothing</p>
+
+<h2 class="govuk-heading-m">Page 4</h2>
+
+     {{ govukSummaryList({
+       classes: 'govuk-!-margin-bottom-9',
+       rows: [
+         {
+           key: {
+             text: "CSI cost"
+           },
+           value: {
+             text: data['csi-info'][0]['support-worker-pay'] | safe
+           }
+         },
+         {
+           key: {
+             text: "Adviser name"
+           },
+           value: {
+             text: "John Smith"
+           }
+         },
+
+         {
+           key: {
+             text: "Today's date"
+           },
+           value: {
+             text: "1 November 2019"
+
+           }
+         },
+         {
+           key: {
+             text: "Adviser phone number"
+           },
+           value: {
+             text: "0300 000000"
+
+           }
+         },
+         {
+           key: {
+             text: "Address"
+           },
+           value: {
+             text: "[MOU?]"
+
+
+           }
+         },
+         {
+           key: {
+             text: "Textphone number"
+           },
+           value: {
+             text: "[MOU?]"
+
+
+           }
+         }
+       ]
+     }) }}
+
+     <h2 class="govuk-heading-m">Pages 5-7</h2>
+
+   <p class="govuk-body">Nothing</p>
+
+
+   <h2 class="govuk-heading-m">Page 8</h2>
+
+        {{ govukSummaryList({
+          classes: 'govuk-!-margin-bottom-9',
+          rows: [
+            {
+              key: {
+                text: "Adviser name"
+              },
+              value: {
+                text: "John Smith"
+              }
+            },
+            {
+              key: {
+                text: "Address"
+              },
+              value: {
+                text: "[MOU?]"
+
+
+              }
+            },
+            {
+              key: {
+                text: "Adviser phone number"
+              },
+              value: {
+                text: "0300 000000"
+
+              }
+            },
+
+            {
+              key: {
+                text: "Today's date"
+              },
+              value: {
+                text: "1 November 2019"
+
+              }
+            }
+          ]
+        }) }}
 
 
 
 {{ govukRadios({
       classes: "govuk-radios--inline",
-       idPrefix: "claim",
-       name: "claim",
+       idPrefix: "copy",
+       name: "copy",
        fieldset: {
          legend: {
-           text: "Have you printed and sent the form and cover note?",
+           text: "Have you copied all the information?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
