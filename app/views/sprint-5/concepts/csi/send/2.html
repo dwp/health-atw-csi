@@ -1,22 +1,31 @@
-{% set link = "3" %}
+{% set link = "complete" %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
-{% set title =  "Send a confirmation text message" %}
+{% set title =  "Print and send the form and cover note" %}
+
 
 {% block csi %}
 
-<p>Open REACH and select the <strong>CSI confirmation</strong> template.</p>
 
-<p>Send the text message to 07192838482.</p>
+<p>Find the application form and cover note on the shared drive. Print and send
+   it to the following address:</p>
+
+  <div class="govuk-inset-text">
+  12 Barley Street<br>
+  Birmingham<br>
+  B2 8FG
+</div>
+
+
 
 {{ govukRadios({
-    classes: "govuk-radios--inline",
-       idPrefix: "notifications",
-       name: "notifications",
+      classes: "govuk-radios--inline",
+       idPrefix: "claim",
+       name: "claim",
        fieldset: {
          legend: {
-           text: "Have you sent the text message?",
+           text: "Have you printed and sent the form and cover note?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }

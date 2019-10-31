@@ -72,18 +72,10 @@
 {% if data['send'] =="yes" %}
 <strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong>{% endif %}
 </li>
+
 <li class="app-task-list__item">
   <span class="app-task-list__task-name">
     <a href="send/2" aria-describedby="read-declaration-completed">
-      Send a confirmation text message
-    </a>
-  </span>
-{% if  data['notifications'] == "yes" %}
-<strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong> {% endif %}
-</li>
-<li class="app-task-list__item">
-  <span class="app-task-list__task-name">
-    <a href="send/3" aria-describedby="read-declaration-completed">
       Print and send the form and cover note
     </a>
   </span>
