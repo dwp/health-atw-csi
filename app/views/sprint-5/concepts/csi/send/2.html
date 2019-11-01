@@ -2,7 +2,7 @@
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
-{% set title =  "Print and send the form and cover note" %}
+{% set title =  "Fill out the application form" %}
 
 
 {% block csi %}
@@ -11,7 +11,7 @@
 <p>Download the form and fill in the following information.</p>
 
 
-<h2 class="govuk-heading-m">Page 1</h2>
+<h2 class="govuk-heading-m">Page 1: Applicant details</h2>
 
      {{ govukSummaryList({
        classes: 'govuk-!-margin-bottom-9',
@@ -83,7 +83,7 @@
        ]
      }) }}
 
-     <h2 class="govuk-heading-m">Page 2</h2>
+     <h2 class="govuk-heading-m">Page 2: Details of interview</h2>
 
           {{ govukSummaryList({
             classes: 'govuk-!-margin-bottom-9',
@@ -141,7 +141,7 @@
 
 <p class="govuk-body">Nothing</p>
 
-<h2 class="govuk-heading-m">Page 4</h2>
+<h2 class="govuk-heading-m">Page 4: Approval</h2>
 
      {{ govukSummaryList({
        classes: 'govuk-!-margin-bottom-9',
@@ -209,7 +209,7 @@
    <p class="govuk-body">Nothing</p>
 
 
-   <h2 class="govuk-heading-m">Page 8</h2>
+   <h2 class="govuk-heading-m">Page 8: Applicant declaration</h2>
 
         {{ govukSummaryList({
           classes: 'govuk-!-margin-bottom-9',
