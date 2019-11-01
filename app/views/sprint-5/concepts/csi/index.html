@@ -4,53 +4,46 @@
 
 {% block csi %}
 
-{% if not interview %}
+{% macro taskListItem(title="'title'", link='#', completed='', locked='') %}
+
+<li class="app-task-list__item">
+  <span class="app-task-list__task-name">
+  {% if not locked %}  <a href="{{link}}" aria-describedby="eligibility-completed"> {% endif %}
+      {{title}}
+    {% if not locked %}   </a> {% endif %}
+  </span>
+{% if completed %}
+<strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+{% elif locked %}
+<!-- Can't start yet -->
+<strong class="govuk-tag app-task-list__task-completed" style="color: black; background: white" id="eligibility-locked">Can't start yet</strong>
+
+{% else %}{% endif %}
+</li>
+
+
+{% endmacro %}
+
+
               <ol class="app-task-list">
                       <li>
                         <h2 class="app-task-list__section">
                           <span class="app-task-list__section-number">1. </span> Review and decide
                         </h2>
                         <ul class="app-task-list__items">
-                          <li class="app-task-list__item">
-                            <span class="app-task-list__task-name">
-                              <a href="check/1" aria-describedby="eligibility-completed">
-                                Check personal details
-                              </a>
-                            </span>
-                          {% if data['personal'] %}
-                          <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>{% endif %}
-                          </li>
+
+{{taskListItem(title="Check personal details", link="check/1", completed=(data['personal'] or interview or waiting or verified), locked=(interview or waiting or verified))}}
 
 
-                          <li class="app-task-list__item">
-                            <span class="app-task-list__task-name">
-                              <a href="check/2" aria-describedby="eligibility-completed">
-                                Check for appointee
-                              </a>
-                            </span>
-                {% if data['appointee'] %}
-                <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>{% endif %}
-                          </li>
+{{taskListItem(title="Check for appointee", link="check/2", completed=(data['appointee'] or interview or waiting or verified), locked=(interview or waiting or verified))}}
 
-                          <li class="app-task-list__item">
-                            <span class="app-task-list__task-name">
-                              <a href="check/3" aria-describedby="eligibility-completed">
-                                Check company details
-                              </a>
-                            </span>
-                          {% if data['company'] %}
-                          <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>{% endif %}
-                          </li>
+{{taskListItem(title="Check company details", link="check/3", completed=(data['company'] or interview or waiting or verified), locked=(interview or waiting or verified))}}
 
-                          <li class="app-task-list__item">
-                            <span class="app-task-list__task-name">
-                              <a href="check/4" aria-describedby="eligibility-completed">
-                                Check interview details
-                              </a>
-                            </span>
-  {% if data['interview'] %}
-  <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>{% endif %}
-                          </li>
+{{taskListItem(title="Check interview details", link="check/4", completed=(data['interview'] == "yes" or interview or waiting or verified), locked=(interview or waiting or verified))}}
+
+
+
+
 </ul>
 </li>
 </ol>
@@ -63,31 +56,18 @@
           <ul class="app-task-list__items">
 
 
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a href="send/1" aria-describedby="read-declaration-completed">
-                  Send a confirmation email
-                </a>
-              </span>
-{% if data['send'] =="yes" %}
-<strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong>{% endif %}
-</li>
+            {{taskListItem(title="Send a confirmation email", link="send/1", completed=(data['send'] == "yes" or interview or waiting ), locked=(data['claim'] == "yes" or interview or waiting) ) }}
 
-<li class="app-task-list__item">
-  <span class="app-task-list__task-name">
-    <a href="send/2" aria-describedby="read-declaration-completed">
-      Print and send the form and cover note
-    </a>
-  </span>
-{% if data['claim'] == "yes" %}
-<strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong>{% endif %}
-</li>
+            {{taskListItem(title="Print and send the form and cover note", link="send/2", completed=(data['claim'] == "yes" or interview or waiting), locked=(data['claim'] == "yes" or interview or waiting) )}}
+
+
+
 
 </ul>
 </li>
 </ol>
 
-{% else %}  <!-- scenario if interview is true -->
+
 <ol class="app-task-list">
         <li>
                         <h2 class="app-task-list__section">
@@ -97,32 +77,15 @@
 
                         <ul class="app-task-list__items">
 
-                          <li class="app-task-list__item">
-                            <span class="app-task-list__task-name">
-                              <a href="contact/index">
-                                Contact employer
-                              </a>
-                            </span>
-                            {% if data['employer'] =="yes" %}<strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong> {% elif data['sent-email'] %}<!--<strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">In progress</strong>-->{% endif %}
+    {{taskListItem(title="Contact employer", link="contact/index", completed=(data['employer'] =="yes"), locked=(not interview or data['claim'] == "yes" ))}}
 
-                          </li>
-                          <li class="app-task-list__item">
-                            <span class="app-task-list__task-name">
-                              <a href="confirm/1" aria-describedby="company-information-completed">
-                                Confirm interview took place
+    {{taskListItem(title="Confirm interview took place", link="confirm/1", completed=(data['confirm'] =="yes"), locked=(not interview or data['claim'] == "yes"))}}
 
-
-                              </a>
-                            </span>
-                            {% if data['confirm'] =="yes" %}<strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong> {% endif %}
-
-                                              </li>
 
                         </ul>
                       </li>
                     </ol>
 
-{% endif %}
 
 
 {% endblock %}
@@ -144,6 +107,10 @@
         {
           href: "index",
           text: "Index before interview"
+        },
+        {
+          href: "index-verified",
+          text: "Index verified"
         },
         {
           href: "index-waiting",
