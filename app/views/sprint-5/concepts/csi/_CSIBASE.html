@@ -32,13 +32,11 @@
                     <a href="#">Interview</a>
                   </li> -->
 
-        {% if interview %}
 
                   <li>
                     <a href="{% if not (page == 'evidence') %}evidence{% else %}#" class="active" aria-current="section{% endif %}">Evidence</a>
                   </li>
 
-      {% endif %}
                 </ul>
               </nav>
 
@@ -76,7 +74,7 @@
           </li>
 {% endif %}
 
-{% if interview or (data['notifications'] =="yes") %}
+{% if interview or (data['send'] =="yes") %}
           <li class="dwp-timeline__entry">
             <h3 class="govuk-heading-s dwp-timeline__title">Confirmation sent</h3>
             <p class="dwp-timeline__info">
