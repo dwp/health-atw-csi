@@ -8,8 +8,8 @@
 {% block csi %}
 
 
-<p>Send an email to Thomas Brown to confirm that their application for an interview on
-  1 November at Tesco has been approved.
+<p>Send an email to {{data['csi-info'][0]['name']}} to confirm that their application for an interview on
+  {{data['csi-info'][0]['interview-date-day']}} {{data['csi-info'][0]['interview-date-month'] | toMonth }} at {{data['csi-info'][0]['company-name']}} has been approved.
 
   <p class="govuk-body">Include in the email that:</p>
   <ul class="govuk-list govuk-list--bullet">
@@ -18,9 +18,13 @@
     <li>they should get in touch if anything changes</li>
   </ul>
 
-  <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-    Open new email
-  </button>
+
+  {{ govukButton({
+    text: "Open new email",
+    classes: "govuk-button--secondary",
+    href: "mailto:" + data['csi-info'][0]['contact-by-email']
+  }) }}
+
 
 <br>
 </br>
