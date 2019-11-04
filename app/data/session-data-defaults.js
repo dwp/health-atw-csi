@@ -103,13 +103,13 @@ module.exports = {
     'company-address-county': 'Midlands',
     'company-address-postcode': 'B4 8RT',
     'company-email-address': 'terry.gibson@tesco.com',
-    'company-phone': '07987654678',
+    'company-phone': '07987 654 678',
     'duration': '1 hour',
     'interviewer-name': 'Terry Gibson',
     'interviewer-contact-preference': 'Email',
-    'support-worker-pay': '200',
+    'support-worker-pay': '£200',
     'contact-by-email': 'thomas.brown@outlook.com',
-    'contact-by-phone': '07192838482'
+    'contact-by-phone': '07192 838 482'
 
   }, {
     'name': 'Sam Andrews',
