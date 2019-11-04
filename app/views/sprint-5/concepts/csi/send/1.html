@@ -8,20 +8,22 @@
 {% block csi %}
 
 
-<p>Copy and paste the following text into an email and send it to:
-  <strong>{{ data['csi-info'][0]['contact-by-email'] | safe }}</strong></p>
+<p>Send an email to Thomas Brown to confirm that their application for an interview on
+  1 November at Tesco has been approved.
 
+  <p class="govuk-body">The email should include the following information:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>The interpreter or support worker can be confirmed</li>
+    <li>The employer will be contacted after the interview</li>
+    <li>How to get in touch if anything changes</li>
+  </ul>
 
-  <div class="govuk-inset-text">
-  Your application for interview support<br>
-  <br>
-  Your application for Communication Support at Interview has been accepted.
-  You can now confirm and book your sign language interpreter or support worker.
-  If you need to make any changes to your personal information or interview details,
-  reply to this email or call us on 0800 121 7479.
-</div>
+  <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+    Open new email
+  </button>
 
-
+<br>
+</br>
 {{ govukRadios({
     classes: "govuk-radios--inline",
        idPrefix: "send",
