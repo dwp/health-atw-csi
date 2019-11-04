@@ -7,19 +7,16 @@
 
 {% block csi %}
 
-<p>Check that Thomas Brown attended the interview.</p>
+<p>Send an email to check whether Thomas Brown attended the interview at Tesco on
+  1 November with an interpreter or support worker.
+<br>
+</br>
 
-<p>Copy and paste the following text into an email and send it to:
-  <strong>{{ data['csi-info'][0]['company-email-address'] }}</strong></p>
+  <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+    Open new email
+  </button>
 
-  <div class="govuk-inset-text">
-  DWP confirmation of interview attendance<br>
-  <br>
-  Thomas Brown told us that they would be attending an interview at Tesco on 1
-  November 2019. We need confirmation that Thomas attended the interview so that
-  we can pay for the communication support costs.
-</div>
-
+<br>
 
 {{ govukRadios({
 

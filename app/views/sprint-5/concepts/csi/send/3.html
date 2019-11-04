@@ -2,14 +2,13 @@
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
-{% set title =  "Print and send the form and cover note" %}
+{% set title =  "Print and send the form" %}
 
 
 {% block csi %}
 
 
-<p>Find the application form and cover note on the shared drive. Print and send
-   it to the following address:</p>
+<p>Print and send the form to the following address:</p>
 
   <div class="govuk-inset-text">
   12 Barley Street<br>
@@ -25,7 +24,7 @@
        name: "claim",
        fieldset: {
          legend: {
-           text: "Have you printed and sent the form and cover note?",
+           text: "Have you printed and sent the form?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
