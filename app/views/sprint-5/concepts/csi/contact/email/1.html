@@ -7,14 +7,19 @@
 
 {% block csi %}
 
-<p>Send an email to check whether Thomas Brown attended the interview at Tesco on
-  1 November with an interpreter or support worker.
-<br>
-</br>
 
-  <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-    Open new email
-  </button>
+
+
+<p>Send an email to check whether {{data['csi-info'][0]['name']}} attended the interview at {{data['csi-info'][0]['company-name']}} on
+  {{data['csi-info'][0]['interview-date-day']}} {{data['csi-info'][0]['interview-date-month'] | toMonth }} with an interpreter or support worker.
+</p>
+<p>
+
+  {{ govukButton({
+    text: "Open new email",
+    classes: "govuk-button--secondary",
+    href: "mailto:" + data['csi-info'][0]['company-email-address']
+  }) }}
 
 <br>
 
