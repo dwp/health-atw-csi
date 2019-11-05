@@ -35,3 +35,20 @@
 </div>
 
 {% endblock %}
+
+
+{% if redirect %}
+
+{% block pageScripts %}
+
+ <script>
+{% for i in redirect %}
+ $( "#{{i.id}}" ).click(function() {
+  $("form").attr("action", "{{i.page}}")
+ });
+ {%- endfor  %}
+
+ </script>
+
+ {% endblock %}
+ {% endif %}
