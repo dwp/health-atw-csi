@@ -70,13 +70,23 @@
           </li>
 {% endif %}
 
+{% if phase == "interview" or (data['claim'] =="yes") %}
+          <li class="dwp-timeline__entry">
+            <h3 class="govuk-heading-s dwp-timeline__title">Claim form sent</h3>
+            <p class="dwp-timeline__info">
+              <span class="dwp-timeline__date">24 October 2019 at 9:20am</span>
+            </p>
+<!-- <p><a class="govuk-link" href="send/1">Print and send claim form again</a></p> -->
+          </li>
+{% endif %}
+
 {% if phase == "interview" or (data['send'] =="yes") %}
           <li class="dwp-timeline__entry">
             <h3 class="govuk-heading-s dwp-timeline__title">Confirmation sent</h3>
             <p class="dwp-timeline__info">
               <span class="dwp-timeline__date">24 October 2019 at 9:20am</span>
             </p>
-
+<!-- <p><a class="govuk-link" href="send/1">Send email again</a></p> -->
           </li>
 {% endif %}
 

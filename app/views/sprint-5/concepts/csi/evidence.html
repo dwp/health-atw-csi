@@ -15,7 +15,6 @@
 {% endif %}
 
     {{ govukSummaryList({
-      classes: 'govuk-!-margin-bottom-9',
       rows: [
         {
           key: {
@@ -33,10 +32,33 @@
               }
             ]
           }
+        },
+        {
+          key: {
+            text: "[Claim form received]"
+          },
+          value: {
+            text: "Not received"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
         }
       ]
     }) }}
 
+<!--
+<p> <a href="send/1" class="govuk-link">Send confirmation email again</a></p>
+
+
+<p> <a href="send/2" class="govuk-link">Print and send the form and cover note again</a></p>
+-->
 
 
 <h2 class="govuk-heading-m govuk-!-margin-top-6">Interview with employer</h2>
