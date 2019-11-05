@@ -57,7 +57,8 @@
 
             {{taskListItem(title="Send a confirmation email", link="send/1", completed=(data['send'] == "yes" or phase == "interview" or phase == "waiting"), editable="true", locked=(phase == "interview" or phase == "waiting" or not (data['interview'] == "Yes")) ) }}
 
-            {{taskListItem(title="Print and send the form and cover note", link="send/2", editable="true", completed=(data['claim'] == "yes" or phase == "interview" or phase == "waiting"), locked=(phase == "interview" or phase == "waiting" or not (data['send'] == "yes")) )}}
+            {{taskListItem(title="Print and send the form", link="send/2", completed=(data['claim'] == "yes" or interview or waiting), locked=(data['claim'] == "yes" or interview or waiting) )}}
+
 
 
 

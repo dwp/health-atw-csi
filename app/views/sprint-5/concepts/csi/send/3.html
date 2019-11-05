@@ -1,14 +1,14 @@
-{% set link = "4" %}
+{% set link = "complete" %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
-{% set title =  "[cover page scene]" %}
+{% set title =  "Print and send the form" %}
 
 
 {% block csi %}
 
 
-<p>[Print and send the form to the following address:]</p>
+<p>Print and send the form to the following address:</p>
 
   <div class="govuk-inset-text">
   12 Barley Street<br>
@@ -20,11 +20,11 @@
 
 {{ govukRadios({
       classes: "govuk-radios--inline",
-       idPrefix: "cover",
-       name: "cover",
+       idPrefix: "claim",
+       name: "claim",
        fieldset: {
          legend: {
-           text: "[Have you printed and sent the form?]",
+           text: "Have you printed and sent the form?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
