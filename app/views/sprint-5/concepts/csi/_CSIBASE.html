@@ -48,6 +48,18 @@
 
       <div class="govuk-grid-column-one-third">
         <h2 class="govuk-heading-m">Case history</h2>
+
+        {% if phase == "interview" or (data['claim'] =="yes") %}
+                 <p><a  href="send/2">Print and send claim form again</a></p>
+  <!--              {{ govukButton({
+                  text: "Print and send claim form again",
+                  classes: "govuk-button--secondary",
+                  href: "send/2"
+                }) }}
+-->
+        {% endif %}
+
+
         <ol class="dwp-timeline">
 
 {% if  data['employer'] =="yes" %}
