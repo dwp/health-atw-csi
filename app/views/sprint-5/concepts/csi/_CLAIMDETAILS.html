@@ -69,22 +69,7 @@
 {% endif %}
   </div>
 
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key ">
-      Are they Deaf?
-    </dt>
-    <dd class="govuk-summary-list__value">
-      {{data['deaf']| default("Yes") | safe }}
-    </dd>
-{% if not hideChange %}
-    <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="#">
-        Change
-        <span class="govuk-visually-hidden"></span>
-      </a>
-    </dd>
-{% endif %}
-  </div>
+
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key ">
@@ -170,6 +155,23 @@
 {% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="interview-date">
+        Change
+        <span class="govuk-visually-hidden"></span>
+      </a>
+    </dd>
+{% endif %}
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key ">
+      Condition
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Deaf
+    </dd>
+{% if not hideChange %}
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
         Change
         <span class="govuk-visually-hidden"></span>
       </a>
