@@ -69,6 +69,13 @@
 
 {% endif %}
 
+{% if phase == "waiting" or  data['claim'] == "yes" %}
+<p>You currently have no tasks. The case will be available in <strong>Your priority cases</strong>
+  after the interview date.</p>
+
+{% endif %}
+
+
 {% if phase == "same-day" or phase == "interview" %}
 
 <ol class="app-task-list">
