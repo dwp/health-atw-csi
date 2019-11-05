@@ -2,7 +2,7 @@
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
-{% set title =  "Check for appointee" %}
+{% set title =  "Does " + data['csi-info'][0]['name']  + " have an appointee?" %}
 
 
 {% block csi %}
@@ -14,13 +14,7 @@
   classes: "govuk-radios--inline",
        idPrefix: "appointee",
        name: "appointee",
-       fieldset: {
-         legend: {
-           text: "Does " + data['csi-info'][0]['name']  + " have an appointee?",
-           isPageHeading: false,
-           classes: "govuk-fieldset__legend--m"
-         }
-       },
+
        items: [
          {
            value: "yes",
