@@ -7,31 +7,22 @@
 {% block csi %}
 
 {{ govukRadios({
-  idPrefix: "changed-name",
-  name: "changed-name",
+  name: "unhappy-name",
   fieldset: {
     legend: {
-      text: "[what do you need to do?]",
+      text: "[what is the problem?]",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--xl"
     }
   },
   items: [
     {
-      value: "yes",
-      text: "[correct text only]"
+      value: "typo",
+      text: "[typo]"
     },
     {
-      value: "no",
-      text: "[update Searchlight with new details]"
-    },
-    {
-      value: "no",
-      text: "[add user to Searchlight]"
-    },
-    {
-      value: "no",
-      text: "[contact the citizen with further information]"
+      value: "info",
+      text: "[need further information]"
     }
   ]
 }) }}

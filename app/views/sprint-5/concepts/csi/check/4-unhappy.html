@@ -7,11 +7,10 @@
 {% block csi %}
 
 {{ govukRadios({
-  idPrefix: "changed-name",
-  name: "changed-name",
+  name: "unhappy-interview",
   fieldset: {
     legend: {
-      text: "[what do you need to do?]",
+      text: "[what do you need more information about?]",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--xl"
     }
@@ -19,19 +18,15 @@
   items: [
     {
       value: "yes",
-      text: "[correct text only]"
+      text: "[interview length]"
     },
     {
       value: "no",
-      text: "[update Searchlight with new details]"
+      text: "[cost]"
     },
     {
       value: "no",
-      text: "[add user to Searchlight]"
-    },
-    {
-      value: "no",
-      text: "[contact the citizen with further information]"
+      text: "[both interview length and cost]"
     }
   ]
 }) }}
