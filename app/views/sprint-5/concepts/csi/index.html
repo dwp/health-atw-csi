@@ -4,13 +4,13 @@
 
 {% block csi %}
 
-{% macro taskListItem(title="'title'", link='#', completed='', locked='', editable='') %}
+{% macro taskListItem(title="'title'", link='#', completed='', locked='' ) %}
 
 <li class="app-task-list__item">
   <span class="app-task-list__task-name">
-  {% if not locked or (completed and editable)  %}  <a href="{{link}}" aria-describedby="eligibility-completed"> {% endif %}
+  {% if not (locked or completed)  %}  <a href="{{link}}" aria-describedby="eligibility-completed"> {% endif %}
       {{title}}
-    {% if not locked or (completed and editable) %}   </a> {% endif %}
+    {% if not (locked or completed)  %}   </a> {% endif %}
   </span>
 {% if completed %}
 <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
@@ -55,9 +55,9 @@
           <ul class="app-task-list__items" style="padding-left:0">
 
 
-            {{taskListItem(title="Send a confirmation email", link="send/1", completed=(data['send'] == "yes" or phase == "interview" or phase == "waiting"), editable="true", locked=(phase == "interview" or phase == "waiting" or not (data['interview'] == "Yes")) ) }}
+            {{taskListItem(title="Send a confirmation email", link="send/1", completed=(data['send'] == "yes" or phase == "interview" or phase == "waiting"),  locked=(not (data['interview'] == "yes")) ) }}
 
-            {{taskListItem(title="Print and send the form", link="send/2", completed=(data['claim'] == "yes" or interview or waiting), locked=(data['claim'] == "yes" or interview or waiting) )}}
+            {{taskListItem(title="Print and send the form", link="send/2", completed=(data['claim'] == "yes" or interview or waiting), locked=(not data['send']) )}}
 
 
 
@@ -69,7 +69,8 @@
 
 {% endif %}
 
-{% if phase == "waiting" or  data['claim'] == "yes" %}
+{% if phase == "waiting" %}<br/>{% endif %}
+{% if phase == "waiting" or (data['claim'] == "yes" and not (phase == "same-day") )%}
 <p>You currently have no tasks. The case will be available in <strong>Your priority cases</strong>
   after the interview date.</p>
 

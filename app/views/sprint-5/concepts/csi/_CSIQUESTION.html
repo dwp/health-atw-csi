@@ -1,13 +1,6 @@
 {% extends folder + "/" + subfolder + "/_BASE.html" %}
 
-{% if not hideBack %}
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: 'javascript:history.back(-1)'
-  }) }}
-{% endblock %}
-{% endif %}
+
 
 {% block content %}
 
