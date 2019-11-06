@@ -1,6 +1,7 @@
 {% set link = "3" %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+{% set redirect = [{id : "yes", page: "appointee" }, {id: "no", page: link }] %}
 
 {% set title =  "Does " + data['csi-info'][0]['name']  + " have an appointee?" %}
 
@@ -12,15 +13,16 @@
 
 {{ govukRadios({
   classes: "govuk-radios--inline",
-       idPrefix: "appointee",
        name: "appointee",
 
        items: [
          {
+           id: "yes",
            value: "yes",
            text: "Yes"
          },
          {
+           id: "no",
            value: "no",
            text: "No"
          }
