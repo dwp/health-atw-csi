@@ -1,0 +1,42 @@
+{% set link = "details-needed" %}
+{% set personalDetails =  true  %}
+{% set hideChange = true %}
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+<!-- {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %} -->
+
+{% block csi %}
+
+{{ govukRadios({
+  idPrefix: "changed-name",
+  name: "changed-name",
+  fieldset: {
+    legend: {
+      text: "[what do you need to do?]",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "[correct text only]"
+    },
+    {
+      value: "no",
+      text: "[update Searchlight with new details]"
+    },
+    {
+      value: "no",
+      text: "[add user to Searchlight]"
+    },
+    {
+      value: "no",
+      text: "[contact the citizen with further information]"
+    }
+  ]
+}) }}
+
+
+
+
+{% endblock %}
