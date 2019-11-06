@@ -20,11 +20,29 @@
           text: "Save and continue"
         }) }}
 
-<P><a href="/{{folder}}/{{subfolder}}/csi/index{% if interviewLink %}-interview{% endif  %}" class="govuk-link govuk-link--no-visited-state">Return to tasks</a></p>
 
 </form>
 {% endif %}
+<P><a href="/{{folder}}/{{subfolder}}/csi/index{% if interviewLink %}-interview{% endif  %}" class="govuk-link govuk-link--no-visited-state">Return to tasks</a></p>
+
 </div>
 </div>
 
 {% endblock %}
+
+
+{% if redirect %}
+
+{% block pageScripts %}
+
+ <script>
+{% for i in redirect %}
+ $( "#{{i.id}}" ).click(function() {
+  $("form").attr("action", "{{i.page}}")
+ });
+ {%- endfor  %}
+
+ </script>
+
+ {% endblock %}
+ {% endif %}

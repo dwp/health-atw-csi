@@ -1,23 +1,22 @@
-{% set link = "complete" %}
-{% set interviewDetails =  true  %}
-{% set hideChange = true %}
+{% set link = "../" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "4-unhappy"}] %}
 
-{% set title =  "Are these details complete and the cost reasonable?" %}
+{% set title =  "[contact the application with about this information]" %}
 
 
 {% block csi %}
 
-
-{% include folder + "/" + subfolder + "/csi/_CLAIMDETAILS.html" %}
+<p>[list of information and how to contact the citizen]</p>
 
 {{ govukRadios({
   classes: "govuk-radios--inline",
-       idPrefix: "interview",
-       name: "interview",
+       name: "needed",
        fieldset: {
-
+         legend: {
+           text: "[have you contacted John Smith about the details?]",
+           isPageHeading: false,
+           classes: "govuk-fieldset__legend--m"
+         }
        },
        items: [
          {

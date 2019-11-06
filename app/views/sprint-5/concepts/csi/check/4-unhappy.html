@@ -1,0 +1,37 @@
+{% set link = "details-needed" %}
+{% set personalDetails =  true  %}
+{% set hideChange = true %}
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+<!-- {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %} -->
+
+{% block csi %}
+
+{{ govukRadios({
+  name: "unhappy-interview",
+  fieldset: {
+    legend: {
+      text: "[what do you need more information about?]",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "[interview length]"
+    },
+    {
+      value: "no",
+      text: "[cost]"
+    },
+    {
+      value: "no",
+      text: "[both interview length and cost]"
+    }
+  ]
+}) }}
+
+
+
+
+{% endblock %}
