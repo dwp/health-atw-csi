@@ -1,0 +1,23 @@
+{% set link = "3" %}
+
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+
+{% set title =  "[Add appointee details for " + data['csi-info'][0]['name']  + "]" %}
+
+
+{% block csi %}
+
+<p>[Copy information for {{ data['csi-info'][0]['name'] | safe }}’s appointee on Searchlight.]</p>
+
+<p>Potentially to add: </p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>name of person</li>
+  <li>address (if there's residential or correspondence address it needs to be correspondence)</li>
+  <li>contact information (Searchlight has email, and several types of phone details, how much do we need to add?)</li>
+</ul>
+
+<p>[reassurance that they can change this later in the Claim details section Should this be a separate section under appointee?]</p>
+
+
+{% endblock %}
