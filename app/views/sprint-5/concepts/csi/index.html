@@ -33,6 +33,12 @@
 {% endif %}
 
 
+<br>
+{{ govukWarningText({
+  html: "You need more information from the applicant. <a href=''>Check and add details</a>",
+  iconFallbackText: "Warning"
+}) }}
+
 {% if not (phase == "interview" ) and not (phase == "waiting") %}
               <ol class="app-task-list">
                       <li>
