@@ -108,7 +108,7 @@ module.exports = {
     'interviewer-name': 'Terry Gibson',
     'interviewer-contact-preference': 'Email',
     'support-worker-pay': '200',
-    'contact-by-email': 'thomas.brown@outlook.com',
+    'contact-by-email': 'quarryhouse.atwresearch@dwp.gov.uk',
     'contact-by-phone': '07192 838 482'
 
   }, {

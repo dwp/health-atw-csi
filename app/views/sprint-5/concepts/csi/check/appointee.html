@@ -9,13 +9,152 @@
 
 <p>[Copy information for {{ data['csi-info'][0]['name'] | safe }}’s appointee on Searchlight.]</p>
 
-<p>Potentially to add: </p>
+{% from "govuk/components/input/macro.njk" import govukInput %}
 
-<ul class="govuk-list govuk-list--bullet">
+{{ govukInput({
+  label: {
+    text: "Name"
+  },
+  id: "appointee-name",
+  name: "appointee-name"
+}) }}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% call govukFieldset({
+  legend: {
+    text: "What is thier correspondence address?",
+    classes: "govuk-fieldset__legend--m",
+    isPageHeading: true
+  }
+}) %}
+
+  {{ govukInput({
+    label: {
+      html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+    },
+    id: "appointee-address-line-1",
+    name: "appointee-address-line-1"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+    },
+    id: "appointee-address-line-2",
+    name: "appointee-address-line-2"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Town or city"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "appointee-address-town",
+    name: "appointee-address-town"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "County"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "appointee-address-county",
+    name: "appointee-address-county"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Postcode"
+    },
+    classes: "govuk-input--width-10",
+    id: "appointee-address-postcode",
+    name: "appointee-address-postcode"
+  }) }}
+
+
+  {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+
+  {% set emailHtml %}
+  {{ govukInput({
+    id: "appointee-email",
+    name: "appointee-email",
+    type: "email",
+    classes: "govuk-!-width-one-third",
+    label: {
+      text: "Email address"
+    },
+    attributes: {
+      spellcheck: "false"
+    }
+  }) }}
+  {% endset -%}
+
+  {% set phoneHtml %}
+  {{ govukInput({
+    id: "appointee-contact-phone",
+    name: "appointee-contact-phone",
+    type: "tel",
+    classes: "govuk-!-width-one-third",
+    label: {
+      text: "Phone number"
+    }
+  }) }}
+  {% endset -%}
+
+  {% set textHtml %}
+  {{ govukInput({
+    id: "contact-by-text",
+    name: "contact-by-text",
+    type: "tel",
+    classes: "govuk-!-width-one-third",
+    label: {
+      text: "Mobile phone number"
+    }
+  }) }}
+  {% endset -%}
+
+  {{ govukCheckboxes({
+    idPrefix: "citizenship-conditional",
+    name: "citizen",
+    fieldset: {
+      legend: {
+        text: "How would you like to be contacted?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      text: "Select all options that are relevant to you."
+    },
+    items: [
+      {
+        value: "email",
+        text: "Email",
+        conditional: {
+          html: emailHtml
+        }
+      },
+      {
+        value: "phone",
+        text: "Phone",
+        conditional: {
+          html: phoneHtml
+        }
+      }
+    ]
+  }) }}
+
+
+
+{% endcall %}
+<!--<ul class="govuk-list govuk-list--bullet">
   <li>name of person</li>
   <li>address (if there's residential or correspondence address it needs to be correspondence)</li>
   <li>contact information (Searchlight has email, and several types of phone details, how much do we need to add?)</li>
-</ul>
+</ul>-->
 
 <p>[reassurance that they can change this later in the Claim details section Should this be a separate section under appointee?]</p>
 
