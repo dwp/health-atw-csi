@@ -41,7 +41,7 @@
                         </h2>
                         <ul class="app-task-list__items" style="padding-left: 0">
 
-                          {{taskListItem(title="[Check for details on Searchlight]", link="check/0", completed=(data['searchlight'] or phase == "interview" or phase == "waiting" ), locked=(phase == "interview" or phase == "waiting"))}}
+                          {{taskListItem(title="Find applicant on Searchlight", link="check/0", completed=(data['searchlight'] or phase == "interview" or phase == "waiting" ), locked=(phase == "interview" or phase == "waiting"))}}
 
 
                           {{taskListItem(title="Check for appointee", link="check/1", completed=(data['appointee'] or phase == "interview" or phase == "waiting" ), locked=(phase == "interview" or phase == "waiting" or not data['searchlight'] ))}}
@@ -54,9 +54,6 @@
 {{taskListItem(title="Check company details", link="check/3", completed=(data['company'] or phase == "interview" or phase == "waiting"), locked=(phase == "interview" or phase == "waiting"  or not data['appointee']))}}
 
 {{taskListItem(title="Check interview details", link="check/4", completed=(data['interview'] == "yes" or phase == "interview" or phase == "waiting"), locked=(phase == "interview" or phase == "waiting" or not data['company']))}}
-
-
-{{taskListItem(title="[check if you need more details from the applicant]", link="check/details-needed", completed=(data['interview'] == "yes" or phase == "interview" or phase == "waiting"), locked=((not data['interview']) or phase == "interview" or phase == "waiting"))}}
 
 
 
