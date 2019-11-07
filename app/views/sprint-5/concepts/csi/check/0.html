@@ -4,9 +4,11 @@
 
 {% block csi %}
 
-<h1 class="govuk-heading-xl">[check for details on searchlight]</h1>
+<h1 class="govuk-heading-xl">Find Thomas Brown on Searchlight</h1>
 
-<p>Check for {{data['csi-info'][0]['name']}} and {{ data['csi-info'][0]['dob-day'] | safe }} {{ data['csi-info'][0]['dob-month']| safe }} {{ data['csi-info'][0]['dob-year'] | safe }}.</p>
+<p>Use Searchlight to find {{data['csi-info'][0]['name']}}. Their date of birth is
+  {{ data['csi-info'][0]['dob-day'] | safe }} {{ data['csi-info'][0]['dob-month']| safe }}
+  {{ data['csi-info'][0]['dob-year'] | safe }}.</p>
 
 
 
@@ -16,7 +18,7 @@
        name: "searchlight",
        fieldset: {
          legend: {
-           text: "[can you find them?]",
+           text: "Have you found Thomas Brown?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
