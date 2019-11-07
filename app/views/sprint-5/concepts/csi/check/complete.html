@@ -3,11 +3,10 @@
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "details-needed"}] %}
 
-{% set title =  "[all information completed]" %}
-
+{% set title =  "All details checked and approved" %}
 
 {% block csi %}
-
+<p>You have checked the application and all information is complete.</p>
 
 {{ govukButton({
   href: "../send/1" ,

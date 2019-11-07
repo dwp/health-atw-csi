@@ -1,12 +1,16 @@
 {% set link = "1" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "0-unhappy"}] %}
+{% set title =  "Find " + data['csi-info'][0]['name']  + " on Searchlight" %}
+
 
 {% block csi %}
 
-<h1 class="govuk-heading-xl">[check for details on searchlight]</h1>
 
-<p>Check for {{data['csi-info'][0]['name']}} and {{ data['csi-info'][0]['dob-day'] | safe }} {{ data['csi-info'][0]['dob-month']| safe }} {{ data['csi-info'][0]['dob-year'] | safe }}.</p>
+
+<p>Use Searchlight to find {{data['csi-info'][0]['name']}}. Their date of birth is
+  {{ data['csi-info'][0]['dob-day'] | safe }} {{ data['csi-info'][0]['dob-month']| safe }}
+  {{ data['csi-info'][0]['dob-year'] | safe }}.</p>
 
 
 
@@ -16,7 +20,7 @@
        name: "searchlight",
        fieldset: {
          legend: {
-           text: "[can you find them?]",
+           text: "Have you found " + data['csi-info'][0]['name'] +  "?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
