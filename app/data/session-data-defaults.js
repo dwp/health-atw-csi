@@ -102,7 +102,7 @@ module.exports = {
     'company-address-town': 'Birmingham',
     'company-address-county': 'Midlands',
     'company-address-postcode': 'B4 8RT',
-    'company-email-address': 'terry.gibson@tesco.com',
+    'company-email-address': 'quarryhouse.atwresearch@dwp.gov.uk',
     'company-phone': '07987 654 678',
     'duration': '1 hour',
     'interviewer-name': 'Terry Gibson',
