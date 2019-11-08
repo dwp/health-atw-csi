@@ -2,18 +2,18 @@
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
-{% set title =  "[Add appointee details for " + data['csi-info'][0]['name']  + "]" %}
+{% set title =  "Add appointee details for " + data['csi-info'][0]['name']  + "" %}
 
 
 {% block csi %}
 
-<p>[Copy information for {{ data['csi-info'][0]['name'] | safe }}’s appointee on Searchlight.]</p>
+<p>Copy information for {{ data['csi-info'][0]['name'] | safe }}’s appointee from Searchlight.</p>
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
 
 {{ govukInput({
   label: {
-    text: "Name"
+    text: "Appointee name"
   },
   id: "appointee-name",
   name: "appointee-name"
@@ -24,7 +24,7 @@
 
 {% call govukFieldset({
   legend: {
-    text: "What is thier correspondence address?",
+    text: "What is their correspondence address?",
     classes: "govuk-fieldset__legend--m",
     isPageHeading: true
   }
@@ -121,13 +121,13 @@
     name: "citizen",
     fieldset: {
       legend: {
-        text: "How would you like to be contacted?",
+        text: "How can we contact them?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--m"
       }
     },
     hint: {
-      text: "Select all options that are relevant to you."
+      text: "Select all options that are available."
     },
     items: [
       {
