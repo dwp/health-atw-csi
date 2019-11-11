@@ -1,33 +1,51 @@
 {% set link = "3" %}
-{% set personalDetails =  true  %}
-{% set hideChange = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 <!-- {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %} -->
-
+{% set title = "[Select details that do not match]" %}
 {% block csi %}
 
-{{ govukRadios({
-  name: "unhappy-name",
-  fieldset: {
-    legend: {
-      text: "What do you need to do?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--xl"
-    }
-  },
-  items: [
-    {
-      value: "typo",
-      text: "Fix minor typing errors"
-    },
-    {
-      value: "info",
-      text: "Contact the applicant to check information"
-    }
-  ]
-}) }}
+
+
+<table class="table-clickable govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+
+      <th class="govuk-table__header">[Field]</th>
+        <th class="govuk-table__header">[Details]</th>
+
+
+    <th class="govuk-table__header" style="padding: 0 10px;">
+      <div class="govuk-checkboxes__item govuk-checkboxes--small">
+        <input type="checkbox" class="govuk-checkboxes__input jsCheckboxAll" id="radio-all">
+        <label class="govuk-label govuk-checkboxes__label" for="radio-all">
+          &nbsp;
+        </label>
+      </div>
+    </th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+
+
+{% set addressText = "<p>" + data['csi-info'][0]['address-line-one'] +  "<br>" + data['csi-info'][0]['address-town'] + "<br>" + data['csi-info'][0]['address-county'] + "<br>" + data['csi-info'][0]['address-postcode']  + "<br></p>"
+ %}
+
+{{selectTable(name="name", section="Name", group="personal", details=data['csi-info'][0]['name'] | safe)}}
+
+{{selectTable(name="dob-day", section="Date of birth", group="personal", details=(data['csi-info'][0]['dob-day']  + " " +  data['csi-info'][0]['dob-month'] | toMonth + " " +  data['csi-info'][0]['dob-year']) | safe  )}}
+
+
+{{selectTable(name="address-line-one", section="Address", group="personal", details=addressText | safe )}}
+
+{{selectTable(name="contact-by-email", section="Email", group="personal", details=data['csi-info'][0]['contact-by-email'] )}}
+
+{{selectTable(name="contact-by-phone", section="Phone", group="personal", details=data['csi-info'][0]['contact-by-phone'] )}}
 
 
 
+  </tbody>
+</table>
+
+<p>[you will get a chance to review all these details later]</p>
 
 {% endblock %}

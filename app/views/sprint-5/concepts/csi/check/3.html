@@ -2,6 +2,7 @@
 {% set companyDetails =  true  %}
 {% set hideChange = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "3-unhappy"}] %}
 
 
 {% block csi %}
@@ -25,12 +26,15 @@
        },
        items: [
          {
+           id: "yes",
            value: "yes",
            text: "Yes"
          },
          {
+           id: "no",
            value: "no",
            text: "No"
+
          }
        ]
      }) }}

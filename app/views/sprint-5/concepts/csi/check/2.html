@@ -2,7 +2,7 @@
 {% set personalDetails =  true  %}
 {% set hideChange = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: link}] %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "2-unhappy"}] %}
 
 {% block csi %}
 
@@ -13,6 +13,8 @@
 
 
 {% include folder + "/" + subfolder + "/csi/_CLAIMDETAILS.html" %}
+
+
 
 {{ govukRadios({
   classes: "govuk-radios--inline",
@@ -34,6 +36,7 @@
            id: "no",
            value: "no",
            text: "No"
+
          }
        ]
      }) }}

@@ -24,3 +24,28 @@ $govuk-assets-path: '/govuk/assets/';
     border-top: 3px solid #2ba197;
     padding-top: 15px;
 }
+
+.table-clickable tbody tr:hover {
+  background-color: #F8F8F8;
+  cursor: pointer;
+}
+
+$selected-colour: #FFECC7;
+
+.table-clickable tbody tr.checked {
+  background-color: #FFECC7;
+}
+
+.table-clickable tbody tr.checked:hover {
+  background-color: darken(#FFECC7, 5%);
+}
+
+.table-clickable {
+
+  .multiple-choice--hod {
+/*   padding: 0.9em 0 0 1.05263em; */
+padding-left: 10px;
+  margin: 0;
+
+  }
+}

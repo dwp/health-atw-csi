@@ -2,13 +2,7 @@
 {% set interviewDetails =  true  %}
 {% set hideChange = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-
-{% if data['personal'] == 'no' or data['company'] == 'no' or data['searchlight'] == "no" %}
-{% set link = "../fix/index" %}
-{% endif %}
-
-
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: link}] %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "4-unhappy"}] %}
 
 {% set title =  "Are these details complete and the cost reasonable?" %}
 

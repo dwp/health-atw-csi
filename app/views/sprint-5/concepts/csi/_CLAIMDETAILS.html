@@ -1,6 +1,16 @@
 
+
+
 {% if claim %}
 <h2 class="govuk-heading-m govuk-!-margin-top-6">Personal details</h2>
+
+{% if data['personal'] == 'no' or  data['searchlight'] == "no"  %}
+{{ govukWarningText({
+  html: "[Information required from applicant in this section]",
+  iconFallbackText: "Warning"
+}) }}
+
+{% endif %}
 {% endif %}
 
 
@@ -127,9 +137,6 @@
 {% endif %}
 </div>
 
-{% if claim %}
-<h2 class="govuk-heading-m govuk-!-margin-top-6">Personal details</h2>
-{% endif %}
 
 
 {% endif %}
@@ -140,6 +147,14 @@
 
 {% if claim %}
   <h2 class="govuk-heading-m govuk-!-margin-top-6">Job interview details</h2>
+
+  {% if data['interview'] == 'no'  %}
+  {{ govukWarningText({
+    html: "[Information required from applicant in this section]",
+    iconFallbackText: "Warning"
+  }) }}
+
+  {% endif %}
 {% endif %}
 {% if interviewDetails or claim %}
   <dl class="govuk-summary-list">
@@ -221,6 +236,13 @@
 {% endif %}
 {% if claim %}
     <h2 class="govuk-heading-m govuk-!-margin-top-6">Company details</h2>
+    {% if data['company'] == 'no'  %}
+    {{ govukWarningText({
+      html: "[Information required from applicant in this section]",
+      iconFallbackText: "Warning"
+    }) }}
+
+    {% endif %}
     {% endif %}
 {% if companyDetails or claim %}
 
