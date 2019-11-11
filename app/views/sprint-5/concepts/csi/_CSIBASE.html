@@ -1,6 +1,22 @@
 {% extends folder + "/" + subfolder + "/_BASE.html" %}
 {% block content %}
 
+
+{% set count = 0 %}
+
+{% if data['personal'] == 'no' or data['company'] == 'no' or data['searchlight'] == "no" %}
+
+{% set array = [data['personal'], data['company'], data['searchlight'], data['interview'] ] %}
+
+
+{% for i in array %}
+  {% if i == "no" %}
+  {% set count = count + 1 %}
+  {% endif %}
+{% endfor %}
+
+{% endif  %}
+
 <div class="govuk-width-container">
 
   <main class="govuk-main-wrapper govuk-!-padding-top-0">
@@ -22,7 +38,7 @@
                     <a href="{% if not (page == 'task-list') %}index{% if phase %}-{{phase}}{% endif %}{% else %}" class="active" aria-current="section{% endif %}">Tasks to complete</a>
                   </li>
                   <li>
-                    <a href="{% if not (page == 'claim') %}claim{% if phase %}-{{phase}}{% endif %}{% else %}" class="active" aria-current="section{% endif %}">Claim details</a>
+                    <a href="{% if not (page == 'claim') %}claim{% if phase %}-{{phase}}{% endif %}{% else %}" class="active" aria-current="section{% endif %}">Claim details {% if count  %}({{count}}){% endif %}</a>
                   </li>
 <!--                  <li>
                     <a href="#">Interview</a>

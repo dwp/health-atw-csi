@@ -15,6 +15,31 @@
   {% set noHtml %}<p>[you will add information about what isn't working later]</p>
   {% endset -%}
 
+
+
+
+  {% macro selectTable(name="", section="", details="", group="" ) %}
+
+  <tr class="govuk-table__row">
+
+    <td class="govuk-table__cell govuk-table__header" >{{section}}</td>
+
+      <td class="govuk-table__cell">{{details}}</td>
+      <td class="govuk-table__cell multiple-choice--hod" style="padding: 0 10px;">
+        <div class="govuk-checkboxes__item govuk-checkboxes--small">
+
+
+          <input type="checkbox" class="govuk-checkboxes__input jsCheckbox" id="radio-{{name}}" name="error[{{group}}]" value="{{name}}">
+          <label class="govuk-label govuk-checkboxes__label" for="radio-{{name}}">
+            &nbsp;
+          </label>
+        </div>
+      </td>
+  </tr>
+
+  {%- endmacro %}
+
+
 {% block csi %}
 
 

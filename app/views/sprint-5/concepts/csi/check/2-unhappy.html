@@ -26,38 +26,20 @@
   </thead>
   <tbody class="govuk-table__body">
 
-{% macro selectTable(name="", section="", details="" ) %}
-
-<tr class="govuk-table__row">
-
-  <td class="govuk-table__cell govuk-table__header" >{{section}}</td>
-
-    <td class="govuk-table__cell">{{details}}</td>
-    <td class="govuk-table__cell multiple-choice--hod" style="padding: 0 10px;">
-      <div class="govuk-checkboxes__item govuk-checkboxes--small">
-        <input type="checkbox" class="govuk-checkboxes__input jsCheckbox" id="radio-{{name}}">
-        <label class="govuk-label govuk-checkboxes__label" for="radio-{{name}}">
-          &nbsp;
-        </label>
-      </div>
-    </td>
-</tr>
-
-{%- endmacro %}
 
 {% set addressText = "<p>" + data['csi-info'][0]['address-line-one'] +  "<br>" + data['csi-info'][0]['address-town'] + "<br>" + data['csi-info'][0]['address-county'] + "<br>" + data['csi-info'][0]['address-postcode']  + "<br></p>"
  %}
 
-{{selectTable(name="1", section="Name", details=data['csi-info'][0]['name'] | safe)}}
+{{selectTable(name="name", section="Name", group="personal", details=data['csi-info'][0]['name'] | safe)}}
 
-{{selectTable(name="2", section="Date of birth", details=(data['csi-info'][0]['dob-day']  + " " +  data['csi-info'][0]['dob-month'] | toMonth + " " +  data['csi-info'][0]['dob-year']) | safe  )}}
+{{selectTable(name="dob-day", section="Date of birth", group="personal", details=(data['csi-info'][0]['dob-day']  + " " +  data['csi-info'][0]['dob-month'] | toMonth + " " +  data['csi-info'][0]['dob-year']) | safe  )}}
 
 
-{{selectTable(name="3", section="Address", details=addressText | safe )}}
+{{selectTable(name="address-line-one", section="Address", group="personal", details=addressText | safe )}}
 
-{{selectTable(name="4", section="Email", details=data['csi-info'][0]['contact-by-email'] )}}
+{{selectTable(name="contact-by-email", section="Email", group="personal", details=data['csi-info'][0]['contact-by-email'] )}}
 
-{{selectTable(name="5", section="Phone", details=data['csi-info'][0]['contact-by-phone'] )}}
+{{selectTable(name="contact-by-phone", section="Phone", group="personal", details=data['csi-info'][0]['contact-by-phone'] )}}
 
 
 
