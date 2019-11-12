@@ -24,7 +24,7 @@
 
 {% call govukFieldset({
   legend: {
-    text: "What is their correspondence address?",
+    text: "",
     classes: "govuk-fieldset__legend--m",
     isPageHeading: true
   }
@@ -33,10 +33,10 @@
 {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
 {{ govukTextarea({
-name: "more-detail",
-id: "more-detail",
+name: "address",
+id: "address",
 label: {
-  text: ""
+  text: "Address"
 },
 hint: {
   text: ""
@@ -52,7 +52,7 @@ hint: {
     id: "appointee-email",
     name: "appointee-email",
     type: "email",
-    classes: "govuk-!-width-one-third",
+    classes: "govuk-!-width-two-thirds",
     label: {
       text: "Email address"
     },
@@ -67,7 +67,7 @@ hint: {
     id: "appointee-contact-phone",
     name: "appointee-contact-phone",
     type: "tel",
-    classes: "govuk-!-width-one-third",
+    classes: "govuk-!-width-two-thirds",
     label: {
       text: "Phone number"
     }
@@ -91,9 +91,9 @@ hint: {
     name: "citizen",
     fieldset: {
       legend: {
-        text: "How can we contact them?",
+        text: "Contact details",
         isPageHeading: true,
-        classes: "govuk-fieldset__legend--m"
+        classes: "text"
       }
     },
     hint: {
