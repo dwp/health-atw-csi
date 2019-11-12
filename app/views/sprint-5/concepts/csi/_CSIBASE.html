@@ -40,6 +40,11 @@
                   <li>
                     <a href="{% if not (page == 'claim') %}claim{% if phase %}-{{phase}}{% endif %}{% else %}" class="active" aria-current="section{% endif %}">Claim details {% if count  %}({{count}}){% endif %}</a>
                   </li>
+{% if data['appointee-name'] %}
+                  <li>
+                    <a href="{% if not (page == 'appointee') %}appointee{% if phase %}-{{phase}}{% endif %}{% else %}" class="active" aria-current="section{% endif %}">Appointee details</a>
+                  </li>
+{% endif %}
 <!--                  <li>
                     <a href="#">Interview</a>
                   </li> -->
