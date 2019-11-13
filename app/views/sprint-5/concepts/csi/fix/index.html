@@ -1,4 +1,5 @@
-{% set link = "../" %}
+{% set link = "contact" %}
+{% set customNext = "Continue to contact options" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
 {% set title =  "[screen about highlighting changes]" %}
@@ -6,7 +7,6 @@
 
 {% block csi %}
 
-<p>[list of information and how to contact the citizen]</p>
 
 {% if data['personal'] == "no"  %}
 <h2 class="govuk-heading-m govuk-!-margin-top-6">Personal details</h2>
@@ -42,29 +42,5 @@
 
 
 
-
-{{ govukRadios({
-  classes: "govuk-radios--inline",
-       name: "needed",
-       fieldset: {
-         legend: {
-           text: "[have you contacted John Smith about the details?]",
-           isPageHeading: false,
-           classes: "govuk-fieldset__legend--m"
-         }
-       },
-       items: [
-         {
-            id: "yes",
-           value: "yes",
-           text: "Yes"
-         },
-         {
-           id: "no",
-           value: "no",
-           text: "No"
-         }
-       ]
-     }) }}
 
 {% endblock %}

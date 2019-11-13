@@ -46,6 +46,17 @@
   </tbody>
 </table>
 
+{{ govukTextarea({
+  name: "more-detail",
+  id: "more-detail",
+  label: {
+    text: "[Add note (optional)]"
+  },
+  hint: {
+    text: "[Do not include personal details.]"
+  }
+}) }}
+
 <p>[you will get a chance to review all these details later]</p>
 
 {% endblock %}
