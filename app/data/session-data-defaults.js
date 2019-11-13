@@ -20,7 +20,7 @@ Example usage:
 module.exports = {
 
   // Insert values here
-/*
+
   'unallocated-cases': [{
     'name': 'Dereck Smith',
     'specialism': 'Large business',
@@ -81,7 +81,7 @@ module.exports = {
     'type': 'New application',
           'priority' : false,
     'date': '24 October 2019 - 22:23'
-  }], */
+  }],
 
   'csi-info': [{
     'name': 'Thomas Brown',
@@ -150,7 +150,7 @@ module.exports = {
   }
 
 
-] /* ,
+]  ,
 
   'advisers': [
     'John Goldsmith',
@@ -182,5 +182,5 @@ module.exports = {
     'Deaf',
     'Visually impaired',
     'Pan disability'
-  ] */
+  ]
 }
