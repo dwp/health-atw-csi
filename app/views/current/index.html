@@ -8,23 +8,22 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-          Surrounding agent journey and unhappy path
-        <span class="govuk-caption-xl"></span>
+          Sprint 6
+        <span class="govuk-caption-xl">MVP unhappy path and payments</span>
+
+        {{ govukDetails({
+                  summaryText: "Notes on this sprint",
+                  html: '
+                  <p>This sprint we:</p>
+
+                  <ul class="govuk-list  govuk-list--bullet">
+                      <li>dialled back the journey and interface to be doable for MVP. This means pushing all unhappy path notes to something off the system such as the existing shared logger</li>
+                      <li>[add extra details as they go]</li>
 
 
-<!--
-  <h3 class="govuk-heading-m">CSI apply full journey</h3>
-   <br>
-  <ul class="govuk-list">
-      <li><a class="govuk-link" href="/{{folder}}/baseline-as-is/service/apply">CSI apply journey</a></li>
-  </ul>
-  <ul class="govuk-list govuk-list--bullet">
-    <h3 class="govuk-heading-s">Edits</h3>
+                  </ul>'
 
-  <li><a class="govuk-link" href="/{{folder}}/baseline-as-is/service/have-total-cost">Interpreter cost</a>, <a class="govuk-link" href="/{{folder}}/baseline-as-is/service/have-total-cost-no">Kickout page</a>, <a class="govuk-link" href="/{{folder}}/baseline-as-is/service/total-cost">Support cost</a></li>
-
-</ul>
--->
+                          }) }}
 
 <h3 class="govuk-heading-m">Agent journey: new application</h3>
 
