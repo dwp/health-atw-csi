@@ -1,0 +1,46 @@
+{% set link = "../02-send/1" %}
+{% set claim = true %}
+{% set hideChange = true %}
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+{% set redirect = [{id : "yes", page: "unhappy-1" }, {id: "no", page: link}] %}
+
+
+{% block csi %}
+
+<h1 class="govuk-heading-xl">Check claim details</h1>
+
+
+
+{% include folder + "/" + subfolder + "/csi/_CLAIMDETAILS.html" %}
+
+<p>[alternative way of asking question - is this information correct? Yes / No, I need more information from the applicant]</p>
+
+{{ govukRadios({
+       idPrefix: "claim",
+       name: "claim",
+       fieldset: {
+         legend: {
+           text: "[Do you need to contact the applicant for more information?]",
+           isPageHeading: false,
+           classes: "govuk-fieldset__legend--m"
+         }
+       },
+       hint: {
+    text: "[If you need to make edits you can do this in the Claim details tab]"
+  },
+       items: [
+         {
+           id: "yes",
+           value: "yes",
+           text: "[Yes, I need more information]"
+         },
+         {
+           id: "no",
+           value: "no",
+           text: "No"
+
+         }
+       ]
+     }) }}
+
+{% endblock %}

@@ -1,4 +1,4 @@
-{% set link = "1" %}
+{% set link = "2" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "0-unhappy"}] %}
 {% set title =  "Find applicant on Searchlight" %}
@@ -13,7 +13,11 @@
     {{data['csi-info'][0]['name']}}
     <br>
     {{ data['csi-info'][0]['dob-day'] | safe }} {{ data['csi-info'][0]['dob-month']| safe }}
+
     {{ data['csi-info'][0]['dob-year'] | safe }}
+
+    <br>
+      [do we have full address or just postcode?]
   </div>
 
 
