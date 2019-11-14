@@ -37,19 +37,3 @@
      }) }}
 
 {% endblock %}
-
-
-{% block pageScripts %}
- <script>
- $( "#reminder" ).click(function() {
-  $("form").attr("action", "email/1")
- });
- $( "#update" ).click(function() {
-  $("form").attr("action", "update/1")
- });
- $( "#phone" ).click(function() {
-  $("form").attr("action", "phone/1")
- });
- </script>
-
- {% endblock %}
