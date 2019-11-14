@@ -1,13 +1,10 @@
-{% set link = "../" %}
+{% set link = "unhappy-phone-1" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "email", page: "email" }, {id: "phone", page: "phone" }, {id: "update", page: "update" }] %}
-
+<!-- {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %} -->
+{% set redirect = [{id : "email", page: "unhappy-email-1" }, {id: "phone", page: link}] %}
 
 
 {% block csi %}
-
-
-
 
 
 {{ govukRadios({
@@ -15,7 +12,7 @@
        name: "_do",
        fieldset: {
          legend: {
-           text: "[What do you want to do?]",
+           text: "[SCREEN ONLY IF MULTIPLE CONTACT OPTIONS: how do you want to contact the appointee?]",
            isPageHeading: true,
            classes: "govuk-fieldset__legend--xl"
          }
@@ -24,17 +21,12 @@
          {
            id: "email",
            value: "email",
-           text: "Email the applicant"
+           text: "Email"
          },
          {
            id: "phone",
            value: "phone",
-           text: "Phone the applicant"
-         },
-         {
-           id: "update",
-           value: "update",
-           text: "Add a response from the applicant"
+           text: "Phone"
          }
        ]
      }) }}

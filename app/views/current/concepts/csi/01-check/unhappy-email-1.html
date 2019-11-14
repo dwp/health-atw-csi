@@ -1,34 +1,16 @@
-{% set link = "../index" %}
+{% set link = "unhappy-email-2" %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "../index"}] %}
 
-{% set title =  "[Send email]" %}
-
+{% set title =  "[Send an email for more information]" %}
 
 {% block csi %}
 
-<p>Send an email to {{data['csi-info'][0]['name']}}.</p>
-<p>
 
-<p>[Ask them for more information about:]</p>
+<p>[Send an email to {{data['csi-info'][0]['name']}} to ask for more information.]</p>
 
-<ul class="govuk-list govuk-list--bullet">
-
-
-{% for i in data['error']['personal'] %}
-<li>{{data['csi-info'][0][i]}}</li>
-{%- endfor %}
-{% for i in data['error']['company'] %}
-<li>{{data['csi-info'][0][i]}}</li>
-{%- endfor %}
-{% for i in data['error']['interview'] %}
-<li>{{data['csi-info'][0][i]}}</li>
-{%- endfor %}
-</ul>
-
-
-<p>[notes here?]</p>
-
+<p>[Use the spreadsheet to say what information you need]</p>
 
 
   {{ govukButton({
@@ -37,13 +19,12 @@
     href: "mailto:" + data['csi-info'][0]['contact-by-email']
   }) }}
 
+
 <br>
-
+</br>
 {{ govukRadios({
-
     classes: "govuk-radios--inline",
-       idPrefix: "sent-email",
-       name: "sent-email",
+     name: "_email",
        fieldset: {
          legend: {
            text: "Have you sent the email?",
@@ -53,12 +34,18 @@
        },
        items: [
          {
+           id: "yes",
            value: "yes",
            text: "Yes"
          },
          {
+           id: "no",
            value: "no",
-           text: "No"
+           text: "No",
+           conditional : {
+             html: "<p>[Repeat the 'check claim details' step again to get this information.</p>"
+
+           }
          }
        ]
      }) }}

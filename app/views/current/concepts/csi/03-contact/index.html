@@ -1,28 +1,15 @@
-{% set link = "../index-interview" %}
+{% set link = "../04-confirm/1" %}
 {% set interviewLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+{% set redirect = [{id : "email", page: "email/1" }, {id: "phone", page: "phone/1"}, {id: "yes", page: link } ] %}
 
-{% set title =  "Contact the employer" %}
+{% set title =  "[contact log]" %}
 
 {% block csi %}
-{% if data['sent-email'] %}
-<ol class="dwp-timeline">
-
-  <li class="dwp-timeline__entry">
-    <h3 class="govuk-heading-s dwp-timeline__title">Email sent to employer</h3>
-    <p class="dwp-timeline__info">
-      <span class="dwp-timeline__date">1 November 2019</span>
-    </p>
-<!--    <p class="dwp-timeline__body">
-      [notes if needed]
-    </p> -->
-  </li>
-</ol>
-{% endif %}
 
 {{ govukRadios({
-       idPrefix: "_do",
-       name: "_do",
+       idPrefix: "employer",
+       name: "employer",
        fieldset: {
          legend: {
            text: "What do you want to do?",
@@ -32,8 +19,8 @@
        },
        items: [
          {
-           id: "reminder",
-           value: "reminder",
+           id: "email",
+           value: "email",
            text: "Email the employer"
          },
          {
@@ -42,9 +29,9 @@
            text: "Phone the employer"
          },
          {
-           id: "update",
-           value: "update",
-           text: "Add an update"
+           id: "yes",
+           value: "yes",
+           text: "[add information from an email]"
          }
        ]
      }) }}
