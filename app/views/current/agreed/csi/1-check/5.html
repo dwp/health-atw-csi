@@ -1,15 +1,15 @@
-{% set link = "../2-send/1" %}
 {% set interviewDetails =  true  %}
 {% set hideChange = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
 {% set link %}
-{% if data['personal'] == 'no' or data['company'] == 'no' or data['interview'] == 'no' %}
+{% if data['personal'] == 'no' or data['company'] == 'no' %}
 unhappy-2
 {%  else  %}
-../send/1
+../2-send/1
 {% endif %}
 {% endset -%}
+
 {% set redirect = [{id : "no", page: "unhappy-2" }, {id: "yes", page: link}] %}
 
 
