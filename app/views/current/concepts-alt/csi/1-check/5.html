@@ -1,4 +1,4 @@
-{% set link = "../send/1" %}
+{% set link = "../2-send/1" %}
 {% set interviewDetails =  true  %}
 {% set hideChange = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
@@ -27,7 +27,7 @@ unhappy-2
 
 {% set conditionalText %}
 {{ govukTextarea({
-  name: "more-detail-4",
+  name: "more-detail-5",
   id: "more-detail",
   label: {
     text: "[add more details]"
@@ -49,6 +49,9 @@ unhappy-2
            classes: "govuk-fieldset__legend--m"
          }
        },
+       hint: {
+    text: "[If you need to make edits you can do this in the Claim details tab]"
+  },
        items: [
        {
          id: "yes",

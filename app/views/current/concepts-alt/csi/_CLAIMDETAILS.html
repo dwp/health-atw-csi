@@ -6,14 +6,14 @@
 
 {% if data['personal'] == 'yes' or  data['searchlight'] == "no"  %}
 
-{% if data['more-detail-2'] %}
+{% if data['more-detail-3'] %}
 
 {{ govukErrorSummary({
   titleText: "Information from applicant needed",
   classes: "not-error",
   errorList: [
     {
-      text: data['more-detail-2'] | safe
+      text: data['more-detail-3'] | safe
     }
   ]
 }) }}
@@ -164,14 +164,14 @@
 
 
 
-  {% if data['more-detail-3'] %}
+  {% if data['more-detail-4'] %}
 
   {{ govukErrorSummary({
     titleText: "Information from applicant needed",
     classes: "not-error",
     errorList: [
       {
-        text: data['more-detail-3'] | safe
+        text: data['more-detail-4'] | safe
       }
     ]
   }) }}
@@ -262,14 +262,14 @@
     <h2 class="govuk-heading-m govuk-!-margin-top-6">Company details</h2>
     {% if data['company'] == 'yes'  %}
 
-    {% if data['more-detail-4'] %}
+    {% if data['more-detail-5'] %}
 
     {{ govukErrorSummary({
       titleText: "Information from applicant needed",
       classes: "not-error",
       errorList: [
         {
-          text: data['more-detail-4'] | safe
+          text: data['more-detail-5'] | safe
         }
       ]
     }) }}
