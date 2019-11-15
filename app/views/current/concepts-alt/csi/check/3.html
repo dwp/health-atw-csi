@@ -1,0 +1,60 @@
+{% set link = "4" %}
+{% set companyDetails =  true  %}
+{% set hideChange = true %}
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+
+
+
+
+{% block csi %}
+
+<h1 class="govuk-heading-xl">Check company details</h1>
+
+
+
+{% include folder + "/" + subfolder + "/csi/_CLAIMDETAILS.html" %}
+
+{% set conditionalText %}
+{{ govukTextarea({
+  name: "more-detail-3",
+  id: "more-detail",
+  label: {
+    text: "[add more details]"
+  },
+  hint: {
+    text: "[This will be added to the claim information to help you contact the applicant.]"
+  }
+}) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+       idPrefix: "company",
+       name: "company",
+       fieldset: {
+         legend: {
+           text: "[Do you need more information from the applicant?]",
+           isPageHeading: false,
+           classes: "govuk-fieldset__legend--m"
+         }
+       },
+       items: [
+       {
+         id: "yes",
+         value: "yes",
+         text: "Yes, I need more information",
+         conditional: {
+           html: conditionalText
+         }
+       },
+         {
+           id: "no",
+           value: "no",
+           text: "No"
+
+         }
+       ]
+     }) }}
+
+{% endblock %}

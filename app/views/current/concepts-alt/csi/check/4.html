@@ -1,0 +1,69 @@
+{% set link = "../send/1" %}
+{% set interviewDetails =  true  %}
+{% set hideChange = true %}
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+
+{% set link %}
+{% if data['personal'] == 'yes' or data['company'] == 'yes' or data['interview'] == 'yes' %}
+unhappy-2
+{%  else  %}
+../send/1
+{% endif %}
+{% endset -%}
+{% set redirect = [{id : "yes", page: "unhappy-2" }, {id: "no", page: link}] %}
+
+
+
+
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "4-unhappy"}] %}
+
+{% set title =  "Check interview details" %}
+
+
+{% block csi %}
+
+
+{% include folder + "/" + subfolder + "/csi/_CLAIMDETAILS.html" %}
+
+{% set conditionalText %}
+{{ govukTextarea({
+  name: "more-detail-4",
+  id: "more-detail",
+  label: {
+    text: "[add more details]"
+  },
+  hint: {
+    text: "[This will be added to the claim information to help you contact the applicant.]"
+  }
+}) }}
+{% endset -%}
+
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+       idPrefix: "interview",
+       name: "interview",
+       fieldset: {
+         legend: {
+           text: "[Do you need more information from the applicant?]",
+           isPageHeading: false,
+           classes: "govuk-fieldset__legend--m"
+         }
+       },
+       items: [
+       {
+         id: "yes",
+         value: "yes",
+         text: "Yes, I need more information",
+         conditional: {
+           html: conditionalText
+         }
+       },
+         {
+           id: "no",
+           value: "no",
+           text: "No"
+         }
+       ]
+     }) }}
+
+{% endblock %}
