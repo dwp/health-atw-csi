@@ -4,7 +4,7 @@
 
 {% set count = 0 %}
 
-{% if data['personal'] == 'no' or data['company'] == 'no' or data['company'] == "no" %}
+{% if (data['personal'] == 'no' or data['company'] == 'no' or data['company'] == "no") and not phase == "interview"  %}
 
 {% set array = [data['personal'], data['company'], data['interview'] ] %}
 
@@ -93,6 +93,16 @@
             </p>
           </li> -->
 {% endif %}
+
+{% if data['employer'] == 'no' %}
+          <li class="dwp-timeline__entry">
+            <h3 class="govuk-heading-s dwp-timeline__title">Attempted to contact employer</h3>
+            <p class="dwp-timeline__info">
+              <span class="dwp-timeline__date">31 October 2019 at 12:22pm</span>
+            </p
+          </li>
+{% endif %}
+
 {% if data['sent-email']  %}
           <li class="dwp-timeline__entry">
             <h3 class="govuk-heading-s dwp-timeline__title">Email sent to employer</h3>
@@ -122,7 +132,7 @@
           </li>
 {% endif %}
 
-{% if phase == "interview" or data['interview'] %}
+{% if phase == "interview" or data['interview'] == "yes" %}
           <li class="dwp-timeline__entry">
             <h3 class="govuk-heading-s dwp-timeline__title">Application checked</h3>
             <p class="dwp-timeline__info">
@@ -130,6 +140,26 @@
             </p>
           </li>
 {% endif %}
+
+{% if phase == "interview" or data['asked-info-phone'] %}
+          <li class="dwp-timeline__entry">
+            <h3 class="govuk-heading-s dwp-timeline__title">{% if  data['asked-info-phone'] == "no" %} Attempted to phone applicant{% else %}Phoned applicant{% endif %}</h3>
+            <p class="dwp-timeline__info">
+              <span class="dwp-timeline__date">24 October 2019 at 11:05am</span>
+            </p>
+          </li>
+{% endif %}
+
+{% if phase == "interview" or data['need-info-email'] == "yes" %}
+          <li class="dwp-timeline__entry">
+            <h3 class="govuk-heading-s dwp-timeline__title">Email sent for further information</h3>
+            <p class="dwp-timeline__info">
+              <span class="dwp-timeline__date">24 October 2019 at 10:34am</span>
+            </p>
+          </li>
+{% endif %}
+
+
           <li class="dwp-timeline__entry">
             <h3 class="govuk-heading-s dwp-timeline__title">Application allocated</h3>
             <p class="dwp-timeline__info">
