@@ -4,7 +4,7 @@
 {% if claim %}
 <h2 class="govuk-heading-m govuk-!-margin-top-6">Personal details</h2>
 
-{% if data['personal'] == 'no'  and not phase == "interview"  %}
+{% if data['personal'] == 'no'  and not (phase == "interview")  %}
 
 {% if data['more-detail-3'] %}
 
@@ -160,7 +160,7 @@
 {% if claim %}
   <h2 class="govuk-heading-m govuk-!-margin-top-6">Job interview details</h2>
 
-  {% if data['interview'] == 'no'  and not phase == "interview"  %}
+  {% if data['interview'] == 'no'  and not (phase == "interview")  %}
 
 
 
@@ -260,7 +260,7 @@
 {% endif %}
 {% if claim %}
     <h2 class="govuk-heading-m govuk-!-margin-top-6">Company details</h2>
-    {% if data['company'] == 'no' and not phase == "interview"  %}
+    {% if data['company'] == 'no' and not (phase == "interview")  %}
 
     {% if data['more-detail-5']  %}
 
