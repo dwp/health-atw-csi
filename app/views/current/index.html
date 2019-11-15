@@ -25,6 +25,8 @@
 
                           }) }}
 
+{% set mmvp %}
+
 <h3 class="govuk-heading-m">Agent journey: new application</h3>
 
 <ul class="govuk-list">
@@ -59,7 +61,9 @@
       <li><a class="govuk-link" href="/{{folder}}/concepts/your-cases-interview">Your cases</a></li>
       <li><a class="govuk-link" href="/{{folder}}/concepts/csi/index-interview">Your tasks</a>
       <ul class="govuk-list govuk-list--bullet">
-            <li><a class="govuk-link" href="/{{folder}}/concepts/csi/03-contact/index">Contact employer</a></li>
+            <li><a class="govuk-link" href="/{{folder}}/concepts/csi/03-contact/index">Contact employer</a>
+
+              <ul>
               <li>Email:
       <a class="govuk-link" href="/{{folder}}/concepts/csi/03-contact/email/1">Send email</a> and <a class="govuk-link" href="/{{folder}}/concepts/csi/03-contact/email/2">[add to logger]</a>
       </li>
@@ -77,6 +81,91 @@
 
       </ul>
 
+{% endset -%}
+
+<h3 class="govuk-heading-m">Unhappy path off AWTIS: notes and updates done off ATWIS</h3>
+
+<a class="govuk-button govuk-button--secondary" class="govuk-link" href="/{{folder}}/concepts/your-cases">Your cases</a>
+
+{{ govukDetails({
+          summaryText: "Full journey",
+          html: mmvp
+
+                  }) }}
+
+
+
+
+                  <h3 class="govuk-heading-m">What to contact notes on AWTIS: updates done off ATWIS</h3>
+
+                  <a class="govuk-button govuk-button--secondary" class="govuk-link" href="/{{folder}}/concepts-alt/your-cases">Your cases</a>
+
+
+{% set mvp %}
+
+<h3 class="govuk-heading-m">Agent journey: new application</h3>
+
+<ul class="govuk-list">
+    <li><a class="govuk-link" href="/{{folder}}/concepts-alt/your-cases">Your cases</a></li>
+          <li><a class="govuk-link" href="/{{folder}}/concepts-alt/csi/index">Your tasks</a> and  <a class="govuk-link" href="/{{folder}}/concepts-alt/csi/claim">claim</a>
+      <ul class="govuk-list govuk-list--bullet">
+<li><a class="govuk-link" href="/{{folder}}/concepts-alt/csi/check/0">Check on searchlight</a> and <a class="govuk-link" href="/{{folder}}/concepts-alt/csi/check/0-unhappy">holder unhappy path</a> - proposed jump to company details as it's not possible to check other details</li>
+      <li> <a class="govuk-link" href="/{{folder}}/concepts-alt/csi/check/1">check for appointee</a> and <a class="govuk-link" href="/{{folder}}/concepts-alt/csi/check/appointee">add appointee details</a></li>
+      <li>Check <a class="govuk-link" href="/{{folder}}/concepts-alt/csi/check/2">personal details</a> (unhappy annotated on screen) </li>
+      <li><a class="govuk-link" href="/{{folder}}/concepts-alt/csi/check/3">company details</a> (unhappy annotated on screen)  </li>
+      <li><a class="govuk-link" href="/{{folder}}/concepts-alt/csi/check/4">interview details</a> (unhappy annotated on screen)  </li>
+
+  <li>unhappy path:
+    <ul class="govuk-list govuk-list--bullet">
+    <li><a class="govuk-link" href="/{{folder}}/concepts-alt/csi/check/unhappy-2">IF 2 FORMS OF CONTACT: [how to contact]</a> </li>
+    <li><a class="govuk-link" href="/{{folder}}/concepts-alt/csi/check/unhappy-email-1">[send email]</a> and  <a class="govuk-link" href="/{{folder}}/concepts-alt/csi/check/unhappy-email-2">[add to logger]</a> </li>
+    <li><a class="govuk-link" href="/{{folder}}/concepts-alt/csi/check/unhappy-phone-1">[phone applicant]</a> and  <a class="govuk-link" href="/{{folder}}/concepts-alt/csi/check/unhappy-phone-2">[unhappy path: add to logger]</a> </li>
+    </ul>
+    </li>
+
+
+      <li><a class="govuk-link" href="/{{folder}}/concepts-alt/your-cases-waiting">Your cases (waiting)</a>, <a class="govuk-link" href="/{{folder}}/concepts-alt/csi/index-waiting">case index (waiting)</a> and <a class="govuk-link" href="/{{folder}}/concepts-alt/csi/claim-waiting">claim (waiting)</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-m">Agent journey: same-day application only</h3>
+
+      <ul class="govuk-list">
+          <li><a class="govuk-link" href="/{{folder}}/concepts-alt/your-cases-same-day">Your cases (same day)</a></li>
+                <li><a class="govuk-link" href="/{{folder}}/concepts-alt/csi/index-same-day">Your tasks (same day)</a> and <a class="govuk-link" href="/{{folder}}/concepts-alt/csi/claim-same-day">claim (same day)</a></li>
+            </ul>
+
+      <h3 class="govuk-heading-m">Agent journey: after interview</h3>
+
+      <ul class="govuk-list">
+      <li><a class="govuk-link" href="/{{folder}}/concepts-alt/your-cases-interview">Your cases</a></li>
+      <li><a class="govuk-link" href="/{{folder}}/concepts-alt/csi/index-interview">Your tasks</a>
+      <ul class="govuk-list govuk-list--bullet">
+            <li><a class="govuk-link" href="/{{folder}}/concepts-alt/csi/contact/index">Contact employer</a></li>
+              <li>Email:
+      <a class="govuk-link" href="/{{folder}}/concepts-alt/csi/contact/email/1">Send email</a> and <a class="govuk-link" href="/{{folder}}/concepts-alt/csi/contact/email/1">success</a>
+      </li>
+        <li>Phone:
+      <a class="govuk-link" href="/{{folder}}/concepts-alt/csi/contact/email/1">Contact employer</a>
+      </li>
+
+      <li>Update:<a class="govuk-link" href="/{{folder}}/concepts-alt/csi/contact/update/1">Contact update</a>
+      </li>
+
+              <li><a class="govuk-link" href="/{{folder}}/concepts-alt/csi/confirm/1">Confirm interview took place</a> </li>
+              <li><a class="govuk-link" href="/{{folder}}/concepts-alt/csi/confirm/complete">Tasks complete</a></li>
+      </ul></li>
+      <li><a class="govuk-link" href="/{{folder}}/concepts-alt/your-cases-empty">Your cases (empty)</a></li>
+
+      </ul>
+
+{% endset %}
+{{ govukDetails({
+          summaryText: "Full journey",
+          html: mvp
+
+                  }) }}
+
+<p>Other alternatives - all the notes, fullly in ATWIS (shown in previous sprint )</p>
 
 
     </div>
