@@ -18,6 +18,7 @@
 {{ govukTextarea({
   name: "more-detail-4",
   id: "more-detail",
+  value: data['more-detail-4'],
   label: {
     text: "[add more details]"
   },
@@ -52,6 +53,7 @@
            id: "no",
            value: "no",
            text: "[No, I need more information]",
+           checked: checked('company', "no"),
            conditional: {
              html: conditionalText
            }

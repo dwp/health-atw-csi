@@ -4,9 +4,9 @@
 
 {% set count = 0 %}
 
-{% if data['personal'] == 'no' or data['company'] == 'no' or data['searchlight'] == "no" %}
+{% if data['personal'] == 'no' or data['company'] == 'no' or data['company'] == "no" %}
 
-{% set array = [data['personal'], data['company'], data['searchlight'], data['interview'] ] %}
+{% set array = [data['personal'], data['company'], data['interview'] ] %}
 
 
 {% for i in array %}
@@ -23,12 +23,11 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <span class="govuk-caption-l">ZSQYR5</span>
+    <!--    <span class="govuk-caption-l">ZSQYR5</span>
         <h1 class="govuk-heading-l govuk-!-margin-bottom-1">{{ data['your-cases'][0]['name'] | safe }}
-  <!-- <span><strong class="app-c-tag">[claim status]</strong></span> -->
               </h1>
 
-<br>
+<br>  -->
 
 
 
