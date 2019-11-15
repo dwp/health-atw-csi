@@ -1,4 +1,4 @@
-{% set link = "../index" %}
+{% set link = "../../index-interview" %}
 {% set interviewLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
@@ -6,9 +6,6 @@
 
 
 {% block csi %}
-
-
-
 
 <p>Send an email to Terry Gibson to check if {{data['csi-info'][0]['name']}} attended the interview at {{data['csi-info'][0]['company-name']}} on
   {{data['csi-info'][0]['interview-date-day']}} {{data['csi-info'][0]['interview-date-month'] | toMonth }} with an interpreter or support worker.
