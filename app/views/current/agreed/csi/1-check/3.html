@@ -7,7 +7,7 @@
 
 <h1 class="govuk-heading-xl">Check personal details</h1>
 
-
+<p>Use Searchlight to check if these details match.</p>
 
 
 {% include folder + "/" + subfolder + "/csi/_CLAIMDETAILS.html" %}
@@ -32,13 +32,13 @@
        name: "personal",
        fieldset: {
          legend: {
-           text: "[is this enough information?]",
+           text: "Do the details match?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
        },
        hint: {
-    text: "[If you need to make edits you can do this in the Claim details tab]"
+    text: "You can fix any small errors or mistakes in the Claim details tab."
   },
        items: [
          {
@@ -50,7 +50,7 @@
          {
            id: "no",
            value: "no",
-           text: "[No, I need more information]",
+           text: "No, I need to contact the applicant",
            checked: checked('personal', "no"),
            conditional: {
              html: conditionalText
