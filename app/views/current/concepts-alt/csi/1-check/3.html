@@ -1,0 +1,62 @@
+{% set link = "4" %}
+{% set personalDetails =  true  %}
+{% set hideChange = true %}
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+
+{% block csi %}
+
+<h1 class="govuk-heading-xl">Check personal details</h1>
+
+
+
+
+{% include folder + "/" + subfolder + "/csi/_CLAIMDETAILS.html" %}
+
+{% set conditionalText %}
+
+{{ govukTextarea({
+  name: "more-detail-3",
+  id: "more-detail",
+  label: {
+    text: "[add more details]"
+  },
+  hint: {
+    text: "[This will be added to the claim information to help you contact the applicant.]"
+  }
+}) }}
+
+{% endset -%}
+
+{{ govukRadios({
+       name: "personal",
+       fieldset: {
+         legend: {
+           text: "[do you need to contact the applicant for more information?]",
+           isPageHeading: false,
+           classes: "govuk-fieldset__legend--m"
+         }
+       },
+       hint: {
+    text: "[If you need to make edits you can do this in the Claim details tab]"
+  },
+       items: [
+         {
+           id: "yes",
+           value: "yes",
+           text: "Yes, I need more information",
+           conditional: {
+             html: conditionalText
+           }
+         },
+         {
+           id: "no",
+           value: "no",
+           text: "No"
+
+         }
+       ]
+     }) }}
+
+
+
+{% endblock %}

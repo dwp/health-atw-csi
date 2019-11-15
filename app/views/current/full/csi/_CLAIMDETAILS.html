@@ -4,23 +4,11 @@
 {% if claim %}
 <h2 class="govuk-heading-m govuk-!-margin-top-6">Personal details</h2>
 
-{% if data['personal'] == 'yes' or  data['searchlight'] == "no"  %}
-
-{% if data['more-detail-3'] %}
-
-{{ govukErrorSummary({
-  titleText: "Information from applicant needed",
-  classes: "not-error",
-  errorList: [
-    {
-      text: data['more-detail-3'] | safe
-    }
-  ]
+{% if data['personal'] == 'no' or  data['searchlight'] == "no"  %}
+{{ govukWarningText({
+  html: "[Information required from applicant in this section]",
+  iconFallbackText: "Warning"
 }) }}
-
-{% endif %}
-
-
 
 {% endif %}
 {% endif %}
@@ -160,23 +148,11 @@
 {% if claim %}
   <h2 class="govuk-heading-m govuk-!-margin-top-6">Job interview details</h2>
 
-  {% if data['interview'] == 'yes'  %}
-
-
-
-  {% if data['more-detail-4'] %}
-
-  {{ govukErrorSummary({
-    titleText: "Information from applicant needed",
-    classes: "not-error",
-    errorList: [
-      {
-        text: data['more-detail-4'] | safe
-      }
-    ]
+  {% if data['interview'] == 'no'  %}
+  {{ govukWarningText({
+    html: "[Information required from applicant in this section]",
+    iconFallbackText: "Warning"
   }) }}
-
-  {% endif %}
 
   {% endif %}
 {% endif %}
@@ -260,21 +236,11 @@
 {% endif %}
 {% if claim %}
     <h2 class="govuk-heading-m govuk-!-margin-top-6">Company details</h2>
-    {% if data['company'] == 'yes'  %}
-
-    {% if data['more-detail-5'] %}
-
-    {{ govukErrorSummary({
-      titleText: "Information from applicant needed",
-      classes: "not-error",
-      errorList: [
-        {
-          text: data['more-detail-5'] | safe
-        }
-      ]
+    {% if data['company'] == 'no'  %}
+    {{ govukWarningText({
+      html: "[Information required from applicant in this section]",
+      iconFallbackText: "Warning"
     }) }}
-
-    {% endif %}
 
     {% endif %}
     {% endif %}

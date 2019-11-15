@@ -17,6 +17,9 @@
   </span>
 {% if completed %}
 <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+{% elif started %}
+<strong class="govuk-tag app-task-list__task-completed" style="background-color: #6f777b;
+" id="eligibility-completed">Not complete</strong>
 
 {% else %}
 {% endif %}
@@ -51,13 +54,19 @@
                         </h2>
                         <ul class="app-task-list__items" style="padding-left: 0">
 
-                          {{taskListItem(title="Find applicant on Searchlight", link="1-check/1", completed=(data['searchlight'] == "yes" or phase == "interview" or phase == "waiting" ), started=(data['searchlight'] == "no"), locked=(phase == "interview" or phase == "waiting"))}}
+                          {{taskListItem(title="Find applicant on Searchlight", link="check/0", completed=(data['searchlight'] == "yes" or phase == "interview" or phase == "waiting" ), started=(data['searchlight'] == "no"), locked=(phase == "interview" or phase == "waiting"))}}
 
 
-                          {{taskListItem(title="Check for appointee", link="1-check/2", completed=(data['appointee'] or phase == "interview" or phase == "waiting" ), locked=(phase == "interview" or phase == "waiting" or not data['searchlight'] or (data['searchlight'] == "no") ))}}
+                          {{taskListItem(title="Check for appointee", link="check/1", completed=(data['appointee'] or phase == "interview" or phase == "waiting" ), locked=(phase == "interview" or phase == "waiting" or not data['searchlight'] or (data['searchlight'] == "no") ))}}
 
 
-{{taskListItem(title="Check claim", link="1-check/3", completed=(data['interview'] == 'no' or phase == "interview" or phase == "waiting" ), locked=(phase == "interview" or phase == "waiting" or not data['appointee'] ) )}}
+{{taskListItem(title="Check personal details", link="check/2", completed=(data['personal'] == 'yes' or phase == "interview" or phase == "waiting" ), started=(data['personal']=="no") , locked=(phase == "interview" or phase == "waiting" or not data['appointee'] ))}}
+
+
+
+{{taskListItem(title="Check company details", link="check/3", completed=(data['company'] == 'yes' or phase == "interview" or phase == "waiting"), started=(data['company']=="no"), locked=(phase == "interview" or phase == "waiting"  or (not data['appointee'] and not (data['searchlight'] == "no"))))}}
+
+{{taskListItem(title="Check interview details", link="check/4", completed=(data['interview'] == "yes" or phase == "interview" or phase == "waiting"), started=(data['interview']=="no"), locked=(phase == "interview" or phase == "waiting" or not data['company']))}}
 
 
 
@@ -76,9 +85,9 @@
 
 
 
-            {{taskListItem(title="Send a confirmation email", link="2-send/1", completed=(data['send'] == "yes" or phase == "interview" or phase == "waiting"),  locked=(not (data['interview'] == "no" )) or (data['interview'] and (data['personal'] == 'yes' or data['company'] == 'yes' or data['searchlight'] == "yes")) ) }}
+            {{taskListItem(title="Send a confirmation email", link="send/1", completed=(data['send'] == "yes" or phase == "interview" or phase == "waiting"),  locked=(not (data['interview'] == "yes" )) or (data['interview'] and (data['personal'] == 'no' or data['company'] == 'no' or data['searchlight'] == "no")) ) }}
 
-            {{taskListItem(title="Print and send the form", link="2-send/2", completed=(data['claim'] == "yes" or interview or waiting), locked=(not data['send']) )}}
+            {{taskListItem(title="Print and send the form", link="send/2", completed=(data['claim'] == "yes" or interview or waiting), locked=(not data['send']) )}}
 
 
 
@@ -104,9 +113,9 @@
 
                         <ul class="app-task-list__items" style="padding-left:0">
 
-    {{taskListItem(title="Contact employer", link="3-contact/index", completed=(data['employer'] =="yes"), locked=(not (phase == "interview") or (phase == "same-day" and not data['claim'] == "yes") ))}}
+    {{taskListItem(title="Contact employer", link="contact/index", completed=(data['employer'] =="yes"), locked=(not (phase == "interview") or (phase == "same-day" and not data['claim'] == "yes") ))}}
 
-    {{taskListItem(title="Confirm interview took place", link="4-confirm/1", completed=(data['confirm'] =="yes"), locked=(not (data['employer'] == "yes") ))}}
+    {{taskListItem(title="Confirm interview took place", link="confirm/1", completed=(data['confirm'] =="yes"), locked=(not (data['employer'] == "yes") ))}}
 
 
                         </ul>
