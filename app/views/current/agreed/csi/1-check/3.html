@@ -31,7 +31,7 @@
        name: "personal",
        fieldset: {
          legend: {
-           text: "[do you need to contact the applicant for more information?]",
+           text: "[is this enough information?]",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
@@ -43,15 +43,16 @@
          {
            id: "yes",
            value: "yes",
-           text: "Yes, I need more information",
-           conditional: {
-             html: conditionalText
-           }
+           text: "Yes"
+
          },
          {
            id: "no",
            value: "no",
-           text: "No"
+           text: "[No, I need more information]",
+           conditional: {
+             html: conditionalText
+           }
 
          }
        ]

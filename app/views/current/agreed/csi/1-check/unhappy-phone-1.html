@@ -10,12 +10,10 @@
 
 <p>[Phone {{data['csi-info'][0]['name']}} on {{ data['csi-info'][0]['contact-by-phone'] }} to ask for more information.]</p>
 
-<p>[Note that you are attempting to contact the applicant.]</p>
 
 <br>
 </br>
 {{ govukRadios({
-    classes: "govuk-radios--inline",
      name: "_contact",
        fieldset: {
          legend: {
@@ -28,8 +26,8 @@
          {
            id: "yes",
            value: "yes",
-           text: "Yes, continue to claim",
-          
+           text: "Yes, continue to claim"
+
          },
          {
            id: "no",
