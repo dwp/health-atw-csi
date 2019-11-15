@@ -39,7 +39,7 @@
 {% if data['personal'] == 'no' or data['company'] == 'no' or data['searchlight'] == "no" %}
 <br>
 {{ govukWarningText({
-  html: "[Information required from applicant. <a href='fix/index'>Check what's needed and contact applicant</a>]",
+  html: "[Information required from applicant for 3 sections. Go to claim details to check]",
   iconFallbackText: "Warning"
 }) }}
 {% endif %} {% endif %}
@@ -57,7 +57,7 @@
                           {{taskListItem(title="Check for appointee", link="1-check/2", completed=(data['appointee'] or phase == "interview" or phase == "waiting" ), locked=(phase == "interview" or phase == "waiting" or not data['searchlight'] or (data['searchlight'] == "no") ))}}
 
 
-{{taskListItem(title="Check claim", link="1-check/3", completed=(data['interview'] == 'no' or phase == "interview" or phase == "waiting" ), locked=(phase == "interview" or phase == "waiting" or not data['appointee'] ) )}}
+{{taskListItem(title="Check claim", link="1-check/3", completed=((data['interview'] == 'yes' and data['company'] == 'yes' and data['personal'] == 'yes' ) or phase == "interview" or phase == "waiting" ), locked=(phase == "interview" or phase == "waiting" or not data['appointee'] ) )}}
 
 
 

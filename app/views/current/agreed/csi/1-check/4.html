@@ -1,22 +1,24 @@
-{% set link = "4" %}
-{% set personalDetails =  true  %}
+{% set link = "5" %}
+{% set companyDetails =  true  %}
 {% set hideChange = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
+
+
+
 {% block csi %}
 
-<h1 class="govuk-heading-xl">Check personal details</h1>
-
+<h1 class="govuk-heading-xl">Check company details</h1>
 
 
 
 {% include folder + "/" + subfolder + "/csi/_CLAIMDETAILS.html" %}
 
 {% set conditionalText %}
-
 {{ govukTextarea({
-  name: "more-detail-3",
+  name: "more-detail-4",
   id: "more-detail",
+  value: data['more-detail-4'],
   label: {
     text: "[add more details]"
   },
@@ -24,14 +26,16 @@
     text: "[This will be added to the claim information to help you contact the applicant.]"
   }
 }) }}
-
 {% endset -%}
 
+
 {{ govukRadios({
-       name: "personal",
+  classes: "govuk-radios--inline",
+       idPrefix: "company",
+       name: "company",
        fieldset: {
          legend: {
-           text: "[do you need to contact the applicant for more information?]",
+           text: "[Do you need more information from the applicant?]",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
@@ -40,23 +44,22 @@
     text: "[If you need to make edits you can do this in the Claim details tab]"
   },
        items: [
-         {
-           id: "yes",
-           value: "yes",
-           text: "Yes, I need more information",
-           conditional: {
-             html: conditionalText
-           }
-         },
+       {
+         id: "yes",
+         value: "yes",
+         text: "Yes"
+       },
          {
            id: "no",
            value: "no",
-           text: "No"
+           text: "[No, I need more information]",
+           checked: checked('company', "no"),
+           conditional: {
+             html: conditionalText
+           }
 
          }
        ]
      }) }}
-
-
 
 {% endblock %}
