@@ -3,12 +3,13 @@
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "unhappy-phone-2" }] %}
 
-{% set title =  "[phone the appointee]" %}
+{% set title =  "Phone the applicant" %}
 
 {% block csi %}
 
 
-<p>[Phone {{data['csi-info'][0]['name']}} on {{ data['csi-info'][0]['contact-by-phone'] }} to ask for more information.]</p>
+<p>Phone <strong>{{data['csi-info'][0]['name']}}</strong> on <strong>{{ data['csi-info'][0]['contact-by-phone'] }}</strong> to ask
+  for more information about their application.</p>
 
 
 <br>
@@ -17,7 +18,7 @@
      name: "asked-info-phone",
        fieldset: {
          legend: {
-           text: "[Have you been able to contact the applicant?]",
+           text: "Has the applicant answered the phone?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
@@ -26,7 +27,7 @@
          {
            id: "yes",
            value: "yes",
-           text: "Yes, continue to claim"
+           text: "Yes, check information"
 
          },
          {
