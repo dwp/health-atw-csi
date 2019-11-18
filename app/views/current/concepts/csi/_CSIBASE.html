@@ -22,13 +22,14 @@
   <main class="govuk-main-wrapper govuk-!-padding-top-0">
 
     <div class="govuk-grid-row">
+
+
       <div class="govuk-grid-column-two-thirds">
-        <span class="govuk-caption-l">ZSQYR5</span>
+  <!--      <span class="govuk-caption-l">ZSQYR5</span>
         <h1 class="govuk-heading-l govuk-!-margin-bottom-1">{{ data['your-cases'][0]['name'] | safe }}
-  <!-- <span><strong class="app-c-tag">[claim status]</strong></span> -->
               </h1>
 
-<br>
+<br> -->
 
 
 
@@ -123,7 +124,7 @@
           </li>
 {% endif %}
 
-{% if phase == "interview" or data['interview'] %}
+{% if phase == "interview" or data['claim'] %}
           <li class="dwp-timeline__entry">
             <h3 class="govuk-heading-s dwp-timeline__title">Application checked</h3>
             <p class="dwp-timeline__info">

@@ -4,13 +4,6 @@
 {% if claim %}
 <h2 class="govuk-heading-m govuk-!-margin-top-6">Personal details</h2>
 
-{% if data['personal'] == 'no' or  data['searchlight'] == "no"  %}
-{{ govukWarningText({
-  html: "[Information required from applicant in this section]",
-  iconFallbackText: "Warning"
-}) }}
-
-{% endif %}
 {% endif %}
 
 
@@ -148,13 +141,6 @@
 {% if claim %}
   <h2 class="govuk-heading-m govuk-!-margin-top-6">Job interview details</h2>
 
-  {% if data['interview'] == 'no'  %}
-  {{ govukWarningText({
-    html: "[Information required from applicant in this section]",
-    iconFallbackText: "Warning"
-  }) }}
-
-  {% endif %}
 {% endif %}
 {% if interviewDetails or claim %}
   <dl class="govuk-summary-list">
