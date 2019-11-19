@@ -39,7 +39,7 @@
 {% if data['personal'] == 'no' or data['company'] == 'no' or data['searchlight'] == "no" %}
 <br>
 {{ govukWarningText({
-  html: "Information needed from the applicant. Make changes in the Claim details tab.",
+  html: "Information needed from the applicant. Make changes in the Case details tab.",
   iconFallbackText: "Warning"
 }) }}
 {% endif %} {% endif %}
@@ -104,9 +104,9 @@
 
                         <ul class="app-task-list__items" style="padding-left:0">
 
-    {{taskListItem(title="Contact employer", link="3-contact/index", completed=(data['employer'] =="yes"), locked=(not (phase == "interview") or (phase == "same-day" and not data['claim'] == "yes") ))}}
+    {{taskListItem(title="Confirm with the employer", link="3-contact/index", completed=(data['employer'] =="yes"), locked=(not (phase == "interview") or (phase == "same-day" and not data['claim'] == "yes") ))}}
 
-    {{taskListItem(title="Confirm interview took place", link="4-confirm/1", completed=(data['confirm'] =="yes"), locked=(not (data['employer'] == "yes") ))}}
+    {{taskListItem(title="Record interview took place", link="4-confirm/1", completed=(data['confirm'] =="yes"), locked=(not (data['employer'] == "yes") ))}}
 
 
                         </ul>
