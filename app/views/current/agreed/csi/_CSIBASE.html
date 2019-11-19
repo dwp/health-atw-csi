@@ -37,7 +37,7 @@
                     <a href="{% if not (page == 'task-list') %}index{% if phase %}-{{phase}}{% endif %}{% else %}" class="active" aria-current="section{% endif %}">Tasks to complete</a>
                   </li>
                   <li>
-                    <a href="{% if not (page == 'claim') %}claim{% if phase %}-{{phase}}{% endif %}{% else %}" class="active" aria-current="section{% endif %}">Claim details {% if count  %}({{count}}){% endif %}</a>
+                    <a href="{% if not (page == 'claim') %}claim{% if phase %}-{{phase}}{% endif %}{% else %}" class="active" aria-current="section{% endif %}">Case details {% if count  %}({{count}}){% endif %}</a>
                   </li>
 {% if data['appointee-name'] %}
                   <li>
