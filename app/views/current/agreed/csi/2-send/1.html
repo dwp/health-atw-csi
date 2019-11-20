@@ -8,9 +8,10 @@
 {% block csi %}
 
 
-<p>Send an email to {{data['csi-info'][0]['name']}} to confirm that their application of £200 for an interview on
-  {{data['csi-info'][0]['interview-date-day']}} {{data['csi-info'][0]['interview-date-month']
-  | toMonth }} at {{data['csi-info'][0]['company-name']}} has been approved.
+<p>Send an email to <strong>{{data['csi-info'][0]['name']}}</strong> to confirm that
+  their application of <strong>£200</strong> for <br>an interview on
+  <strong>{{data['csi-info'][0]['interview-date-day']}} {{data['csi-info'][0]['interview-date-month']
+  | toMonth }}</strong> at <strong>{{data['csi-info'][0]['company-name']}}</strong> has been approved.
 
   <p class="govuk-body">Include in the email that:</p>
   <ul class="govuk-list govuk-list--bullet">
