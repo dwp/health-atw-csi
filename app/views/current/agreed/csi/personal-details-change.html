@@ -5,7 +5,7 @@
 
 {% block csi %}
 
-<h1 class="govuk-heading-xl">Edit personal details</h1>
+<h1 class="govuk-heading-xl">Change personal details</h1>
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
 
@@ -120,7 +120,7 @@
 
 {{ govukInput({
   label: {
-    text: "Email"
+    text: "Email address"
   },
   id: "email",
   name: "email",
@@ -131,7 +131,7 @@
 
 {{ govukInput({
   label: {
-    text: "Phone"
+    text: "Phone number"
   },
   id: "phone",
   name: "phone",
