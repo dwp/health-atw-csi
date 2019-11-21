@@ -3,12 +3,12 @@
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "../index"}] %}
 
-{% set title =  "[Send an email for more information]" %}
+{% set title =  "Email the applicant" %}
 
 {% block csi %}
 
 
-<p>[Send an email to {{data['csi-info'][0]['name']}} to ask for more information.]</p>
+<p>Send an email to <strong>{{data['csi-info'][0]['name']}}</strong> to ask for more information about their application.</p>
 
 
 

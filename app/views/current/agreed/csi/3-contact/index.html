@@ -3,7 +3,7 @@
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "email", page: "email/1" }, {id: "phone", page: "phone/1"}, {id: "yes", page: link } ] %}
 
-{% set title =  "[contact log]" %}
+{% set title =  "Confirm with the employer" %}
 
 {% block csi %}
 
@@ -31,7 +31,7 @@
          {
            id: "yes",
            value: "yes",
-           text: "[add information from an email]"
+           text: "Record a response from the employer"
          }
        ]
      }) }}
