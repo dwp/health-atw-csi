@@ -1,0 +1,83 @@
+{% set link = "claim" %}
+{% set personalDetails =  true  %}
+{% set hideChange = true %}
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+
+{% block csi %}
+
+<h1 class="govuk-heading-xl">Edit job interview details</h1>
+
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+{{ govukDateInput({
+  id: "dob",
+  namePrefix: "dob",
+  fieldset: {
+    legend: {
+      text: "Interview date",
+      isPageHeading: true,
+      classes: "text"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      name: "day",
+      classes: "govuk-input--width-2",
+      autocomplete: "bday-day",
+      value: "1"
+    },
+    {
+      name: "month",
+      classes: "govuk-input--width-2",
+      autocomplete: "bday-month",
+      value: "11"
+    },
+    {
+      name: "year",
+      classes: "govuk-input--width-4",
+      autocomplete: "bday-year",
+      value: "2019"
+    }
+  ]
+}) }}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+  label: {
+    text: "Condition"
+  },
+  id: "condition",
+  name: "condition",
+  value: "Deaf"
+}) }}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+  label: {
+    text: "Interview length"
+  },
+  id: "interview-length",
+  name: "interview-length",
+  value: "1 hour"
+
+}) }}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+  label: {
+    text: "Support cost"
+  },
+  id: "support-cost",
+  name: "support-cost",
+  value: "£200"
+}) }}
+
+
+
+{% endblock %}

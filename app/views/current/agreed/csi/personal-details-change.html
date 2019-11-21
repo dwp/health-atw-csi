@@ -1,0 +1,143 @@
+{% set link = "claim" %}
+{% set personalDetails =  true  %}
+{% set hideChange = true %}
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+
+{% block csi %}
+
+<h1 class="govuk-heading-xl">Edit personal details</h1>
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+  label: {
+    text: "Name"
+  },
+  id: "name",
+  name: "name",
+  value: "Thomas Brown"
+}) }}
+
+
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+{{ govukDateInput({
+  id: "dob",
+  namePrefix: "dob",
+  fieldset: {
+    legend: {
+      text: "Date of birth",
+      isPageHeading: true,
+      classes: "text"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      name: "day",
+      classes: "govuk-input--width-2",
+      autocomplete: "bday-day",
+      value: "12"
+    },
+    {
+      name: "month",
+      classes: "govuk-input--width-2",
+      autocomplete: "bday-month",
+      value: "6"
+    },
+    {
+      name: "year",
+      classes: "govuk-input--width-4",
+      autocomplete: "bday-year",
+      value: "1985"
+    }
+  ]
+}) }}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% call govukFieldset({
+  legend: {
+    text: "",
+    classes: "govuk-fieldset__legend--xl",
+    isPageHeading: true
+  }
+}) %}
+
+  {{ govukInput({
+    label: {
+      html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+    },
+    id: "address-line-1",
+    name: "address-line-1",
+    value: "12 Barley Street"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+    },
+    id: "address-line-2",
+    name: "address-line-2"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Town or city",
+      value: "Birmingham"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "address-town",
+    name: "address-town",
+    value: "Birmingham"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "County"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "address-county",
+    name: "address-county",
+    value: "Midlands"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Postcode"
+    },
+    classes: "govuk-input--width-10",
+    id: "address-postcode",
+    name: "address-postcode",
+    value: "B1 1EQ"
+
+  }) }}
+
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+  label: {
+    text: "Email"
+  },
+  id: "email",
+  name: "email",
+  value: "quarryhouse.atwresearch@dwp.gov.uk"
+}) }}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+  label: {
+    text: "Phone"
+  },
+  id: "phone",
+  name: "phone",
+  value: "07192838482 "
+}) }}
+
+{% endcall %}
+
+{% endblock %}
