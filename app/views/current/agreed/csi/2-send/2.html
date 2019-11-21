@@ -11,13 +11,16 @@
 
 <p>Download the form and copy and paste the following information into it.</p>
 
-<ul class="govuk-list">
-  <li>
-    <a class="govuk-link" href="#">Get the claim form</a>
-  </li>
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Get the claim form",
+  classes: "govuk-button--secondary",
+  href:"https://intranet.dwp.gov.uk/section/operational-instructions/customer-products/access-work/letters"
+}) }}
+
 <br>
 </br>
-
 <h2 class="govuk-heading-m">Page 1: Applicant details</h2>
 
      {{ govukSummaryList({
