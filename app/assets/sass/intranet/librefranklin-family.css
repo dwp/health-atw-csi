@@ -1,0 +1,24 @@
+@font-face {
+	font-family: Libre Franklin;
+	src: local("Libre Franklin Light"), local("LibreFranklin-Light"), url(librefranklin-light.eot?#iefix) format("embedded-opentype"), url(librefranklin-light.woff) format("woff"), url(librefranklin-light.ttf) format("truetype");
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: Libre Franklin;
+	src: local("Libre Franklin"), local("LibreFranklin-Regular"), url(librefranklin-regular.eot?#iefix) format("embedded-opentype"), url(librefranklin-regular.woff) format("woff"), url(librefranklin-regular.ttf) format("truetype");
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: Libre Franklin;
+	src: local("Libre Franklin Medium"), local("LibreFranklin-Medium"), url(librefranklin-medium.eot?#iefix) format("embedded-opentype"), url(librefranklin-medium.woff) format("woff"), url(librefranklin-medium.ttf) format("truetype");
+	font-weight: 500;
+	font-style: normal;
+}
+@font-face {
+	font-family: Libre Franklin;
+	src: local("Libre Franklin Bold"), local("LibreFranklin-Bold"), url(librefranklin-bold.eot?#iefix) format("embedded-opentype"), url(librefranklin-bold.woff) format("woff"), url(librefranklin-bold.ttf) format("truetype");
+	font-weight: 700;
+	font-style: normal;
+}
