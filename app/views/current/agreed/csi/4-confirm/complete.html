@@ -2,10 +2,16 @@
 {% set hideBack = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
-{% set title = "Tasks completed" %}
+{% set title = "" %}
 
 
 {% block csi %}
+
+
+{{ govukPanel({
+       titleText: "Tasks completed",
+       html: "[All tasks have been completed and information saved.]"
+     }) }}
 
     <P>All tasks have been completed and information saved.
     The case has <br> been removed from <strong>Your cases</strong>.</p>
@@ -18,4 +24,13 @@
         }) }}
 
 
+{% endblock %}
+
+{% block pageScripts %}
+<style>
+  .govuk-panel--confirmation {
+      color: #fff;
+      background: #00703c;
+  }
+  </style>
 {% endblock %}

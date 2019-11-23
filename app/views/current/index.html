@@ -53,7 +53,7 @@
                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/1-check/unhappy-phone-1">[phone applicant]</a> and  <a class="govuk-link" href="/{{folder}}/agreed/csi/1-check/unhappy-phone-2">[unhappy path: add to logger]</a> </li>
                       </ul>
                       </li>
-                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/2-send/1">Send email</a>, <a class="govuk-link" href="/{{folder}}/concepts/csi/02-send/2">copy claim details</a>, <a class="govuk-link" href="/{{folder}}/agreed/csi/2-send/3">create cover letter</a> and <a class="govuk-link" href="/{{folder}}/agreed/csi/2-send/4">print and send</a> (no unhappy paths)</li>
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/2-send/1">Send email</a>, <a class="govuk-link" href="/{{folder}}/agreed/csi/2-send/2">copy claim details</a> (with link to prototyped <a class="govuk-link" href="/{{folder}}/agreed/intranet/letters">intranet letters</a> with link to form <a href="https://confluence.service.dwpcloud.uk/download/attachments/152748195/Blank%20CSI%20Form%20%28generated%20from%20DISC%29.rtf?api=v2">on Confluence</a>), <a class="govuk-link" href="/{{folder}}/agreed/csi/2-send/3">create cover letter</a> and <a class="govuk-link" href="/{{folder}}/agreed/csi/2-send/4">print and send</a> (no unhappy paths)</li>
 
                       <li><a class="govuk-link" href="/{{folder}}/agreed/your-cases-waiting">Your cases (waiting)</a>, <a class="govuk-link" href="/{{folder}}/agreed/csi/index-waiting">case index (waiting)</a> and <a class="govuk-link" href="/{{folder}}/agreed/csi/claim-waiting">claim (waiting)</a></li>
                       </ul>
@@ -89,12 +89,22 @@
 
                       </ul>
 
+
+                      <h3 class="govuk-heading-m">Intranet screens</h3>
+
+                      <ul class="govuk-list">
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/intranet/forms">Forms</a></li>
+  <li><a class="govuk-link" href="/{{folder}}/agreed/intranet/letters">Letters</a> with link to form (<a href="https://confluence.service.dwpcloud.uk/download/attachments/152748195/Blank%20CSI%20Form%20%28generated%20from%20DISC%29.rtf?api=v2">on Confluence</a> so sign in)</li>
+
+                      </ul>
                       {% endset %}
                       {{ govukDetails({
-                      summaryText: "All screens in journey",
+                      summaryText: "All screens in agreed journey",
                       html: mvp
 
                           }) }}
+
+                          <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
 
                           <h2 class="govuk-heading-l">Other journeys</h2>
@@ -155,6 +165,10 @@
       <li><a class="govuk-link" href="/{{folder}}/concepts/your-cases-empty">Your cases (empty)</a></li>
 
       </ul>
+
+
+
+
 
 {% endset -%}
 
