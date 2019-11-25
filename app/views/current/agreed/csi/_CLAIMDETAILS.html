@@ -34,7 +34,7 @@
       Name
     </dt>
     <dd class="govuk-summary-list__value">
-      <p>{{ data['csi-info'][0]['name'] | safe }}</p>
+      <p>{{ data['csi-info'][1]['name'] | safe }}</p>
     </dd>
 {% if not hideChange %}
     <dd class="govuk-summary-list__actions">
@@ -52,7 +52,7 @@
       Date of birth
     </dt>
     <dd class="govuk-summary-list__value">
-      <p>{{ data['csi-info'][0]['dob-day'] | safe }} {{ data['csi-info'][0]['dob-month']| safe }} {{ data['csi-info'][0]['dob-year'] | safe }}</p>
+      <p>{{ data['csi-info'][1]['dob-day'] | safe }} {{ data['csi-info'][1]['dob-month']| safe }} {{ data['csi-info'][1]['dob-year'] | safe }}</p>
     </dd>
 {% if not hideChange %}
     <dd class="govuk-summary-list__actions">
@@ -73,11 +73,11 @@
       <p>12 Barley Street<br>Birmingham<br>B2 8FG</p>
       {% else %}
 
-<p>{{ data['csi-info'][0]['address-line-1'] }}
-  {{ data['csi-info'][0]['address-line-2'] }} <br>
-  {{ data['csi-info'][0]['address-town'] }} <br>
-  {{ data['csi-info'][0]['address-county'] }} <br>
-  {{ data['csi-info'][0]['address-postcode'] }} <br>
+<p>{{ data['csi-info'][1]['address-line-1'] }}
+  {{ data['csi-info'][1]['address-line-2'] }} <br>
+  {{ data['csi-info'][1]['address-town'] }} <br>
+  {{ data['csi-info'][1]['address-county'] }} <br>
+  {{ data['csi-info'][1]['address-postcode'] }} <br>
   </p>
 {% endif %}
     </dd>
@@ -98,7 +98,7 @@
       Email
     </dt>
     <dd class="govuk-summary-list__value">
-      {{ data['csi-info'][0]['contact-by-email'] }}
+      {{ data['csi-info'][1]['contact-by-email'] }}
     </dd>
 {% if not hideChange %}
     <dd class="govuk-summary-list__actions">
@@ -115,7 +115,7 @@
       Phone
     </dt>
     <dd class="govuk-summary-list__value">
-      {{ data['csi-info'][0]['contact-by-phone'] }}
+      {{ data['csi-info'][1]['contact-by-phone'] }}
     </dd>
 {% if not hideChange %}
     <dd class="govuk-summary-list__actions">
@@ -188,7 +188,7 @@
         Interview date
     </dt>
     <dd class="govuk-summary-list__value">
-      <p>{{ data['csi-info'][0]['interview-date-day'] }} {{ data['csi-info'][0]['interview-date-month'] }} {{ data['csi-info'][0]['interview-date-year'] }}</p>
+      <p>{{ data['csi-info'][1]['interview-date-day'] }} {{ data['csi-info'][1]['interview-date-month'] }} {{ data['csi-info'][1]['interview-date-year'] }}</p>
     </dd>
 
 {% if not hideChange %}
@@ -223,7 +223,7 @@
       Interview length
     </dt>
     <dd class="govuk-summary-list__value">
-      <p>{{ data['csi-info'][0]['duration'] }}
+      <p>{{ data['csi-info'][1]['duration'] }}
       </p>
     </dd>
 {% if not hideChange %}
@@ -242,7 +242,7 @@
     </dt>
     <dd class="govuk-summary-list__value">
       <p class="govuk-body">
-        {{ data['csi-info'][0]['support-worker-pay'] | toMoney | safe }}
+        {{ data['csi-info'][1]['support-worker-pay'] | toMoney | safe }}
       </p>
     </dd>
 {% if not hideChange %}
@@ -286,7 +286,7 @@
       Company name
       </dt>
           <dd class="govuk-summary-list__value">
-          {{ data['csi-info'][0]['company-name'] }}
+          {{ data['csi-info'][1]['company-name'] }}
           </dd>
 {% if not hideChange %}
           <dd class="govuk-summary-list__actions">
@@ -304,10 +304,10 @@
       </dt>
           <dd class="govuk-summary-list__value">
 
-     <p>{{ data['csi-info'][0]['company-address-line-one'] }} <br>
-        {{ data['csi-info'][0]['company-address-town'] }} <br>
-        {{ data['csi-info'][0]['company-address-county'] }} <br>
-        {{ data['csi-info'][0]['company-address-postcode'] }} <br>
+     <p>{{ data['csi-info'][1]['company-address-line-one'] }} <br>
+        {{ data['csi-info'][1]['company-address-town'] }} <br>
+        {{ data['csi-info'][1]['company-address-county'] }} <br>
+        {{ data['csi-info'][1]['company-address-postcode'] }} <br>
         </p>
 
           </dd>
@@ -326,7 +326,7 @@
       Company contact
       </dt>
           <dd class="govuk-summary-list__value">
-          {{ data['csi-info'][0]['interviewer-name'] }}
+          {{ data['csi-info'][1]['interviewer-name'] }}
           </dd>
 {% if not hideChange %}
           <dd class="govuk-summary-list__actions">
@@ -343,7 +343,7 @@
       Email
     </dt>
     <dd class="govuk-summary-list__value">
-      {{ data['csi-info'][0]['company-email-address'] }}
+      {{ data['csi-info'][1]['company-email-address'] }}
     </dd>
 {% if not hideChange %}
     <dd class="govuk-summary-list__actions">
@@ -360,7 +360,7 @@
       Phone
     </dt>
     <dd class="govuk-summary-list__value">
-      {{ data['csi-info'][0]['contact-by-phone'] }}
+      {{ data['csi-info'][1]['contact-by-phone'] }}
     </dd>
 {% if not hideChange %}
     <dd class="govuk-summary-list__actions">

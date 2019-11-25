@@ -32,7 +32,7 @@
              text: "Surname"
            },
            value: {
-             text: data['csi-info'][0]['name'] | lastName | safe
+             text: data['csi-info'][1]['name'] | lastName | safe
            }
          },
          {
@@ -40,7 +40,7 @@
              text: "First name"
            },
            value: {
-             text: data['csi-info'][0]['name'] | firstName | safe
+             text: data['csi-info'][1]['name'] | firstName | safe
            }
          },
 
@@ -49,7 +49,7 @@
              text: "Date of birth"
            },
            value: {
-             text: (data['csi-info'][0]['dob-day'] + " " +  data['csi-info'][0]['dob-month'] | toMonth + " " +  data['csi-info'][0]['dob-year']) | safe
+             text: (data['csi-info'][1]['dob-day'] + " " +  data['csi-info'][1]['dob-month'] | toMonth + " " +  data['csi-info'][1]['dob-year']) | safe
 
            }
          },
@@ -67,7 +67,7 @@
              text: "Home address"
            },
            value: {
-             html:  (data['csi-info'][0]['address-line-one'] +  "<br>" + data['csi-info'][0]['address-town']+  "<br>" + data['csi-info'][0]['address-county'] +  "<br>" + data['csi-info'][0]['address-postcode']) | safe
+             html:  (data['csi-info'][1]['address-line-one'] +  "<br>" + data['csi-info'][1]['address-town']+  "<br>" + data['csi-info'][1]['address-county'] +  "<br>" + data['csi-info'][1]['address-postcode']) | safe
 
 
 
@@ -79,7 +79,7 @@
              text: "Telephone"
            },
            value: {
-             text: data['csi-info'][0]['contact-by-phone']  | safe
+             text: data['csi-info'][1]['contact-by-phone']  | safe
            }
          },
          {
@@ -87,7 +87,7 @@
              text: "Email address"
            },
            value: {
-             text: data['csi-info'][0]['contact-by-email'] | safe
+             text: data['csi-info'][1]['contact-by-email'] | safe
 
            }
          }
@@ -104,7 +104,7 @@
                   text: "Name of employer"
                 },
                 value: {
-                  text: data['csi-info'][0]['company-name'] | safe
+                  text: data['csi-info'][1]['company-name'] | safe
                 }
               },
               {
@@ -112,7 +112,7 @@
                   text: "Employer address"
                 },
                 value: {
-                  text: (data['csi-info'][0]['company-address-line-one'] +  "<br>" + data['csi-info'][0]['company-address-town']+  "<br>" + data['csi-info'][0]['company-address-county'] +  "<br>" + data['csi-info'][0]['company-address-postcode']) | safe
+                  text: (data['csi-info'][1]['company-address-line-one'] +  "<br>" + data['csi-info'][1]['company-address-town']+  "<br>" + data['csi-info'][1]['company-address-county'] +  "<br>" + data['csi-info'][1]['company-address-postcode']) | safe
                 }
               },
 
@@ -121,7 +121,7 @@
                   text: "Telephone number"
                 },
                 value: {
-                  text: data['csi-info'][0]['company-phone']
+                  text: data['csi-info'][1]['company-phone']
 
                 }
               },
@@ -130,7 +130,7 @@
                   text: "Contact name"
                 },
                 value: {
-                  text: data['csi-info'][0]['interviewer-name']
+                  text: data['csi-info'][1]['interviewer-name']
 
                 }
               },
@@ -139,7 +139,7 @@
                   text: "Date of interview"
                 },
                 value: {
-                  text: (data['csi-info'][0]['interview-date-day'] + " " +  data['csi-info'][0]['interview-date-month'] | toMonth + " " +  data['csi-info'][0]['interview-date-year']) | safe
+                  text: (data['csi-info'][1]['interview-date-day'] + " " +  data['csi-info'][1]['interview-date-month'] | toMonth + " " +  data['csi-info'][1]['interview-date-year']) | safe
 
 
 
@@ -162,7 +162,7 @@
              text: "CSI cost"
            },
            value: {
-             text: data['csi-info'][0]['support-worker-pay'] | safe
+             text: data['csi-info'][1]['support-worker-pay'] | safe
            }
          },
          {
