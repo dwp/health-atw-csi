@@ -7,7 +7,6 @@
 
 {% block csi %}
 
-
 <p>Send an email to <strong>{{data['csi-info'][0]['name']}}</strong> to confirm
   that their application has been approved.
 
@@ -30,7 +29,7 @@
           text: "Applicant name"
         },
         {
-          text: data['csi-info'][0]['name']
+          text: data['csi-info'][1]['name']
         }
       ],
       [
@@ -38,7 +37,7 @@
           text: "Support cost"
         },
         {
-          text: data['csi-info'][0]['support-worker-pay'] | toMoney | safe
+          text: data['csi-info'][1]['support-worker-pay'] | toMoney | safe
         }
       ],
       [
@@ -46,7 +45,7 @@
           text: "Interview date"
         },
         {
-          text:( data['csi-info'][0]['interview-date-day'] + " " + data['csi-info'][0]['interview-date-month']
+          text:( data['csi-info'][1]['interview-date-day'] + " " + data['csi-info'][1]['interview-date-month']
           | toMonth ) | safe
         }
       ],
@@ -55,7 +54,7 @@
           text: "Company name"
         },
         {
-          text: data['csi-info'][0]['company-name']
+          text: data['csi-info'][1]['company-name']
         }
       ],
       [
@@ -81,7 +80,7 @@
   {{ govukButton({
     text: "Open new email",
     classes: "govuk-button--secondary",
-    href: "mailto:" + data['csi-info'][0]['contact-by-email']
+    href: "mailto:" + data['csi-info'][1]['email-for-user-research']
   }) }}
 
 

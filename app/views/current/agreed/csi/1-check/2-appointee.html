@@ -2,12 +2,12 @@
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
-{% set title =  "Add appointee details for " + data['csi-info'][0]['name']  + "" %}
+{% set title =  "Add appointee details for " + data['csi-info'][1]['name']  + "" %}
 
 
 {% block csi %}
 
-<p>Copy information for {{ data['csi-info'][0]['name'] | safe }}’s appointee from Searchlight.</p>
+<p>Copy information for {{ data['csi-info'][1]['name'] | safe }}’s appointee from Searchlight.</p>
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
 
