@@ -7,23 +7,19 @@
 
 {% block csi %}
 
-
-<p>Send an email to <strong>{{data['csi-info'][1]['name']}}</strong><!--  to confirm that
-  their application for <strong>£200</strong> for <br>an interview on
-  <strong>{{data['csi-info'][1]['interview-date-day']}} {{data['csi-info'][1]['interview-date-month']
-  | toMonth }}</strong> at <strong>{{data['csi-info'][1]['company-name']}}</strong> has been approved.
-  Their reference number <br>is <strong>ATW34593DE</strong> -->.
+<p>Send an email to <strong>{{data['csi-info'][0]['name']}}</strong> to confirm
+  that their application has been approved.
 
   {{ govukTable({
-    caption: "[caption if needed]",
+    caption: "",
     firstCellIsHeader: true,
     head: [
     {
-      text: "[header if needed]",
+      text: "",
       classes: 'govuk-!-width-one-third'
     },
     {
-      text: "[answer if needed]",
+      text: "",
       classes: 'govuk-!-width-two-thirds'
     }
   ],
@@ -63,7 +59,7 @@
       ],
       [
         {
-          text: "[Reference]"
+          text: "Reference"
         },
         {
           text: "ATW34593DE"
