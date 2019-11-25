@@ -1,4 +1,4 @@
-{% set link = "claim" %}
+{% set link = "claim-router" %}
 {% set personalDetails =  true  %}
 {% set hideChange = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
@@ -111,8 +111,8 @@
     text: "Email address"
   },
   id: "email",
-  name: "email",
-  value: "quarryhouse.atwresearch@dwp.gov.uk"
+  name: "company-email-address-change",
+  value: data['csi-info'][1]['company-email-address'] | safe
 }) }}
 
 {% from "govuk/components/input/macro.njk" import govukInput %}

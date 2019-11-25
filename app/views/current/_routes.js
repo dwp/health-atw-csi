@@ -261,4 +261,27 @@ router.post(`/concepts/your-cases-empty/`, (req, res) => {
 
 */
 
+
+router.all('/agreed/csi/claim-router', function(req, res, next){
+console.log('router');
+if (req.session.data['company-email-address-change'] ) {
+req.session.data['csi-info'][1]['company-email-address'] = req.session.data['company-email-address-change'];
+console.log('company-email-address changed to ' + req.session.data['company-email-address-change'] );
+delete req.session.data['company-email-address-change'];
+}
+
+if (req.session.data['support-worker-pay-change'] ) {
+req.session.data['csi-info'][1]['support-worker-pay'] = req.session.data['support-worker-pay-change'];
+console.log('support-worker-pay changed to ' + req.session.data['support-worker-pay-change'] );
+delete req.session.data['support-worker-pay-change'];
+}
+
+    return res.redirect ('claim');
+
+  next();
+
+
+});
+
+
 module.exports = router

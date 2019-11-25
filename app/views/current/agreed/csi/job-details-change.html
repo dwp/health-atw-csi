@@ -1,4 +1,4 @@
-{% set link = "claim" %}
+{% set link = "claim-router" %}
 {% set personalDetails =  true  %}
 {% set hideChange = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
@@ -74,8 +74,8 @@
     text: "Support cost"
   },
   id: "support-cost",
-  name: "support-cost",
-  value: "£200"
+  name: "support-worker-pay-change",
+  value: data['csi-info'][1]['support-worker-pay'] | safe
 }) }}
 
 

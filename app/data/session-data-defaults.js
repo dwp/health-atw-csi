@@ -21,7 +21,7 @@ module.exports = {
 
   // Insert values here
 
-  'unallocated-cases': [{
+/*   'unallocated-cases': [{
     'name': 'Dereck Smith',
     'specialism': 'Large business',
     'type': 'Renewal',
@@ -81,10 +81,10 @@ module.exports = {
     'type': 'New application',
           'priority' : false,
     'date': '24 October 2019 - 22:23'
-  }],
+  }], */
 
   'csi-info': [{
-    'name': 'Thomas Brown',
+  /*  'name': 'Thomas Brown',
     'dob-day': '12',
     'dob-month': 'June',
     'dob-year': '1985',
@@ -110,7 +110,7 @@ module.exports = {
     'support-worker-pay': '200',
     'contact-by-email': 'quarryhouse.atwresearch@dwp.gov.uk',
     'contact-by-phone': '07192 838 482'
-
+*/
   },
   {
     'name': 'Thomas Brown',
@@ -165,7 +165,7 @@ module.exports = {
     'type': 'CSI',
           'priority' : "true",
     'date': '6 October 2019 - 12:23'
-  }, {
+  } /*  , {
     'name': 'Sam Andrews',
     'specialism': 'CSI',
     'type': 'CSI',
@@ -179,7 +179,7 @@ module.exports = {
     'disc' : true,
           'priority' : "false",
     'date': '24 October 2019 - 12:23'
-  }
+  } */
 
 
 ]  ,
