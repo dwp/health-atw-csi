@@ -1,6 +1,8 @@
-{% set link = "../../index-interview" %}
+{% set link = "2" %}
 {% set interviewLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "../../index-interview"}] %}
 
 {% set title =  "Email the employer" %}
 
@@ -11,19 +13,62 @@
 </p>
 <p>
 
-  <div class="govuk-inset-text">
-    Employer name: Terry Gibson<br>
-    Company name: {{data['csi-info'][0]['company-name']}}<br>
-    Applicant name: {{data['csi-info'][0]['name']}}<br>
-    Interview date: {{data['csi-info'][0]['interview-date-day']}}
-    {{data['csi-info'][0]['interview-date-month'] | toMonth }}<br>
-  
-  </div>
+    {{ govukTable({
+      caption: "",
+      firstCellIsHeader: true,
+      head: [
+      {
+        text: "",
+        classes: 'govuk-!-width-one-third'
+      },
+      {
+        text: "",
+        classes: 'govuk-!-width-two-thirds'
+      }
+    ],
+      rows: [
+        [
+          {
+            text: "Employer name"
+          },
+          {
+            text: data['csi-info'][1]['interviewer-name']
+          }
+        ],
+        [
+          {
+            text: "Applicant name"
+          },
+          {
+            text: data['csi-info'][1]['name']
+          }
+        ],
+        [
+          {
+            text: "Company name"
+          },
+          {
+            text: data['csi-info'][1]['company-name']
+          }
+        ]
+        ,
+        [
+          {
+            text: "Interview date"
+          },
+          {
+            text:( data['csi-info'][1]['interview-date-day'] + " " + data['csi-info'][1]['interview-date-month']
+            | toMonth ) | safe
+          }
+        ]
+      ]
+    }) }}
+
 
   {{ govukButton({
     text: "Open new email",
     classes: "govuk-button--secondary",
-    href: "mailto:" + data['csi-info'][0]['company-email-address']
+    href: "mailto:" + data['csi-info'][1]['email-for-user-research']
   }) }}
 
 <br>
@@ -42,10 +87,12 @@
        },
        items: [
          {
+           id: "yes",
            value: "yes",
            text: "Yes"
          },
          {
+           id: "no",
            value: "no",
            text: "No"
          }

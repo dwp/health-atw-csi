@@ -8,14 +8,14 @@
 {% block csi %}
 
 
-<p>Send an email to <strong>{{data['csi-info'][0]['name']}}</strong> to ask for more information about their application.</p>
+<p>Send an email to <strong>{{data['csi-info'][1]['name']}}</strong> to ask for more information about their application.</p>
 
 
 
   {{ govukButton({
     text: "Open new email",
     classes: "govuk-button--secondary",
-    href: "mailto:" + data['csi-info'][0]['contact-by-email']
+    href: "mailto:" + data['csi-info'][1]['email-for-user-research']
   }) }}
 
 
@@ -27,7 +27,7 @@
 
 
 {{ govukErrorSummary({
-  titleText: "Notes",
+  titleText: "Information to check with the applicant",
   classes: "not-error",
   errorList: [
     {
@@ -58,7 +58,7 @@
 {% if data['more-detail-4'] %}
 
 {{ govukErrorSummary({
-  titleText: "Notes",
+  titleText: "Information to check with the applicant",
   classes: "not-error",
   errorList: [
     {
@@ -86,10 +86,10 @@
 
 <h2 class="govuk-heading-m">Interview details</h2>
 
-{% if data['more-detail-4'] %}
+{% if data['more-detail-5'] %}
 
 {{ govukErrorSummary({
-  titleText: "Notes",
+  titleText: "Information to check with the applicant",
   classes: "not-error",
   errorList: [
     {

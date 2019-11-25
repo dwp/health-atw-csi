@@ -111,7 +111,39 @@ module.exports = {
     'contact-by-email': 'quarryhouse.atwresearch@dwp.gov.uk',
     'contact-by-phone': '07192 838 482'
 
-  }, {
+  },
+  {
+    'name': 'Thomas Brown',
+    'dob-day': '12',
+    'dob-month': 'June',
+    'dob-year': '1985',
+    'address-line-one': '14 Kings Road',
+    'address-line-two': '',
+    'address-town': 'Birmingham',
+    'address-county': 'Midlands',
+    'address-postcode': 'B1 1EQ',
+    'interview-date-day': '1',
+    'interview-date-month': 'November',
+    'interview-date-year': '2019',
+    'company-name': 'Tesco',
+    'company-address-line-one': '101 Kent Way',
+    'company-address-line-two': '',
+    'company-address-town': 'Birmingham',
+    'company-address-county': 'Midlands',
+    'company-address-postcode': 'B4 8RT',
+    'company-email-address': 'terry@tecso.co.uk',
+    'company-phone': '07987 654 678',
+    'duration': '1 hour',
+    'interviewer-name': 'Terry Gibson',
+    'interviewer-contact-preference': 'Email',
+    'support-worker-pay': '2000',
+    'email-for-user-research' : 'quarryhouse.atwresearch@dwp.gov.uk',
+    'contact-by-email': 'thomas@gmail.com',
+    'contact-by-phone': '07192 838 482'
+
+  },
+
+   {
     'name': 'Sam Andrews',
     'specialism': 'CSI',
     'type': 'CSI',
