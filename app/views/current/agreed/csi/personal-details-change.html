@@ -14,8 +14,8 @@
     text: "Name"
   },
   id: "name",
-  name: "name",
-  value: "Thomas Brown"
+  name: "csi-info[0][name]",
+  value: data['csi-info'][0]['name'] | safe
 }) }}
 
 
@@ -26,7 +26,6 @@
   namePrefix: "dob",
   fieldset: {
     legend: {
-      text: "Date of birth",
       isPageHeading: true,
       classes: "text"
     }

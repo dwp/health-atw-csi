@@ -15,7 +15,10 @@
   },
   id: "company-name",
   name: "company-name",
-  value: "Tesco"
+  value: "Tesco",
+  classes: "govuk-input--width-20",
+  id: "width-20",
+  name: "width-20"
 }) }}
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -23,7 +26,6 @@
 
 {% call govukFieldset({
   legend: {
-    text: "Company address",
     classes: "text",
     isPageHeading: true
   }
@@ -35,7 +37,10 @@
     },
     id: "address-line-1",
     name: "address-line-1",
-    value: "101 Kent Way"
+    value: "101 Kent Way",
+    classes: "govuk-input--width-20",
+    id: "width-20",
+    name: "width-20"
   }) }}
 
   {{ govukInput({
@@ -44,7 +49,10 @@
     },
     id: "address-line-2",
     name: "address-line-2",
-    value: ""
+    value: "",
+    classes: "govuk-input--width-20",
+    id: "width-20",
+    name: "width-20"
   }) }}
 
   {{ govukInput({
@@ -54,7 +62,10 @@
     classes: "govuk-!-width-two-thirds",
     id: "address-town",
     name: "address-town",
-    value: "Birmingham"
+    value: "Birmingham",
+    classes: "govuk-input--width-20",
+    id: "width-10",
+    name: "width-10"
   }) }}
 
   {{ govukInput({
@@ -64,17 +75,22 @@
     classes: "govuk-!-width-two-thirds",
     id: "address-county",
     name: "address-county",
-    value: "Midlands"
+    value: "Midlands",
+    classes: "govuk-input--width-10",
+    id: "width-10",
+    name: "width-10"
   }) }}
 
   {{ govukInput({
     label: {
       text: "Postcode"
     },
-    classes: "govuk-input--width-10",
     id: "address-postcode",
     name: "address-postcode",
-    value: "B4 8RT"
+    value: "B4 8RT",
+    classes: "govuk-input--width-5",
+    id: "width-5",
+    name: "width-5"
   }) }}
 
   {% from "govuk/components/input/macro.njk" import govukInput %}
