@@ -36,7 +36,7 @@
 {% endif %}
 
 {% if not (phase == "interview" ) and not (phase == "waiting") %}
-{% if data['personal'] == 'no' or data['company'] == 'no' or data['searchlight'] == "no" %}
+{% if data['personal'] == 'no' or data['company'] == 'no' or data['interview'] == "no" %}
 <br>
 {{ govukWarningText({
   html: "Information needed from the applicant. Make changes in the Case details tab.",
