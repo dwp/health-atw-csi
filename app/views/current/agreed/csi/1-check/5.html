@@ -2,7 +2,7 @@
 {% set hideChange = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
-{% if data['personal'] == 'no' or data['company'] == 'no' %}
+{% if data['personal'] == 'no' or data['company'] == 'no' or data['interview'] == 'no' %}
 {% set link = "unhappy-2" %}
 {%  else  %}
 {% set link = "../2-send/1" %}

@@ -36,7 +36,7 @@
 {% endif %}
 
 {% if not (phase == "interview" ) and not (phase == "waiting") %}
-{% if data['personal'] == 'no' or data['company'] == 'no' or data['interview'] == "no" %}
+{% if (data['personal'] == 'no') or (data['company'] == 'no') or (data['interview'] == "no") %}
 <br>
 {{ govukWarningText({
   html: "Information needed from the applicant. Make changes in the Case details tab.",
@@ -76,7 +76,7 @@
 
 
 
-            {{taskListItem(title="Send a confirmation email", link="2-send/1", completed=(data['send'] == "yes" or phase == "interview" or phase == "waiting"),  locked=(not (data['interview'] == "no" )) or (data['interview'] and (data['personal'] == 'yes' or data['company'] == 'yes' or data['searchlight'] == "yes")) ) }}
+            {{taskListItem(title="Send a confirmation email", link="2-send/1", completed=(data['send'] == "yes" or phase == "interview" or phase == "waiting"),  locked=(not (data['interview'] == "yes" )) or (data['interview'] and (data['personal'] == 'no' or data['company'] == 'no')) ) }}
 
             {{taskListItem(title="Print and send the form", link="2-send/2", completed=(data['claim'] == "yes" or interview or waiting), locked=(not data['send']) )}}
 
