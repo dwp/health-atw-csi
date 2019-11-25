@@ -18,12 +18,7 @@
   ]
 }) }}
 
-{% endif %}
-
-
-
-{% endif %}
-{% endif %}
+{% endif %}{% endif %}{% endif %}
 
 
 {% if personalDetails or claim %}
@@ -79,7 +74,7 @@
   {{ data['csi-info'][1]['address-county'] }} <br>
   {{ data['csi-info'][1]['address-postcode'] }} <br>
   </p>
-{% endif %}
+{% endif %} <!-- end address -->
     </dd>
 {% if not hideChange %}
     <dd class="govuk-summary-list__actions">
@@ -88,7 +83,7 @@
         <span class="govuk-visually-hidden"></span>
       </a>
     </dd>
-{% endif %}
+{% endif %} <!-- end change -->
   </div>
 
 
@@ -107,7 +102,7 @@
         <span class="govuk-visually-hidden"></span>
       </a>
     </dd>
-{% endif %}
+{% endif %}  <!-- end change -->
   </div>
 
   <div class="govuk-summary-list__row">
@@ -124,7 +119,7 @@
         <span class="govuk-visually-hidden"></span>
       </a>
     </dd>
-{% endif %}
+{% endif %}  <!-- end change -->
   </div>
 
 
@@ -156,120 +151,18 @@
 {% endif %}
 
 
-
-{% if claim %}
-  <h2 class="govuk-heading-m govuk-!-margin-top-6">Job interview details</h2>
-
-  {% if data['interview'] == 'no'  and not (phase == "interview")  %}
-
-
-
-  {% if data['more-detail-4'] %}
-
-  {{ govukErrorSummary({
-    titleText: "Information to check with the applicant",
-    classes: "not-error",
-    errorList: [
-      {
-        text: data['more-detail-4'] | safe
-      }
-    ]
-  }) }}
-
-  {% endif %}
-
-  {% endif %}
-{% endif %}
-{% if interviewDetails or claim %}
-  <dl class="govuk-summary-list">
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-        Interview date
-    </dt>
-    <dd class="govuk-summary-list__value">
-      <p>{{ data['csi-info'][1]['interview-date-day'] }} {{ data['csi-info'][1]['interview-date-month'] }} {{ data['csi-info'][1]['interview-date-year'] }}</p>
-    </dd>
-
-{% if not hideChange %}
-    <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="job-details-change">
-        Change
-        <span class="govuk-visually-hidden"></span>
-      </a>
-    </dd>
-{% endif %}
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key ">
-      Condition
-    </dt>
-    <dd class="govuk-summary-list__value">
-      Deaf
-    </dd>
-{% if not hideChange %}
-    <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="job-details-change">
-        Change
-        <span class="govuk-visually-hidden"></span>
-      </a>
-    </dd>
-{% endif %}
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Interview length
-    </dt>
-    <dd class="govuk-summary-list__value">
-      <p>{{ data['csi-info'][1]['duration'] }}
-      </p>
-    </dd>
-{% if not hideChange %}
-    <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="job-details-change">
-        Change
-        <span class="govuk-visually-hidden"></span>
-      </a>
-    </dd>
-{% endif %}
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Support cost
-    </dt>
-    <dd class="govuk-summary-list__value">
-      <p class="govuk-body">
-        {{ data['csi-info'][1]['support-worker-pay'] | toMoney | safe }}
-      </p>
-    </dd>
-{% if not hideChange %}
-    <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="job-details-change">
-        Change
-        <span class="govuk-visually-hidden"></span>
-      </a>
-    </dd>
-{% endif %}
-  </div>
-
-</dl>
-
-{% endif %}
 {% if claim %}
     <h2 class="govuk-heading-m govuk-!-margin-top-6">Company details</h2>
     {% if data['company'] == 'no' and not (phase == "interview")  %}
 
-    {% if data['more-detail-5']  %}
+    {% if data['more-detail-4']  %}
 
     {{ govukErrorSummary({
       titleText: "Information to check with the applicant",
       classes: "not-error",
       errorList: [
         {
-          text: data['more-detail-5'] | safe
+          text: data['more-detail-4'] | safe
         }
       ]
     }) }}
@@ -373,5 +266,109 @@
   </div>
 </dl>
 
+
+{% endif %}
+
+
+
+{% if claim %}
+  <h2 class="govuk-heading-m govuk-!-margin-top-6">Job interview details</h2>
+
+  {% if data['interview'] == 'no'  and not (phase == "interview")  %}
+
+
+
+  {% if data['more-detail-5'] %}
+
+  {{ govukErrorSummary({
+    titleText: "Information to check with the applicant",
+    classes: "not-error",
+    errorList: [
+      {
+        text: data['more-detail-5'] | safe
+      }
+    ]
+  }) }}
+
+  {% endif %}
+
+  {% endif %}
+{% endif %}
+{% if interviewDetails or claim %}
+  <dl class="govuk-summary-list">
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+        Interview date
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p>{{ data['csi-info'][1]['interview-date-day'] }} {{ data['csi-info'][1]['interview-date-month'] }} {{ data['csi-info'][1]['interview-date-year'] }}</p>
+    </dd>
+
+{% if not hideChange %}
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="job-details-change">
+        Change
+        <span class="govuk-visually-hidden"></span>
+      </a>
+    </dd>
+{% endif %}
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key ">
+      Condition
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Deaf
+    </dd>
+{% if not hideChange %}
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="job-details-change">
+        Change
+        <span class="govuk-visually-hidden"></span>
+      </a>
+    </dd>
+{% endif %}
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Interview length
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p>{{ data['csi-info'][1]['duration'] }}
+      </p>
+    </dd>
+{% if not hideChange %}
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="job-details-change">
+        Change
+        <span class="govuk-visually-hidden"></span>
+      </a>
+    </dd>
+{% endif %}
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Support cost
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">
+        {{ data['csi-info'][1]['support-worker-pay'] | toMoney | safe }}
+      </p>
+    </dd>
+{% if not hideChange %}
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="job-details-change">
+        Change
+        <span class="govuk-visually-hidden"></span>
+      </a>
+    </dd>
+{% endif %}
+  </div>
+
+</dl>
 
 {% endif %}
