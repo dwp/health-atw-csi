@@ -2,20 +2,14 @@
 {% set hideChange = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
-{% set link %}
 {% if data['personal'] == 'no' or data['company'] == 'no' %}
-unhappy-2
+{% set link = "unhappy-2" %}
 {%  else  %}
-../2-send/1
+{% set link = "../2-send/1" %}
 {% endif %}
-{% endset -%}
 
 {% set redirect = [{id : "no", page: "unhappy-2" }, {id: "yes", page: link}] %}
 
-
-
-
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "4-unhappy"}] %}
 
 {% set title =  "Check interview details" %}
 
@@ -57,6 +51,7 @@ unhappy-2
        {
          id: "yes",
          value: "yes",
+         checked: checked('interview', "yes"),
          text: "Yes"
        },
          {
