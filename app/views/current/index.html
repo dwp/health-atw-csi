@@ -11,6 +11,7 @@
           Sprint 6
         <span class="govuk-caption-xl">MVP unhappy path and payments</span>
 
+
         {{ govukDetails({
                   summaryText: "Notes on this sprint",
                   html: '
@@ -18,7 +19,7 @@
 
                   <ul class="govuk-list  govuk-list--bullet">
                       <li>created alternatives for the MVP based on the unhappy path to explore the what’s minimum and viable</li>
-                        <li>[add other sections here]</li>
+                        <li>added the example of the download form and intranet</li>
 
                   </ul>'
 
@@ -38,7 +39,8 @@
 
                       <ul class="govuk-list">
                       <li><a class="govuk-link" href="/{{folder}}/agreed/your-cases">Your cases</a></li>
-                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/index">Your tasks</a> and  <a class="govuk-link" href="/{{folder}}/agreed/csi/claim">claim</a>
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/claim">Case details</a> and change <a class="govuk-link" href="/{{folder}}/agreed/csi/personal-details-change">personal details</a>, <a class="govuk-link" href="/{{folder}}/agreed/csi/company-details-change">company details</a>, and <a class="govuk-link" href="/{{folder}}/agreed/csi/job-details-change">interview details</a> </li>
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/index">Your tasks</a>
                       <ul class="govuk-list govuk-list--bullet">
                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/1-check/1">Check on searchlight</a> and <a class="govuk-link" href="/{{folder}}/agreed/csi/1-check/1-unhappy">holder unhappy path</a> - proposed jump to company details as it's not possible to check other details</li>
                       <li> <a class="govuk-link" href="/{{folder}}/agreed/csi/1-check/2">check for appointee</a> and <a class="govuk-link" href="/{{folder}}/agreed/csi/1-check/2-appointee">add appointee details</a></li>
@@ -48,9 +50,9 @@
 
                       <li>unhappy path:
                       <ul class="govuk-list govuk-list--bullet">
-                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/1-check/unhappy-2">IF 2 FORMS OF CONTACT: [how to contact]</a> </li>
-                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/1-check/unhappy-email-1">[send email]</a> and  <a class="govuk-link" href="/{{folder}}/agreed/csi/1-check/unhappy-email-2">[add to logger]</a> </li>
-                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/1-check/unhappy-phone-1">[phone applicant]</a> and  <a class="govuk-link" href="/{{folder}}/agreed/csi/1-check/unhappy-phone-2">[unhappy path: add to logger]</a> </li>
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/1-check/unhappy-2">IF 2 FORMS OF CONTACT: how do you want to contact the applicant?</a> </li>
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/1-check/unhappy-email-1">send email</a> and  <a class="govuk-link" href="/{{folder}}/agreed/csi/1-check/unhappy-email-2">email sent</a> </li>
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/1-check/unhappy-phone-1">phone applicant</a> and  <a class="govuk-link" href="/{{folder}}/agreed/csi/1-check/unhappy-phone-2">phoned</a> </li>
                       </ul>
                       </li>
                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/2-send/1">Send email</a>, <a class="govuk-link" href="/{{folder}}/agreed/csi/2-send/2">copy claim details</a> (with link to prototyped <a class="govuk-link" href="/{{folder}}/agreed/intranet/letters">intranet letters</a> with link to form <a href="https://confluence.service.dwpcloud.uk/download/attachments/152748195/Blank%20CSI%20Form%20%28generated%20from%20DISC%29.rtf?api=v2">on Confluence</a>), <a class="govuk-link" href="/{{folder}}/agreed/csi/2-send/3">create cover letter</a> and <a class="govuk-link" href="/{{folder}}/agreed/csi/2-send/4">print and send</a> (no unhappy paths)</li>
@@ -98,9 +100,12 @@
 
                       </ul>
                       {% endset %}
-                      {{ govukDetails({
-                      summaryText: "All screens in agreed journey",
+                   
+                      {{ govukInsetText({
                       html: mvp
+
+
+
 
                           }) }}
 
