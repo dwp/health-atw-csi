@@ -276,6 +276,89 @@ console.log('support-worker-pay changed to ' + req.session.data['support-worker-
 delete req.session.data['support-worker-pay-change'];
 }
 
+if (req.session.data['name-change'] ) {
+req.session.data['csi-info'][1]['name'] = req.session.data['name-change'];
+console.log('name changed to ' + req.session.data['name-change'] );
+delete req.session.data['name-change'];
+}
+
+if (req.session.data['day-change'] ) {
+req.session.data['csi-info'][1]['day'] = req.session.data['day-change'];
+console.log('day changed to ' + req.session.data['day-change'] );
+delete req.session.data['day-change'];
+}
+
+/*if (req.session.data['address-line-1-change'] ) {
+req.session.data['csi-info'][1]['address-line-1'] = req.session.data['address-line-1-change'];
+console.log('address-line-1 changed to ' + req.session.data['address-line-1-change'] );
+delete req.session.data['address-line-1-change'];
+}*/
+
+if (req.session.data['address-line-one-change'] ) {
+req.session.data['csi-info'][1]['address-line-one'] = req.session.data['address-line-one-change'];
+console.log('address-line-one changed to ' + req.session.data['address-line-one-change'] );
+delete req.session.data['address-line-one-change'];
+}
+
+if (req.session.data['address-town-change'] ) {
+req.session.data['csi-info'][1]['address-town'] = req.session.data['address-town-change'];
+console.log('address-town changed to ' + req.session.data['address-town-change'] );
+delete req.session.data['address-town-change'];
+}
+
+if (req.session.data['address-county-change'] ) {
+req.session.data['csi-info'][1]['address-county'] = req.session.data['address-county-change'];
+console.log('address-county changed to ' + req.session.data['address-county-change'] );
+delete req.session.data['address-county-change'];
+}
+
+if (req.session.data['address-postcode-change'] ) {
+req.session.data['csi-info'][1]['address-postcode'] = req.session.data['address-postcode-change'];
+console.log('address-postcode changed to ' + req.session.data['address-postcode-change'] );
+delete req.session.data['address-postcode-change'];
+}
+
+if (req.session.data['contact-by-email-change'] ) {
+req.session.data['csi-info'][1]['contact-by-email'] = req.session.data['contact-by-email-change'];
+console.log('contact-by-email changed to ' + req.session.data['contact-by-email-change'] );
+delete req.session.data['contact-by-email-change'];
+}
+
+if (req.session.data['contact-by-phone-personal-change'] ) {
+req.session.data['csi-info'][1]['contact-by-phone-personal'] = req.session.data['contact-by-phone-personal-change'];
+console.log('contact-by-phone-personal changed to ' + req.session.data['contact-by-phone-personal-change'] );
+delete req.session.data['contact-by-phone-personal-change'];
+}
+
+
+//company details
+
+if (req.session.data['company-name-change'] ) {
+req.session.data['csi-info'][1]['company-name'] = req.session.data['company-name-change'];
+console.log('company-name changed to ' + req.session.data['company-name-change'] );
+delete req.session.data['company-name-change'];
+}
+
+if (req.session.data['interviewer-name-change'] ) {
+req.session.data['csi-info'][1]['interviewer-name'] = req.session.data['interviewer-name-change'];
+console.log('interviewer-name changed to ' + req.session.data['interviewer-name-change'] );
+delete req.session.data['interviewer-name-change'];
+}
+
+if (req.session.data['contact-by-phone-change'] ) {
+req.session.data['csi-info'][1]['contact-by-phone'] = req.session.data['contact-by-phone-change'];
+console.log('contact-by-phone changed to ' + req.session.data['contact-by-phone-change'] );
+delete req.session.data['contact-by-phone-change'];
+}
+
+//job details
+
+if (req.session.data['duration-change'] ) {
+req.session.data['csi-info'][1]['duration'] = req.session.data['duration-change'];
+console.log('duration changed to ' + req.session.data['duration-change'] );
+delete req.session.data['duration-change'];
+}
+
     return res.redirect ('claim');
 
   next();

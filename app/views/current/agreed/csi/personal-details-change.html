@@ -1,4 +1,4 @@
-{% set link = "claim" %}
+{% set link = "claim-router" %}
 {% set personalDetails =  true  %}
 {% set hideChange = true %}
 {% set customNext = "Save" %}
@@ -15,8 +15,8 @@
     text: "Name"
   },
   id: "name",
-  name: "csi-info[0][name]",
-  value: data['csi-info'][0]['name'] | safe
+  name: "name-change",
+  value: data['csi-info'][1]['name']
 }) }}
 
 
@@ -39,7 +39,7 @@
       name: "day",
       classes: "govuk-input--width-2",
       autocomplete: "bday-day",
-      value: "12"
+      value: data['csi-info'][1]['day']
     },
     {
       name: "month",
@@ -71,9 +71,9 @@
     label: {
       html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
     },
-    id: "address-line-1",
-    name: "address-line-1",
-    value: "12 Barley Street"
+    id: "address-line-one",
+    name: "address-line-one-change",
+    value: data['csi-info'][1]['address-line-one']
   }) }}
 
   {{ govukInput({
@@ -86,13 +86,12 @@
 
   {{ govukInput({
     label: {
-      text: "Town or city",
-      value: "Birmingham"
+      text: "Town or city"
     },
     classes: "govuk-!-width-two-thirds",
     id: "address-town",
-    name: "address-town",
-    value: "Birmingham"
+    name: "address-town-change",
+    value: data['csi-info'][1]['address-town']
   }) }}
 
   {{ govukInput({
@@ -101,8 +100,8 @@
     },
     classes: "govuk-!-width-two-thirds",
     id: "address-county",
-    name: "address-county",
-    value: "Midlands"
+    name: "address-county-change",
+    value: data['csi-info'][1]['address-county']
   }) }}
 
   {{ govukInput({
@@ -111,8 +110,8 @@
     },
     classes: "govuk-input--width-10",
     id: "address-postcode",
-    name: "address-postcode",
-    value: "B1 1EQ"
+    name: "address-postcode-change",
+    value: data['csi-info'][1]['address-postcode']
 
   }) }}
 
@@ -123,8 +122,8 @@
     text: "Email address"
   },
   id: "email",
-  name: "email",
-  value: "quarryhouse.atwresearch@dwp.gov.uk"
+  name: "contact-by-email-change",
+  value: data['csi-info'][1]['contact-by-email']
 }) }}
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -134,8 +133,8 @@
     text: "Phone number"
   },
   id: "phone",
-  name: "phone",
-  value: "07192838482 "
+  name: "contact-by-phone-personal-change",
+  value: data['csi-info'][1]['contact-by-phone-personal']
 }) }}
 
 {% endcall %}

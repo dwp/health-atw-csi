@@ -139,7 +139,8 @@ module.exports = {
     'support-worker-pay': '2000',
     'email-for-user-research' : 'quarryhouse.atwresearch@dwp.gov.uk',
     'contact-by-email': 'thomas@gmail.com',
-    'contact-by-phone': '07192 838 482'
+    'contact-by-phone': '07192 838 482',
+    'contact-by-phone-personal': '07192 838 482'
 
   },
 

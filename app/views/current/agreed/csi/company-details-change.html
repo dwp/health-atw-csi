@@ -15,8 +15,8 @@
     text: "Company name"
   },
   id: "company-name",
-  name: "company-name",
-  value: "Tesco",
+  name: "company-name-change",
+  value: data['csi-info'][1]['company-name'],
   classes: "govuk-input--width-20"
 }) }}
 
@@ -89,8 +89,8 @@
     text: "Company contact"
   },
   id: "company-contact",
-  name: "company-contact",
-  value: "Terry Gibson"
+  name: "interviewer-name-change",
+  value: data['csi-info'][1]['interviewer-name']
 }) }}
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -111,8 +111,8 @@
     text: "Phone number"
   },
   id: "Phone",
-  name: "Phone",
-  value: "07192838482"
+  name: "contact-by-phone-change",
+  value: data['csi-info'][1]['contact-by-phone'] | safe
 }) }}
 
 {% endcall %}
