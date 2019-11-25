@@ -2,7 +2,7 @@
 
 
 {% if claim %}
-<h2 class="govuk-heading-m govuk-!-margin-top-6">Personal details</h2>
+<h2 id="personal" class="govuk-heading-m govuk-!-margin-top-6">Personal details</h2>
 
 {% if data['personal'] == 'no'  and not (phase == "interview")  %}
 
@@ -152,7 +152,7 @@
 
 
 {% if claim %}
-    <h2 class="govuk-heading-m govuk-!-margin-top-6">Company details</h2>
+    <h2 id="company" class="govuk-heading-m govuk-!-margin-top-6">Company details</h2>
     {% if data['company'] == 'no' and not (phase == "interview")  %}
 
     {% if data['more-detail-4']  %}
@@ -272,7 +272,7 @@
 
 
 {% if claim %}
-  <h2 class="govuk-heading-m govuk-!-margin-top-6">Job interview details</h2>
+  <h2 id="interview" class="govuk-heading-m govuk-!-margin-top-6">Job interview details</h2>
 
   {% if data['interview'] == 'no'  and not (phase == "interview")  %}
 
