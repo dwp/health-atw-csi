@@ -35,8 +35,8 @@
       html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
     },
     id: "address-line-1",
-    name: "address-line-1",
-    value: "101 Kent Way",
+    name: "company-address-line-one-change",
+    value: data['csi-info'][1]['company-address-line-one'],
     classes: "govuk-input--width-20"
   }) }}
 
@@ -56,8 +56,8 @@
     },
     classes: "govuk-!-width-two-thirds",
     id: "address-town",
-    name: "address-town",
-    value: "Birmingham",
+    name: "company-address-town-change",
+    value: data['csi-info'][1]['company-address-town'],
     classes: "govuk-input--width-20"
   }) }}
 
@@ -67,8 +67,8 @@
     },
     classes: "govuk-!-width-two-thirds",
     id: "address-county",
-    name: "address-county",
-    value: "Midlands",
+    name: "company-address-county-change",
+    value: data['csi-info'][1]['company-address-county'],
     classes: "govuk-input--width-10"
   }) }}
 
@@ -77,8 +77,8 @@
       text: "Postcode"
     },
     id: "address-postcode",
-    name: "address-postcode",
-    value: "B4 8RT",
+    name: "company-address-postcode-change",
+    value: data['csi-info'][1]['company-address-postcode'],
     classes: "govuk-input--width-5"
   }) }}
 
@@ -111,8 +111,8 @@
     text: "Phone number"
   },
   id: "Phone",
-  name: "contact-by-phone-change",
-  value: data['csi-info'][1]['contact-by-phone'] | safe
+  name: "company-phone-change",
+  value: data['csi-info'][1]['company-phone'] | safe
 }) }}
 
 {% endcall %}

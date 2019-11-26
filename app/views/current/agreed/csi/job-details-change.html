@@ -12,7 +12,7 @@
 
 {{ govukDateInput({
   id: "dob",
-  namePrefix: "dob",
+  namePrefix: "dob-c",
   fieldset: {
     legend: {
       text: "Interview date",
@@ -28,19 +28,19 @@
       name: "day",
       classes: "govuk-input--width-2",
       autocomplete: "bday-day",
-      value: "1"
+      value: data['csi-info'][1]['interview-date-day']
     },
     {
       name: "month",
       classes: "govuk-input--width-2",
       autocomplete: "bday-month",
-      value: "11"
+      value: data['csi-info'][1]['interview-date-month']
     },
     {
       name: "year",
       classes: "govuk-input--width-4",
       autocomplete: "bday-year",
-      value: "2019"
+      value: data['csi-info'][1]['interview-date-year']
     }
   ]
 }) }}
@@ -52,8 +52,8 @@
     text: "Condition"
   },
   id: "condition",
-  name: "condition",
-  value: "Deaf"
+  name: "condition-change",
+  value: data['csi-info'][1]['condition']
 }) }}
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
