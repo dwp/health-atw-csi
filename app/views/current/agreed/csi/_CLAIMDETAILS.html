@@ -64,9 +64,6 @@
       Address
     </dt>
     <dd class="govuk-summary-list__value">
-      {% if not data['address-line-one'] %}
-      <p>14 Kings Road<br>Birmingham<br>B1 1EQ</p>
-      {% else %}
 
 <p>{{ data['csi-info'][1]['address-line-one'] }}
   {{ data['csi-info'][1]['address-line-2'] }} <br>
@@ -74,7 +71,7 @@
   {{ data['csi-info'][1]['address-county'] }} <br>
   {{ data['csi-info'][1]['address-postcode'] }} <br>
   </p>
-{% endif %} <!-- end address -->
+
     </dd>
 {% if not hideChange %}
     <dd class="govuk-summary-list__actions">
@@ -106,7 +103,7 @@
   </div>
 
   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key ">
+    <dt class="govuk-summary-list__key">
       Phone
     </dt>
     <dd class="govuk-summary-list__value">
@@ -253,7 +250,7 @@
       Phone
     </dt>
     <dd class="govuk-summary-list__value">
-      {{ data['csi-info'][1]['contact-by-phone'] }}
+      {{ data['csi-info'][1]['company-phone'] }}
     </dd>
 {% if not hideChange %}
     <dd class="govuk-summary-list__actions">
@@ -320,7 +317,7 @@
       Condition
     </dt>
     <dd class="govuk-summary-list__value">
-      Deaf
+      <p>{{ data['csi-info'][1]['condition'] }}</p>
     </dd>
 {% if not hideChange %}
     <dd class="govuk-summary-list__actions">

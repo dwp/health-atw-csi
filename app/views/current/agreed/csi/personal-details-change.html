@@ -24,7 +24,7 @@
 
 {{ govukDateInput({
   id: "dob",
-  namePrefix: "dob",
+  namePrefix: "dob-change",
   fieldset: {
     legend: {
       isPageHeading: true,
@@ -39,19 +39,19 @@
       name: "day",
       classes: "govuk-input--width-2",
       autocomplete: "bday-day",
-      value: data['csi-info'][1]['day']
+      value: data['csi-info'][1]['dob-day-change']
     },
     {
       name: "month",
       classes: "govuk-input--width-2",
       autocomplete: "bday-month",
-      value: "6"
+      value: data['csi-info'][1]['dob-month']
     },
     {
       name: "year",
       classes: "govuk-input--width-4",
       autocomplete: "bday-year",
-      value: "1985"
+      value: data['csi-info'][1]['dob-year']
     }
   ]
 }) }}
@@ -133,8 +133,8 @@
     text: "Phone number"
   },
   id: "phone",
-  name: "contact-by-phone-personal-change",
-  value: data['csi-info'][1]['contact-by-phone-personal']
+  name: "contact-by-phone-change",
+  value: data['csi-info'][1]['contact-by-phone']
 }) }}
 
 {% endcall %}

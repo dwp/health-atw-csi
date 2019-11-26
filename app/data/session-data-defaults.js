@@ -115,7 +115,7 @@ module.exports = {
   {
     'name': 'Thomas Brown',
     'dob-day': '12',
-    'dob-month': 'June',
+    'dob-month': 'April',
     'dob-year': '1985',
     'address-line-one': '14 Kings Road',
     'address-line-two': '',
@@ -140,7 +140,7 @@ module.exports = {
     'email-for-user-research' : 'quarryhouse.atwresearch@dwp.gov.uk',
     'contact-by-email': 'thomas@gmail.com',
     'contact-by-phone': '07192 838 482',
-    'contact-by-phone-personal': '07192 838 482'
+    'condition': 'Deaf'
 
   },
 

@@ -324,10 +324,10 @@ console.log('contact-by-email changed to ' + req.session.data['contact-by-email-
 delete req.session.data['contact-by-email-change'];
 }
 
-if (req.session.data['contact-by-phone-personal-change'] ) {
-req.session.data['csi-info'][1]['contact-by-phone-personal'] = req.session.data['contact-by-phone-personal-change'];
-console.log('contact-by-phone-personal changed to ' + req.session.data['contact-by-phone-personal-change'] );
-delete req.session.data['contact-by-phone-personal-change'];
+if (req.session.data['contact-by-phone-change'] ) {
+req.session.data['csi-info'][1]['contact-by-phone'] = req.session.data['contact-by-phone-change'];
+console.log('contact-by-phone changed to ' + req.session.data['contact-by-phone-change'] );
+delete req.session.data['contact-by-phone-change'];
 }
 
 
@@ -345,11 +345,42 @@ console.log('interviewer-name changed to ' + req.session.data['interviewer-name-
 delete req.session.data['interviewer-name-change'];
 }
 
-if (req.session.data['contact-by-phone-change'] ) {
-req.session.data['csi-info'][1]['contact-by-phone'] = req.session.data['contact-by-phone-change'];
-console.log('contact-by-phone changed to ' + req.session.data['contact-by-phone-change'] );
-delete req.session.data['contact-by-phone-change'];
+if (req.session.data['company-phone-change'] ) {
+req.session.data['csi-info'][1]['company-phone'] = req.session.data['company-phone-change'];
+console.log('company-phone changed to ' + req.session.data['company-phone-change'] );
+delete req.session.data['company-phone-change'];
 }
+
+if (req.session.data['company-address-line-one-change'] ) {
+req.session.data['csi-info'][1]['company-address-line-one'] = req.session.data['company-address-line-one-change'];
+console.log('company-address-line-one changed to ' + req.session.data['company-address-line-one-change'] );
+delete req.session.data['company-address-line-one-change'];
+}
+
+if (req.session.data['company-address-town-change'] ) {
+req.session.data['csi-info'][1]['company-address-town'] = req.session.data['company-address-town-change'];
+console.log('company-address-town changed to ' + req.session.data['company-address-town-change'] );
+delete req.session.data['company-address-town-change'];
+}
+
+if (req.session.data['company-address-town-change'] ) {
+req.session.data['csi-info'][1]['company-address-town'] = req.session.data['company-address-town-change'];
+console.log('company-address-town changed to ' + req.session.data['company-address-town-change'] );
+delete req.session.data['company-address-town-change'];
+}
+
+if (req.session.data['company-address-county-change'] ) {
+req.session.data['csi-info'][1]['company-address-county'] = req.session.data['company-address-county-change'];
+console.log('company-address-county changed to ' + req.session.data['company-address-county-change'] );
+delete req.session.data['company-address-county-change'];
+}
+
+if (req.session.data['company-address-postcode-change'] ) {
+req.session.data['csi-info'][1]['company-address-postcode'] = req.session.data['company-address-postcode-change'];
+console.log('company-address-postcode changed to ' + req.session.data['company-address-postcode-change'] );
+delete req.session.data['company-address-postcode-change'];
+}
+
 
 //job details
 
@@ -357,6 +388,19 @@ if (req.session.data['duration-change'] ) {
 req.session.data['csi-info'][1]['duration'] = req.session.data['duration-change'];
 console.log('duration changed to ' + req.session.data['duration-change'] );
 delete req.session.data['duration-change'];
+}
+
+if (req.session.data['condition-change'] ) {
+req.session.data['csi-info'][1]['condition'] = req.session.data['condition-change'];
+console.log('condition changed to ' + req.session.data['condition-change'] );
+delete req.session.data['condition-change'];
+}
+
+
+if (req.session.data['dob-c'] ) {
+req.session.data['csi-info'][1]['interview-date-day'] = req.session.data['dob-c'];
+console.log('interview-date-day changed to ' + req.session.data['dob-c'] );
+delete req.session.data['dob-c'];
 }
 
     return res.redirect ('claim');
