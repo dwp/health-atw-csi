@@ -113,7 +113,8 @@ module.exports = {
 */
   },
   {
-    'name': 'Thomas Brown',
+    'firstname': 'Thomas',
+    'surname': 'Brown',
     'dob-day': '12',
     'dob-month': '4',
     'dob-year': '1985',
