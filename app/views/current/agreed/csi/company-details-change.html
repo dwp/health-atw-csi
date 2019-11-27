@@ -90,7 +90,8 @@
   },
   id: "company-contact",
   name: "interviewer-name-change",
-  value: data['csi-info'][1]['interviewer-name']
+  value: data['csi-info'][1]['interviewer-name'],
+  classes: "govuk-input--width-20"
 }) }}
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -101,7 +102,8 @@
   },
   id: "email",
   name: "company-email-address-change",
-  value: data['csi-info'][1]['company-email-address'] | safe
+  value: data['csi-info'][1]['company-email-address'] | safe,
+  classes: "govuk-input--width-20"
 }) }}
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -112,7 +114,8 @@
   },
   id: "Phone",
   name: "company-phone-change",
-  value: data['csi-info'][1]['company-phone'] | safe
+  value: data['csi-info'][1]['company-phone'] | safe,
+  classes: "govuk-input--width-20"
 }) }}
 
 {% endcall %}

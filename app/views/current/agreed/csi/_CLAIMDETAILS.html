@@ -47,7 +47,7 @@
       Date of birth
     </dt>
     <dd class="govuk-summary-list__value">
-      <p>{{ data['csi-info'][1]['dob-day'] | safe }} {{ data['csi-info'][1]['dob-month']| safe }} {{ data['csi-info'][1]['dob-year'] | safe }}</p>
+      <p>{{ data['csi-info'][1]['dob-day'] | safe }} {{ data['csi-info'][1]['dob-month']| toMonth | safe }} {{ data['csi-info'][1]['dob-year'] | safe }}</p>
     </dd>
 {% if not hideChange %}
     <dd class="govuk-summary-list__actions">
@@ -299,7 +299,7 @@
         Interview date
     </dt>
     <dd class="govuk-summary-list__value">
-      <p>{{ data['csi-info'][1]['interview-date-day'] }} {{ data['csi-info'][1]['interview-date-month'] }} {{ data['csi-info'][1]['interview-date-year'] }}</p>
+      <p>{{ data['csi-info'][1]['interview-date-day'] }} {{ data['csi-info'][1]['interview-date-month'] | toMonth }} {{ data['csi-info'][1]['interview-date-year'] }}</p>
     </dd>
 
 {% if not hideChange %}
