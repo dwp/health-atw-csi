@@ -282,10 +282,22 @@ console.log('name changed to ' + req.session.data['name-change'] );
 delete req.session.data['name-change'];
 }
 
-if (req.session.data['day-change'] ) {
-req.session.data['csi-info'][1]['day'] = req.session.data['day-change'];
-console.log('day changed to ' + req.session.data['day-change'] );
-delete req.session.data['day-change'];
+if (req.session.data['dob-change-day'] ) {
+req.session.data['csi-info'][1]['dob-day'] = req.session.data['dob-change-day'];
+console.log('dob-day changed to ' + req.session.data['dob-change-day'] );
+delete req.session.data['dob-change-day'];
+}
+
+if (req.session.data['dob-change-month'] ) {
+req.session.data['csi-info'][1]['dob-month'] = req.session.data['dob-change-month'];
+console.log('dob-month changed to ' + req.session.data['dob-change-month'] );
+delete req.session.data['dob-change-month'];
+}
+
+if (req.session.data['dob-change-year'] ) {
+req.session.data['csi-info'][1]['dob-year'] = req.session.data['dob-change-year'];
+console.log('dob-year changed to ' + req.session.data['dob-change-year'] );
+delete req.session.data['dob-change-year'];
 }
 
 /*if (req.session.data['address-line-1-change'] ) {
@@ -397,10 +409,22 @@ delete req.session.data['condition-change'];
 }
 
 
-if (req.session.data['dob-c'] ) {
-req.session.data['csi-info'][1]['interview-date-day'] = req.session.data['dob-c'];
-console.log('interview-date-day changed to ' + req.session.data['dob-c'] );
-delete req.session.data['dob-c'];
+if (req.session.data['interview-date-change-day'] ) {
+req.session.data['csi-info'][1]['interview-date-day'] = req.session.data['interview-date-change-day'];
+console.log('interview-date-day changed to ' + req.session.data['interview-date-change-day'] );
+delete req.session.data['interview-date-change-day'];
+}
+
+if (req.session.data['interview-date-change-month'] ) {
+req.session.data['csi-info'][1]['interview-date-month'] = req.session.data['interview-date-change-month'];
+console.log('dob-month changed to ' + req.session.data['interview-date-change-month'] );
+delete req.session.data['interview-date-change-month'];
+}
+
+if (req.session.data['interview-date-change-year'] ) {
+req.session.data['csi-info'][1]['interview-date-year'] = req.session.data['interview-date-change-year'];
+console.log('interview-date-year changed to ' + req.session.data['interview-date-change-year'] );
+delete req.session.data['interview-date-change-year'];
 }
 
     return res.redirect ('claim');
