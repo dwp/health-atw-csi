@@ -115,7 +115,7 @@ module.exports = {
   {
     'name': 'Thomas Brown',
     'dob-day': '12',
-    'dob-month': 'April',
+    'dob-month': '4',
     'dob-year': '1985',
     'address-line-one': '14 Kings Road',
     'address-line-two': '',
@@ -123,7 +123,7 @@ module.exports = {
     'address-county': 'Midlands',
     'address-postcode': 'B1 1EQ',
     'interview-date-day': '1',
-    'interview-date-month': 'November',
+    'interview-date-month': '11',
     'interview-date-year': '2019',
     'company-name': 'Tesco',
     'company-address-line-one': '101 Kent Way',

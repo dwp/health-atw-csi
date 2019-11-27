@@ -26,9 +26,9 @@
   items: [
     {
       name: "day",
-      classes: "govuk-input--width-2",
       autocomplete: "bday-day",
-      value: data['csi-info'][1]['interview-date-day']
+      value: data['csi-info'][1]['interview-date-day'],
+      classes: "govuk-input--width-2"
     },
     {
       name: "month",
@@ -53,7 +53,8 @@
   },
   id: "condition",
   name: "condition-change",
-  value: data['csi-info'][1]['condition']
+  value: data['csi-info'][1]['condition'],
+  classes: "govuk-input--width-20"
 }) }}
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -64,7 +65,8 @@
   },
   id: "interview-length",
   name: "duration-change",
-  value: data['csi-info'][1]['duration']
+  value: data['csi-info'][1]['duration'],
+  classes: "govuk-input--width-20"
 
 }) }}
 
@@ -76,7 +78,8 @@
   },
   id: "support-cost",
   name: "support-worker-pay-change",
-  value: data['csi-info'][1]['support-worker-pay'] | safe
+  value: data['csi-info'][1]['support-worker-pay'] | safe,
+  classes: "govuk-input--width-20"
 }) }}
 
 
