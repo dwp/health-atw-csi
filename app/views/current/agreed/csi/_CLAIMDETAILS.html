@@ -34,17 +34,35 @@
     </dd>
 {% if not hideChange %}
     <dd class="govuk-summary-list__actions">
-      
+
     </dd>
 {% endif %}
 
   </div>
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key ">
-      Name
+      Firstname
     </dt>
     <dd class="govuk-summary-list__value">
-      <p>{{ data['csi-info'][1]['name'] | safe }}</p>
+      <p>{{ data['csi-info'][1]['firstname'] | safe }}</p>
+    </dd>
+{% if not hideChange %}
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="personal-details-change#name">
+        Change
+        <span class="govuk-visually-hidden"></span>
+      </a>
+    </dd>
+{% endif %}
+
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key ">
+      Surname
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p>{{ data['csi-info'][1]['surname'] | safe }}</p>
     </dd>
 {% if not hideChange %}
     <dd class="govuk-summary-list__actions">
