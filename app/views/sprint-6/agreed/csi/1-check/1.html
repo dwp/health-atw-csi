@@ -10,7 +10,7 @@
 
 <p>Use Searchlight to find:</p>
   <div class="govuk-inset-text">
-    {{data['csi-info'][1]['name']}}
+    {{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}
     <br>
     {{ data['csi-info'][1]['dob-day'] | safe }} {{ data['csi-info'][1]['dob-month']| safe }}
     {{ data['csi-info'][1]['dob-year'] | safe }}
@@ -27,7 +27,7 @@
        name: "searchlight",
        fieldset: {
          legend: {
-           text: "Have you found " + data['csi-info'][1]['name'] +  "?",
+           text: "Have you found " + data['csi-info'][1]['firstname'] + data['csi-info'][1]['surname'] +  "?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
