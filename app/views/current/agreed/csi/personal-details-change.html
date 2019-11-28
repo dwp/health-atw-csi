@@ -12,14 +12,26 @@
 
 {{ govukInput({
   label: {
-    text: "Name"
+    text: "Firstname"
   },
   id: "name",
-  name: "name-change",
-  value: data['csi-info'][1]['name'],
+  name: "firstname-change",
+  value: data['csi-info'][1]['firstname'],
   classes: "govuk-input--width-20"
 }) }}
 
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+  label: {
+    text: "Surname"
+  },
+  id: "name",
+  name: "surname-change",
+  value: data['csi-info'][1]['surname'],
+  classes: "govuk-input--width-20"
+}) }}
 
 {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 

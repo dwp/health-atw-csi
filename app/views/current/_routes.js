@@ -276,10 +276,16 @@ console.log('support-worker-pay changed to ' + req.session.data['support-worker-
 delete req.session.data['support-worker-pay-change'];
 }
 
-if (req.session.data['name-change'] ) {
-req.session.data['csi-info'][1]['name'] = req.session.data['name-change'];
-console.log('name changed to ' + req.session.data['name-change'] );
-delete req.session.data['name-change'];
+if (req.session.data['firstname-change'] ) {
+req.session.data['csi-info'][1]['firstname'] = req.session.data['firstname-change'];
+console.log('firstname changed to ' + req.session.data['firstname-change'] );
+delete req.session.data['firstname-change'];
+}
+
+if (req.session.data['surname-change'] ) {
+req.session.data['csi-info'][1]['surname'] = req.session.data['surname-change'];
+console.log('surname changed to ' + req.session.data['surname-change'] );
+delete req.session.data['surname-change'];
 }
 
 if (req.session.data['dob-change-day'] ) {
