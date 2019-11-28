@@ -16,8 +16,7 @@
     text: "Appointee name"
   },
   id: "appointee-name",
-  name: "appointee-name",
-  classes: "govuk-input--width-20"
+  name: "appointee-name"
 }) }}
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -47,8 +46,7 @@
       html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
     },
     id: "address-line-1",
-    name: "address-line-1",
-    classes: "govuk-input--width-20"
+    name: "address-line-1"
   }) }}
 
   {{ govukInput({
@@ -56,8 +54,7 @@
       html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
     },
     id: "address-line-2",
-    name: "address-line-2",
-    classes: "govuk-input--width-20"
+    name: "address-line-2"
   }) }}
 
   {{ govukInput({
@@ -66,8 +63,7 @@
     },
     classes: "govuk-!-width-two-thirds",
     id: "address-town",
-    name: "address-town",
-    classes: "govuk-input--width-20"
+    name: "address-town"
   }) }}
 
   {{ govukInput({
@@ -76,8 +72,7 @@
     },
     classes: "govuk-!-width-two-thirds",
     id: "address-county",
-    name: "address-county",
-    classes: "govuk-input--width-10"
+    name: "address-county"
   }) }}
 
   {{ govukInput({
@@ -86,8 +81,7 @@
     },
     classes: "govuk-input--width-10",
     id: "address-postcode",
-    name: "address-postcode",
-    classes: "govuk-input--width-5"
+    name: "address-postcode"
   }) }}
 
 {% endcall %}
@@ -102,7 +96,6 @@
     name: "appointee-email",
     type: "email",
     classes: "govuk-!-width-two-thirds",
-    classes: "govuk-input--width-20",
     label: {
       text: "Email address"
     },
@@ -118,7 +111,6 @@
     name: "appointee-contact-phone",
     type: "tel",
     classes: "govuk-!-width-two-thirds",
-    classes: "govuk-input--width-20",
     label: {
       text: "Phone number"
     }
