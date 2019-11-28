@@ -11,6 +11,23 @@ const faker = require('faker')
 const moment = require('moment')
 
 
+/* CHECK ROUTER TO MAKE THE JOURNEY WITH NOTES MORE ROBUST */
+
+router.all('/agreed/csi/1-check/check-router', function(req, res, next){
+
+if ((req.session.data['personal'] && req.session.data['personal'] == "no" ) || (req.session.data['company'] && req.session.data['company'] == "no" ) || (req.session.data['interview'] && req.session.data['interview'] == "no" ))
+{
+  return res.redirect ('unhappy-2');
+} else {
+  return res.redirect ('../2-send/1');
+
+}
+
+next();
+});
+
+/* END CHECK ROUTER */
+
 
 router.all('/agreed/csi/claim-router', function(req, res, next){
 console.log('router');
