@@ -2,15 +2,48 @@
 {% set interviewLink = "true" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set link = "../index-interview" %}
-{% set title = "[send a form to the applicant]" %}
+{% set title = "Contact the applicant" %}
 
 
 {% block csi %}
 
-    <P>[info about telling the applicant that they were told that the interview didn't happen]</p>
-      <P>[more to put onto the logger in case there's an issue?]</p>
+    <P>Send an email to <strong>{{data['csi-info'][1]['name']}}</strong> tell them that we will not provide funding
+      because we do not think that their interview heppened.</p>
+
+      <p>Send an email to <strong>{{data['csi-info'][1]['name']}}</strong> to confirm
+        that their application has been approved.
+      <P></p>
+        {{ govukButton({
+          text: "Open new email",
+          classes: "govuk-button--secondary",
+          href: "mailto:" + data['csi-info'][1]['email-for-user-research']
+        }) }}
+
 
     <br>
-
+    </br>
+    {{ govukRadios({
+        classes: "govuk-radios--inline",
+         name: "send",
+           fieldset: {
+             legend: {
+               text: "Have you sent the email?",
+               isPageHeading: false,
+               classes: "govuk-fieldset__legend--m"
+             }
+           },
+           items: [
+             {
+               id: "yes",
+               value: "yes",
+               text: "Yes"
+             },
+             {
+               id: "no",
+               value: "no",
+               text: "No"
+             }
+           ]
+         }) }}
 
 {% endblock %}
