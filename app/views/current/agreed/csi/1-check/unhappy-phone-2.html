@@ -1,5 +1,5 @@
+{% if appointee %}{% set appointeeLink = "-appointee" %}{% endif %}
 {% set link = "../index" %}
-
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
 {% set title =  "Phone call made" %}
@@ -9,7 +9,7 @@
 
 <p>This has been saved in the case history.</p>
 
-<p>If the applicant calls you back, you can update details using the <strong>Case details</strong> tab.</p>
+<p>If the {% if appointee %}appointee{% else %}applicant{% endif %} calls you back, you can update details using the <strong>Case details</strong> tab.</p>
 
 
 

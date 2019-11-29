@@ -15,11 +15,18 @@ const moment = require('moment')
 
 router.all('/agreed/csi/1-check/check-router', function(req, res, next){
 
+var appointeeLink = "";
+  if (req.session.data['appointee'] && req.session.data['appointee'] == "yes") {
+    appointeeLink = "-appointee"; // quick way to append apointee journey to relevant screens
+  }
+
+console.log("appointee link is " + appointeeLink );
+
 if ((req.session.data['personal'] && req.session.data['personal'] == "no" ) || (req.session.data['company'] && req.session.data['company'] == "no" ) || (req.session.data['interview'] && req.session.data['interview'] == "no" ))
 {
-  return res.redirect ('unhappy-2');
+  return res.redirect ('unhappy-2' + appointeeLink);
 } else {
-  return res.redirect ('../2-send/1');
+  return res.redirect ('../2-send/1' + appointeeLink);
 
 }
 
