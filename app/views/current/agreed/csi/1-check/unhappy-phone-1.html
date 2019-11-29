@@ -1,16 +1,25 @@
 {% set link = "../claim" %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "unhappy-phone-2" }] %}
+{% if appointee %}{% set appointeeLink = "-appointee" %}{% endif %}
 
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "unhappy-phone-2" + appointeeLink }] %}
+
+{% if appointee %}
+{% set title =  "[Phone the appointeee for the applicant]" %}
+{% else %}
 {% set title =  "Phone the applicant" %}
+{% endif %}
 
 {% block csi %}
 
-
-<p>Phone <strong>{{data['csi-info'][1]['name']}}</strong> on <strong>{{ data['csi-info'][1]['contact-by-phone'] }}</strong> to ask
+{% if appointee %}
+<p>Phone [appointee information] <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> on <strong>{{ data['csi-info'][1]['contact-by-phone'] }}</strong> to ask
   for more information about their application.</p>
-
+{% else %}
+<p>Phone <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> on <strong>{{ data['csi-info'][1]['contact-by-phone'] }}</strong> to ask
+  for more information about their application.</p>
+{% endif %}
 
 <br>
 </br>

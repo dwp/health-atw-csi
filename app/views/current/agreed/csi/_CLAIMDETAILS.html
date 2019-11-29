@@ -25,6 +25,7 @@
 
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
+{% if claim %} <!-- only show on claim screen -->
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key ">
       Reference
@@ -32,16 +33,17 @@
     <dd class="govuk-summary-list__value">
       <p>ATW34593DE</p>
     </dd>
-{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
 
     </dd>
-{% endif %}
+
 
   </div>
+{% endif %}
+
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key ">
-      Firstname
+      First name
     </dt>
     <dd class="govuk-summary-list__value">
       <p>{{ data['csi-info'][1]['firstname'] | safe }}</p>

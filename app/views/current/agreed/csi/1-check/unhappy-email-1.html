@@ -1,4 +1,4 @@
-{% set link = "unhappy-email-2" %}
+{% set link = "unhappy-email-2"  %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "../index"}] %}
@@ -7,9 +7,15 @@
 
 {% block csi %}
 
+{% if appointee %}
+<p>Send an email to [the appointee information]<strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> to ask for
+  more information about their application.
+{% else %}
+<p>Send an email to <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> to ask for
+  more information about their application.
+{% endif %}
 
-<p>Send an email to <strong>{{data['csi-info'][1]['name']}}</strong> to ask for
-  more information about their application. <br>Their reference number is <strong>ATW34593DE</strong>.</p>
+  <br>Their reference number is <strong>ATW34593DE</strong>.</p>
 
 
 
