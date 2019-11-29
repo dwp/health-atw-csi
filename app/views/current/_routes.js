@@ -36,8 +36,6 @@ next();
 /* END CHECK ROUTER */
 
 
-router.all('/agreed/csi/claim-router', function(req, res, next){
-console.log('router');
 if (req.session.data['company-email-address-change'] ) {
 req.session.data['csi-info'][1]['company-email-address'] = req.session.data['company-email-address-change'];
 console.log('company-email-address changed to ' + req.session.data['company-email-address-change'] );
@@ -123,7 +121,19 @@ delete req.session.data['contact-by-phone-change'];
 }
 
 
+return res.redirect ('claim');
+
+next();
+
+
+});
+
+
 //company details
+
+router.all('/agreed/csi/company-details-router', function(req, res, next){
+
+req.session.data['company-details-changed'] = 'true';
 
 if (req.session.data['company-name-change'] ) {
 req.session.data['csi-info'][1]['company-name'] = req.session.data['company-name-change'];
@@ -174,7 +184,18 @@ delete req.session.data['company-address-postcode-change'];
 }
 
 
+return res.redirect ('claim');
+
+next();
+
+
+});
+
 //job details
+
+router.all('/agreed/csi/job-details-router', function(req, res, next){
+
+req.session.data['job-details-changed'] = 'true';
 
 if (req.session.data['duration-change'] ) {
 req.session.data['csi-info'][1]['duration'] = req.session.data['duration-change'];
@@ -206,6 +227,7 @@ req.session.data['csi-info'][1]['interview-date-year'] = req.session.data['inter
 console.log('interview-date-year changed to ' + req.session.data['interview-date-change-year'] );
 delete req.session.data['interview-date-change-year'];
 }
+
 
     return res.redirect ('claim');
 
