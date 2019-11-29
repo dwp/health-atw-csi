@@ -6,7 +6,7 @@
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "unhappy-phone-2" + appointeeLink }] %}
 
 {% if appointee %}
-{% set title =  "[Phone the appointeee for the applicant]" %}
+{% set title =  "Phone the applicant's appointee" %}
 {% else %}
 {% set title =  "Phone the applicant" %}
 {% endif %}
@@ -14,8 +14,8 @@
 {% block csi %}
 
 {% if appointee %}
-<p>Phone [appointee information] <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> on <strong>{{ data['csi-info'][1]['contact-by-phone'] }}</strong> to ask
-  for more information about their application.</p>
+<p>Phone <strong>Mavis Brown</strong> on <strong>02475 554 223</strong> to ask
+  for more information about <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong>'s application.</p>
 {% else %}
 <p>Phone <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> on <strong>{{ data['csi-info'][1]['contact-by-phone'] }}</strong> to ask
   for more information about their application.</p>
