@@ -8,13 +8,19 @@
 {% block csi %}
 
 
-<p>Print and send the form to the following address:</p>
 
+<p>Print and send the form to the following address:</p>
   <div class="govuk-inset-text">
+{% if appointee %}
+[appointee details]
+{% else %}
+
   Thomas Brown<br>
   12 Barley Street<br>
   Birmingham<br>
   B2 8FG
+{% endif  %}
+
 </div>
 
 
