@@ -35,6 +35,11 @@ next();
 
 /* END CHECK ROUTER */
 
+//personal details
+
+router.all('/agreed/csi/personal-details-router', function(req, res, next){
+
+req.session.data['personal-details-changed'] = 'true';
 
 if (req.session.data['company-email-address-change'] ) {
 req.session.data['csi-info'][1]['company-email-address'] = req.session.data['company-email-address-change'];
