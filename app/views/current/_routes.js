@@ -41,17 +41,6 @@ router.all('/agreed/csi/personal-details-router', function(req, res, next){
 
 req.session.data['personal-details-changed'] = 'true';
 
-if (req.session.data['company-email-address-change'] ) {
-req.session.data['csi-info'][1]['company-email-address'] = req.session.data['company-email-address-change'];
-console.log('company-email-address changed to ' + req.session.data['company-email-address-change'] );
-delete req.session.data['company-email-address-change'];
-}
-
-if (req.session.data['support-worker-pay-change'] ) {
-req.session.data['csi-info'][1]['support-worker-pay'] = req.session.data['support-worker-pay-change'];
-console.log('support-worker-pay changed to ' + req.session.data['support-worker-pay-change'] );
-delete req.session.data['support-worker-pay-change'];
-}
 
 if (req.session.data['firstname-change'] ) {
 req.session.data['csi-info'][1]['firstname'] = req.session.data['firstname-change'];
@@ -152,6 +141,12 @@ console.log('interviewer-name changed to ' + req.session.data['interviewer-name-
 delete req.session.data['interviewer-name-change'];
 }
 
+if (req.session.data['company-email-address-change'] ) {
+req.session.data['csi-info'][1]['company-email-address'] = req.session.data['company-email-address-change'];
+console.log('company-email-address changed to ' + req.session.data['company-email-address-change'] );
+delete req.session.data['company-email-address-change'];
+}
+
 if (req.session.data['company-phone-change'] ) {
 req.session.data['csi-info'][1]['company-phone'] = req.session.data['company-phone-change'];
 console.log('company-phone changed to ' + req.session.data['company-phone-change'] );
@@ -187,6 +182,8 @@ req.session.data['csi-info'][1]['company-address-postcode'] = req.session.data['
 console.log('company-address-postcode changed to ' + req.session.data['company-address-postcode-change'] );
 delete req.session.data['company-address-postcode-change'];
 }
+
+
 
 
 return res.redirect ('claim');
@@ -233,6 +230,11 @@ console.log('interview-date-year changed to ' + req.session.data['interview-date
 delete req.session.data['interview-date-change-year'];
 }
 
+if (req.session.data['support-worker-pay-change'] ) {
+req.session.data['csi-info'][1]['support-worker-pay'] = req.session.data['support-worker-pay-change'];
+console.log('support-worker-pay changed to ' + req.session.data['support-worker-pay-change'] );
+delete req.session.data['support-worker-pay-change'];
+}
 
     return res.redirect ('claim');
 

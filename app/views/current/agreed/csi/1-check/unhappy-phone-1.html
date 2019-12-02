@@ -6,7 +6,7 @@
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "unhappy-phone-2" + appointeeLink }] %}
 
 {% if appointee %}
-{% set title =  "Phone the applicant's appointee" %}
+{% set title =  "Phone the applicant’s appointee" %}
 {% else %}
 {% set title =  "Phone the applicant" %}
 {% endif %}
@@ -23,11 +23,18 @@
 
 <br>
 </br>
+
+{% if appointee %}
+{% set phoneText = "Has the appointee answered the phone?" %}
+{% else %}
+{% set phoneText = "Has the applicant answered the phone?" %}
+{% endif %}
+
 {{ govukRadios({
      name: "asked-info-phone",
        fieldset: {
          legend: {
-           text: "Has the applicant answered the phone?",
+           text: phoneText,
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }

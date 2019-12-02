@@ -2,15 +2,25 @@
 {% set interviewLink = "true" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set link = "../index-interview" %}
-{% set title = "Contact the applicant" %}
 
+{% if appointee %}
+{% set title = "Contact the appointee" %}
+{% else %}
+{% set title = "Contact the applicant" %}
+{% endif %}
 
 {% block csi %}
 
-    <P>Send an email to <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> to tell them that we will not provide funding
-      because we do not think that their interview took place on {{ data['csi-info'][1]['interview-date-day'] }} {{ data['csi-info'][1]['interview-date-month'] | toMonth }}
-      {{ data['csi-info'][1]['interview-date-year'] }} at {{ data['csi-info'][1]['company-name'] }}.</p>
+{% if appointee %}
 
+    <P>Send an email to <strong>{{data['appointee-name'] | default(appointeeDetails.name) | safe }}</strong> to tell them that we will not provide funding
+      because we do not think that {{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}’s interview took place on {{ data['csi-info'][1]['interview-date-day'] }} {{ data['csi-info'][1]['interview-date-month'] | toMonth }}
+      {{ data['csi-info'][1]['interview-date-year'] }} at {{ data['csi-info'][1]['company-name'] }}.</p>
+{% else %}
+<P>Send an email to <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> to tell them that we will not provide funding
+  because we do not think that their interview took place on {{ data['csi-info'][1]['interview-date-day'] }} {{ data['csi-info'][1]['interview-date-month'] | toMonth }}
+  {{ data['csi-info'][1]['interview-date-year'] }} at {{ data['csi-info'][1]['company-name'] }}.</p>
+{% endif %}
       <P></p>
         {{ govukButton({
           text: "Open new email",
