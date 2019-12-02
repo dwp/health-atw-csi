@@ -12,10 +12,8 @@
 <p>Print and send the form to the following address:</p>
   <div class="govuk-inset-text">
 {% if appointee %}
-Mavis Brown<br>
-28 Cathedral Drive<br>
-Coventry<br>
-CV3 6JH<br>
+{{data['appointee-name'] | default(appointeeDetails.name) | safe }}<br>
+{{appointeeDetails.address | safe }}
 {% else %}
 
   Thomas Brown<br>
