@@ -197,7 +197,7 @@
           {{ data['appointee'] | default("[more information needed]") | capitalize |  safe }} <!-- leaving as blank for now  -->
           </dd>
           <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" name="appointee-add" href="appointee-add">
+          <a class="govuk-link" name="appointee-change" href="appointee-change">
           Change
           <span class="govuk-visually-hidden"></span>
           </a>
@@ -210,10 +210,10 @@
         Name
       </dt>
       <dd class="govuk-summary-list__value">
-        <p>{{ data['appointee-name'] | default("test") | safe }}</p>
+        <p>{{ data['appointee-name'] | default(appointee.name) }}</p>
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="appointee-change#name">
+        <a class="govuk-link" href="appointee-details-change#name">
           Change
           <span class="govuk-visually-hidden"></span>
         </a>
@@ -227,10 +227,10 @@
       </dt>
       <dd class="govuk-summary-list__value">
 
-  <p>{{ data['address'] }}</p>
+  <p>{{ data['address'] | default(appointee.address) | safe }}</p>
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="appointee-change#address-line-1">
+        <a class="govuk-link" href="appointee-details-change#address-line-1">
           Change
           <span class="govuk-visually-hidden"></span>
         </a>
@@ -247,7 +247,7 @@
            {{ data['appointee-email'] }}
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="appointee-change#email">
+        <a class="govuk-link" href="appointee-details-change#email">
           Change
           <span class="govuk-visually-hidden"></span>
         </a>
@@ -259,10 +259,10 @@
         Phone
       </dt>
       <dd class="govuk-summary-list__value">
-          {{ data['appointee-contact-phone'] }}
+          {{ data['appointee-contact-phone'] | default(appointee.phone) }}
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="appointee-change#phone">
+        <a class="govuk-link" href="appointee-details-change#phone">
           Change
           <span class="govuk-visually-hidden"></span>
         </a>

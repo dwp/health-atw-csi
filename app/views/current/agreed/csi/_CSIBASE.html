@@ -2,6 +2,13 @@
 {% block content %}
 
 
+{% set appointee = {
+  name: "Mavis Brown",
+  address: "28 Cathedral Drive<br>Coventry<br>CV3 6JH",
+  phone: "02475 554 223"
+
+} %}
+
 {% set count = 0 %}
 
 {% if (data['personal'] == 'no' or data['company'] == 'no' or data['interview'] == "no") and not (phase == "interview")  %}
@@ -154,6 +161,27 @@
             </p>
           </li>
 {% endif %}
+
+<!--timeline section for editing personal details  -->
+{% if data['appointee-details-changed'] %}
+          <li class="dwp-timeline__entry">
+            <h3 class="govuk-heading-s dwp-timeline__title">[Appointee details changed]</h3>
+            <p class="dwp-timeline__info">
+              <span class="dwp-timeline__date">24 October 2019 at 10:29am</span>
+            </p>
+          </li>
+{% endif %}
+
+<!--timeline section for editing personal details  -->
+{% if data['appointee-status-changed'] %}
+          <li class="dwp-timeline__entry">
+            <h3 class="govuk-heading-s dwp-timeline__title">[Appointee status changed]</h3>
+            <p class="dwp-timeline__info">
+              <span class="dwp-timeline__date">24 October 2019 at 10:26am</span>
+            </p>
+          </li>
+{% endif %}
+<!------------------------------------------------------------------------- ----------------------->
 
 <!--timeline section for editing personal details  -->
 {% if data['personal-details-changed'] %}
