@@ -10,8 +10,8 @@ const today = new Date(Date.now());
 const faker = require('faker')
 const moment = require('moment')
 
-
 /* CHECK ROUTER TO MAKE THE JOURNEY WITH NOTES MORE ROBUST */
+
 
 router.all('/agreed/csi/1-check/check-router', function(req, res, next){
 

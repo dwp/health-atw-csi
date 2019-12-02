@@ -183,6 +183,102 @@
 {% endif %}
 
 
+
+<!-- Appointee section -->
+{% if claim %} <!-- only show on claim -->
+    <h2 id="appointee" class="govuk-heading-m govuk-!-margin-top-6">Appointee details</h2>
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+      [Does {{ data['csi-info'][1]['firstname'] | safe }} {{ data['csi-info'][1]['surname'] | safe }} have an appointee? ]
+      </dt>
+          <dd class="govuk-summary-list__value">
+          {{ data['appointee'] | default("[more information needed]") | capitalize |  safe }} <!-- leaving as blank for now  -->
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" name="appointee-add" href="appointee-add">
+          Change
+          <span class="govuk-visually-hidden"></span>
+          </a>
+          </dd>
+  </div>
+
+{% if appointee or data['appointee'] == 'yes' %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key ">
+        Name
+      </dt>
+      <dd class="govuk-summary-list__value">
+        <p>{{ data['appointee-name'] | default("test") | safe }}</p>
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="appointee-change#name">
+          Change
+          <span class="govuk-visually-hidden"></span>
+        </a>
+      </dd>
+
+    </div>
+
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Address
+      </dt>
+      <dd class="govuk-summary-list__value">
+
+  <p>{{ data['address'] }}</p>
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="appointee-change#address-line-1">
+          Change
+          <span class="govuk-visually-hidden"></span>
+        </a>
+      </dd>
+    </div>
+
+
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key ">
+        Email
+      </dt>
+      <dd class="govuk-summary-list__value">
+           {{ data['appointee-email'] }}
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="appointee-change#email">
+          Change
+          <span class="govuk-visually-hidden"></span>
+        </a>
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key ">
+        Phone
+      </dt>
+      <dd class="govuk-summary-list__value">
+          {{ data['appointee-contact-phone'] }}
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="appointee-change#phone">
+          Change
+          <span class="govuk-visually-hidden"></span>
+        </a>
+      </dd>
+
+    </div>
+
+
+
+
+{% endif %}<!-- end if appointee details -->
+</dl>
+
+{% endif %} <!--  end appointee details -->
+
+
 {% if claim %}
     <h2 id="company" class="govuk-heading-m govuk-!-margin-top-6">Company details</h2>
     {% if data['company'] == 'no' and not (phase == "interview")  %}
