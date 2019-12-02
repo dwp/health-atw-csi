@@ -4,7 +4,7 @@
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "../index"}] %}
 
 {% if appointee %}
-{% set title =  "Email the applicant's appointee" %}
+{% set title =  "Email the applicant’s appointee" %}
 {% else %}
 {% set title =  "Email the applicant" %}
 {% endif %}
@@ -12,7 +12,7 @@
 {% block csi %}
 
 {% if appointee %}
-<p>Send an email to <strong>Mavis Brown</strong> to ask for
+<p>Send an email to {{data['appointee-name'] | default(appointeeDetails.name) | safe }} to ask for
   more information about <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong>'s application.
 {% else %}
 <p>Send an email to <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> to ask for

@@ -14,8 +14,8 @@
 {% block csi %}
 
 {% if appointee %}
-<p>Phone <strong>Mavis Brown</strong> on <strong>02475 554 223</strong> to ask
-  for more information about <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong>'s application.</p>
+<p>Phone {{data['appointee-name'] | default(appointeeDetails.name) | safe }} on <strong>{{data['appointee-contact-phone'] | default(appointeeDetails.phone) | safe }}</strong> to ask
+  for more information about <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong>’s application.</p>
 {% else %}
 <p>Phone <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> on <strong>{{ data['csi-info'][1]['contact-by-phone'] }}</strong> to ask
   for more information about their application.</p>
