@@ -1,4 +1,4 @@
-{% if appointee %}{% set appointeeLink = "-appointee" %}{% endif %}
+{% if appointee %}{% set appointeeLink = "-appointee" %}{% else %}{% set appointeeLink = '' %}{% endif %}
 {% set link = "2"  %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
