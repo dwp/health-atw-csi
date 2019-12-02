@@ -155,7 +155,43 @@
           </li>
 {% endif %}
 
+<!--timeline section for editing personal details  -->
+{% if data['personal-details-changed'] %}
+          <li class="dwp-timeline__entry">
+            <h3 class="govuk-heading-s dwp-timeline__title">[Personal details have been changed]</h3>
+            <p class="dwp-timeline__info">
+              <span class="dwp-timeline__date">24 October 2019 at 10:22am</span>
+            </p>
+          </li>
+{% endif %}
 
+<!------------------------------------------------------------------------- ----------------------->
+
+<!--timeline section for editing company details-->
+{% if data['company-details-changed'] %}
+          <li class="dwp-timeline__entry">
+            <h3 class="govuk-heading-s dwp-timeline__title">[Company details have been changed]</h3>
+            <p class="dwp-timeline__info">
+              <span class="dwp-timeline__date">24 October 2019 at 10:24am</span>
+            </p>
+          </li>
+{% endif %}
+
+<!------------------------------------------------------------------------- ----------------------->
+
+<!------------------------------------------------------------------------- ----------------------->
+
+<!--timeline section for editing job details-->
+{% if data['job-details-changed'] %}
+          <li class="dwp-timeline__entry">
+            <h3 class="govuk-heading-s dwp-timeline__title">[Job details have been changed]</h3>
+            <p class="dwp-timeline__info">
+              <span class="dwp-timeline__date">24 October 2019 at 10:30am</span>
+            </p>
+          </li>
+{% endif %}
+
+<!------------------------------------------------------------------------- ----------------------->
           <li class="dwp-timeline__entry">
             <h3 class="govuk-heading-s dwp-timeline__title">Application allocated</h3>
             <p class="dwp-timeline__info">

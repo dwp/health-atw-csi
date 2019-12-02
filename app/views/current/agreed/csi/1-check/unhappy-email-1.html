@@ -3,19 +3,23 @@
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "../index"}] %}
 
+{% if appointee %}
+{% set title =  "Email the applicant's appointee" %}
+{% else %}
 {% set title =  "Email the applicant" %}
+{% endif %}
 
 {% block csi %}
 
 {% if appointee %}
-<p>Send an email to [the appointee information]<strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> to ask for
-  more information about their application.
+<p>Send an email to <strong>Mavis Brown</strong> to ask for
+  more information about <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong>'s application.
 {% else %}
 <p>Send an email to <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> to ask for
   more information about their application.
 {% endif %}
 
-  <br>Their reference number is <strong>ATW34593DE</strong>.</p>
+  <br>The reference number is <strong>ATW34593DE</strong>.</p>
 
 
 
