@@ -1,5 +1,6 @@
+{% if not link %}
 {% set link = "3" %}
-
+{% endif %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
 {% set title =  "Add appointee details for " + data['csi-info'][1]['firstname'] +  " " +  data['csi-info'][1]['surname']  + "" %}
@@ -17,6 +18,7 @@
   },
   id: "appointee-name",
   name: "appointee-name",
+  value: data['appointee-name'],
   classes: "govuk-input--width-20"
 }) }}
 
@@ -47,7 +49,8 @@
       html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
     },
     id: "address-line-1",
-    name: "address-line-1",
+    name: "appointee-address-line-1",
+    value: data['appointee-address-line-1'],
     classes: "govuk-input--width-20"
   }) }}
 
@@ -56,7 +59,8 @@
       html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
     },
     id: "address-line-2",
-    name: "address-line-2",
+    name: "appointee-address-line-2",
+    value: data['appointee-address-line-2'],
     classes: "govuk-input--width-20"
   }) }}
 
@@ -66,7 +70,8 @@
     },
     classes: "govuk-!-width-two-thirds",
     id: "address-town",
-    name: "address-town",
+    name: "appointee-address-town",
+    value: data['appointee-address-town'],
     classes: "govuk-input--width-20"
   }) }}
 
@@ -76,7 +81,8 @@
     },
     classes: "govuk-!-width-two-thirds",
     id: "address-county",
-    name: "address-county",
+    name: "appointee-address-county",
+    value: data['appointee-address-county'],
     classes: "govuk-input--width-10"
   }) }}
 
@@ -86,7 +92,8 @@
     },
     classes: "govuk-input--width-10",
     id: "address-postcode",
-    name: "address-postcode",
+    name: "appointee-address-postcode",
+    value: data['appointee-address-postcode'],
     classes: "govuk-input--width-5"
   }) }}
 
@@ -100,6 +107,7 @@
   {{ govukInput({
     id: "appointee-email",
     name: "appointee-email",
+    value: data['appointee-email'],
     type: "email",
     classes: "govuk-!-width-two-thirds",
     classes: "govuk-input--width-20",
@@ -116,6 +124,7 @@
   {{ govukInput({
     id: "appointee-contact-phone",
     name: "appointee-contact-phone",
+    value: data['appointee-contact-phone'],
     type: "tel",
     classes: "govuk-!-width-two-thirds",
     classes: "govuk-input--width-20",
@@ -128,7 +137,8 @@
   {% set textHtml %}
   {{ govukInput({
     id: "contact-by-text",
-    name: "contact-by-text",
+    name: "appointee-contact-by-text",
+    value: data['appointee-contact-by-text'],
     type: "tel",
     classes: "govuk-!-width-one-third",
     label: {
@@ -139,7 +149,7 @@
 
   {{ govukCheckboxes({
     idPrefix: "citizenship-conditional",
-    name: "citizen",
+    name: "appointee-citizen",
     fieldset: {
       legend: {
         text: "Contact details",
@@ -154,6 +164,7 @@
       {
         value: "email",
         text: "Email",
+        checked: checked("['appointee-citizen']", "email"),
         conditional: {
           html: emailHtml
         }
@@ -161,6 +172,7 @@
       {
         value: "phone",
         text: "Phone",
+        checked: checked("['appointee-citizen']", "phone"),
         conditional: {
           html: phoneHtml
         }
@@ -171,10 +183,19 @@
 
 
 {% endcall %}
-<!--<ul class="govuk-list govuk-list--bullet">
-  <li>name of person</li>
-  <li>address (if there's residential or correspondence address it needs to be correspondence)</li>
-  <li>contact information (Searchlight has email, and several types of phone details, how much do we need to add?)</li>
-</ul>-->
+
+
+{% if appointeeChange %} <!-- trigger to set off event if we use this screen from the claim section -->
+{{ govukInput({
+  label: {
+    text: ""
+  },
+  id: "appointee-details-changed",
+  name: "appointee-details-changed",
+  value: "true",
+  classes: 'govuk-radios__conditional--hidden'
+}) }}
+
+{% endif %}
 
 {% endblock %}
