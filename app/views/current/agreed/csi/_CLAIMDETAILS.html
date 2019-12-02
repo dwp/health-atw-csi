@@ -154,41 +154,8 @@
 {% endif %}  <!-- end change -->
   </div>
 
+  {% if claim %} <!-- only show on claim -->
 
-
-
-{% if data['deaf'] and  data['deaf'] == "No" %}
-
-<div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-      What disability or health condition do you need communication support for?
-      </dt>
-          <dd class="govuk-summary-list__value">
-          {{data['condition']| default("Something else") | safe }}
-          </dd>
-{% if not hideChange %}
-          <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
-          Change
-          <span class="govuk-visually-hidden"></span>
-          </a>
-          </dd>
-{% endif %}
-</div>
-
-
-
-{% endif %}
-</dl>
-{% endif %}
-
-
-
-<!-- Appointee section -->
-{% if claim %} <!-- only show on claim -->
-    <h2 id="appointee" class="govuk-heading-m govuk-!-margin-top-6">Appointee details</h2>
-
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">
   <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">
       [Does {{ data['csi-info'][1]['firstname'] | safe }} {{ data['csi-info'][1]['surname'] | safe }} have an appointee? ]
@@ -203,14 +170,29 @@
           </a>
           </dd>
   </div>
+  {% endif %}<!-- end if appointee details -->
 
-{% if appointee or data['appointee'] == 'yes' %}
+
+</dl>
+{% endif %}
+
+
+
+
+
+{% if claim and (appointee or data['appointee'] == 'yes') %}
+<!-- Appointee section -->
+    <h2 id="appointee" class="govuk-heading-m govuk-!-margin-top-6">Appointee details</h2>
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key ">
         Name
       </dt>
       <dd class="govuk-summary-list__value">
-        <p>{{ data['appointee-name'] | default(appointee.name) }}</p>
+        <p>{{ data['appointee-name'] | default(appointeeDetails.name) }}</p>
       </dd>
       <dd class="govuk-summary-list__actions">
         <a class="govuk-link" href="appointee-details-change#name">
@@ -227,7 +209,7 @@
       </dt>
       <dd class="govuk-summary-list__value">
 
-  <p>{{ data['address'] | default(appointee.address) | safe }}</p>
+  <p>{{ data['address'] | default(appointeeDetails.address) | safe }}</p>
       </dd>
       <dd class="govuk-summary-list__actions">
         <a class="govuk-link" href="appointee-details-change#address-line-1">
@@ -259,7 +241,7 @@
         Phone
       </dt>
       <dd class="govuk-summary-list__value">
-          {{ data['appointee-contact-phone'] | default(appointee.phone) }}
+          {{ data['appointee-contact-phone'] | default(appointeeDetails.phone) }}
       </dd>
       <dd class="govuk-summary-list__actions">
         <a class="govuk-link" href="appointee-details-change#phone">
@@ -270,10 +252,6 @@
 
     </div>
 
-
-
-
-{% endif %}<!-- end if appointee details -->
 </dl>
 
 {% endif %} <!--  end appointee details -->
