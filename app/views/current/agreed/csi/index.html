@@ -37,6 +37,16 @@
 {% endif %}
 {% endif %}
 
+{% if (phase == "interview") %}
+{% if not (data['confirm']) and ((data['employer'] == 'no') or (data['sent-email'] == "yes")) %}
+<br>
+{{ govukWarningText({
+  html: "Information needed from the employer. [update contact log or change evidence?].",
+  iconFallbackText: "Warning"
+}) }}
+
+{% endif %}{% endif %}
+
 {% if not (phase == "interview" ) and not (phase == "waiting") %}
 {% if (data['personal'] == 'no') or (data['company'] == 'no') or (data['interview'] == "no") %}
 <br>

@@ -63,8 +63,9 @@
 
 </form>
 {% endif %}
+{% if not hideReturn %}
 <P><a href="/{{folder}}/{{subfolder}}/csi/{% if return == "claim" %}claim{% else %}index{% if interviewLink %}-interview{% endif  %}{% endif %}" class="govuk-link govuk-link--no-visited-state">Return to {% if return == "claim" %}claim{% else %}tasks{% endif %}</a></p>
-
+{% endif %}
 </div>
 </div>
 
