@@ -34,12 +34,10 @@
 {{ govukRadios({
 
       classes: "govuk-radios--inline",
-       idPrefix: "employer",
-       name: "employer",
+       name: "employer-phone",
        fieldset: {
          legend: {
            text: "Has the employer responded?",
-           checked: checked('employer', "yes"),
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
@@ -48,13 +46,14 @@
          {
            id: "yes",
            value: "yes",
+           checked: checked('employer-phone', "yes"),
            text: "Yes"
          },
          {
            id: "no",
            value: "no",
            text: "No",
-           checked: checked('employer', "no"),
+           checked: checked('employer-phone', "no"),
            conditional: {
              html: conditionalText
            }
