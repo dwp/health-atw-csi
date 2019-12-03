@@ -1,8 +1,13 @@
-{% set link = "complete" %}
+
+{% if data['appointee-contact-phone'] and not (data['appointee-email']) %}
+{% set link = "1-unhappy-phone" %}
+{% else %}
+{% set link = "1-unhappy" %}
+{% endif %}
 {% set interviewLink = "true" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% if data['appointee'] == 'yes' %}{% set appointeeLink = "-appointee" %}{% else %}{% set appointeeLink = "" %}{% endif %}
-{% set redirect = [{id : "yes", page: link },  {id: "no", page: "1-unhappy" + appointeeLink } ] %}
+{% set redirect = [{id : "yes", page: "complete" },  {id: "no", page: link + appointeeLink } ] %}
 
 {% set title = "Did the interview happen?" %}
 

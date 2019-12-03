@@ -1,58 +1,40 @@
-{% set hideBack = true %}
-{% set interviewLink = "true" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set link = "../index-interview" %}
+{% if appointee %}{% set appointeeLink = "-appointee" %}{% endif %}
+{% set interviewLink = "true" %}
+{% set link = "1-unhappy-phone" + appointeeLink %}
+{% set redirect = [{id : "email", page: "1-unhappy-email" + appointeeLink }, {id: "phone", page: link}] %}
 
-{% if appointee %}
-{% set title = "Contact the appointee" %}
-{% else %}
-{% set title = "Contact the applicant" %}
-{% endif %}
 
 {% block csi %}
 
 {% if appointee %}
-
-    <P>Send an email to <strong>{{data['appointee-name'] | default(appointeeDetails.name) | safe }}</strong> to tell them that we will not provide funding
-      because we do not think that {{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}’s interview took place on {{ data['csi-info'][1]['interview-date-day'] }} {{ data['csi-info'][1]['interview-date-month'] | toMonth }}
-      {{ data['csi-info'][1]['interview-date-year'] }} at {{ data['csi-info'][1]['company-name'] }}.</p>
+{% set headerText = "How do you want to contact the applicant's appointee?" %}
 {% else %}
-<P>Send an email to <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> to tell them that we will not provide funding
-  because we do not think that their interview took place on {{ data['csi-info'][1]['interview-date-day'] }} {{ data['csi-info'][1]['interview-date-month'] | toMonth }}
-  {{ data['csi-info'][1]['interview-date-year'] }} at {{ data['csi-info'][1]['company-name'] }}.</p>
+{% set headerText = "How do you want to contact the applicant?" %}
 {% endif %}
-      <P></p>
-        {{ govukButton({
-          text: "Open new email",
-          classes: "govuk-button--secondary",
-          href: "mailto:" + data['csi-info'][1]['email-for-user-research']
-        }) }}
 
-
-    <br>
-    </br>
-    {{ govukRadios({
-        classes: "govuk-radios--inline",
-         name: "send",
-           fieldset: {
-             legend: {
-               text: "Have you sent the email?",
-               isPageHeading: false,
-               classes: "govuk-fieldset__legend--m"
-             }
-           },
-           items: [
-             {
-               id: "yes",
-               value: "yes",
-               text: "Yes"
-             },
-             {
-               id: "no",
-               value: "no",
-               text: "No"
-             }
-           ]
-         }) }}
-
+{{ govukRadios({
+       idPrefix: "_do",
+       name: "_do",
+       fieldset: {
+         legend: {
+           text: headerText,
+           isPageHeading: true,
+           classes: "govuk-fieldset__legend--xl"
+         }
+       },
+       items: [
+         {
+           id: "email",
+           value: "email",
+           text: "Email"
+         },
+         {
+           id: "phone",
+           value: "phone",
+           text: "Phone"
+         }
+       ]
+     }) }}
+<br>
 {% endblock %}
