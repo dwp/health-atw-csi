@@ -116,9 +116,9 @@
 
                         <ul class="app-task-list__items" style="padding-left:0">
 
-    {{taskListItem(title="Confirm with the employer", link="3-contact/index", completed=(data['employer'] =="yes"), locked=(not (phase == "interview") or (phase == "same-day" and not data['claim'] == "yes") ))}}
+    {{taskListItem(title="Confirm with the employer", link="3-contact/index", completed=(data['employer-phone'] =="yes" or data['employer'] =="yes" ), locked=(not (phase == "interview") or (phase == "same-day" and not data['claim'] == "yes") ))}}
 
-    {{taskListItem(title="Record interview took place", link="4-confirm/1", completed=(data['confirm'] =="yes"), locked=(not (data['employer'] == "yes") ))}}
+    {{taskListItem(title="Record interview took place", link="4-confirm/1", completed=(data['confirm'] =="yes"), locked=(not (data['employer'] == "yes" or data['employer-phone'] =="yes" ) ))}}
 
 
                         </ul>
