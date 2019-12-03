@@ -21,7 +21,7 @@ module.exports = {
 
   // Insert values here
 
-/*   'unallocated-cases': [{
+  'unallocated-cases': [{
     'name': 'Dereck Smith',
     'specialism': 'Large business',
     'type': 'Renewal',
@@ -81,7 +81,7 @@ module.exports = {
     'type': 'New application',
           'priority' : false,
     'date': '24 October 2019 - 22:23'
-  }], */
+  }],
 
   'csi-info': [{
    'name': 'Thomas Brown',
@@ -181,7 +181,7 @@ module.exports = {
     'disc' : true,
           'priority' : "false",
     'date': '24 October 2019 - 12:23'
-  } 
+  }
 
 
 ]  ,
