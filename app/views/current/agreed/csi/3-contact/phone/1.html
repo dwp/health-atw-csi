@@ -15,6 +15,22 @@
 <br>
 
 
+
+{% set conditionalText %}
+{{ govukTextarea({
+  name: "employer-note",
+  id: "employer-note",
+  value: data['employer-note'],
+  label: {
+    text: "[notes here about adding info]"
+  },
+  hint: {
+    text: "[extra hints if needed]"
+  }
+}) }}
+{% endset -%}
+
+
 {{ govukRadios({
 
       classes: "govuk-radios--inline",
@@ -23,6 +39,7 @@
        fieldset: {
          legend: {
            text: "Has the employer responded?",
+           checked: checked('employer', "yes"),
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
@@ -36,7 +53,11 @@
          {
            id: "no",
            value: "no",
-           text: "No"
+           text: "No",
+           checked: checked('employer', "no"),
+           conditional: {
+             html: conditionalText
+           }
          }
        ]
      }) }}
