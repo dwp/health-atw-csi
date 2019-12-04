@@ -1,6 +1,16 @@
 
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+/*
+.govuk-template__body, .govuk-heading-l, .govuk-heading-m, .govuk-heading-s, .govuk-table, .govuk-link, .govuk-button , .govuk-header__link--service-name,  .govuk-body, p, .app-task-list__section, .app-task-list__items, a, .app-task-list__items, .govuk-heading-xl, .govuk-fieldset__legend--m, .govuk-inset-text,  * {
+  font-family: Arial, sans-serif;
+} */
+
+
+* {
+  font-family: Arial !important;
+}
+
 .govuk-width-container {
   max-width: 1280px
 }
@@ -44,7 +54,7 @@ select {
 }
 
 .govuk-select {
-    font-family: "nta", Arial, sans-serif;
+    font-family: Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 400;
@@ -72,7 +82,7 @@ select {
 
 
 
-.header-user-details { text-align: right; font-family: "nta",Arial,sans-serif; font-weight: 700; text-transform: none; font-size: 19px; line-height: 1.25; margin-top: 0; margin-bottom: 0; }
+.header-user-details { text-align: right; font-family: Arial,sans-serif; font-weight: 700; text-transform: none; font-size: 19px; line-height: 1.25; margin-top: 0; margin-bottom: 0; }
 
 #global-header.with-proposition { border-bottom-width: 0; }
 
