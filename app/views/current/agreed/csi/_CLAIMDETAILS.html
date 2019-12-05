@@ -158,10 +158,10 @@
 
   <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">
-      [Does {{ data['csi-info'][1]['firstname'] | safe }} {{ data['csi-info'][1]['surname'] | safe }} have an appointee? ]
+      Appointee
       </dt>
           <dd class="govuk-summary-list__value">
-          {{ data['appointee'] | default("[more information needed]") | capitalize |  safe }} <!-- leaving as blank for now  -->
+          {{ data['appointee'] | default("") | capitalize |  safe }} <!-- leaving as blank for now  -->
           </dd>
           <dd class="govuk-summary-list__actions">
           <a class="govuk-link" name="appointee-change" href="appointee-change">
