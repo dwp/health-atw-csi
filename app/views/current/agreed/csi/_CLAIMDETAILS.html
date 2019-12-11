@@ -61,7 +61,7 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key ">
-      Surname
+      Last name
     </dt>
     <dd class="govuk-summary-list__value">
       <p>{{ data['csi-info'][1]['surname'] | safe }}</p>
@@ -119,7 +119,24 @@
   </div>
 
 
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Contact preferences
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{ data['csi-info'][1]['personal-contact-preference'] | string | capitalize }}
+    </dd>
+{% if not hideChange %}
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="personal-details-change#personal-contact-preference">
+        Change
+        <span class="govuk-visually-hidden"></span>
+      </a>
+    </dd>
+{% endif %}  <!-- end change -->
+  </div>
 
+  {% if "email" in data['csi-info'][1]['personal-contact-preference']  %}
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
       Email
@@ -136,7 +153,9 @@
     </dd>
 {% endif %}  <!-- end change -->
   </div>
+{% endif %}
 
+{% if "phone" in data['csi-info'][1]['personal-contact-preference'] %}
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
       Phone
@@ -153,7 +172,7 @@
     </dd>
 {% endif %}  <!-- end change -->
   </div>
-
+{% endif %}
   {% if claim %} <!-- only show on claim -->
 
   <div class="govuk-summary-list__row">
@@ -220,7 +239,24 @@
     </div>
 
 
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Contact preferences
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ data['appointee-citizen'] | default(appointeeDetails.contact) | string | capitalize }}
+      </dd>
+    {% if not hideChange %}
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="appointee-details-change#appointee-citizen">
+          Change
+          <span class="govuk-visually-hidden"></span>
+        </a>
+      </dd>
+    {% endif %}  <!-- end change -->
+    </div>
 
+{% if "email" in  data['appointee-citizen'] or  (not data['appointee-citizen'] and "phone" in  appointeeDetails.contact ) %}
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key ">
         Email
@@ -235,7 +271,8 @@
         </a>
       </dd>
     </div>
-
+{% endif %}
+{% if "phone" in data['appointee-citizen'] or (not data['appointee-citizen'] and "email" in  appointeeDetails.contact ) %}
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key ">
         Phone
@@ -251,7 +288,7 @@
       </dd>
 
     </div>
-
+{% endif %}
 </dl>
 
 {% endif %} <!--  end appointee details -->
@@ -338,6 +375,24 @@
   </div>
 
   <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Contact preferences
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{ data['csi-info'][1]['company-contact-preference'] | string | capitalize }}
+    </dd>
+  {% if not hideChange %}
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="company-details-change#company-contact-preference">
+        Change
+        <span class="govuk-visually-hidden"></span>
+      </a>
+    </dd>
+  {% endif %}  <!-- end change -->
+  </div>
+
+{% if "email" in  data['csi-info'][1]['company-contact-preference'] %}
+  <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key ">
       Email
     </dt>
@@ -353,6 +408,9 @@
     </dd>
 {% endif %}
   </div>
+{% endif %}
+
+{% if "phone" in data['csi-info'][1]['company-contact-preference'] %}
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key ">
@@ -370,6 +428,9 @@
     </dd>
 {% endif %}
   </div>
+  {% endif %}
+
+
 </dl>
 
 
