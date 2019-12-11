@@ -132,6 +132,7 @@ module.exports = {
     'company-address-town': 'Birmingham',
     'company-address-county': 'Midlands',
     'company-address-postcode': 'B4 8RT',
+    'company-contact-preference': ["email", "phone"],
     'company-email-address': 'terry@tecso.co.uk',
     'company-phone': '07987 654 678',
     'duration': '1 hour',
@@ -139,6 +140,8 @@ module.exports = {
     'interviewer-contact-preference': 'Email',
     'support-worker-pay': '2000',
     'email-for-user-research' : 'quarryhouse.atwresearch@dwp.gov.uk',
+    'personal-contact-preference': ["email", "phone"],
+    'agree-email-terms' : "Yes", 
     'contact-by-email': 'thomas@gmail.com',
     'contact-by-phone': '07192 838 482',
     'condition': 'Deaf'

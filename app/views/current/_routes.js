@@ -81,6 +81,8 @@ console.log('dob-year changed to ' + req.session.data['dob-change-year'] );
 delete req.session.data['dob-change-year'];
 }
 
+
+
 /*if (req.session.data['address-line-1-change'] ) {
 req.session.data['csi-info'][1]['address-line-1'] = req.session.data['address-line-1-change'];
 console.log('address-line-1 changed to ' + req.session.data['address-line-1-change'] );
@@ -111,10 +113,24 @@ console.log('address-postcode changed to ' + req.session.data['address-postcode-
 delete req.session.data['address-postcode-change'];
 }
 
+
+
+if (req.session.data['personal-contact-preference'] ) {
+req.session.data['csi-info'][1]['personal-contact-preference'] = req.session.data['personal-contact-preference'];
+console.log('contact-options changed to ' + req.session.data['personal-contact-preference'] );
+delete req.session.data['personal-contact-preference'];
+}
+
 if (req.session.data['contact-by-email-change'] ) {
 req.session.data['csi-info'][1]['contact-by-email'] = req.session.data['contact-by-email-change'];
 console.log('contact-by-email changed to ' + req.session.data['contact-by-email-change'] );
 delete req.session.data['contact-by-email-change'];
+}
+
+if (req.session.data['agree-email-terms-change'] ) {
+req.session.data['csi-info'][1]['agree-email-terms'] = req.session.data['agree-email-terms-change'];
+console.log('agree-email-terms changed to ' + req.session.data['agree-email-terms-change'] );
+delete req.session.data['agree-email-terms-change'];
 }
 
 if (req.session.data['contact-by-phone-change'] ) {
@@ -148,6 +164,12 @@ if (req.session.data['interviewer-name-change'] ) {
 req.session.data['csi-info'][1]['interviewer-name'] = req.session.data['interviewer-name-change'];
 console.log('interviewer-name changed to ' + req.session.data['interviewer-name-change'] );
 delete req.session.data['interviewer-name-change'];
+}
+
+if (req.session.data['company-contact-preference'] ) {
+req.session.data['csi-info'][1]['company-contact-preference'] = req.session.data['company-contact-preference'];
+console.log('contact-options changed to ' + req.session.data['company-contact-preference'] );
+delete req.session.data['company-contact-preference'];
 }
 
 if (req.session.data['company-email-address-change'] ) {
