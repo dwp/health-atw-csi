@@ -25,7 +25,7 @@ console.log("appointee link is " + appointeeLink );
 if ((req.session.data['personal'] && req.session.data['personal'] == "no" ) || (req.session.data['company'] && req.session.data['company'] == "no" ) || (req.session.data['interview'] && req.session.data['interview'] == "no" ))
 {
   if (req.session.data['appointee-contact-phone'] && !req.session.data['appointee-email'] ){
-     // no email, jump straight to phone
+     // no email, jump straight to telephone
      return res.redirect ('unhappy-phone-1' + appointeeLink);
   } else {
   return res.redirect ('unhappy-2' + appointeeLink);

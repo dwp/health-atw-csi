@@ -6,18 +6,18 @@
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "unhappy-phone-2" + appointeeLink }] %}
 
 {% if appointee %}
-{% set title =  "Phone the applicant’s appointee" %}
+{% set title =  "Telephone the applicant’s appointee" %}
 {% else %}
-{% set title =  "Phone the applicant" %}
+{% set title =  "Telephone the applicant" %}
 {% endif %}
 
 {% block csi %}
 
 {% if appointee %}
-<p>Phone {{data['appointee-name'] | default(appointeeDetails.name) | safe }} on <strong>{{data['appointee-contact-phone'] | default(appointeeDetails.phone) | safe }}</strong> to ask
+<p>Telephone {{data['appointee-name'] | default(appointeeDetails.name) | safe }} on <strong>{{data['appointee-contact-phone'] | default(appointeeDetails.phone) | safe }}</strong> to ask
   for more information about <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong>’s application.</p>
 {% else %}
-<p>Phone <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> on <strong>{{ data['csi-info'][1]['contact-by-phone'] }}</strong> to ask
+<p>Telephone <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> on <strong>{{ data['csi-info'][1]['contact-by-phone'] }}</strong> to ask
   for more information about their application.</p>
 {% endif %}
 
@@ -25,16 +25,16 @@
 </br>
 
 {% if appointee %}
-{% set phoneText = "Has the appointee answered the phone?" %}
+{% set telephoneText = "Has the appointee answered the telephone?" %}
 {% else %}
-{% set phoneText = "Has the applicant answered the phone?" %}
+{% set telephoneText = "Has the applicant answered the telephone?" %}
 {% endif %}
 
 {{ govukRadios({
      name: "asked-info-phone",
        fieldset: {
          legend: {
-           text: phoneText,
+           text: telephoneText,
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }

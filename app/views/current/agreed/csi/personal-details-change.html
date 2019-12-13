@@ -175,10 +175,10 @@
 
 {% endset -%}
 
-{% set phoneHtml %}
+{% set telephoneHtml %}
 {{ govukInput({
   label: {
-    text: "Phone number"
+    text: "Telephone number"
   },
   id: "phone",
   name: "contact-by-phone-change",
@@ -213,10 +213,10 @@
     },
     {
       value: "phone",
-      text: "Phone",
+      text: "Telephone",
       checked: checked("['csi-info'][1]['personal-contact-preference']", "phone"),
       conditional: {
-        html: phoneHtml
+        html: telephoneHtml
       }
     }
   ]

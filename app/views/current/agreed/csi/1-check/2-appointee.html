@@ -120,7 +120,7 @@
   }) }}
   {% endset -%}
 
-  {% set phoneHtml %}
+  {% set telephoneHtml %}
   {{ govukInput({
     id: "appointee-contact-phone",
     name: "appointee-contact-phone",
@@ -129,7 +129,7 @@
     classes: "govuk-!-width-two-thirds",
     classes: "govuk-input--width-20",
     label: {
-      text: "Phone number"
+      text: "Telephone number"
     }
   }) }}
   {% endset -%}
@@ -142,7 +142,7 @@
     type: "tel",
     classes: "govuk-!-width-one-third",
     label: {
-      text: "Mobile phone number"
+      text: "Mobile telephone number"
     }
   }) }}
   {% endset -%}
@@ -170,10 +170,10 @@
       },
       {
         value: "phone",
-        text: "Phone",
+        text: "Telephone",
         checked: checked("['appointee-citizen']", "phone"),
         conditional: {
-          html: phoneHtml
+          html: telephoneHtml
         }
       }
     ]

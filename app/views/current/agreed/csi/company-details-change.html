@@ -110,12 +110,12 @@
 
 {% endset %}
 
-{% set phoneHtml %}
+{% set telephoneHtml %}
 {{ govukInput({
   label: {
-    text: "Phone number"
+    text: "Telephone number"
   },
-  id: "Phone",
+  id: "Telephone",
   name: "company-phone-change",
   value: data['csi-info'][1]['company-phone'] | safe,
   classes: "govuk-input--width-20"
@@ -143,10 +143,10 @@
     },
     {
       value: "phone",
-      text: "Phone",
+      text: "Telephone",
       checked: checked("['csi-info'][1]['company-contact-preference']", "phone"),
       conditional: {
-        html: phoneHtml
+        html: telephoneHtml
       }
     }
   ]

@@ -87,7 +87,7 @@
           <ul class="app-task-list__items" style="padding-left:0">
 
 {% if data['appointee-contact-phone'] and not data['appointee-email'] %}
-<!-- scenario where appointee has a phone number but not an email -->
+<!-- scenario where appointee has a telephone number but not an email -->
 
 {{taskListItem(title="Print and send the form", link="2-send/2" + appointeeLink, completed=(data['claim'] == "yes" or interview or waiting),  locked=(not (data['interview'] == "yes" )) or (data['interview'] and (data['personal'] == 'no' or data['company'] == 'no')) ) }}
 
