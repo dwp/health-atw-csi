@@ -158,7 +158,7 @@
 {% if "phone" in data['csi-info'][1]['personal-contact-preference'] %}
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-      Phone
+      Telephone
     </dt>
     <dd class="govuk-summary-list__value">
       {{ data['csi-info'][1]['contact-by-phone'] }}
@@ -275,7 +275,7 @@
 {% if "phone" in data['appointee-citizen'] or (not data['appointee-citizen'] and "email" in  appointeeDetails.contact ) %}
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key ">
-        Phone
+        Telephone
       </dt>
       <dd class="govuk-summary-list__value">
           {{ data['appointee-contact-phone'] | default(appointeeDetails.phone) }}
@@ -414,14 +414,14 @@
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key ">
-      Phone
+      Telephone
     </dt>
     <dd class="govuk-summary-list__value">
       {{ data['csi-info'][1]['company-phone'] }}
     </dd>
 {% if not hideChange %}
     <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="company-details-change#Phone">
+      <a class="govuk-link" href="company-details-change#Telephone">
         Change
         <span class="govuk-visually-hidden"></span>
       </a>
