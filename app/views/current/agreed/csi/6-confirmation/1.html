@@ -1,0 +1,44 @@
+{% set link = "2" %}
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
+{% set title =  "[Payment action]" %}
+
+
+{% block csi %}
+
+<p>[Collect information so a message can be sent to the advisor once payment has been successful]</p>
+
+
+<p>[Now go to the spreadsheet to update it with details above]</p>
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  classes: "govuk-radios",
+  idPrefix: "updated-spreadsheet",
+  name: "updated-spreadsheet",
+  fieldset: {
+    legend: {
+      text: "[Have you updated the spreadsheet?]",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+
+
+{% endblock %}
