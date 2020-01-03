@@ -1,15 +1,16 @@
 {% set link = "2" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
-{% set title =  "[Payment action]" %}
+{% set title =  "Update notification spreadsheet" %}
 
 
 {% block csi %}
 
-<p>[Collect information so a message can be sent to the advisor once payment has been successful]</p>
+<p>Update the spreadsheet so that a notification can be sent once the payment is successful.</p>
 
 
-<p>[Now go to the spreadsheet to update it with details above]</p>
+<p>Enter the following details ???</p>
+<br>
 
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -19,9 +20,9 @@
   name: "updated-spreadsheet",
   fieldset: {
     legend: {
-      text: "[Have you updated the spreadsheet?]",
+      text: "Have you updated the spreadsheet?",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
+      classes: "govuk-fieldset__legend--m"
     }
   },
   hint: {
