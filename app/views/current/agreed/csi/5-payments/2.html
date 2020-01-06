@@ -19,8 +19,8 @@
 
   {{ govukRadios({
     classes: "govuk-radios",
-         idPrefix: "interview",
-         name: "interview",
+         idPrefix: "invoice",
+         name: "invoice",
          fieldset: {
            legend: {
              text: "Is the invoice value £243.33?",
@@ -35,14 +35,14 @@
          {
            id: "yes",
            value: "yes",
-           checked: checked('interview', "yes"),
+           checked: checked('invoice', "yes"),
            text: "Yes"
          },
            {
              id: "no",
              value: "no",
              text: "No",
-             checked: checked('interview', "no"),
+             checked: checked('invoice', "no"),
              conditional: {
                html: conditionalText
              }

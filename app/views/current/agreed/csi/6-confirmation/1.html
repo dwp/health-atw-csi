@@ -1,6 +1,6 @@
 {% set link = "2" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "../5-payments/1-unhappy"}] %}
 {% set title =  "Update notification spreadsheet" %}
 
 
@@ -16,8 +16,8 @@
 
 {{ govukRadios({
   classes: "govuk-radios",
-  idPrefix: "updated-spreadsheet",
-  name: "updated-spreadsheet",
+  idPrefix: "spreadsheet",
+  name: "spreadsheet",
   fieldset: {
     legend: {
       text: "Have you updated the spreadsheet?",
@@ -30,12 +30,16 @@
   },
   items: [
     {
+      id: "yes",
       value: "yes",
-      text: "Yes"
+      text: "Yes",
+      checked: checked('spreadsheet', "yes")
     },
     {
+      id: "no",
       value: "no",
-      text: "No"
+      text: "No",
+      checked: checked('spreadsheet', "no")
     }
   ]
 }) }}
