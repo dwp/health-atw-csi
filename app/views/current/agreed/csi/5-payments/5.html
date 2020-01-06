@@ -1,7 +1,7 @@
-{% set link = "6-confirmation/1" %}
+{% set link = "../6-confirmation/1" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
-{% set title =  "Check payment details" %}
+{% set title = "Check payment details" %}
 
 
 {% block csi %}
@@ -104,8 +104,8 @@
 
 {{ govukRadios({
   classes: "govuk-radios--inline",
-  idPrefix: "send-payment",
-  name: "send-payment",
+  idPrefix: "payment",
+  name: "payment",
   fieldset: {
     legend: {
       text: "Do you want to send the payment?",
@@ -118,12 +118,16 @@
   },
   items: [
     {
+      id: "yes",
       value: "yes",
-      text: "Yes"
+      text: "Yes",
+      checked: checked('payment', "yes")
     },
     {
+      id: "no",
       value: "no",
-      text: "No"
+      text: "No",
+      checked: checked('payment', "no")
     }
   ]
 }) }}
@@ -133,8 +137,7 @@
         <input type="hidden" name="answers-checked" value="true">
 
         {{ govukButton({
-          text: "Send payment",
-          href: "6-confirmation/1"
+          text: "Send payment"
         }) }}
 
       </form>

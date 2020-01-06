@@ -6,19 +6,12 @@
 
 {% block csi %}
 
-  <!--<div class="govuk-inset-text">
-    {{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}
-    <br>
-    {{ data['csi-info'][1]['dob-day'] | safe }} {{ data['csi-info'][1]['dob-month']| safe }}
-    {{ data['csi-info'][1]['dob-year'] | safe }}
-    <br>B2 8FG
-  </div>-->
-
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
 
   {{ govukRadios({
     classes: "govuk-radios",
-         idPrefix: "interview",
-         name: "interview",
+         idPrefix: "claim-form",
+         name: "claim-form",
          fieldset: {
            legend: {
              text: "Is the claim form signed?",
@@ -27,20 +20,20 @@
            }
          },
          hint: {
-    html: ""
+         html: ""
     },
          items: [
          {
            id: "yes",
            value: "yes",
-           checked: checked('interview', "yes"),
+           checked: checked('claim-form', "yes"),
            text: "Yes"
          },
            {
              id: "no",
              value: "no",
              text: "No",
-             checked: checked('interview', "no"),
+             checked: checked('claim-form', "no"),
              conditional: {
                html: conditionalText
              }
@@ -48,10 +41,11 @@
          ]
        }) }}
 <!--Second radio button set-->
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
        {{ govukRadios({
          classes: "govuk-radios",
-              idPrefix: "interview",
-              name: "interview",
+              idPrefix: "invoice",
+              name: "invoice",
               fieldset: {
                 legend: {
                   text: "Is the invoice attached?",
@@ -60,20 +54,20 @@
                 }
               },
               hint: {
-         html: ""
+              html: ""
          },
               items: [
               {
                 id: "yes",
                 value: "yes",
-                checked: checked('interview', "yes"),
+                checked: checked('invoice', "yes"),
                 text: "Yes"
               },
                 {
                   id: "no",
                   value: "no",
                   text: "No",
-                  checked: checked('interview', "no"),
+                  checked: checked('invoice', "no"),
                   conditional: {
                     html: conditionalText
                   }
