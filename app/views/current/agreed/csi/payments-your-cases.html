@@ -1,5 +1,10 @@
+{% set link = "find-a-case-result" %}
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
+{% set title =  "Find a case" %}
+
 {% set hideBanner = true %}
-{% extends "./_BASE.html" %}
+{% extends "../_BASE.html" %}
 
 
 {% block content %}
@@ -35,7 +40,7 @@
 
 
     {% set allocated %}
-    <h2 class="govuk-heading-m">Your priority cases</h2>
+    <h2 class="govuk-heading-m">Your priority cases </h2>
 
 
 {% if (phase == "waiting") or (phase == "empty") %}
@@ -61,7 +66,7 @@
               <td class="govuk-table__cell">CSI</td>
               <td class="govuk-table__cell">CSI</td>
               <td class="govuk-table__cell">24 October 2019 13:02</td>
-              <td class="govuk-table__cell"><a href="csi/index{% if phase == "interview" %}-interview{% elif phase == "same-day" %}-same-day{% endif %}">View case</a></td>
+              <td class="govuk-table__cell"><a href="payments-index{% if phase == "interview" %}-interview{% elif phase == "same-day" %}-same-day{% endif %}">View case</a></td>
             </tr>
       </tbody>
     </table>

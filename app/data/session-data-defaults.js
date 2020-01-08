@@ -141,7 +141,7 @@ module.exports = {
     'support-worker-pay': '2000',
     'email-for-user-research' : 'quarryhouse.atwresearch@dwp.gov.uk',
     'personal-contact-preference': ["email", "phone"],
-    'agree-email-terms' : "Yes", 
+    'agree-email-terms' : "Yes",
     'contact-by-email': 'thomas@gmail.com',
     'contact-by-phone': '07192 838 482',
     'condition': 'Deaf'

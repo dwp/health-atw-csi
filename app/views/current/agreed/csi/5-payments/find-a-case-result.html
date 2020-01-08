@@ -5,7 +5,7 @@
 
 
 {% block csi %}
-<h2 class="govuk-heading-m">URN: 2FFJK33</h2>
+<!--<h2 class="govuk-heading-m">URN: 2FFJK33</h2>
 <h2 class="govuk-heading-m">Applicant name: Thomas Brown</h2>
 <h2 class="govuk-heading-m">Interview date: 1 November 2019</h2>
 
@@ -13,7 +13,32 @@
 
 {{ govukTag({
   text: "Interview confirmed"
-}) }}
+}) }} -->
+
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header">URN</th>
+        <th class="govuk-table__header">Applicant name</th>
+        <th class="govuk-table__header">Interview date</th>
+        <th class="govuk-table__header">Interview status</th>
+        <th class="govuk-table__header"></th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">2FFJK33</td>
+          <td class="govuk-table__cell">Thomas Brown</td>
+          <td class="govuk-table__cell">1 November 2019</td>
+          <td class="govuk-table__cell">{{ govukTag({
+            text: "Interview confirmed"
+          }) }}</td>
+
+        </tr>
+  </tbody>
+</table>
 
  <br>
  <br>
