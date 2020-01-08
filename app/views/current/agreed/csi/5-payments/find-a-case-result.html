@@ -1,0 +1,23 @@
+{% set link = "1" %}
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
+{% set title =  "" %}
+
+
+{% block csi %}
+<h2 class="govuk-heading-m">URN: 2FFJK33</h2>
+<h2 class="govuk-heading-m">Applicant name: Thomas Brown</h2>
+<h2 class="govuk-heading-m">Interview date: 1 November 2019</h2>
+
+{%- from "govuk/components/tag/macro.njk" import govukTag -%}
+
+{{ govukTag({
+  text: "Interview confirmed"
+}) }}
+
+ <br>
+ <br>
+ <br>
+ <br>
+
+{% endblock %}
