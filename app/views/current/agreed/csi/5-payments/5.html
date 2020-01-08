@@ -1,4 +1,4 @@
-{% set link = "../6-confirmation/1" %}
+{% set link = "../6-confirmation/2" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
 {% set title = "Check payment details" %}
@@ -38,8 +38,6 @@
             actions: {
               items: [
                 {
-                  href: "#",
-                  text: "Change",
                   visuallyHiddenText: "name"
                 }
               ]
@@ -55,8 +53,6 @@
             actions: {
               items: [
                 {
-                  href: "#",
-                  text: "Change",
                   visuallyHiddenText: "date of birth"
                 }
               ]
@@ -72,8 +68,6 @@
             actions: {
               items: [
                 {
-                  href: "#",
-                  text: "Change",
                   visuallyHiddenText: "address"
                 }
               ]
@@ -89,8 +83,6 @@
             actions: {
               items: [
                 {
-                  href: "#",
-                  text: "Change",
                   visuallyHiddenText: "contact details"
                 }
               ]
