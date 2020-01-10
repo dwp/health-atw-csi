@@ -18,28 +18,31 @@
 <table class="govuk-table">
   <thead class="govuk-table__head">
       <tr class="govuk-table__row">
+        <th class="govuk-table__header">URN</th>
         <th class="govuk-table__header">Name</th>
-        <th class="govuk-table__header">Specialism</th>
-        <th class="govuk-table__header">Case Type</th>
-        <th class="govuk-table__header">Status</th>
-        <th class="govuk-table__header">Date submitted</th>
-        <th class="govuk-table__header">Adviser</th>
+        <th class="govuk-table__header">Supplier code</th>
+        <th class="govuk-table__header">Interview status</th>
+        <th class="govuk-table__header"></th>
       </tr>
     </thead>
     <tbody>
 
 
         <tr class="govuk-table__row">
+          <td class="govuk-table__cell">2FFJK33</td>
           <td class="govuk-table__cell">Thomas Brown</td>
-          <td class="govuk-table__cell">CSI</td>
-          <td class="govuk-table__cell">CSI</td>
-          <td class="govuk-table__cell">Unallocated</td>
-          <td class="govuk-table__cell">8 Jan 2020, 3.46pm</td>
-          <td class="govuk-table__cell">-</td>
+          <td class="govuk-table__cell">28374702</td>
+          <td class="govuk-table__cell">{{ govukTag({
+            text: "Interview confirmed"
+          }) }}</td>
+
         </tr>
   </tbody>
 </table>
 
+ <br>
+ <br>
+ <br>
  <br>
 
 {% endblock %}
