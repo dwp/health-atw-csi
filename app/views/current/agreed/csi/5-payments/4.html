@@ -14,4 +14,18 @@
 
 {%- from "govuk/components/tag/macro.njk" import govukTag -%}
 
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+  label: {
+    text: ""
+
+  },
+  id: "results-found",
+  name: "results-found",
+  type: "hidden",
+  value: "yes"
+}) }}
+
 {% endblock %}

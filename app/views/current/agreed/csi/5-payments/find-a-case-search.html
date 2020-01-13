@@ -3,14 +3,14 @@
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
 {% set title =  "Find a case" %}
 
-<!--{% set bodyClasses = "search" %}
+{% set bodyClasses = "search" %}
 
-{% extends "_BASE.html" %}-->
+{% extends "../../_BASE.html" %}
 
 {% block content %}
 <div class="govuk-grid-row">
 
-  <form method="post" action="search">
+  <form method="post" action="find-a-case-result">
   <div class="govuk-grid-column-full">
 
     {{ govukInput({
