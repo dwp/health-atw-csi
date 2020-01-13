@@ -5,12 +5,12 @@
 
 {% set bodyClasses = "search" %}
 
-{% extends "../../_BASE.html" %}
+{% extends "../_BASE.html" %}
 
 {% block content %}
 <div class="govuk-grid-row">
 
-  <form method="post" action="find-a-case-result">
+  <form action="./5-payments/find-a-case-result" method="post" novalidate>
   <div class="govuk-grid-column-full">
 
     {{ govukInput({
