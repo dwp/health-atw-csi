@@ -144,7 +144,7 @@ module.exports = {
     'agree-email-terms' : "Yes",
     'contact-by-email': 'thomas@gmail.com',
     'contact-by-phone': '07192 838 482',
-    'condition': 'Deaf'
+    'condition': 'Deaf',
 
   },
 
