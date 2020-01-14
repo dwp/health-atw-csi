@@ -49,7 +49,7 @@
 
 {% endif %}
 
-          <li{% if Search %} class="active"{% endif %}><a href="5-payments/find-a-case-search">Search</a></li>
+          <li{% if Search %} class="active"{% endif %}><a href="/{{folder}}/{{subfolder}}/search{% if payments or paymentLink%}-payments{% endif %}">Search</a></li>
         </ul>
       </div>
     </div>
