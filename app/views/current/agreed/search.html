@@ -1,30 +1,35 @@
-{% set link = "find-a-case-result" %}
-{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
+{% set link = "search-router" %}
+
+{% set Search = true %}
+{% if search == "complete" %}
+{% set title =  "Search results for" %}
+{% else %}
 {% set title =  "Find a case" %}
+{% endif %}
 
 {% set bodyClasses = "search" %}
 
-{% extends "../_BASE.html" %}
+{% set hideBanner = true %}
+{% extends "./_BASE.html" %}
 
 {% block content %}
 <div class="govuk-grid-row">
 
-  <form action="./5-payments/find-a-case-result" method="post" novalidate>
+
+
+  <form action="" method="get" novalidate>
   <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">{{title}}</h1>
+
 
     {{ govukInput({
       label: {
-        text: "Find a case",
-        classes: "govuk-label--l"
+        text: "Enter customer name, URN or application reference"
       },
       classes: 'govuk-!-width-one-half',
-      hint: {
-        text: 'Enter customer name, URN or application reference'
-      },
-      id: "f-search",
-      name: "q",
-      value: data.q
+      id: "caseID",
+      name: "caseID",
+      value: caseID
     }) }}
 
   </div>
@@ -44,20 +49,20 @@
       },
 
         {
-          value: "published",
-          text: "Recently published"
+          value: "1",
+          text: "John Goldsmith"
         },
         {
-          value: "updated",
-          text: "Recently updated"
+          value: "2",
+          text: "Someone else"
           },
         {
-          value: "views",
-          text: "Most views"
+          value: "3",
+          text: "Another person"
         },
         {
-          value: "comments",
-          text: "Most comments"
+          value: "4",
+          text: "Person"
         }
       ]
     }) }}
@@ -95,8 +100,8 @@
     <div class="govuk-grid-column-one-quarter">
 
     {{ govukSelect({
-      id: "case",
-      name: "case",
+      id: "type",
+      name: "type",
       label: {
         text: "Select a case type"
       },
@@ -124,38 +129,50 @@
     <div class="govuk-grid-column-full">
 
     {{ govukButton({
+      id: 'search',
+      name: 'search',
+      value: 'complete',
       text: "Search"
     }) }}
     </form>
 
-    {% if data.q %}
-      {% if cases.length > 0 %}
+{% if adviser or type or caseID or status %}
+
+<p>Showing 1 to 50 of 151 cases.</P>
       <table class="govuk-table">
         <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th class="govuk-table__header">Name</th>
               <th class="govuk-table__header">Specialism</th>
               <th class="govuk-table__header">Case type</th>
+              <th class="govuk-table__header">Status</th>
               <th class="govuk-table__header">Date submitted</th>
+              <th class="govuk-table__header">Adviser</th>
               <th class="govuk-table__header"></th>
             </tr>
           </thead>
           <tbody>
-            {% for case in cases %}
+
               <tr class="govuk-table__row">
-                <td class="govuk-table__cell">{{ case.name }}</td>
-                <td class="govuk-table__cell">{{ case.specialism }}</td>
-                <td class="govuk-table__cell">{{ case.type }}</td>
-                <td class="govuk-table__cell">{{ case.date }}</td>
-                <td class="govuk-table__cell"><a href="case?n={{ case.name }}&ua=true">View case</a></td>
+                <td class="govuk-table__cell">{{ data['csi-info'][1]['firstname'] }} {{ data['csi-info'][1]['surname'] }}</td>
+                <td class="govuk-table__cell">CSI</td>
+                <td class="govuk-table__cell">CSI</td>
+                <td class="govuk-table__cell">Allocated</td>
+                <td class="govuk-table__cell">24 October 2019 13:02</td>
+                <td class="govuk-table__cell">John Goldsmith</td>
+                <td class="govuk-table__cell"><a href="csi/{% if payments %}payments-{% endif %}index">View case</a></td>
               </tr>
-            {% endfor %}
+
         </tbody>
       </table>
-      {% else %}
+
+
+
+{% elif search == 'complete' %}
       <p>There are no cases that match your search</p>
-      {% endif %}
-    {% endif %}
+
+{% else %}
+{% endif %}
   </div>
 </div>
 {% endblock %}
