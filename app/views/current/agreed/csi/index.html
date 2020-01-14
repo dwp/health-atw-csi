@@ -2,7 +2,7 @@
 {% set title = "Your tasks" %}
 {% extends "./_CSIBASE.html" %}
 
-{% if data['appointee'] == 'yes' %}{% set appointeeLink = "-appointee" %}{% endif %}
+{% if data['appointee'] == 'yes' %}{% set appointeeLink = "-appointee" %}{% else %}{% set appointeeLink = "" %}{% endif %}
 
 {% block csi %}
 
