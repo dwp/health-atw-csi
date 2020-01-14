@@ -304,4 +304,33 @@ next();
 });
 
 
+// searches
+router.get(`/agreed/search`, (req, res) => {
+  var search = req.query.search;
+  var type = req.query.type;
+  var caseID = req.query.caseID;
+  var adviser = req.query.adviser;
+
+  res.render(res.locals.folder + `/agreed/search`, {
+    search: search,
+    adviser: adviser,
+    type: type,
+    caseID: caseID
+  })
+})
+
+router.get(`/agreed/search-payments`, (req, res) => {
+  var search = req.query.search;
+  var type = req.query.type;
+  var caseID = req.query.caseID;
+  var adviser = req.query.adviser;
+
+  res.render(res.locals.folder + `/agreed/search-payments`, {
+    search: search,
+    adviser: adviser,
+    type: type,
+    caseID: caseID
+  })
+})
+
 module.exports = router
