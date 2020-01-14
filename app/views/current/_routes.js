@@ -275,4 +275,33 @@ delete req.session.data['support-worker-pay-change'];
 });
 
 
+//job details
+
+router.all('/agreed/csi/5-payments/invoice-router', function(req, res, next){
+
+// go back if no invoice value or if it isn't a number
+if ( !req.session.data['invoice-value'] || isNaN(req.session.data['invoice-value'])) {
+  return res.redirect ('2');
+next();
+}
+
+// if the same, continue, hardcoding value for now
+else if (req.session.data['invoice-value'] == 200 ) {
+  return res.redirect ('3');
+next();
+}
+
+// otherwise there's a discrepency so go to 'unhappy page'
+else  {
+  // if invoice valu
+  return res.redirect ('2-unhappy');
+next();
+}
+
+next();
+
+
+});
+
+
 module.exports = router

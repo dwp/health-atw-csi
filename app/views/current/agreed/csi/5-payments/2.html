@@ -1,6 +1,6 @@
-{% set link = "3" %}
+{% set link = "invoice-router" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
+{% set paymentLink = true %}
 {% set title =  "Check the invoice" %}
 
 
@@ -23,44 +23,10 @@
     text: ""
   },
   classes: "govuk-input--width-10",
-  id: "width-10",
-  name: "width-10"
+  id: "invoice-value",
+  name: "invoice-value"
   }) }}
        <br>
-
-<!--Second radio button set
-       {{ govukRadios({
-         classes: "govuk-radios",
-              idPrefix: "interview",
-              name: "interview",
-              fieldset: {
-                legend: {
-                  text: "Does the invoice include all the following information?",
-                  isPageHeading: false,
-                  classes: "govuk-fieldset__legend--m"
-                }
-              },
-              hint: {
-         html: ""
-         },
-              items: [
-              {
-                id: "yes",
-                value: "yes",
-                checked: checked('interview', "yes"),
-                text: "Yes"
-              },
-                {
-                  id: "no",
-                  value: "no",
-                  text: "No",
-                  checked: checked('interview', "no"),
-                  conditional: {
-                    html: conditionalText
-                  }
-                }
-              ]
-            }) }} -->
 
 
 

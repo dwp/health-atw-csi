@@ -29,7 +29,7 @@
 
      </div>
      <div class="header-user-details">
-           John Goldsmith
+          {% if payments or paymentLink%}Richard Silver{% else %}John Goldsmith{% endif %}
          </div>
    </div>
  </header>
@@ -40,10 +40,15 @@
       <div class="govuk-width-container">
         <ul class="nav-pri">
           <li{% if yourCases %} class="active"{% endif %}>
-          <!--<a href="/{{folder}}/{{subfolder}}/your-cases{% if phase == "interview" %}-interview{% elif phase == "empty" %}-empty{% elif phase == "waiting" or (data['claim'] == 'yes') %}-waiting{% else %}{% endif %}" class="active" aria-current="page">Your cases</a>-->
+
+{% if (not payments) and (not paymentLink ) %}
+          <a href="/{{folder}}/{{subfolder}}/your-cases{% if phase == "interview" %}-interview{% elif phase == "empty" %}-empty{% elif phase == "waiting" or (data['claim'] == 'yes') %}-waiting{% else %}{% endif %}" class="active" aria-current="page">Your cases</a>
 
         </li>
-          <!--<li{% if Unallocated %} class="active"{% endif %}><a href="#">Unallocated</a></li>-->
+        <li{% if Unallocated %} class="active"{% endif %}><a href="#">Unallocated</a></li>
+
+{% endif %}
+
           <li{% if Search %} class="active"{% endif %}><a href="5-payments/find-a-case-search">Search</a></li>
         </ul>
       </div>
