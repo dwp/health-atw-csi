@@ -2,27 +2,26 @@
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
-{% set title =  "[Send the claim form back]" %}
+{% set title =  "[Ask for invoice]" %}
 
 
 {% block csi %}
 
-<p>[Send claim form to:]</p>
+<p>[Email [adviser name] for the invoice to be sent by email]</p>
 
-<div class="govuk-inset-text">
-  14 Kings Road <br>
-  Birmingham <br>
-  Midlands  <br>
-  B1 1EQ
-</div>
+{{ govukButton({
+  text: "Open new email",
+  classes: "govuk-button--secondary",
+  href: "mailto:" + data['csi-info'][1]['email-for-user-research']
+}) }} <br>
 
 
 {{ govukRadios({
-  classes: "govuk-radios--inline",
-       name: "claim-form",
+    classes: "govuk-radios--inline",
+     name: "send",
        fieldset: {
          legend: {
-           text: "[Have you sent the claim form]",
+           text: "[Have you sent the invoice?]",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
@@ -40,6 +39,5 @@
          }
        ]
      }) }}
-
 
 {% endblock %}
