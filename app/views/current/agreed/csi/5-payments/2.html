@@ -13,42 +13,19 @@
     {{ data['csi-info'][1]['dob-year'] | safe }}
     <br>B2 8FG
   </div>-->
-    <p></p>
 
     {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
-  {{ govukRadios({
-    classes: "govuk-radios",
-         idPrefix: "invoice",
-         name: "invoice",
-         fieldset: {
-           legend: {
-             text: "Is the invoice value £243.33?",
-             isPageHeading: false,
-             classes: "govuk-fieldset__legend--m"
-           }
-         },
-         hint: {
-         html: ""
-    },
-         items: [
-         {
-           id: "yes",
-           value: "yes",
-           checked: checked('invoice', "yes"),
-           text: "Yes"
-         },
-           {
-             id: "no",
-             value: "no",
-             text: "No",
-             checked: checked('invoice', "no"),
-             conditional: {
-               html: conditionalText
-             }
-           }
-         ]
-       }) }}
+    <h3 class="govuk-heading-m">What is the total value on the invoice?</h3>
+
+       {{ govukInput({
+  label: {
+    text: ""
+  },
+  classes: "govuk-input--width-10",
+  id: "width-10",
+  name: "width-10"
+  }) }}
        <br>
 
 <!--Second radio button set
