@@ -127,7 +127,7 @@
 
                         <!--{{taskListItem(title="[Check the invoice is attached]", link="5-payments/1-1", completed=(data['invoice-checked'] == "yes" or phase == "interview" or phase == "waiting" ), locked=(not data['claim-form-signed'] ) )}}-->
 
-                        {{taskListItem(title="Check the invoice", link="5-payments/2", completed=(data['invoice'] == "yes" or phase == "interview" or phase == "waiting"), locked=(not data['invoice-checked'] ) )}}
+                        {{taskListItem(title="Check the invoice amount", link="5-payments/2", completed=(data['invoice'] == "yes" or phase == "interview" or phase == "waiting"), locked=(not data['invoice-checked'] ) )}}
 
                         {{taskListItem(title="Find the payee", link="5-payments/3", completed=(data['results-found'] == "yes" or phase == "interview" or phase == "waiting"), locked=(not data['invoice'] )) }}
 

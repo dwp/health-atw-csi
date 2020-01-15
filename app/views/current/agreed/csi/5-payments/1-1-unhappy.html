@@ -2,42 +2,108 @@
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
-{% set title =  "[Ask for invoice]" %}
+{% set title =  "Request the invoice" %}
 
 
 {% block csi %}
 
-<p>[Email [adviser name] for the invoice to be sent by email]</p>
+<p>Send an email to <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong>
+   to ask for a copy of the invoice. They can send <br>the invoice by email or by post.</p>
 
-{{ govukButton({
-  text: "Open new email",
-  classes: "govuk-button--secondary",
-  href: "mailto:" + data['csi-info'][1]['email-for-user-research']
-}) }} <br>
+   {{ govukTable({
+     caption: "",
+     firstCellIsHeader: true,
+     head: [
+     {
+       text: "",
+       classes: 'govuk-!-width-one-third'
+     },
+     {
+       text: "",
+       classes: 'govuk-!-width-two-thirds'
+     }
+   ],
+     rows: [
 
+   appointeeText  ,
 
-{{ govukRadios({
-    classes: "govuk-radios--inline",
-     name: "send",
-       fieldset: {
-         legend: {
-           text: "[Have you sent the invoice?]",
-           isPageHeading: false,
-           classes: "govuk-fieldset__legend--m"
-         }
-       },
-       items: [
+       [
          {
-           id: "yes",
-           value: "yes",
-           text: "Yes"
+           text: "Applicant name"
          },
          {
-           id: "no",
-           value: "no",
-           text: "No"
+           text: data['csi-info'][1]['firstname'] +  " " +  data['csi-info'][1]['surname']
+         }
+       ],
+       [
+         {
+           text: "Support cost"
+         },
+         {
+           text: data['csi-info'][1]['support-worker-pay'] | toMoney | safe
+         }
+       ],
+       [
+         {
+           text: "Interview date"
+         },
+         {
+           text:( data['csi-info'][1]['interview-date-day'] + " " + data['csi-info'][1]['interview-date-month']
+           | toMonth ) | safe
+         }
+       ],
+       [
+         {
+           text: "Company name"
+         },
+         {
+           text: data['csi-info'][1]['company-name']
+         }
+       ],
+       [
+         {
+           text: "Reference"
+         },
+         {
+           text: "ATW34593DE"
          }
        ]
-     }) }}
+     ]
+   }) }}
+
+
+   {{ govukButton({
+     text: "Open new email",
+     classes: "govuk-button--secondary",
+     href: "mailto:" + data['csi-info'][1]['email-for-user-research']
+   }) }}
+
+
+   <br>
+   </br>
+   {{ govukRadios({
+     classes: "govuk-radios--inline",
+      name: "send",
+        fieldset: {
+          legend: {
+            text: "Have you sent the email?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            id: "yes",
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            id: "no",
+            value: "no",
+            text: "No"
+          }
+        ]
+      }) }}
+
 
 {% endblock %}
