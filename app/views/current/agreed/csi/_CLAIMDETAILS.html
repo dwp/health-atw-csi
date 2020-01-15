@@ -41,6 +41,25 @@
   </div>
 {% endif %}
 
+{% if claim %}
+<div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key ">
+    [National Insurance number]
+  </dt>
+  <dd class="govuk-summary-list__value">
+    <p>{{ data['ni-number'] }}</p>
+  </dd>
+{% if not hideChange %}
+  <dd class="govuk-summary-list__actions">
+    <a class="govuk-link" href="personal-details-change#name">
+      Change
+      <span class="govuk-visually-hidden"></span>
+    </a>
+  </dd>
+{% endif %}{% endif %}
+
+</div>
+
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key ">
       First name
