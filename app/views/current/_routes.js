@@ -287,7 +287,7 @@ next();
 
 // if the same, continue, hardcoding value for now
 else if (req.session.data['invoice-value'] == 200 ) {
-  return res.redirect ('3');
+  return res.redirect ('2-1');
 next();
 }
 
