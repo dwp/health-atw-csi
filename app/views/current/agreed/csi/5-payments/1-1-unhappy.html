@@ -105,36 +105,5 @@
         ]
       }) }}
 
-{{ govukButton({
-  text: "Open new email",
-  classes: "govuk-button--secondary",
-  href: "mailto:" + data['csi-info'][1]['email-for-user-research']
-}) }} <br>
-<br>
-
-
-{{ govukRadios({
-    classes: "govuk-radios--inline",
-     name: "send",
-       fieldset: {
-         legend: {
-           text: "Have you sent the email?",
-           isPageHeading: false,
-           classes: "govuk-fieldset__legend--m"
-         }
-       },
-       items: [
-         {
-           id: "yes",
-           value: "yes",
-           text: "Yes"
-         },
-         {
-           id: "no",
-           value: "no",
-           text: "No"
-         }
-       ]
-     }) }}
 
 {% endblock %}
