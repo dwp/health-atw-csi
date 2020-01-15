@@ -2,7 +2,7 @@
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-1-unhappy"}] %}
-{% set title =  "[Check the invoice]" %}
+{% set title =  "Check the invoice" %}
 
 
 {% block csi %}
@@ -49,7 +49,7 @@
               name: "invoice-checked",
               fieldset: {
                 legend: {
-                  text: "[Is the invoice attached?]",
+                  text: "Is the invoice attached",
                   isPageHeading: false,
                   classes: "govuk-fieldset__legend--m"
                 }
