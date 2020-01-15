@@ -46,7 +46,7 @@
                       <h3 class="govuk-heading-m">New application</h3>
 
                       <ul class="govuk-list">
-                      <li><a class="govuk-link" href="/{{folder}}/agreed/your-cases">Your cases</a></li>
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/your-cases">Your cases</a> and <a class="govuk-link" href="/{{folder}}/agreed/search-payments">find a case and results</a> (on same screen) - payment person view</li>
                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/claim">Case details</a> and change:
 
                         <ul class="govuk-list govuk-list--bullet">
@@ -148,16 +148,14 @@
           html: adviserScreens
 
                   }) }}
-                      <h3 class="govuk-heading-m">Payments</h3>
+                      <h3 class="govuk-heading-m">Payments team journey</h3>
 
                       <ul class="govuk-list">
 
-                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/5-payments/find-a-case-search">Find a case</a></li>
-                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/5-payments/find-a-case-result">Find a case results</a></li>
-                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/payments-index">Tasks to complete</a>
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/search-payments">Find a case and results</a> (on same screen) - payment person view</li>                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/payments-index">Tasks to complete</a>
                         <ul class="govuk-list govuk-list--bullet">
                           <li><a class="govuk-link" href="/{{folder}}/agreed/csi/5-payments/1">Check evidence</a> and <a class="govuk-link" href="/{{folder}}/agreed/csi/5-payments/1-unhappy">unhappy path</a></li>
-                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/5-payments/2">Check invoice</a> and <a class="govuk-link" href="/{{folder}}/agreed/csi/5-payments/2-unhappy">unhappy path</a>(not same amount as invoice)</li>
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/5-payments/2">Check invoice</a> and <a class="govuk-link" href="/{{folder}}/agreed/csi/5-payments/2-unhappy">unhappy path</a>(not same amount as invoice) including handover to advisers (see next section)</li>
                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/5-payments/3">Find payee</a></li>
                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/5-payments/4">Payee results</a></li>
                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/5-payments/5">Check payment details</a></li>
@@ -165,6 +163,48 @@
 </li>
                       </ul>
 
+                      <h3 class="govuk-heading-m">Adviser journey when invoice is different from payment</h3>
+
+                      <ul class="govuk-list">
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/your-cases-payment-adviser">Your cases</a></li>
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/claim-payment-adviser">Case details</a></li>
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/index-payment-adviser">Your tasks</a>
+
+                      <ul class="govuk-list govuk-list--bullet">
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/5a-contact/index">Contact applicant</a> or applicant’s appointee</li>
+                      <li>Email:
+                      <a class="govuk-link" href="/{{folder}}/agreed/csi/5a-contact/email/1">Send email</a> and <a class="govuk-link" href="/{{folder}}/agreed/csi/5a-contact/email/2">success</a>
+                      </li>
+                      <li>Telephone:
+                      <a class="govuk-link" href="/{{folder}}/agreed/csi/5a-contact/phone/1">Contact appointee</a>
+                      </li>
+
+                      <li>Update (goes to confirm)
+                      </li>
+
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/5b-decide/1">Record information about difference in cost</a>
+
+                       </li>
+
+                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/5b-decide/2">Approve</a>
+
+                        </li>
+
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/5b-decide/complete">Tasks complete</a></li>
+                      </ul></li>
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/your-cases-empty">Your cases (empty)</a></li>
+
+                      </ul>
+
+<p>STILL TO ADD: journey for approver for payment change (journey TBC)</p>
+
+                      <h3 class="govuk-heading-m">Intranet screens</h3>
+
+                      <ul class="govuk-list">
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/intranet/forms">Forms</a></li>
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/intranet/letters">Letters</a> with link to form (<a href="https://confluence.service.dwpcloud.uk/download/attachments/152748195/Blank%20CSI%20Form%20%28generated%20from%20DISC%29.rtf?api=v2">on Confluence</a> so sign in)</li>
+
+                      </ul>
 
 
     </div>
