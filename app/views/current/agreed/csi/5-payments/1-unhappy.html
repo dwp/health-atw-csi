@@ -2,14 +2,15 @@
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
-{% set title =  "[Send the claim form back]" %}
+{% set title =  "Send the claim form back to the applicant" %}
 
 
 {% block csi %}
 
-<p>[Send claim form to:]</p>
+<p>Send the claim form to:</p>
 
 <div class="govuk-inset-text">
+  Thomas Brown <br>
   14 Kings Road <br>
   Birmingham <br>
   Midlands  <br>
@@ -22,7 +23,7 @@
        name: "claim-form",
        fieldset: {
          legend: {
-           text: "[Have you sent the claim form]",
+           text: "Have you sent the claim form?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
