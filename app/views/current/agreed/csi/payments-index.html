@@ -123,9 +123,9 @@
                         </h2>
                         <ul class="app-task-list__items" style="padding-left: 0">
 
-                        {{taskListItem(title="[Check the claimform]", link="5-payments/1", completed=(data['claim-form-signed'] == "yes" or phase == "interview" or phase == "waiting" ), started=(data['claim-form-signed'] == "no"), locked=(phase == "interview" or phase == "waiting"))}}
+                        {{taskListItem(title="[Check the claimform an invoice attached]", link="5-payments/1", completed=(data['claim-form-signed'] == "yes" or phase == "interview" or phase == "waiting" ), started=(data['claim-form-signed'] == "no"), locked=(phase == "interview" or phase == "waiting"))}}
 
-                        {{taskListItem(title="[Check the invoice is attached]", link="5-payments/1-1", completed=(data['invoice-checked'] == "yes" or phase == "interview" or phase == "waiting" ), locked=(not data['claim-form-signed'] ) )}}
+                        <!--{{taskListItem(title="[Check the invoice is attached]", link="5-payments/1-1", completed=(data['invoice-checked'] == "yes" or phase == "interview" or phase == "waiting" ), locked=(not data['claim-form-signed'] ) )}}-->
 
                         {{taskListItem(title="Check the invoice", link="5-payments/2", completed=(data['invoice'] == "yes" or phase == "interview" or phase == "waiting"), locked=(not data['invoice-checked'] ) )}}
 
