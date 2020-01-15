@@ -2,12 +2,13 @@
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
-{% set title =  "[Ask for invoice]" %}
+{% set title =  "Request the invoice" %}
 
 
 {% block csi %}
 
 <p>[Email [adviser name] for the invoice to be sent by email]</p>
+<br>
 
 {{ govukButton({
   text: "Open new email",
@@ -21,7 +22,7 @@
      name: "send",
        fieldset: {
          legend: {
-           text: "[Have you sent the invoice?]",
+           text: "Have you sent the email?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
