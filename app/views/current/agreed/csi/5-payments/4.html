@@ -7,12 +7,34 @@
 
 {% block csi %}
 
-<h2 class="govuk-heading-m">Address: 11 Hill Street, B1 1KJ</h2>
+<p>[The postcode you entered is] <strong>B1 1KJ</strong> <a href="3" class="govuk-link">[Search again]</a></p>
 
-<h2 class="govuk-heading-m">Name: Margaret Hedge</h2>
-<h2 class="govuk-heading-m">Supplier code: 4846738</h2>
+
+<!--<h2 class="govuk-heading-m">Address: 11 Hill Street</h2>-->
+
+<!--<h2 class="govuk-heading-m">Supplier code: 4846738</h2>-->
 <br>
 
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  idPrefix: "payee-name",
+  name: "payee-name",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "pay-name",
+      text: "Margaret Hedge, 4846738"
+    }
+  ]
+}) }}
+<a href="4-1" class="govuk-link">[Payee is not listed]</a>
 {%- from "govuk/components/tag/macro.njk" import govukTag -%}
 
 

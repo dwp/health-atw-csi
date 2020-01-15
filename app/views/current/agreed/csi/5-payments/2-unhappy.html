@@ -1,12 +1,56 @@
-{% set link = "2" %}
+{% set link = "3" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
-{% set title =  "Unhappy placeholder" %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "2-1-unhappy"}] %}
+{% set title =  "[Contact adviser]" %}
 
 
 {% block csi %}
+{{ govukButton({
+  text: "[Send email]",
+  classes: "govuk-button--secondary",
+  href: "mailto:" + data['csi-info'][1]['email-for-user-research']
+}) }}
 
-<p>Placeholder page for the unhappy path</p>
+<br>
+
+<p>[Advisor: John Goldsmith]</p>
+
+<p>[Case: Thomas Brown]</p>
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+  {{ govukRadios({
+    classes: "govuk-radios",
+         idPrefix: "sent-email",
+         name: "sent-email",
+         fieldset: {
+           legend: {
+             text: "[Have you sent the email?]",
+             isPageHeading: false,
+             classes: "govuk-fieldset__legend--m"
+           }
+         },
+         hint: {
+         html: ""
+    },
+         items: [
+         {
+           id: "yes",
+           value: "yes",
+           checked: checked('sent-email', "yes"),
+           text: "[Yes, continue]"
+         },
+           {
+             id: "no",
+             value: "no",
+             text: "[No, change]",
+             checked: checked('sent-email', "no"),
+             conditional: {
+               html: conditionalText
+             }
+           }
+         ]
+       }) }}
 
 {% endblock %}
