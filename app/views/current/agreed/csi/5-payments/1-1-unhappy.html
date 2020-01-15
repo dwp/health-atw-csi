@@ -7,14 +7,15 @@
 
 {% block csi %}
 
-<p>[Email [adviser name] for the invoice to be sent by email]</p>
-<br>
+<p>Send an email to <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong>
+   to ask for a copy of the invoice. They can send <br>the invoice by email or by post.</p>
 
 {{ govukButton({
   text: "Open new email",
   classes: "govuk-button--secondary",
   href: "mailto:" + data['csi-info'][1]['email-for-user-research']
 }) }} <br>
+<br>
 
 
 {{ govukRadios({
