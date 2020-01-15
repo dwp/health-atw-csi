@@ -6,13 +6,13 @@
 
 {% block csi %}
 
-{% macro taskListItem(title="'title'", link='#', completed='', started='', locked='' ) %}
+{% macro taskListItem(title="'title'", link='#', completed='', cantStart='' ) %}
 
 <li class="app-task-list__item">
   <span class="app-task-list__task-name">
-  {% if not (locked or completed)  %}  <a href="{{link}}" aria-describedby="eligibility-completed"> {% endif %}
+  {% if not (cantStart or completed)  %}  <a href="{{link}}" aria-describedby="eligibility-completed"> {% endif %}
       {{title}}
-    {% if not (locked or completed)  %}   </a> {% endif %}
+    {% if not (cantStart or completed)  %}   </a> {% endif %}
   </span>
 {% if completed %}
 <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
@@ -64,71 +64,26 @@
 }) }}
 {% endif %} {% endif %}  -->
 
-<!-- tasklist for processing payments -->
-{% if (phase == "payments" ) and not (phase == "interview") %}
-              <ol class="app-task-list">
-                      <li>
-                        <h2 class="app-task-list__section">
-                          Make a payment
-                        </h2>
-                        <ul class="app-task-list__items" style="padding-left: 0">
 
-                          {{taskListItem(title="Check evidence", link="5-payments/1", completed=(data['searchlight'] == "yes" or phase == "interview" or phase == "waiting" ), started=(data['searchlight'] == "no"), locked=(phase == "interview" or phase == "waiting"))}}
-
-
-                          {{taskListItem(title="Check invoice", link="1-check/2", completed=(data['appointee'] or phase == "interview" or phase == "waiting" ), locked=(phase == "interview" or phase == "waiting" or not data['searchlight'] or (data['searchlight'] == "no") ))}}
-
-
-                          {{taskListItem(title="Find payee", link="1-check/3", completed=((data['interview'] == 'yes' and data['company'] == 'yes' and data['personal'] == 'yes' ) or phase == "interview" or phase == "waiting" ), locked=(phase == "interview" or phase == "waiting" or not data['appointee'] ) )}}
-
-                          {{taskListItem(title="Review information and send payment", link="1-check/3", completed=((data['interview'] == 'yes' and data['company'] == 'yes' and data['personal'] == 'yes' ) or phase == "interview" or phase == "waiting" ), locked=(phase == "interview" or phase == "waiting" or not data['appointee'] ) )}}
-
-</ul>
-</li>
-</ol>
-
-<ol class="app-task-list">
-        <li>
-          <h2 class="app-task-list__section">
-            Send confirmation
-          </h2>
-          <ul class="app-task-list__items" style="padding-left:0">
-
-{% if data['appointee-contact-phone'] and not data['appointee-email'] %}
-<!-- scenario where appointee has a telephone number but not an email -->
-
-{{taskListItem(title="Print and send the form", link="2-send/2" + appointeeLink, completed=(data['claim'] == "yes" or interview or waiting),  locked=(not (data['interview'] == "yes" )) or (data['interview'] and (data['personal'] == 'no' or data['company'] == 'no')) ) }}
-
-
-{% else %}
-            {{taskListItem(title="[Send text message]", link="6-confirmation/1", + appointeeLink, completed=(data['send'] == "yes" or phase == "interview" or phase == "waiting"),  locked=(not (data['interview'] == "yes" )) or (data['interview'] and (data['personal'] == 'no' or data['company'] == 'no')) ) }}
-{% endif %}
-
-
-
-
-</ul>
-</li>
-</ol>
-
-{% endif %}
 
 <!-- Task list processing inital claim before payment -->
-{% if not (phase == "interview" ) and not (phase == "waiting") %}
+{% if not (phase == "interview" ) and not (phase == "waiting") and not (phase == "payment-adviser" )  %}
               <ol class="app-task-list">
                       <li>
                         <h2 class="app-task-list__section">
                           Check and approve
                         </h2>
                         <ul class="app-task-list__items" style="padding-left: 0">
+<!-- in theory if a person goes into a case and adds appointee details they're done -->
+                          {{taskListItem(title="Find applicant on Searchlight", link="1-check/1", completed=(data['searchlight'] == "yes" or data['ni-number'] ), cantStart="")}}
 
-                          {{taskListItem(title="Find applicant on Searchlight", link="1-check/1", completed=(data['searchlight'] == "yes" or phase == "interview" or phase == "waiting" ), started=(data['searchlight'] == "no"), locked=(phase == "interview" or phase == "waiting"))}}
+                          {{taskListItem(title="[Copy National Insurance number]", link="1-check/1-ni-number", completed=(data['ni-number'] ), cantStart=(not (data['searchlight'] == "yes") ))}}
 
 
-                          {{taskListItem(title="Check for appointee", link="1-check/2", completed=(data['appointee'] or phase == "interview" or phase == "waiting" ), locked=(phase == "interview" or phase == "waiting" or not data['searchlight'] or (data['searchlight'] == "no") ))}}
+                          {{taskListItem(title="Check for appointee", link="1-check/2", completed=(data['appointee'] ), cantStart=(not data['ni-number'] ) )}}
 
 
-{{taskListItem(title="Check application", link="1-check/3", completed=((data['interview'] == 'yes' and data['company'] == 'yes' and data['personal'] == 'yes' ) or phase == "interview" or phase == "waiting" ), locked=(phase == "interview" or phase == "waiting" or not data['appointee'] ) )}}
+{{taskListItem(title="Check application", link="1-check/3", completed=((data['interview'] == 'yes' and data['company'] == 'yes' and data['personal'] == 'yes' ) ), cantStart=(not data['appointee'] ) )}}
 
 
 
@@ -148,12 +103,16 @@
 {% if data['appointee-contact-phone'] and not data['appointee-email'] %}
 <!-- scenario where appointee has a telephone number but not an email -->
 
-{{taskListItem(title="Print and send the form", link="2-send/2" + appointeeLink, completed=(data['claim'] == "yes" or interview or waiting),  locked=(not (data['interview'] == "yes" )) or (data['interview'] and (data['personal'] == 'no' or data['company'] == 'no')) ) }}
+{{taskListItem(title="Print and send the form", link="2-send/2" + appointeeLink, completed=(data['claim'] == "yes"),  cantStart=(not data['interview'] or (data['interview'] == 'no' or data['personal'] == 'no' or data['company'] == 'no'))
+) }}
 
 
 {% else %}
-            {{taskListItem(title="Send a confirmation email", link="2-send/1" + appointeeLink, completed=(data['send'] == "yes" or phase == "interview" or phase == "waiting"),  locked=(not (data['interview'] == "yes" )) or (data['interview'] and (data['personal'] == 'no' or data['company'] == 'no')) ) }}
-            {{taskListItem(title="Print and send the form", link="2-send/2" + appointeeLink, completed=(data['claim'] == "yes" or interview or waiting), locked=(not data['send']) )}}
+            {{taskListItem(title="Send a confirmation email", link="2-send/1" + appointeeLink, completed=(data['send'] == "yes"),  cantStart=(not (data['interview'] == 'yes' and data['company'] == 'yes' and data['personal'] == 'yes' ))
+            ) }}
+
+
+            {{taskListItem(title="Print and send the form", link="2-send/2" + appointeeLink, completed=(data['claim'] == "yes"), cantStart=(not data['send']) )}}
 {% endif %}
 
 
@@ -179,9 +138,34 @@
 
                         <ul class="app-task-list__items" style="padding-left:0">
 
-    {{taskListItem(title="Confirm with the employer", link="3-contact/index", completed=(data['employer-phone'] =="yes" or data['employer'] =="yes" ), locked=(not (phase == "interview") or (phase == "same-day" and not data['claim'] == "yes") ))}}
+    {{taskListItem(title="Confirm with the employer", link="3-contact/index", completed=(data['employer-phone'] =="yes" or data['employer'] =="yes" ), cantStart=(not (phase == "interview") or (phase == "same-day" and not data['claim'] == "yes") ))}}
 
-    {{taskListItem(title="Record interview took place", link="4-confirm/1", completed=(data['confirm'] =="yes"), locked=(not (data['employer'] == "yes" or data['employer-phone'] =="yes" ) ))}}
+    {{taskListItem(title="Record interview took place", link="4-confirm/1", completed=(data['confirm'] =="yes"), cantStart=(not (data['employer'] == "yes" or data['employer-phone'] =="yes" ) ))}}
+
+
+                        </ul>
+                      </li>
+                    </ol>
+
+{% endif %}
+
+
+{% if phase == "payment-adviser"  %}
+
+<ol class="app-task-list">
+        <li>
+                        <h2 class="app-task-list__section">
+                           [Get more information about payments]
+                        </h2>
+
+
+                        <ul class="app-task-list__items" style="padding-left:0">
+
+    {{taskListItem(title="Confirm with the applicant", link="5a-contact/index", completed=(data['applicant-phone'] =="yes" or data['applicant'] =="yes" ), cantStart=""
+
+    )}}
+
+    {{taskListItem(title="Record interview took place", link="5b-confirm/1", completed=(data['payment-confirm'] =="yes"), cantStart=(not (data['applicant'] == "yes" or data['applicant-phone'] =="yes" ) ))}}
 
 
                         </ul>
@@ -225,6 +209,10 @@
         {
           href: "payments-index",
           text: "Index payments"
+        },
+        {
+          href: "index-payment-adviser",
+          text: "Index payments for advisers (more information needed)"
         }
       ]
     }

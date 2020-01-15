@@ -10,6 +10,17 @@
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
 
+<!--  as the NI number is added manually, we don't need to allow for changing from defaults like the other data -->
+{{ govukInput({
+  label: {
+    text: "[National Insurance number]"
+  },
+  id: "name",
+  name: "ni-number",
+  value: data['ni-number'],
+  classes: "govuk-input--width-10"
+}) }}
+
 {{ govukInput({
   label: {
     text: "First name"
