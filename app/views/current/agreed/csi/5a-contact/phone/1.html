@@ -1,26 +1,26 @@
-{% set link = "../../4-confirm/1" %}
-{% set interviewLink = true %}
+{% set link = "../../5a-confirm/1" %}
+{% set paymentAdviserLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
-{% set title =  "Telephone the employer" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "../../index-interview"}] %}
+{% set title =  "Telephone the applicant" %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "../../index-payment-adviser"}] %}
 
 
 {% block csi %}
 
 
-<p>Check that <strong>Thomas Brown</strong> attended the interview with an interpreter or support worker.</p>
+<p>[Check that <strong>Thomas Brown</strong> attended the interview with an interpreter or support worker.]</p>
 
-<p>Telephone Terry Gibson at Tesco on <strong>07192 838 482</strong>.</p>
+<p>[Telephone Terry Gibson at Tesco on <strong>07192 838 482</strong>.]</p>
 <br>
 
 
 
 {% set conditionalText %}
 {{ govukTextarea({
-  name: "employer-note",
-  id: "employer-note",
-  value: data['employer-note'],
+  name: "applicant-note",
+  id: "applicant-note",
+  value: data['applicant-note'],
   label: {
     text: ""
   },
@@ -35,10 +35,10 @@
 {{ govukRadios({
 
       classes: "govuk-radios--inline",
-       name: "employer-phone",
+       name: "applicant-phone",
        fieldset: {
          legend: {
-           text: "Is the employer available?",
+           text: "Is the applicant available?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
@@ -47,14 +47,14 @@
          {
            id: "yes",
            value: "yes",
-           checked: checked('employer-phone', "yes"),
+           checked: checked('applicant-phone', "yes"),
            text: "Yes, check information"
          },
          {
            id: "no",
            value: "no",
            text: "No, write a note",
-           checked: checked('employer-phone', "no"),
+           checked: checked('applicant-phone', "no"),
            conditional: {
              html: conditionalText
            }

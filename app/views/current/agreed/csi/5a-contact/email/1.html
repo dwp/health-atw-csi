@@ -1,15 +1,15 @@
 {% set link = "2" %}
-{% set interviewLink = true %}
+{% set paymentAdviserLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "../../index-interview"}] %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "../../index-payment-adviser"}] %}
 
-{% set title =  "Email the employer" %}
+{% set title =  "Email the applicant" %}
 
 
 {% block csi %}
 
-<p>Send an email to check if the applicant attended the interview with an interpreter or support worker.
+<p>[Send an email to check if the applicant attended the interview with an interpreter or support worker.]
 </p>
 <p>
 
@@ -29,7 +29,7 @@
       rows: [
         [
           {
-            text: "Employer name"
+            text: "applicant name"
           },
           {
             text: data['csi-info'][1]['interviewer-name']
@@ -76,8 +76,8 @@
 {{ govukRadios({
 
     classes: "govuk-radios--inline",
-       idPrefix: "sent-email",
-       name: "sent-email",
+       idPrefix: "applicant-sent-email",
+       name: "applicant-sent-email",
        fieldset: {
          legend: {
            text: "Have you sent the email?",
