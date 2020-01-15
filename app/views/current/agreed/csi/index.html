@@ -64,57 +64,10 @@
 }) }}
 {% endif %} {% endif %}  -->
 
-<!-- tasklist for processing payments -->
-{% if (phase == "payments" ) and not (phase == "interview") %}
-              <ol class="app-task-list">
-                      <li>
-                        <h2 class="app-task-list__section">
-                          Make a payment
-                        </h2>
-                        <ul class="app-task-list__items" style="padding-left: 0">
 
-                          {{taskListItem(title="Check evidence", link="5-payments/1", completed=(data['searchlight'] == "yes" or phase == "interview" or phase == "waiting" ), cantStart=(phase == "interview" or phase == "waiting"))}}
-
-
-                          {{taskListItem(title="Check invoice", link="1-check/2", completed=(data['appointee'] or phase == "interview" or phase == "waiting" ), cantStart=(phase == "interview" or phase == "waiting" or not data['searchlight'] or (data['searchlight'] == "no") ))}}
-
-
-                          {{taskListItem(title="Find payee", link="1-check/3", completed=((data['interview'] == 'yes' and data['company'] == 'yes' and data['personal'] == 'yes' ) or phase == "interview" or phase == "waiting" ), cantStart=(phase == "interview" or phase == "waiting" or not data['appointee'] ) )}}
-
-                          {{taskListItem(title="Review information and send payment", link="1-check/3", completed=((data['interview'] == 'yes' and data['company'] == 'yes' and data['personal'] == 'yes' ) or phase == "interview" or phase == "waiting" ), cantStart=(phase == "interview" or phase == "waiting" or not data['appointee'] ) )}}
-
-</ul>
-</li>
-</ol>
-
-<ol class="app-task-list">
-        <li>
-          <h2 class="app-task-list__section">
-            Send confirmation
-          </h2>
-          <ul class="app-task-list__items" style="padding-left:0">
-
-{% if data['appointee-contact-phone'] and not data['appointee-email'] %}
-<!-- scenario where appointee has a telephone number but not an email -->
-
-{{taskListItem(title="Print and send the form", link="2-send/2" + appointeeLink, completed=(data['claim'] == "yes" or interview or waiting),  cantStart=(not (data['interview'] == "yes" )) or (data['interview'] and (data['personal'] == 'no' or data['company'] == 'no')) ) }}
-
-
-{% else %}
-            {{taskListItem(title="[Send text message]", link="6-confirmation/1", + appointeeLink, completed=(data['send'] == "yes" or phase == "interview" or phase == "waiting"),  cantStart=(not (data['interview'] == "yes" )) or (data['interview'] and (data['personal'] == 'no' or data['company'] == 'no')) ) }}
-{% endif %}
-
-
-
-
-</ul>
-</li>
-</ol>
-
-{% endif %}
 
 <!-- Task list processing inital claim before payment -->
-{% if not (phase == "interview" ) and not (phase == "waiting") %}
+{% if not (phase == "interview" ) and not (phase == "waiting") and not (phase == "payment-adviser" )  %}
               <ol class="app-task-list">
                       <li>
                         <h2 class="app-task-list__section">
@@ -196,6 +149,31 @@
 
 {% endif %}
 
+
+{% if phase == "payment-adviser"  %}
+
+<ol class="app-task-list">
+        <li>
+                        <h2 class="app-task-list__section">
+                           [Get more information about payments]
+                        </h2>
+
+
+                        <ul class="app-task-list__items" style="padding-left:0">
+
+    {{taskListItem(title="Confirm with the applicant", link="5a-contact/index", completed=(data['applicant-phone'] =="yes" or data['applicant'] =="yes" ), cantStart=""
+
+    )}}
+
+    {{taskListItem(title="Record interview took place", link="5b-confirm/1", completed=(data['payment-confirm'] =="yes"), cantStart=(not (data['applicant'] == "yes" or data['applicant-phone'] =="yes" ) ))}}
+
+
+                        </ul>
+                      </li>
+                    </ol>
+
+{% endif %}
+
 {% endblock %}
 
 
@@ -231,6 +209,10 @@
         {
           href: "payments-index",
           text: "Index payments"
+        },
+        {
+          href: "index-payment-adviser",
+          text: "Index payments for advisers (more information needed)"
         }
       ]
     }

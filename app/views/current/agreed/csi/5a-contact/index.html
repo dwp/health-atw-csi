@@ -1,28 +1,30 @@
-{% set link = "../4-confirm/1" %}
-{% set interviewLink = true %}
+{% set link = "../5b-decide/1" %}
+{% if appointee %}{% set appointeeLink = "-appointee" %}{% else %}{% set appointeeLink = "" %}{% endif %}
+{% if appointee %}{% set appointeeText = "’s appointee" %}{% else %}{% set appointeeText = "" %}{% endif %}
+{% set paymentAdviserLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "email", page: "email/1" }, {id: "phone", page: "phone/1"}, {id: "yes", page: link } ] %}
 
-{% set title =  "Confirm with the employer" %}
+{% set title =  "Confirm with the applicant" + appointeeText %}
 
 {% block csi %}
 
 
-{% if (data['employer-phone'] == 'no') or (data['sent-email'] == "yes") %}
+{% if (data['applicant-phone'] == 'no') or (data['applicant-sent-email'] == "yes") %}
 <ol class="dwp-timeline">
 
-  {% if data['employer-phone'] == 'no' %}
+  {% if data['applicant-phone'] == 'no' %}
             <li class="dwp-timeline__entry">
-              <h3 class="govuk-heading-s dwp-timeline__title">Attempted to contact employer</h3>
+              <h3 class="govuk-heading-s dwp-timeline__title">Attempted to contact applicant</h3>
               <p class="dwp-timeline__info">
                 <span class="dwp-timeline__date">31 October 2019 at 12:22pm</span>
               </p
             </li>
   {% endif %}
 
-  {% if data['sent-email'] == "yes" %}
+  {% if data['applicant-sent-email'] == "yes" %}
             <li class="dwp-timeline__entry">
-              <h3 class="govuk-heading-s dwp-timeline__title">Email sent to employer</h3>
+              <h3 class="govuk-heading-s dwp-timeline__title">Email sent to applicant</h3>
               <p class="dwp-timeline__info">
                 <span class="dwp-timeline__date">31 October 2019 at 12:22pm</span>
               </p
@@ -32,14 +34,14 @@
 </ol>
 
 
-{% if data['employer-note'] %}
+{% if data['applicant-note'] %}
 
 {{ govukErrorSummary({
-  titleText: "Notes from attempt to contact employer",
+  titleText: "Notes from attempt to contact applicant" + appointeeText,
   classes: "not-error",
   errorList: [
     {
-      text: data['employer-note'] | safe
+      text: data['applicant-note'] | safe
     }
   ]
 }) }}
@@ -52,8 +54,8 @@
 {% endif %}
 
 {{ govukRadios({
-       idPrefix: "employer",
-       name: "employer",
+       idPrefix: "applicant",
+       name: "applicant",
        fieldset: {
          legend: {
            text: "What do you want to do?",
@@ -65,17 +67,17 @@
          {
            id: "email",
            value: "email",
-           text: "Email the employer"
+           text: "Email the applicant" + appointeeText
          },
          {
            id: "phone",
            value: "phone",
-           text: "Telephone the employer"
+           text: "Telephone the applicant" + appointeeText
          },
          {
            id: "yes",
            value: "yes",
-           text: "Record a response from the employer"
+           text: "Record a response from the applicant" + appointeeText
          }
        ]
      }) }}
