@@ -2,12 +2,12 @@
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
-{% set title =  "Payee results" %}
+{% set title =  "Select the payee" %}
 
 
 {% block csi %}
 
-<p>[The postcode you entered is] <strong>B1 1KJ</strong> <a href="3" class="govuk-link">[Search again]</a></p>
+<p>Postcode: <strong>B1 1KJ</strong><br>  <a href="3" class="govuk-link">Search again</a></p>
 
 
 <!--<h2 class="govuk-heading-m">Address: 11 Hill Street</h2>-->
@@ -34,7 +34,7 @@
     }
   ]
 }) }}
-<a href="4-1" class="govuk-link">[Payee is not listed]</a>
+<a href="4-1" class="govuk-link">I cannot find the payee in the list</a>
 {%- from "govuk/components/tag/macro.njk" import govukTag -%}
 
 

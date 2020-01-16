@@ -2,11 +2,12 @@
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
-{% set title =  "[Print and send form]" %}
+{% set title =  "Send the form" %}
 
 
 {% block csi %}
 
+<p>Send the form to:</p>
 
 <!--<h2 class="govuk-heading-m">Address: 11 Hill Street</h2>-->
 
@@ -34,7 +35,7 @@ B2 8FG
          name: "completed-form",
          fieldset: {
            legend: {
-             text: "[Have you sent the form?]",
+             text: "Have you sent the form?",
              isPageHeading: false,
              classes: "govuk-fieldset__legend--m"
            }
@@ -47,12 +48,12 @@ B2 8FG
            id: "yes",
            value: "yes",
            checked: checked('completed-form', "yes"),
-           text: "[Yes, continue]"
+           text: "Yes"
          },
            {
              id: "no",
              value: "no",
-             text: "[No, change]",
+             text: "No",
              checked: checked('completed-form', "no"),
              conditional: {
                html: conditionalText
