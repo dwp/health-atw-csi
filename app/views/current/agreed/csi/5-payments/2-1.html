@@ -2,7 +2,7 @@
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "2-unhappy"}] %}
 {% set paymentLink = true %}
-{% set title =  "Check the invoice" %}
+{% set title =  "Confirm the amount" %}
 
 
 {% block csi %}
@@ -25,7 +25,7 @@
              name: "check-amount",
              fieldset: {
                legend: {
-                 text: "[Is £200 the amount on the invoice?]",
+                 text: "Is £200 the amount on the invoice?",
                  isPageHeading: false,
                  classes: "govuk-fieldset__legend--m"
                }
@@ -38,12 +38,12 @@
                id: "yes",
                value: "yes",
                checked: checked('check-amount', "yes"),
-               text: "[Yes, continue]"
+               text: "Yes"
              },
                {
                  id: "no",
                  value: "no",
-                 text: "[No, change]",
+                 text: "No",
                  checked: checked('check-amount', "no"),
                  conditional: {
                    html: conditionalText

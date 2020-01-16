@@ -2,12 +2,14 @@
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "2-1-unhappy"}] %}
-{% set title =  "[Contact adviser]" %}
-
+{% set title =  "Contact adviser" %}
 
 {% block csi %}
+<p>Send an email to the adviser to check the correct cost of support.</p>
+
+
 {{ govukButton({
-  text: "[Send email]",
+  text: "Open new email",
   classes: "govuk-button--secondary",
   href: "mailto:" + data['csi-info'][1]['email-for-user-research']
 }) }}
@@ -26,7 +28,7 @@
          name: "sent-email",
          fieldset: {
            legend: {
-             text: "[Have you sent the email?]",
+             text: "Have you sent the email?",
              isPageHeading: false,
              classes: "govuk-fieldset__legend--m"
            }
@@ -39,12 +41,12 @@
            id: "yes",
            value: "yes",
            checked: checked('sent-email', "yes"),
-           text: "[Yes, continue]"
+           text: "Yes"
          },
            {
              id: "no",
              value: "no",
-             text: "[No, change]",
+             text: "No",
              checked: checked('sent-email', "no"),
              conditional: {
                html: conditionalText
