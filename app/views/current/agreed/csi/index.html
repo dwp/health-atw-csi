@@ -124,7 +124,7 @@
 <!-- in theory if a person goes into a case and adds appointee details they're done -->
                           {{taskListItem(title="Find applicant on Searchlight", link="1-check/1", completed=(data['searchlight'] == "yes" or data['ni-number'] ), cantStart="")}}
 
-                          {{taskListItem(title="[Copy National Insurance number]", link="1-check/1-ni-number", completed=(data['ni-number'] ), cantStart=(not (data['searchlight'] == "yes") ))}}
+                          {{taskListItem(title="Add National Insurance number", link="1-check/1-ni-number", completed=(data['ni-number'] ), cantStart=(not (data['searchlight'] == "yes") ))}}
 
 
                           {{taskListItem(title="Check for appointee", link="1-check/2", completed=(data['appointee'] ), cantStart=(not data['ni-number'] ) )}}
