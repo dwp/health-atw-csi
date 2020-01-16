@@ -1,7 +1,7 @@
-{% set link = "5" %}
+{% set link = "4-3" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "#"}] %}
 {% set title =  "Send the form" %}
 
 
@@ -30,7 +30,7 @@ B2 8FG
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
   {{ govukRadios({
-    classes: "govuk-radios",
+    classes: "govuk-radios--inline",
          idPrefix: "completed-form",
          name: "completed-form",
          fieldset: {
