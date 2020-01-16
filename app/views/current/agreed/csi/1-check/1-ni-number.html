@@ -3,12 +3,12 @@
 {% endif %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
-{% set title =  "[Add National Insurance number for " + data['csi-info'][1]['firstname'] +  " " +  data['csi-info'][1]['surname']  + "]" %}
+{% set title =  "Add National Insurance number" %}
 
 
 {% block csi %}
 
-<p>[Copy the National Insurance number for {{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}} from Searchlight.]</p>
+<p>Copy and paste {{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}'s National Insurance number from Searchlight.</p>
 
 
 {{ govukInput({
