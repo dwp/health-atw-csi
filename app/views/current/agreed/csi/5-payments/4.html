@@ -7,8 +7,7 @@
 
 {% block csi %}
 
-<p>Postcode: <strong>B1 1KJ</strong><br>  <a href="3" class="govuk-link">Search again</a></p>
-
+<p>Postcode: {{ data['payee-search'] }} <a href="3" class="govuk-link">Search again</a></p>
 
 <!--<h2 class="govuk-heading-m">Address: 11 Hill Street</h2>-->
 
@@ -34,7 +33,7 @@
     }
   ]
 }) }}
-<a href="4-1" class="govuk-link">I cannot find the payee in the list</a>
+<p><a href="4-1" class="govuk-link">I cannot find the payee in the list</a></p>
 {%- from "govuk/components/tag/macro.njk" import govukTag -%}
 
 

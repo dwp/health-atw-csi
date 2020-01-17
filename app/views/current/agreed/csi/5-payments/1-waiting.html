@@ -1,0 +1,15 @@
+{% set link = "../payments-index" %}
+{% set paymentLink = true %}
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
+{% set title =  "[You are done]" %}
+
+
+{% block csi %}
+
+<p>[You have completed the steps for this task]</p>
+
+
+
+
+{% endblock %}

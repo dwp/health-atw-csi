@@ -1,15 +1,14 @@
-{% set link = "2" %}
+{% set link = "../payments-index" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
-{% set title =  "Email sent" %}
+{% set title =  "[Form sent]" %}
 
 
 {% block csi %}
 
-<p>You will be able to continue with this case once the adviser has confirmed <br>the cost of support.</p>
+<p>[The claim form has been sent and has added to the system]</p>
 
-<br>
 
 
 

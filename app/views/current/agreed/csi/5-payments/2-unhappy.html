@@ -1,7 +1,7 @@
-{% set link = "3" %}
+{% set link = "2-1-confirmation" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "2-1-unhappy"}] %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "#"}] %}
 {% set title =  "Contact adviser" %}
 
 {% block csi %}
@@ -23,7 +23,7 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
   {{ govukRadios({
-    classes: "govuk-radios",
+    classes: "govuk-radios--inline",
          idPrefix: "sent-email",
          name: "sent-email",
          fieldset: {

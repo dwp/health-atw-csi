@@ -274,6 +274,38 @@ delete req.session.data['support-worker-pay-change'];
 
 });
 
+//routing for check evidence screen
+router.all('/agreed/csi/5-payments/check-evidence-router', function(req, res, next){
+
+  // routes for scenario 'yes'-'no'. The rule being the answers for question one then question 2 to reflect how they appear
+  //on the page  -works
+  /*if ( req.session.data['claim-form-signed'] = "yes" ) {
+    return res.redirect ('1-1-unhappy');
+  next();
+}*/
+
+  // routes for scenario 'no'-'no'. The rule being the answers for question one then question 2 to reflect how they appear
+  //on the page  - doesnt work
+   /*if ( req.session.data['claim-form-signed'] = "no" ) {
+    return res.redirect ('1-1-unhappy');
+  next();
+}*/
+
+  // routes for scenario 'no'-'yes'. The rule being the answers for question one then question 2 to reflect how they appear
+  //on the page  -- works
+   /*if ( req.session.data['invoice-checked'] = "yes" ) {
+    return res.redirect ('1-unhappy');
+  next();
+}*/
+
+  // routes for scenario 'yes'-'yes'. The rule being the answers for question one then question 2 to reflect how they appear
+  //on the page  works
+   if ( req.session.data['claim-form-signed'] = "yes" || req.session.data['invoice-checked'] == "yes" ) {
+    return res.redirect ('2');
+  next();
+  }
+
+});
 
 //job details
 
