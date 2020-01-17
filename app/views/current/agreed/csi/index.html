@@ -161,11 +161,11 @@
 
                         <ul class="app-task-list__items" style="padding-left:0">
 
-    {{taskListItem(title="[Confirm with the applicant]", link="5a-contact/index", completed=(data['applicant-phone'] =="yes" or data['applicant'] =="yes" ), cantStart=""
+    {{taskListItem(title="[Check cost of invoice]", link="5a-check/1", completed=(data['difference'] =="yes" ), cantStart=""
 
     )}}
 
-    {{taskListItem(title="[Record information about payment]", link="5b-decide/1", completed=(data['payment-confirm'] =="yes"), cantStart=(not (data['applicant'] == "yes" or data['applicant-phone'] =="yes" ) ))}}
+    {{taskListItem(title="[Contact payment team]", link="5b-reassign/1", completed=(data['payment-confirm'] =="yes"), cantStart=(not (data['difference'] =="yes"  ) ))}}
 
 
                         </ul>
