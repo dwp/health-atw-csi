@@ -1,0 +1,96 @@
+{% set paymentAdviserLink = true %}
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+{% if appointee %}{% set appointeeLink  = "2-appointee" %}{% else %}{% set appointeeLink  = "" %}{% endif %}
+{% set link = "unhappy-2" + appointeeLink  %}
+{% set redirect = [{id : "yes", page: "../5b-reassign/1" }, {id: "no", page: link }] %}
+
+{% set title =  "[Check cost from invoice]" %}
+
+{% block csi %}
+
+
+<dl class="govuk-summary-list">
+
+
+<div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key ">
+    Condition
+  </dt>
+  <dd class="govuk-summary-list__value">
+    <p>{{ data['csi-info'][1]['condition'] }}</p>
+  </dd>
+
+</div>
+
+<div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key">
+    Interview length
+  </dt>
+  <dd class="govuk-summary-list__value">
+    <p>{{ data['csi-info'][1]['duration'] }}
+    </p>
+  </dd>
+
+</div>
+
+<div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key">
+    Support cost
+  </dt>
+  <dd class="govuk-summary-list__value">
+    <p class="govuk-body">
+    £245.34  (£56 more than quote)
+    </p>
+  </dd>
+
+</div>
+</dl>
+
+{% set conditionalText %}
+{{ govukTextarea({
+  name: "more-detail-5",
+  id: "more-detail",
+  value: data['more-detail-5'],
+  label: {
+    text: "What do you need to contact the applicant about?"
+  },
+  hint: {
+    text: "You will be able to use these notes when you contact the applicant."
+  }
+}) }}
+{% endset -%}
+<br>
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+       idPrefix: "difference",
+       name: "difference",
+       fieldset: {
+         legend: {
+           text: "Is the cost reasonable?",
+           isPageHeading: false,
+           classes: "govuk-fieldset__legend--m"
+         }
+       },
+       hint: {
+  html: ""
+  },
+       items: [
+       {
+         id: "yes",
+         value: "yes",
+         checked: checked('difference', "yes"),
+         text: "Yes"
+       },
+         {
+           id: "no",
+           value: "no",
+           text: "No, I need to contact the applicant",
+           checked: checked('difference', "no"),
+           conditional: {
+             html: conditionalText
+           }
+         }
+       ]
+     }) }}
+
+{% endblock %}
