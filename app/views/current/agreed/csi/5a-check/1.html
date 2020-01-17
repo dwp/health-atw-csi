@@ -48,14 +48,11 @@
 
 {% set conditionalText %}
 {{ govukTextarea({
-  name: "more-detail-5",
-  id: "more-detail",
-  value: data['more-detail-5'],
+  name: "difference-reason",
+  id: "difference-reason",
+  value: data['difference-reason'],
   label: {
-    text: "What do you need to contact the applicant about?"
-  },
-  hint: {
-    text: "You will be able to use these notes when you contact the applicant."
+    text: "Information about approval (optional)"
   }
 }) }}
 {% endset -%}
@@ -79,16 +76,16 @@
          id: "yes",
          value: "yes",
          checked: checked('difference', "yes"),
-         text: "Yes"
+         text: "Yes",
+         conditional: {
+           html: conditionalText
+         }
        },
          {
            id: "no",
            value: "no",
            text: "No, I need to contact the applicant",
-           checked: checked('difference', "no"),
-           conditional: {
-             html: conditionalText
-           }
+           checked: checked('difference', "no")
          }
        ]
      }) }}
