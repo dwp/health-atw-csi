@@ -5,12 +5,14 @@
 {% if data['appointee'] == 'yes' %}{% set appointeeLink = "-appointee" %}{% else %}{% set appointeeLink = "" %}{% endif %}
 {% set redirect = [{id : "yes", page: link },  {id: "no", page: "../index-payment-adviser" } ] %}
 
-{% set title = "[get more information about payment]" %}
+{% set title = "Find out why the quote and invoice are different" %}
 
 {% block csi %}
 
 
-<p>[information to playback to get understanding]</p>
+<p>Quote: £200<br>
+  Invoice: £210.99</p>
+  <br>
 
 
 <p>Do you have enough information to make a decision?</p>
@@ -40,7 +42,7 @@
        name: "payment-difference-detail",
        id: "payment-difference-detail",
        label: {
-         text: "[add detail (optional)]"
+         text: "Why is the invoice higher than the quote?"
        }
      }) }}
 
