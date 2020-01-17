@@ -1,7 +1,7 @@
-{% set link = "2" %}
+{% set link = "check-evidence-router" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
+<!--{% set redirect = [{id : "yes", page: link }, {id: "no", page: "#"}] %}-->
 {% set title =  "Check the evidence" %}
 
 
@@ -10,7 +10,7 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
   {{ govukRadios({
-    classes: "govuk-radios",
+    classes: "govuk-radios--inline",
          idPrefix: "claim-form",
          name: "claim-form-signed",
          fieldset: {
@@ -44,7 +44,7 @@
 <!--Second radio button set-->
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
        {{ govukRadios({
-         classes: "govuk-radios",
+         classes: "govuk-radios--inline",
               idPrefix: "invoice",
               name: "invoice-checked",
               fieldset: {
