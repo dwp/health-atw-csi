@@ -1,13 +1,13 @@
 {% set link = "4-check-payee" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "../payments-index"}] %}
 {% set title =  "Select the payee" %}
 
 
 {% block csi %}
 
-<p>Postcode: {{ data['payee-search'] }} <a href="3" class="govuk-link">Search again</a></p>
+<p>Postcode: {{ data['payee-search'] | default("NE98 1ZZ") }} <a href="3" class="govuk-link">Search again</a></p>
 
 <!--<h2 class="govuk-heading-m">Address: 11 Hill Street</h2>-->
 
@@ -35,7 +35,6 @@
 }) }}
 <p><a href="4-add-sop" class="govuk-link">I cannot find the payee in the list</a></p>
 {%- from "govuk/components/tag/macro.njk" import govukTag -%}
-
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
 

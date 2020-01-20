@@ -1,22 +1,23 @@
-{% set link = "4-yes-sop" %}
+{% set link = "4-sop-no-transferred" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "4-no-sop"}] %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "../payments-index"}] %}
+{% set title =  "[transfer the case]" %}
+
 
 {% block csi %}
 
 
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
 
   {{ govukRadios({
     classes: "govuk-radios--inline",
-         idPrefix: "added-sop",
-         name: "added-sop",
+         idPrefix: "sop-tranferred",
+         name: "sop-tranferred",
          fieldset: {
            legend: {
-             text: "[Can you add new payees to SOP]?",
-             isPageHeading: true,
-             classes: "govuk-fieldset__legend--xl"
+             text: "[Have you transferred the claim?]",
+             isPageHeading: false,
+             classes: "govuk-fieldset__legend--m"
            }
          },
          hint: {
@@ -26,14 +27,14 @@
          {
            id: "yes",
            value: "yes",
-           checked: checked('added-sop', "yes"),
+           checked: checked('sop-tranferred', "yes"),
            text: "Yes"
          },
            {
              id: "no",
              value: "no",
              text: "No",
-             checked: checked('added-sop', "no")
+             checked: checked('sop-tranferred', "no")
            }
          ]
        }) }}

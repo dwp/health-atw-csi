@@ -1,23 +1,10 @@
-{% set link = "3" %}
+{% set link = "invoice-router" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "2-unhappy"}] %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "2"}] %}
 {% set paymentLink = true %}
 {% set title =  "Confirm the amount" %}
 
-
 {% block csi %}
-
-  <!--<div class="govuk-inset-text">
-    {{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}
-    <br>
-    {{ data['csi-info'][1]['dob-day'] | safe }} {{ data['csi-info'][1]['dob-month']| safe }}
-    {{ data['csi-info'][1]['dob-year'] | safe }}
-    <br>B2 8FG
-  </div>-->
-
-    {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
-
-    {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
       {{ govukRadios({
         classes: "govuk-radios--inline",
@@ -25,7 +12,7 @@
              name: "check-amount",
              fieldset: {
                legend: {
-                 text: "Is £200 the amount on the invoice?",
+                 text: "Is £"+  data['invoice-value'] | default('200') + " the amount on the invoice?",
                  isPageHeading: false,
                  classes: "govuk-fieldset__legend--m"
                }
@@ -43,7 +30,7 @@
                {
                  id: "no",
                  value: "no",
-                 text: "No",
+                 text: "[No, add again]",
                  checked: checked('check-amount', "no"),
                  conditional: {
                    html: conditionalText

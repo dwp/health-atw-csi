@@ -1,28 +1,48 @@
 {% set link = "5" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "4"}] %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "4-sop-add"}] %}
 {% set title =  "[Check payee details]" %}
 
 
 {% block csi %}
-<h2 class="govuk-heading-m">[Name: Margaret Hedge]</h2>
-<h2 class="govuk-heading-m">[Address: 11 Hill Street]</h2>
-<h2 class="govuk-heading-m">[Postcode: NE1 6PN]</h2>
-<h2 class="govuk-heading-m">[Supplier code: 4846738]</h2>
-<h2 class="govuk-heading-m">Other info? Bank details? (sortcode, bank account numnber, account name, bank name)</h2>
 
 <p><a href="3" class="govuk-link">Search again</a></p>
 <br>
 
+{% macro defItem(key='', value='') %}
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key ">
+      {{key}}
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p>{{value}}</p>
+    </dd>
+
+  </div>
+{% endmacro %}
+
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+{{ defItem(key='Name', value='Margaret Hedge') }}
+{{ defItem(key='Address', value='11 Hill Street') }}
+{{ defItem(key='Postcode', value='NE1 6PN') }}
+{{ defItem(key='Supplier code', value='4846738') }}
+
+</dl>
+
+<p>Other info? Bank details? (sortcode, bank account numnber, account name, bank name)</p>
+
+
 
 {{ govukRadios({
-  classes: "govuk-radios--inline",
   idPrefix: "correct-details",
   name: "correct-details",
   fieldset: {
     legend: {
-      text: "Are these correct?",
+      text: "[Do the details match the invoice]?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--m"
     }
@@ -38,7 +58,7 @@
       id: "no",
       value: "no",
       checked: checked('correct-details', "no"),
-      text: "No"
+      text: "No, update details"
 
     }
   ]
