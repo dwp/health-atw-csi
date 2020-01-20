@@ -2,65 +2,91 @@
 <!--{% set paymentLink = true %}-->
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 <!--{% set redirect = [{id : "yes", page: link }, {id: "no", page: "#"}] %}-->
-{% set title =  "Check the evidence" %}
+{% set title =  "Check evidence" %}
 
 
 {% block csi %}
 
+<!-- Claim form radio button that includes the sub radio-->
+{% set claimformHtml %}
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+  idPrefix: "signed-claim-form",
+  name: "signed-claim-form",
+  fieldset: {
+    legend: {
+      text: "Is the claim form signed?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+   },
+   items: [
+     {
+       value: "yes",
+       text: "Yes"
+     },
+     {
+       value: "no",
+       text: "No"
+     }
+   ]
+ }) }}
+{% endset -%}
 
-  {{ govukRadios({
-    classes: "govuk-radios--inline",
-         name: "claim-form-signed",
-         fieldset: {
-           legend: {
-             text: "Is the claim form signed?",
-             isPageHeading: false,
-             classes: "govuk-fieldset__legend--m"
-           }
-         },
-         items: [
-         {
-           id: "yes",
-           value: "yes",
-           checked: checked('claim-form-signed', "yes"),
-           text: "Yes"
-         },
-           {
-             id: "no",
-             value: "no",
-             text: "No",
-             checked: checked('claim-form-signed', "no")
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+  idPrefix: "claim-form",
+  name: "claim-form",
+  fieldset: {
+    legend: {
+      text: "Is there a claim form?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
 
-           }
-         ]
-       }) }}
-<!--Second radio button set-->
-       {{ govukRadios({
-         classes: "govuk-radios--inline",
-              name: "invoice-checked",
-              fieldset: {
-                legend: {
-                  text: "Is the invoice included?",
-                  isPageHeading: false,
-                  classes: "govuk-fieldset__legend--m"
-                }
-              },
-              items: [
-              {
-                id: "yes",
-                value: "yes",
-                checked: checked('invoice-checked', "yes"),
-                text: "Yes"
-              },
-                {
-                  id: "no",
-                  value: "no",
-                  text: "No",
-                  checked: checked('invoice-checked', "no")
-                }
-              ]
-            }) }}
+  items: [
+  {
+    value: "yes",
+    text: "Yes",
+    conditional: {
+      html: claimformHtml
+    }
+  },
+  {
+    value: "no",
+    text: "No",
+    conditional: {
+      html: phoneHtml
+    }
+  }
+  ]
+}) }}
 
+<!-- Check invoice radio button -->
+
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+  idPrefix: "invoice",
+  name: "invoice",
+  fieldset: {
+    legend: {
+      text: "Is the invoice included?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
 
 
 {% endblock %}
