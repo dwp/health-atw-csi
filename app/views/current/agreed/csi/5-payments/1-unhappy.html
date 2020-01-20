@@ -1,7 +1,7 @@
-{% set link = "../payments-index" %}
+{% set link = "1-waiting" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "../payments-index"}] %}
 {% set title =  "Request missing evidence" %}
 
 

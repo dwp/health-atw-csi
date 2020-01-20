@@ -299,15 +299,10 @@ next();
 
 router.all('/agreed/csi/5-payments/invoice-router', function(req, res, next){
 
-// go back if no invoice value or if it isn't a number
-if ( !req.session.data['invoice-value'] || isNaN(req.session.data['invoice-value'])) {
-  return res.redirect ('2');
-next();
-}
 
 // if the same, continue, hardcoding value for now
-else if (req.session.data['invoice-value'] == 200 ) {
-  return res.redirect ('2-1');
+if ((req.session.data['invoice-value'] <= 200 ) || !req.session.data['invoice-value'] || isNaN(req.session.data['invoice-value'])) {
+  return res.redirect ('3');
 next();
 }
 
