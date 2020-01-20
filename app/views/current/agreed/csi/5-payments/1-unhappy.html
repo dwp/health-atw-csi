@@ -2,12 +2,20 @@
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
-{% set title =  "Send the claim form back to the applicant" %}
+{% set title =  "Request missing evidence" %}
 
 
 {% block csi %}
 
-<p>Send the claim form to:</p>
+<p>Return the evidence to the applicant and request the missing evidence.<br></br>
+Ask that they return by post all of the following:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>a signed claim form</li>
+  <li>invoice</li>
+</ul>
+<br>
+<p>Send a cover note with the evidence to:
 
 <div class="govuk-inset-text">
   Thomas Brown <br>
@@ -23,7 +31,7 @@
        name: "claim-form",
        fieldset: {
          legend: {
-           text: "Have you sent the claim form?",
+           text: "Have you sent the evidence back?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
