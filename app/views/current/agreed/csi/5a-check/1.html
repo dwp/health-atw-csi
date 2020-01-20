@@ -4,7 +4,7 @@
 {% set link = "unhappy-2" + appointeeLink  %}
 {% set redirect = [{id : "yes", page: "../5b-reassign/1" }, {id: "no", page: link }] %}
 
-{% set title =  "[Check cost from invoice]" %}
+{% set title =  "Check the invoice support cost" %}
 
 {% block csi %}
 
@@ -35,11 +35,11 @@
 
 <div class="govuk-summary-list__row">
   <dt class="govuk-summary-list__key">
-    Support cost
+    Support cost on invoice
   </dt>
   <dd class="govuk-summary-list__value">
     <p class="govuk-body">
-    £245.34  (£56 more than quote)
+    £245.34  (£56 more than the quote)
     </p>
   </dd>
 
@@ -52,7 +52,7 @@
   id: "difference-reason",
   value: data['difference-reason'],
   label: {
-    text: "Information about approval (optional)"
+    text: "Reason for approval (optional)"
   }
 }) }}
 {% endset -%}

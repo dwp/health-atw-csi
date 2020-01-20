@@ -13,10 +13,10 @@
 
 {% if appointee %}
 <p>Send an email to {{data['appointee-name'] | default(appointeeDetails.name) | safe }} to ask for
-  more information about <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong>'s application.
+  more information about <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong>'s support cost.
 {% else %}
 <p>Send an email to <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> to ask for
-  more information about their application.
+  more information about their support cost.
 {% endif %}
 
   <br>The reference number is <strong>ATW34593DE</strong>.</p>
