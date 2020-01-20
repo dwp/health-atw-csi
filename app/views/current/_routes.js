@@ -277,29 +277,19 @@ delete req.session.data['support-worker-pay-change'];
 //routing for check evidence screen
 router.all('/agreed/csi/5-payments/check-evidence-router', function(req, res, next){
 
-
 console.log( "claim form is " + req.session.data['claim-form-signed'] + " and invoice is " + req.session.data['invoice-checked'] );
 
-
- if ( (req.session.data['claim-form-signed'] == "yes") && (req.session.data['invoice-checked'] == "yes") ) {
- return res.redirect ('2');
+//IF all answers are 'yes' get re-directed to 'check invoice screen' ELSE IF get re-directed down the unhappy path
+ if ( (req.session.data['claim-form-signed'] !== "no") && (req.session.data['signed-claim-form'] !== "yes") && (req.session.data['invoice-checked'] !== "no") ) {
+ return res.redirect ('1-unhappy');
 next();
 }
-  //routes for scenario 'no'-'no'. The rule being the answers for question one then question 2 to reflect how they appear
-  //on the page  - doesnt work
-  else if ( (req.session.data['claim-form-signed'] == "no") && req.session.data['invoice-checked']  ) {
-   return res.redirect ('1-1-unhappy');
- next();
- }
-
-  // routes for scenario 'yes'-'no'. The rule being the answers for question one then question 2 to reflect how they appear
-  //on the page  -- works
-  else if ( (req.session.data['claim-form-signed'] == "yes") && (req.session.data['invoice-checked'] == "no")) {
-    return res.redirect ('1-unhappy');
-  next();
+else if ( (req.session.data['claim-form-signed'] !== "no") && (req.session.data['signed-claim-form'] !== "no") && (req.session.data['invoice-checked'] !== "no") ) {
+return res.redirect ('2');
+next();
 }
  else { // there's something missing
-  return res.redirect('1');
+  return res.redirect('1-unhappy');
   next();
 }
 next();
