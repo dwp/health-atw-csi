@@ -4,13 +4,13 @@
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "../index"}] %}
 
-{% set title =  "[send an email to the payments team]" %}
+{% set title =  "Send an email to the payments team" %}
 
 {% block csi %}
 
 
 
-<p>Send an email to the payments team to let them know that they can continue processing the claim.</p>
+<p>Send an email to the payments team to tell them that they can continue processing the payment for this case.</p>
 
 
   {{ govukTable({

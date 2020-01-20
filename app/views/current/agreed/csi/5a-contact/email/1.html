@@ -9,7 +9,8 @@
 
 {% block csi %}
 
-<p>[Send an email to check if the applicant attended the interview with an interpreter or support worker.]
+<p>Send an email to check the final cost of their support. You need to find out <br>why the amount
+  on the invoice was different to their quote.
 </p>
 <p>
 
@@ -29,7 +30,7 @@
       rows: [
         [
           {
-            text: "applicant name"
+            text: "Employer name"
           },
           {
             text: data['csi-info'][1]['interviewer-name']
@@ -72,6 +73,7 @@
   }) }}
 
 <br>
+</br>
 
 {{ govukRadios({
 
