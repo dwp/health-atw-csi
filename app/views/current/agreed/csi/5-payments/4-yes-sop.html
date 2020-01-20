@@ -1,0 +1,73 @@
+{% set link = "4-yes-sop-waiting" %}
+{% set paymentLink = true %}
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "../payments-index"}] %}
+{% set title =  "[Complete the SOP7 form]" %}
+
+
+{% block csi %}
+
+
+<p>[Sign into SOP and complete the SOP7 form. Use the SOP7 guidance]</p>
+
+
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key ">
+      Supplier type
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p>ATW34593DE</p>
+    </dd>
+
+  </div>
+<div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key ">
+    Unique payee reference
+  </dt>
+  <dd class="govuk-summary-list__value">
+    <p>[DISC number]</p>
+  </dd>
+
+</div>
+
+</dl>
+
+<p>[add other information as needed]</p>
+
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+  {{ govukRadios({
+    classes: "govuk-radios--inline",
+         idPrefix: "completed-sop",
+         name: "completed-sop",
+         fieldset: {
+           legend: {
+             text: "[Have you completed the form?]",
+             isPageHeading: false,
+             classes: "govuk-fieldset__legend--m"
+           }
+         },
+         hint: {
+         html: ""
+    },
+         items: [
+         {
+           id: "yes",
+           value: "yes",
+           checked: checked('completed-sop', "yes"),
+           text: "Yes"
+         },
+           {
+             id: "no",
+             value: "no",
+             text: "No",
+             checked: checked('completed-sop', "no")
+           }
+         ]
+       }) }}
+
+
+{% endblock %}
