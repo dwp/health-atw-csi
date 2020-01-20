@@ -1,0 +1,49 @@
+{% set link = "5" %}
+{% set paymentLink = true %}
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "4"}] %}
+{% set title =  "[Check payee details]" %}
+
+
+{% block csi %}
+<h2 class="govuk-heading-m">[Name: Margaret Hedge]</h2>
+<h2 class="govuk-heading-m">[Address: 11 Hill Street]</h2>
+<h2 class="govuk-heading-m">[Postcode: NE1 6PN]</h2>
+<h2 class="govuk-heading-m">[Supplier code: 4846738]</h2>
+<h2 class="govuk-heading-m">Other info? Bank details? (sortcode, bank account numnber, account name, bank name)</h2>
+
+<p><a href="3" class="govuk-link">Search again</a></p>
+<br>
+
+
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+  idPrefix: "correct-details",
+  name: "correct-details",
+  fieldset: {
+    legend: {
+      text: "Are these correct?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      id: "yes",
+      value: "yes",
+      checked: checked('correct-details', "yes"),
+      text: "Yes"
+    },
+    {
+      id: "no",
+      value: "no",
+      checked: checked('correct-details', "no"),
+      text: "No"
+
+    }
+  ]
+}) }}
+
+
+
+{% endblock %}

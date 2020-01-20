@@ -1,4 +1,4 @@
-{% set link = "5" %}
+{% set link = "4-check-payee" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
@@ -28,7 +28,7 @@
   },
   items: [
     {
-      value: "pay-name",
+      value: "payee-name",
       text: "Margaret Hedge, 4846738"
     }
   ]
