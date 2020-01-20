@@ -1,11 +1,11 @@
-{% set link = "../5b-decide/1" %}
+{% set link = "1" %}
 {% if appointee %}{% set appointeeLink = "-appointee" %}{% else %}{% set appointeeLink = "" %}{% endif %}
 {% if appointee %}{% set appointeeText = "’s appointee" %}{% else %}{% set appointeeText = "" %}{% endif %}
 {% set paymentAdviserLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "email", page: "email/1" }, {id: "phone", page: "phone/1"}, {id: "yes", page: link } ] %}
 
-{% set title =  "Confirm with the applicant" + appointeeText %}
+{% set title =  "Check with the applicant" + appointeeText %}
 
 {% block csi %}
 
