@@ -2,7 +2,7 @@
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "4-sop-add"}] %}
-{% set title =  "[Check payee details]" %}
+{% set title =  "Check payee details" %}
 
 
 {% block csi %}
@@ -42,7 +42,7 @@
   name: "correct-details",
   fieldset: {
     legend: {
-      text: "[Do the details match the invoice]?",
+      text: "Do the details match the invoice?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--m"
     }
