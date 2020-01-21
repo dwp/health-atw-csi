@@ -24,8 +24,8 @@
 
   {{ govukRadios({
     classes: "govuk-radios--inline",
-         idPrefix: "sent-email",
-         name: "sent-email",
+         idPrefix: "sent-email-amount",
+         name: "sent-email-amount",
          fieldset: {
            legend: {
              text: "Have you sent the email?",
@@ -40,14 +40,14 @@
          {
            id: "yes",
            value: "yes",
-           checked: checked('sent-email', "yes"),
+           checked: checked('sent-email-amount', "yes"),
            text: "Yes"
          },
            {
              id: "no",
              value: "no",
              text: "No",
-             checked: checked('sent-email', "no"),
+             checked: checked('sent-email-amount', "no"),
              conditional: {
                html: conditionalText
              }
