@@ -2,7 +2,7 @@
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
-{% set title = "Check payment details" %}
+{% set title = "Check and approve payment details" %}
 
 
 {% block csi %}
@@ -22,9 +22,9 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-xl">Check payment details</h1>
+      <h1 class="govuk-heading-xl">Check and approve payment details</h1>
 
-      <p class="govuk-body">Check the details before you send the payment request.</p>
+      <p class="govuk-body">Check the details before you approve the payment request.</p>
 
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
@@ -101,7 +101,7 @@
   name: "payment",
   fieldset: {
     legend: {
-      text: "Do you want to send the payment?",
+      text: "Do you want to approve the payment?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--m"
     }
@@ -131,7 +131,7 @@
         <input type="hidden" name="answers-checked" value="yes">
 
         {{ govukButton({
-          text: "Send payment"
+          text: "Approve payment"
         }) }}
 
       </form>
