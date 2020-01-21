@@ -2,10 +2,14 @@
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "#"}] %}
-{% set title =  "Contact adviser" %}
+{% set title =  "Contact the adviser to check the support cost" %}
 
 {% block csi %}
-<p>Send an email to the adviser to check the correct cost of support.</p>
+<p>The invoice amount is more than the quote.
+  <br>
+  </br>Send an email to adviser <strong>John Goldsmith</strong> to check the
+   the correct cost of support <br>for <strong>Thomas Brown</strong>. The reference
+   number is <strong>ATW34593DE</strong>.</p><br>
 
 
 {{ govukButton({
@@ -15,10 +19,7 @@
 }) }}
 
 <br>
-
-<p>[Advisor: John Goldsmith]</p>
-
-<p>[Case: Thomas Brown]</p>
+<br>
 
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
