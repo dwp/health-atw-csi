@@ -3,26 +3,11 @@
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
 {% set title = "Check and approve payment details" %}
-
+{% set customNext = "Approve payment" %}
 
 {% block csi %}
 
-{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
-{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
 
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "#"
-  }) }}
-{% endblock %}
-
-{% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
-
-      <h1 class="govuk-heading-xl">Check and approve payment details</h1>
 
       <p class="govuk-body">Check the details before you approve the payment request.</p>
 
@@ -93,7 +78,7 @@
       }) }}
 
 
-      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
 
 {{ govukRadios({
   classes: "govuk-radios--inline",
@@ -124,21 +109,6 @@
     }
   ]
 }) }}
-
-  <!-- quick fix for now to get the button in but could be done alot more elegantly -->
-      <form action="#" method="post" novalidate>
-
-        <input type="hidden" name="answers-checked" value="yes">
-
-        {{ govukButton({
-          text: "Approve payment"
-        }) }}
-
-      </form>
-
-    </div>
-  </div>
-{% endblock %}
 
 
 {% endblock %}

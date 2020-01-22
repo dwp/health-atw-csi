@@ -56,6 +56,8 @@
 
 {% endblock %}
 {% if not hideForm %}
+
+<!-- option to override the default 'continue' text on the button by setting a variable called 'customNext' -->
 {{ govukButton({
           text: customNext | default("Continue") | safe
         }) }}
