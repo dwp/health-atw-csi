@@ -23,11 +23,13 @@
    items: [
      {
        value: "yes",
-       text: "Yes"
+       text: "Yes",
+       checked: checked('signed-claim-form', "yes")
      },
      {
        value: "no",
-       text: "No"
+       text: "No",
+       checked: checked('signed-claim-form', "no")
      }
    ]
  }) }}
@@ -49,6 +51,7 @@
   {
     value: "yes",
     text: "Yes",
+    checked: checked('claim-form', "yes"),
     conditional: {
       html: claimformHtml
     }
@@ -56,6 +59,7 @@
   {
     value: "no",
     text: "No",
+    checked: checked('claim-form', "no"),
     conditional: {
       html: phoneHtml
     }
@@ -79,11 +83,13 @@
   items: [
     {
       value: "yes",
-      text: "Yes"
+      text: "Yes",
+      checked: checked('invoice', "yes")
     },
     {
       value: "no",
-      text: "No"
+      text: "No",
+      checked: checked('invoice', "no")
     }
   ]
 }) }}

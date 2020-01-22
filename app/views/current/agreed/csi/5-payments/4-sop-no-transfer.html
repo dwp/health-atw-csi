@@ -11,8 +11,8 @@
 
   {{ govukRadios({
     classes: "govuk-radios--inline",
-         idPrefix: "sop-tranferred",
-         name: "sop-tranferred",
+         idPrefix: "sop-transferred",
+         name: "sop-transferred",
          fieldset: {
            legend: {
              text: "[Have you transferred the claim?]",
@@ -27,14 +27,14 @@
          {
            id: "yes",
            value: "yes",
-           checked: checked('sop-tranferred', "yes"),
+           checked: checked('sop-transferred', "yes"),
            text: "Yes"
          },
            {
              id: "no",
              value: "no",
              text: "No",
-             checked: checked('sop-tranferred', "no")
+             checked: checked('sop-transferred', "no")
            }
          ]
        }) }}
