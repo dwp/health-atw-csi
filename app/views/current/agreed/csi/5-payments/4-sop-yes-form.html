@@ -1,40 +1,66 @@
-{% set link = "4-yes-sop-waiting" %}
+{% set link = "4-sop-yes-waiting" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "../payments-index"}] %}
-{% set title =  "[Complete the SOP7 form]" %}
+{% set title =  "Complete a SOP7 form" %}
 
 
 {% block csi %}
 
 
-<p>[Sign into SOP and complete the SOP7 form. Use the SOP7 guidance]</p>
+<p>Sign into SOP and complete the SOP7 form. Use the SOP7 guidance.</p>
 
 
 
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key ">
-      Supplier type
+      Name
     </dt>
     <dd class="govuk-summary-list__value">
-      <p>ATW34593DE</p>
+      <p>Margaret Hedge</p>
     </dd>
 
   </div>
 <div class="govuk-summary-list__row">
   <dt class="govuk-summary-list__key ">
-    Unique payee reference
+    Address
   </dt>
   <dd class="govuk-summary-list__value">
-    <p>[DISC number]</p>
+    <p>11 Hill Street, NE1 6PN</p>
+  </dd>
+
+</div>
+<div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key ">
+    Bank name
+  </dt>
+  <dd class="govuk-summary-list__value">
+    <p>HSBC</p>
+  </dd>
+
+</div>
+<div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key ">
+    Bank account number
+  </dt>
+  <dd class="govuk-summary-list__value">
+    <p>38473927</p>
+  </dd>
+
+</div>
+<div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key ">
+    Sort code
+  </dt>
+  <dd class="govuk-summary-list__value">
+    <p>18-28-33</p>
   </dd>
 
 </div>
 
 </dl>
 
-<p>[add other information as needed]</p>
 
 
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -45,7 +71,7 @@
          name: "completed-sop",
          fieldset: {
            legend: {
-             text: "[Have you completed the form?]",
+             text: "Have you completed the form?",
              isPageHeading: false,
              classes: "govuk-fieldset__legend--m"
            }
