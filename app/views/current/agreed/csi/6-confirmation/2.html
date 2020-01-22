@@ -12,26 +12,32 @@
 {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      {{ govukPanel({
-        titleText: "All tasks complete",
-        html: "All tasks have been completed and information saved."
-      }) }}
+{{ govukPanel({
+       titleText: "Tasks completed",
+       html: "All tasks have been completed and information saved."
+     }) }}
 
-    </div>
-  </div>
-<br>
 
   <form action="#" method="post" novalidate>
 
     <input type="hidden" name="tasks-completed" value="yes">
 
     {{ govukButton({
-      text: "Search for a case"
-    }) }}
+          href: "../payments-index",
+              text: "Return to your cases"
+            }) }}
 
   </form>
+
+
+  {% block pageScripts %}
+  <style>
+    .govuk-panel--confirmation {
+        color: #fff;
+        background: #00703c;
+    }
+    </style>
+  {% endblock %}
 {% endblock %}
 
 
