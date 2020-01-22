@@ -2,12 +2,14 @@
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
-{% set title =  "[You are done]" %}
+{% set title =  "SPO7 form submitted" %}
 
 
 {% block csi %}
 
-<p>[You have completed the steps for this task]</p>
+<p>You will be able to continue with this case once the payee has been added on SOP.
+
+</p>
 
 
 
