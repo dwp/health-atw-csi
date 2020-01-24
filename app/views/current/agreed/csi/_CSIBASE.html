@@ -121,7 +121,7 @@
 {% endif %}
 
 {% if data['difference-asked-phone'] == 'yes'  %}
-  {{timeline(title="(Telephoned applicant)", date="24 October 2019 at 10:24am") }}
+  {{timeline(title="(Telephoned applicant)", date="8 January 2020 at 10:24am") }}
   {% endif %}
 
   {% if data['difference-asked-phone'] == 'no'  %}
@@ -167,66 +167,42 @@
           {% endif %}
 
 {% if payments or ( data['confirm'] == "yes") %}
-          <li class="dwp-timeline__entry">
-            <h3 class="govuk-heading-s dwp-timeline__title">Interview confirmed</h3>
-            <p class="dwp-timeline__info">
-              <span class="dwp-timeline__date">1 November 2019 at 4:30pm</span>
-            </p>
-            </li>
+
+            {{timeline(title="Interview confirmed", date="24 January 2020 at 10:20am") }}
 {% endif %}
 
 {% if  payments or  data['employer-phone'] == 'no' %}
-          <li class="dwp-timeline__entry">
-            <h3 class="govuk-heading-s dwp-timeline__title">Attempted to contact employer</h3>
-            <p class="dwp-timeline__info">
-              <span class="dwp-timeline__date">31 October 2019 at 12:22pm</span>
-            </p
-          </li>
+
+          {{timeline(title="Attempted to contact employer", date="24 January 2020 at 10:15am") }}
 {% endif %}
 
 {% if payments or  data['sent-email'] == "yes" %}
-          <li class="dwp-timeline__entry">
-            <h3 class="govuk-heading-s dwp-timeline__title">Email sent to employer</h3>
-            <p class="dwp-timeline__info">
-              <span class="dwp-timeline__date">31 October 2019 at 12:22pm</span>
-            </p>
-          </li>
+
+            {{timeline(title="Email sent to employer", date="22 January 2020 at 10.00am") }}
 {% endif %}
 
 {% if payments or (phase == "interview") or (phase == "waiting")  or (data['claim'] =="yes") %}
-          <li class="dwp-timeline__entry">
-            <h3 class="govuk-heading-s dwp-timeline__title">Claim form sent</h3>
-            <p class="dwp-timeline__info">
-              <span class="dwp-timeline__date">24 October 2019 at 9:20am</span>
-            </p>
-<!-- <p><a class="govuk-link" href="send/1">Print and send claim form again</a></p> -->
-          </li>
+
+              {{timeline(title="Claim form sent", date="7 January 2020 at 3:15pm") }}
+
 {% endif %}
 
 {% if payments or (phase == "interview") or (phase == "waiting")  or (data['send'] =="yes") %}
-          <li class="dwp-timeline__entry">
-            <h3 class="govuk-heading-s dwp-timeline__title">Confirmation sent</h3>
-            <p class="dwp-timeline__info">
-              <span class="dwp-timeline__date">24 October 2019 at 9:20am</span>
-            </p>
-<!-- <p><a class="govuk-link" href="send/1">Send email again</a></p> -->
-          </li>
+
+             {{timeline(title="Confirmation sent	", date="7 January 2020 at 3:05pm") }}
+
 {% endif %}
 
 {% if payments or (phase == "interview") or (phase == "waiting")  or (data['interview'] == "yes") %}
-          <li class="dwp-timeline__entry">
-            <h3 class="govuk-heading-s dwp-timeline__title">Application checked</h3>
-            <p class="dwp-timeline__info">
-              <span class="dwp-timeline__date">24 October 2019 at 9:05am</span>
-            </p>
-          </li>
+
+             {{timeline(title="Application checked	", date="7 January 2020 at 3:00pm") }}
 {% endif %}
 
 {% if payments or (phase == "interview") or (phase == "waiting")  or data['asked-info-phone'] %}
           <li class="dwp-timeline__entry">
             <h3 class="govuk-heading-s dwp-timeline__title">{% if  data['asked-info-phone'] == "no" %} Attempted to telephone applicant{% else %}Telephoned applicant{% endif %}</h3>
             <p class="dwp-timeline__info">
-              <span class="dwp-timeline__date">24 October 2019 at 11:05am</span>
+              <span class="dwp-timeline__date">7 January 2020 at 11:05am</span>
             </p>
           </li>
 {% endif %}
@@ -235,7 +211,7 @@
           <li class="dwp-timeline__entry">
             <h3 class="govuk-heading-s dwp-timeline__title">Email sent for further information</h3>
             <p class="dwp-timeline__info">
-              <span class="dwp-timeline__date">24 October 2019 at 10:34am</span>
+              <span class="dwp-timeline__date">6 January 2020 at 3:45pm</span>
             </p>
           </li>
 {% endif %}
@@ -288,9 +264,9 @@
 
 {% endif %}
 
-{{timeline(title="Application allocated", date="23 October 2019 at 3:35pm")}}
+{{timeline(title="Application allocated", date="6 January 2020 at 3:35pm")}}
 
-{{timeline(title="Application received", date="23 October 2019 at 11:05am")}}
+{{timeline(title="Application received", date="6 January 2020 at 11:05am")}}
 
         </ol>
       </div>
