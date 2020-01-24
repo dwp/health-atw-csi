@@ -344,4 +344,11 @@ router.get(`/agreed/search-payments`, (req, res) => {
   })
 })
 
+router.get(`/delete-and-continue-router`, (req, res) => {
+  var nextLink = req.query.next;
+  delete req.session.data;
+
+  return res.redirect (nextLink);
+})
+
 module.exports = router
