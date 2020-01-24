@@ -1,34 +1,23 @@
-<!--{% set  buttonText = false %}-->
-{% set link = "./csi/payments-index" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
 {% set title =  "" %}
-
+{% set paymentLink = true  %}
+{% set customNext = "Search for another case" %}
+{% set hideReturn = true %}
+{% set hideForm = true %}
 
 {% block csi %}
 
-{% set mainClasses = "govuk-main-wrapper--l" %}
-
-{% from "govuk/components/panel/macro.njk" import govukPanel %}
-
-{% block content %}
 {{ govukPanel({
        titleText: "Tasks completed",
        html: "All tasks have been completed and information saved."
      }) }}
 
 
-  <form action="#" method="post" novalidate>
+<p>     <a href="/{{folder}}/delete-and-continue-router?next=/{{folder}}/{{subfolder}}/search-payments" class="govuk-link">Search for another case</a></p>
 
-    <input type="hidden" name="tasks-completed" value="yes">
 
-    {{ govukButton({
-          href: "../payments-index",
-              text: "Return to search"
-            }) }}
 
-  </form>
-
+{% endblock %}
 
   {% block pageScripts %}
   <style>
@@ -38,7 +27,3 @@
     }
     </style>
   {% endblock %}
-{% endblock %}
-
-
-{% endblock %}
