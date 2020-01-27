@@ -99,11 +99,11 @@
 {% if payments %} <!-- section only after handoffs  -->
 
 {% if data['payment'] == "yes"  %}
-  {{timeline(title="(Payment approved)", date="24 October 2019 at 10:24am") }}
+  {{timeline(title="Payment approved", date="24 October 2019 at 10:24am") }}
 {% endif %}
 
 {% if data['correct-details']  %} <!-- found payee -->
-  {{timeline(title="(payee found)	", date="24 October 2019 at 10:24am") }}
+  {{timeline(title="Payee found	", date="24 October 2019 at 10:24am") }}
 {% endif %}
 
   {% endif %} <!--  end if payments  -->
@@ -113,23 +113,23 @@
   {% if phase == "payment-adviser" or ( payments and data['transfer-back-payments'] == 'yes' ) %}
 
 {% if data['transfer-back-payments'] == 'yes'  %}
-  {{timeline(title="(Confirmation sent)", date="24 October 2019 at 10:24am")}}
+  {{timeline(title="Confirmation sent", date="24 October 2019 at 10:24am")}}
 {% endif %}
 
 {% if data['difference'] == 'yes' %}
-  {{timeline(title="(Invoice amount approved)", date="24 October 2019 at 10:24am") }}
+  {{timeline(title="Invoice amount approved", date="24 October 2019 at 10:24am") }}
 {% endif %}
 
 {% if data['difference-asked-phone'] == 'yes'  %}
-  {{timeline(title="(Telephoned applicant)", date="8 January 2020 at 10:24am") }}
+  {{timeline(title="Telephoned applicant", date="8 January 2020 at 10:24am") }}
   {% endif %}
 
   {% if data['difference-asked-phone'] == 'no'  %}
-  {{timeline(title="(Attempted to telephone applicant	)", date="24 October 2019 at 10:24am") }}
+  {{timeline(title="Attempted to telephone applicant", date="24 October 2019 at 10:24am") }}
 {% endif %}
 
 {% if data['difference-asked-email'] == 'yes' %}
-  {{timeline(title="(Email sent for further information)", date="24 October 2019 at 10:24am") }}
+  {{timeline(title="Email sent for further information", date="24 October 2019 at 10:24am") }}
   {% endif %}
 
   {% endif %} <!-- end if phase payment-adviser -->
@@ -138,20 +138,20 @@
 {% if payments or phase == "payment-adviser" %}
 
 {% if data['sop-transferred'] == "yes"  %}
-  {{timeline(title="(case transferred to add payee)", date="24 October 2019 at 10:24am") }}
+  {{timeline(title="Case transferred to add payee", date="24 October 2019 at 10:24am") }}
 {% endif %}
 
 
 {% if data['sent-email-amount'] == "yes"  %}
-  {{timeline(title="(Transferred for more information on cost)", date="24 October 2019 at 10:24am") }}
+  {{timeline(title="Case transferred for more information on cost", date="24 October 2019 at 10:24am") }}
 {% endif %}
 
 {% if data['send-invoice-back'] == "yes"  %}
-  {{timeline(title="(More information requested)", date="24 October 2019 at 10:24am") }}
+  {{timeline(title="More evidence requested", date="24 October 2019 at 10:24am") }}
 {% endif %}
 
 {% if data['signed-claim-form']  %} <!-- hack to show answer -->
-  {{timeline(title="(Evidence received)", date="24 October 2019 at 10:24am") }}
+  {{timeline(title="Evidence received", date="24 October 2019 at 10:24am") }}
 {% endif %}
 
   {% endif %} <!--  end if payments  -->
@@ -159,7 +159,7 @@
 
           {% if data['confirm'] == "no" %}
                     <li class="dwp-timeline__entry">
-                      <h3 class="govuk-heading-s dwp-timeline__title">(More information needed about interview)</h3>
+                      <h3 class="govuk-heading-s dwp-timeline__title">Waiting for interview confirmation</h3>
                       <p class="dwp-timeline__info">
                         <span class="dwp-timeline__date">1 November 2019 at 4:30pm</span>
                       </p>
