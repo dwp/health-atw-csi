@@ -10,7 +10,6 @@ function create(){
     e.prventDefault();
 }
 
-
 // Add your routes here - above the module.exports line
 // GET SPRINT NAME - useful for relative templates
 router.use('/', (req, res, next) => {
@@ -38,6 +37,7 @@ router.use('/sprint-6', require('./views/sprint-6/_routes'));
 router.use('/sprint-7', require('./views/sprint-7/_routes'));
 router.use('/sprint-8', require('./views/sprint-8/_routes'));
 router.use('/sprint-9', require('./views/sprint-9/_routes'));
+router.use('/sprint-10', require('./views/sprint-10/_routes'));
 // current sprint, remember to add older sprint when adding a new folder!
 router.use('/current', require('./views/current/_routes'));
 module.exports = router
