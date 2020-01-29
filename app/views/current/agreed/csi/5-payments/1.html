@@ -6,76 +6,22 @@
 
 
 {% block csi %}
-
-<!-- Claim form radio button that includes the sub radio-->
-{% set claimformHtml %}
-{{ govukRadios({
-  classes: "govuk-radios--inline",
-  idPrefix: "signed-claim-form",
-  name: "signed-claim-form",
-  fieldset: {
-    legend: {
-      text: "Is the claim form signed?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
-    }
-   },
-   items: [
-     {
-       value: "yes",
-       text: "Yes",
-       checked: checked('signed-claim-form', "yes")
-     },
-     {
-       value: "no",
-       text: "No",
-       checked: checked('signed-claim-form', "no")
-     }
-   ]
- }) }}
-{% endset -%}
-
-{{ govukRadios({
-  classes: "govuk-radios--inline",
-  idPrefix: "claim-form",
-  name: "claim-form",
-  fieldset: {
-    legend: {
-      text: "Is there a claim form?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-
-  items: [
-  {
-    value: "yes",
-    text: "Yes",
-    checked: checked('claim-form', "yes"),
-    conditional: {
-      html: claimformHtml
-    }
-  },
-  {
-    value: "no",
-    text: "No",
-    checked: checked('claim-form', "no"),
-    conditional: {
-      html: phoneHtml
-    }
-  }
-  ]
-}) }}
+<p class="govuk-heading-m">Are both of these included?</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>signed claim form</li>
+  <li>completed invoice</li>
+</ul>
+<br>
 
 <!-- Check invoice radio button -->
 
 {{ govukRadios({
-  classes: "govuk-radios",
+  classes: "govuk-radios--inline",
   idPrefix: "invoice",
   name: "invoice",
   fieldset: {
     legend: {
-      text: "Is there an invoice?",
+      text: "",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--m"
     }
