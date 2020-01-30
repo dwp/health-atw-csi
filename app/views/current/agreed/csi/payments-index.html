@@ -43,9 +43,9 @@
                         </h2>
                         <ul class="app-task-list__items" style="padding-left: 0">
 
-                        {{taskListItem(title="Check the evidence", link="5-payments/1", completed=(data['signed-claim-form'] == "yes" and data['invoice'] == "yes"  ), cantStart=(phase == "interview" or phase == "waiting"))}}
+                        {{taskListItem(title="Check the evidence", link="5-payments/1", completed=(data['invoice'] == "yes"  ), cantStart=(phase == "interview" or phase == "waiting"))}}
 
-                        {{taskListItem(title="Check the invoice amount", link="5-payments/2", completed=((data['check-amount'] == "yes" and not data['sent-email-amount']) or data['transfer-back-payments'] == 'yes' ), cantStart=(not (data['signed-claim-form'] == "yes" and data['invoice'] == "yes" ) ) )}}
+                        {{taskListItem(title="Check the invoice amount", link="5-payments/2", completed=((data['check-amount'] == "yes" and not data['sent-email-amount']) or data['transfer-back-payments'] == 'yes' ), cantStart=(not (data['invoice'] == "yes" ) ) )}}
 
                         {{taskListItem(title="Find the payee", link="5-payments/3", completed=(data['results-found'] == "yes" ), cantStart=( (data['sent-email-amount'] and not (data['transfer-back-payments'] == 'yes') ) or  not (data['check-amount'] == "yes") )) }}
 
