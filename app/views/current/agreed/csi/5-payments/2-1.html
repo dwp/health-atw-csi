@@ -1,44 +1,32 @@
-{% set link = "invoice-router" %}
+{% set link = "confirm-router" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "2"}] %}
 {% set paymentLink = true %}
-{% set title =  "Confirm the amount" %}
+{% set title =  "Check the invoice" %}
+
 
 {% block csi %}
 
-      {{ govukRadios({
-        classes: "govuk-radios",
-             idPrefix: "check-amount",
-             name: "check-amount",
-             fieldset: {
-               legend: {
-                 text: "Is £"+  data['invoice-value'] | default('200') + " the amount on the invoice?",
-                 isPageHeading: false,
-                 classes: "govuk-fieldset__legend--m"
-               }
-             },
-             hint: {
-             html: ""
-        },
-             items: [
-             {
-               id: "yes",
-               value: "yes",
-               checked: checked('check-amount', "yes"),
-               text: "Yes"
-             },
-               {
-                 id: "no",
-                 value: "no",
-                 text: "No, change amount",
-                 checked: checked('check-amount', "no"),
-                 conditional: {
-                   html: conditionalText
-                 }
-               }
-             ]
-           }) }}
+  <!--<div class="govuk-inset-text">
+    {{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}
+    <br>
+    {{ data['csi-info'][1]['dob-day'] | safe }} {{ data['csi-info'][1]['dob-month']| safe }}
+    {{ data['csi-info'][1]['dob-year'] | safe }}
+    <br>B2 8FG
+  </div>-->
 
+    {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+    <h3 class="govuk-heading-m">What is the total amount on the invoice?</h3>
+
+       {{ govukInput({
+  label: {
+    text: ""
+  },
+  classes: "govuk-input--width-10",
+  id: "invoice-value",
+  name: "invoice-value"
+  }) }}
+       <br>
 
 
 
