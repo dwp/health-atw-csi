@@ -172,7 +172,7 @@ console.log('contact-options changed to ' + req.session.data['company-contact-pr
 delete req.session.data['company-contact-preference'];
 }
 
-if (req.session.data['company-email-address-change'] ) {
+if (req.session.data['company-email-address-change']  ) {
 req.session.data['csi-info'][1]['company-email-address'] = req.session.data['company-email-address-change'];
 console.log('company-email-address changed to ' + req.session.data['company-email-address-change'] );
 delete req.session.data['company-email-address-change'];
