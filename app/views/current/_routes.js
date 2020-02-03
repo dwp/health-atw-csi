@@ -274,6 +274,23 @@ delete req.session.data['support-worker-pay-change'];
 
 });
 
+//job details
+
+router.all('/agreed/csi/appointee-router', function(req, res, next){
+
+delete req.session.data['appointee-name'];
+
+
+    return res.redirect ('claim#appointee');
+
+  next();
+
+
+});
+
+
+
+
 //routing for check evidence screen
 router.all('/agreed/csi/5-payments/check-evidence-router', function(req, res, next){
 

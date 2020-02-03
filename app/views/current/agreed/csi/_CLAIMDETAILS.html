@@ -203,7 +203,7 @@
 <!-- Appointee section -->
     <h2 id="appointee" class="govuk-heading-m govuk-!-margin-top-6">Appointee details</h2>
 
-{% if appointee or (data['appointee'] == 'yes') or (data['appointee-name']) %}
+{% if appointee or data['appointee-name'] %}
 
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
@@ -213,7 +213,7 @@
         Name
       </dt>
       <dd class="govuk-summary-list__value">
-        <p>{{ data['appointee-name'] | default(appointeeDetails.name) }}</p>
+        <p>{{ data['appointee-name'] }}</p>
       </dd>
       <dd class="govuk-summary-list__actions">
         <a class="govuk-link" href="appointee-details-change#name">
@@ -260,7 +260,6 @@
     </div>
 -->
 
-{% if "email" in  data['appointee-citizen'] or  (not data['appointee-citizen'] and "phone" in  appointeeDetails.contact ) %}
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key ">
         Email
@@ -275,8 +274,6 @@
         </a>
       </dd>
     </div>
-{% endif %}
-{% if "phone" in data['appointee-citizen'] or (not data['appointee-citizen'] and "email" in  appointeeDetails.contact ) %}
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key ">
         Telephone
@@ -292,13 +289,12 @@
       </dd>
 
     </div>
-{% endif %}
 </dl>
 
 <p><a href="appointee-remove">Remove appointee</a></p>
 {% else %}
 <p>[No appointee added.]</p>
-{% if  data['appointee'] == 'no' %}
+{% if data['appointee']  %}
 <p><a href="appointee-details-change">[Add appointee]</a></p>{% endif %}
 {% endif %}
 
