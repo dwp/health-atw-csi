@@ -49,14 +49,16 @@
   <dd class="govuk-summary-list__value">
     <p>{{ data['ni-number'] }}</p>
   </dd>
-{% if not hideChange %}
+
   <dd class="govuk-summary-list__actions">
+    {% if data['ni-number']  %}
     <a class="govuk-link" href="personal-details-change#name">
       Change
       <span class="govuk-visually-hidden"></span>
     </a>
+    {% endif %}
   </dd>
-{% endif %}
+
 
 </div>
 {% endif %}
@@ -138,7 +140,7 @@
 {% endif %} <!-- end change -->
   </div>
 
-
+<!--
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
       Contact preferences
@@ -153,10 +155,11 @@
         <span class="govuk-visually-hidden"></span>
       </a>
     </dd>
-{% endif %}  <!-- end change -->
+{% endif %}
   </div>
+  <!-- end change -->
 
-  {% if "email" in data['csi-info'][1]['personal-contact-preference']  %}
+
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
       Email
@@ -164,18 +167,14 @@
     <dd class="govuk-summary-list__value">
       {{ data['csi-info'][1]['contact-by-email'] }}
     </dd>
-{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="personal-details-change#email">
+      <a class="govuk-link" href="personal-details-change#personal-contact-preference">
         Change
         <span class="govuk-visually-hidden"></span>
       </a>
     </dd>
-{% endif %}  <!-- end change -->
   </div>
-{% endif %}
 
-{% if "phone" in data['csi-info'][1]['personal-contact-preference'] %}
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
       Telephone
@@ -183,33 +182,14 @@
     <dd class="govuk-summary-list__value">
       {{ data['csi-info'][1]['contact-by-phone'] }}
     </dd>
-{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="personal-details-change#phone">
+      <a class="govuk-link" href="personal-details-change#personal-contact-preference">
         Change
         <span class="govuk-visually-hidden"></span>
       </a>
     </dd>
-{% endif %}  <!-- end change -->
   </div>
-{% endif %}
-  {% if claim %} <!-- only show on claim -->
 
-  <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-      Appointee
-      </dt>
-          <dd class="govuk-summary-list__value">
-          {{ data['appointee'] | default("") | capitalize |  safe }} <!-- leaving as blank for now  -->
-          </dd>
-          <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" name="appointee-change" href="appointee-change">
-          Change
-          <span class="govuk-visually-hidden"></span>
-          </a>
-          </dd>
-  </div>
-  {% endif %}<!-- end if appointee details -->
 
 
 </dl>
@@ -219,9 +199,11 @@
 
 
 
-{% if claim and (appointee or data['appointee'] == 'yes') %}
+{% if claim %}
 <!-- Appointee section -->
     <h2 id="appointee" class="govuk-heading-m govuk-!-margin-top-6">Appointee details</h2>
+
+{% if appointee or (data['appointee'] == 'yes') or (data['appointee-name']) %}
 
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
@@ -259,6 +241,7 @@
     </div>
 
 
+<!--
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">
         Contact preferences
@@ -273,8 +256,9 @@
           <span class="govuk-visually-hidden"></span>
         </a>
       </dd>
-    {% endif %}  <!-- end change -->
+    {% endif %}
     </div>
+-->
 
 {% if "email" in  data['appointee-citizen'] or  (not data['appointee-citizen'] and "phone" in  appointeeDetails.contact ) %}
     <div class="govuk-summary-list__row">
@@ -310,6 +294,14 @@
     </div>
 {% endif %}
 </dl>
+
+<p><a href="appointee-remove">Remove appointee</a></p>
+{% else %}
+<p>[No appointee added.]</p>
+{% if  data['appointee'] == 'no' %}
+<p><a href="appointee-details-change">[Add appointee]</a></p>{% endif %}
+{% endif %}
+
 
 {% endif %} <!--  end appointee details -->
 
@@ -394,6 +386,7 @@
 {% endif %}
   </div>
 
+<!--
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
       Contact preferences
@@ -408,8 +401,10 @@
         <span class="govuk-visually-hidden"></span>
       </a>
     </dd>
-  {% endif %}  <!-- end change -->
+  {% endif %}
   </div>
+
+ <!-- end change -->
 
 {% if "email" in  data['csi-info'][1]['company-contact-preference'] %}
   <div class="govuk-summary-list__row">
