@@ -165,7 +165,7 @@
                       </li>
           {% endif %}
 
-{% if payments or ( data['confirm'] == "yes") %}
+{% if (payments and not (phase == "payment-interview-not-confirmed") ) or ( data['confirm'] == "yes") %}
 
             {{timeline(title="Interview confirmed", date="24 January 2020 at 10:20am") }}
 {% endif %}

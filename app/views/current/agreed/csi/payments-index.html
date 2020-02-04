@@ -26,13 +26,12 @@
 
 {% endmacro %}
 
-<!--
-{{ govukWarningText({
-  html: "Information needed from the employer.",
-  iconFallbackText: "Warning"
-}) }}
--->
+{% if phase == "payment-interview-not-confirmed" %}
 
+{% block csiStatus %}
+{% endblock %}
+
+{% else %}
 
 <!-- Task list processing inital claim before payment -->
 
@@ -57,7 +56,7 @@
 </ul>
 </li>
 </ol>
-
+{% endif %}
 
 
 {% endblock %}
@@ -92,6 +91,10 @@
         {
           href: "index-interview",
           text: "Index after interview"
+        },
+        {
+          href: "index-payments-unconfirmed",
+          text: "Index payments if the interview is unconfirmed"
         },
         {
           href: "payments-index",
