@@ -65,7 +65,7 @@
 </form>
 {% endif %}
 {% if not hideReturn %}
-<P><a href="/{{folder}}/{{subfolder}}/csi/{% if return == "claim" %}claim{% elif paymentLink %}payments-index{% else %}index{% if interviewLink %}-interview{% elif paymentAdviserLink %}-payment-adviser{% else %}{% endif  %}{% endif %}" class="govuk-link govuk-link--no-visited-state">Return to {% if return == "claim" %}case{% else %}tasks{% endif %}</a></p>
+<P><a href="/{{folder}}/{{subfolder}}/csi/{% if return == "claim" %}claim{% elif paymentLink %}index-payment{% else %}index{% if interviewLink %}-interview{% elif paymentAdviserLink %}-payment-adviser{% else %}{% endif  %}{% endif %}" class="govuk-link govuk-link--no-visited-state">Return to {% if return == "claim" %}case{% else %}tasks{% endif %}</a></p>
 {% endif %}
 </div>
 </div>
