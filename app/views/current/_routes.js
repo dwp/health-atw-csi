@@ -289,7 +289,7 @@ delete req.session.data['appointee-name'];
 });
 
 
-
+///PAYMENTS START
 
 //routing for check evidence screen
 router.all('/agreed/csi/5-payments/check-evidence-router', function(req, res, next){
@@ -308,25 +308,6 @@ next();
 next();
 });
 
-//job details
-
-router.all('/agreed/csi/5-payments/invoice-router', function(req, res, next){
-//|| !req.session.data['invoice-value'] || isNaN(req.session.data['invoice-value']
-// if the same, continue, hardcoding value for now
-if ((req.session.data['invoice-value'] <= 200 )) {
-  return res.redirect ('3');
-next();
-}
-// otherwise there's a discrepency so go to 'unhappy page'
-else  {
-  // if invoice valu
-  return res.redirect ('2-1');
-next();
-}
-
-next();
-
-});
 
 //router that manages support cost being confimred. This will hand off to the unhappy path if the cost is not matching or is incorrect
 router.all('/agreed/csi/5-payments/confirm-router', function(req, res, next){
@@ -334,14 +315,14 @@ router.all('/agreed/csi/5-payments/confirm-router', function(req, res, next){
   //|| !req.session.data['invoice-value'] || isNaN(req.session.data['invoice-value']
 
 if ((req.session.data['invoice-value'] <= 200 )) {
-  return res.redirect ('3');
+  return res.redirect ('4');
 next();
 }
 
 // otherwise there's a discrepency so go to 'unhappy page'
 else  {
   // if invoice valu
-  return res.redirect ('2-unhappy');
+  return res.redirect ('3-unhappy');
 next();
 }
 
@@ -349,6 +330,7 @@ next();
 
 });
 
+/// END PAYMENTS
 
 // searches
 router.get(`/agreed/search`, (req, res) => {
