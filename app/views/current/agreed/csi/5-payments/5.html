@@ -1,7 +1,7 @@
-{% set link = "../6-confirmation/2" %}
+{% set link = "complete" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "1-unhappy"}] %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "../index-payments"}] %}
 {% set title = "Check and approve payment details" %}
 {% set customNext = "Approve payment" %}
 
@@ -20,6 +20,36 @@
             },
             value: {
               text: "Thomas Brown"
+            },
+            actions: {
+              items: [
+                {
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "[Invoice reference]"
+            },
+            value: {
+              text: "[reference]"
+            },
+            actions: {
+              items: [
+                {
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "[Invoice date]"
+            },
+            value: {
+              text: "[date]"
             },
             actions: {
               items: [
