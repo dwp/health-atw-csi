@@ -4,13 +4,13 @@
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "../index"}] %}
 
-{% set title =  "Send an email to the payments team" %}
+{% set title =  "Transfer case to the payments team" %}
 
 {% block csi %}
 
 
 
-<p>Send an email to <strong>Richard Silver</strong> to tell them that they can continue processing the payment for this case.</p>
+<p>Contact <strong>Richard Silver</strong> to tell them that they can continue processing the payment for this case.</p>
 
 
   {{ govukTable({
@@ -57,22 +57,13 @@ appointeeText  ,
     ]
   }) }}
 
-
-  {{ govukButton({
-    text: "Open new email",
-    classes: "govuk-button--secondary",
-    href: "mailto:" + data['csi-info'][1]['email-for-user-research']
-  }) }}
-
-
-<br>
 </br>
 {{ govukRadios({
     classes: "govuk-radios--inline",
      name: "transfer-back-payments",
        fieldset: {
          legend: {
-           text: "Have you sent the email?",
+           text: "Have you transferred the case?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
