@@ -1,0 +1,457 @@
+
+{% set link = "3"  %}
+{% if appointee %}{% set appointeeLink = "-appointee" %}{% else %}{% set appointeeLink = '' %}{% endif %}
+
+
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+
+{% set redirect = [{id : "yes", page: link + appointeeLink }, {id: "no", page: "../index"}] %}
+{% set title =  "Download the claim form" %}
+
+
+{% block csi %}
+
+
+{% macro defItem(key='', value='', class="") %}
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key {{class}}">
+      {{key}}
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p>{{value}}</p>
+    </dd>
+
+  </div>
+{% endmacro %}
+
+
+
+<h1 class="govuk-heading-l">Access to Work Application Form Communication Support at Interview (CSI)</h1>
+
+<h2 class="govuk-heading-m">Part 1: Applicant details</h2>
+
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+  {{ defItem(key='Title', value='-') }}
+
+  {{ defItem(key='Surname', value=data['csi-info'][1]['surname']) }}
+
+  {{ defItem(key='First name(s)', value=data['csi-info'][1]['firstname']) }}
+
+  {{ defItem(key='Date of birth', value=(data['csi-info'][1]['dob-day'] + " " +  data['csi-info'][1]['dob-month'] | toMonth + " " +  data['csi-info'][1]['dob-year']) | safe) }}
+
+  {{ defItem(key='NI number', value='-') }}
+  {{ defItem(key='Gender', value='-') }}
+
+  {{ defItem(key='Home address', value= (data['csi-info'][1]['address-line-one'] +  "<br>" + data['csi-info'][1]['address-town']+  "<br>" + data['csi-info'][1]['address-county']) | safe) }}
+
+  {{ defItem(key='Postcode', value=data['csi-info'][1]['address-postcode']) }}
+
+</dl>
+
+
+<P>Home contact details (including STD code)</p>
+
+  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+    {{ defItem(key='Tel:', value=data['csi-info'][1]['contact-by-phone']  | safe) }}
+    {{ defItem(key='Text:', value="-") }}
+    {{ defItem(key='Mobile:', value="-") }}
+    {{ defItem(key='Fax:', value="-") }}
+    {{ defItem(key='Email:', value=data['csi-info'][1]['contact-by-email']  | safe) }}
+
+</dl>
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+  {{ defItem(key='Will you be receiving any of these benefits after you start work?<ul class="govuk-list govuk-list--bullet">
+  <li>Incapacity Benefit (IB)</li>
+  <li>Severe Disablement Allowance (SDA)</li>
+  <li>Income Support (paid as a result of disability)</li>
+  <li>Jobseekers’ Allowance (JSA)</li></ul>' | safe, value="", class="govuk-!-width-one-half" ) }}
+
+  {{ defItem(key='If ‘yes’ to any, will you be working under Permitted Work rules? (Please indicate Whether Higher or Lower Level or Supported Permitted Work)
+', value="", class="govuk-!-width-one-half") }}
+
+{{ defItem(key='Description of disability/medical problem', value="Deaf", class="govuk-!-width-one-half") }}
+
+{{ defItem(key='Effect of disability/medical problem', value="", class="govuk-!-width-one-half") }}
+
+</dl>
+
+
+
+
+
+
+     <h2 class="govuk-heading-m">Details of interview for which an interpreter or communicator is required:</h2>
+
+
+     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+     {{ defItem(key='Name of Employer', value=data['csi-info'][1]['company-name']  | safe) }}
+
+     {{ defItem(key='Employer address', value=(data['csi-info'][1]['company-address-line-one'] +  "<br>" + data['csi-info'][1]['company-address-town']+  "<br>" + data['csi-info'][1]['company-address-county'] +  "<br>" + data['csi-info'][1]['company-address-postcode']) | safe
+, class="govuk-!-width-one-half") }}
+
+    {{ defItem(key="Employer Telephone/Textphone/Fax Numbers (inc STD code)/E-mail", value=(data['csi-info'][1]['company-phone'] + " " +  data['csi-info'][1]['company-email-address'])  | safe , class="govuk-!-width-one-half") }}
+
+    {{ defItem(key='Name of contact within company', value=data['csi-info'][1]['interviewer-name']  | safe, class="govuk-!-width-one-half") }}
+
+    {{ defItem(key='Named contact’s job title/position', value="-", class="govuk-!-width-one-half" ) }}
+
+
+    {{ defItem(key='Date and time of interview', value=(data['csi-info'][1]['interview-date-day'] + " " +  data['csi-info'][1]['interview-date-month'] | toMonth + " " +  data['csi-info'][1]['interview-date-year']) | safe, class="govuk-!-width-one-half" ) }}
+
+    {{ defItem(key='Job title of vacancy', value="-", class="govuk-!-width-one-half" ) }}
+    {{ defItem(key='Details of the job you are being Interviewed for', value="-", class="govuk-!-width-one-half" ) }}
+    {{ defItem(key='An interpreter or communicator is normally engaged for up to two hours. If longer is required, please give reasons for this in the box below.
+', value="-", class="govuk-!-width-one-half" ) }}
+</dl>
+
+
+
+
+
+
+          <h2 class="govuk-heading-m">Applicant declaration</h2>
+
+
+<p>If you give false information, it may lead to prosecution<p>
+
+<p>I confirm that the information on this form is correct. I agree to Jobcentre Plus disclosing information contained on this form to the employer and communicator/interpreter named on this form, or to any contracted non-Jobcentre Plus assessor, if necessary.</p>
+
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+{{ defItem(key='Signed', value="") }}
+
+{{ defItem(key='Name (CAPITALS please)', value="") }}
+
+{{ defItem(key='Signed', value="") }}
+
+{{ defItem(key='Date', value="") }}
+
+
+</dl>
+
+<p>We need your consent to share certain personal information with the Inland Revenue. The information we want to share is employment information. This information will only be used by the DWP to check the accuracy of the information we hold and help in the prevention and detection of fraud.
+</p><p>
+If you do not wish for your personal information to be used in part of this scheme please tick the box below.
+</p>
+<p class="govuk-heading-xl">&#x26BF;</p>
+
+
+<h2 class="govuk-heading-m">Part 2 - Approval (Official Use Only)</h2>
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+{{ defItem(key='CSI Cost', value=data['csi-info'][1]['support-worker-pay'] | safe) }}
+
+{{ defItem(key='This application is', value="&#9744; Rejected <br>&#9745; Approved" | safe ) }}
+
+{{ defItem(key='Notes', value="-") }}
+
+
+{{ defItem(key='Signed', value=" ") }}
+
+{{ defItem(key='Name (CAPITALS please)', value="John Smith") }}
+
+
+{{ defItem(key='Date', value="1 February 2020") }}
+
+{{ defItem(key='Business Centre address', value="Access to Work <br>Mail Opening Unit <br>Wolverhampton <br>WV1 1VW" | safe) }}
+
+{{ defItem(key='Telephone number', value="01000000000") }}
+
+{{ defItem(key='Textphone number', value="-") }}
+
+</dl>
+
+
+
+<h2 class="govuk-heading-m">Part 3 – Claim Details</h2>
+
+<p>Interpreter/Communicator details</p>
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+{{ defItem(key='Title', value="", class="govuk-!-width-one-half" ) }}
+{{ defItem(key='Surname', value="", class="govuk-!-width-one-half" ) }}
+{{ defItem(key='First name(s)', value="", class="govuk-!-width-one-half" ) }}
+
+{{ defItem(key='Address', value=" <br><br> <br>" | safe, class="govuk-!-width-one-half") }}
+
+{{ defItem(key='Level of qualification', value="", class="govuk-!-width-one-half") }}
+
+{{ defItem(key='Hourly rate', value="£ ", class="govuk-!-width-one-half") }}
+{{ defItem(key='Administration charge (if previously agreed)', value="£ ", class="govuk-!-width-one-half") }}
+
+</dl>
+
+
+
+<p>
+Note for Access to Work Adviser: Inform interpreter/communicator that
+<ul class="govuk-list govuk-list--bullet" > <li>
+  Any remittance advice will be sent to this address.
+</li><li>
+  The rate at which we will reimburse mileage.
+</li></ul>
+</p>
+
+
+
+
+   {{ govukTable({
+     caption: "To be completed by interpreter, communicator or agents",
+     firstCellIsHeader: true,
+     rows: [
+    [ {
+       text: " ",
+       rowspan: "2"
+     },
+     {
+       text: "Details of journey",
+       colspan: "2",
+       classes: "govuk-table__header"
+
+     },
+     {
+       text: "Method of travel",
+       rowspan: "2",
+       classes: "govuk-table__header"
+     },
+     {
+       text: "Public Transport Fares",
+       rowspan: "2",
+       classes: "govuk-table__header"
+     },
+     {
+       text: "Private motor expenses",
+       colspan: "3",
+       classes: "govuk-table__header"
+     },
+     {
+       text: "Total Claim for Journey",
+       rowspan: "2",
+       classes: "govuk-table__header"
+     }
+   ],
+
+       [
+         {
+           text: "From",
+           classes: "govuk-table__header"
+         },
+         {
+           text: "To",
+           classes: "govuk-table__header"
+         },
+         {
+           text: "Actual Miles Travelled",
+           classes: "govuk-table__header"
+         },
+         {
+           text: "AtW Mileage rate",
+           classes: "govuk-table__header"
+         },
+         {
+           text: "Mileage Claim",
+           classes: "govuk-table__header"
+         }
+       ],
+       [
+         {
+           text: "Journey to interview"
+         }
+       ],
+       [
+         {
+           text: "Return journey"
+         },
+         {
+           text: " ",
+           colspan: "8"
+         }
+       ],
+       [
+         {
+           text: "Total cost of journey to interview and return",
+           colspan: "8"
+         },
+         {
+           text: "£"
+         }
+
+       ],
+       [
+         {
+           text: "Professional fees",
+           colspan: "2"
+         },
+         {
+           text: "____ hours",
+           colspan: "2"
+         } ,
+         {
+           text: "at (hourly rate) £ ____ ",
+           colspan: "3"
+         }
+         ,
+         {
+           text: "= "
+         },
+         {
+           text: "£ "
+         }
+
+       ],
+       [
+         {
+           text: "Administration fee (only if previously agreed) or Other expenses (please attach details)",
+           colspan: "7"
+         },
+         {
+           text: "= "
+         },
+         {
+           text: "£ "
+         }
+
+       ],
+       [
+         {
+           text: "Cancellation cost (if any)",
+           colspan: "8"
+         },
+
+         {
+           text: "£ "
+         }
+
+       ],
+       [
+         {
+           text: "Total expenses claimed",
+           colspan: "8"
+         },
+
+         {
+           text: "£ "
+         }
+
+       ]
+
+     ]
+   }) }}
+
+<p>Please give reasons if interview was cancelled.</p>
+
+<p>Please write name of the person or organisation that should be paid.
+</p>
+
+<h2 class="govuk-heading-m">Payment Details (through a bank or building society)</h2>
+
+<p>Payee: Please complete your bank/building society details below.</p>
+<p>Bank payment will be sent to:</p>
+
+
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+{{ defItem(key='Bank/building society name', value="" ) }}
+
+{{ defItem(key='Account name', value=""  ) }}
+
+{{ defItem(key='Account number', value=""  ) }}
+
+{{ defItem(key='Sort code', value=""  ) }}
+
+{{ defItem(key='Building society roll number', value=""  ) }}
+
+{{ defItem(key='Bank/building society address', value="<br><br><br>" | safe  ) }}
+
+{{ defItem(key='Postcode', value="<br><br><br>" | safe  ) }}
+
+{{ defItem(key='Signed', value=""  ) }}
+
+{{ defItem(key='Date', value=""  ) }}
+
+
+</dl>
+
+
+<h2 class="govuk-heading-m">Applicant Declaration</h2>
+
+<p>If you give false information, it may lead to prosecution</p>
+
+<p>I certify that the information I have given is true, correct and in accordance with the terms and conditions of Access to Work.</p>
+
+<p>I confirm that I received the interpreter/communicator support details on this claim form.</p>
+
+<p>No part of this claim has been included in any previous claim</p>
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+{{ defItem(key='Signed', value="" ) }}
+
+{{ defItem(key='Name (CAPITALS please)', value=""  ) }}
+
+{{ defItem(key='Date', value=""  ) }}
+
+</dl>
+
+
+<P>  Thank you for taking the time to complete this form. Please return the form to the address below. If you have any questions, please contact us using the number below.
+</p>
+
+        <h2 class="govuk-heading-m">Official Use Only</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+
+        {{ defItem(key='Assigned Officer', value="John Smith") }}
+
+
+        {{ defItem(key='Date', value="1 February 2020") }}
+
+        {{ defItem(key='Address', value="Access to Work <br>Mail Opening Unit <br>Wolverhampton <br>WV1 1VW" | safe) }}
+
+        {{ defItem(key='Telephone no<br>Textphone no ' | safe , value="01000000000") }}
+
+        </dl>
+
+
+        <P>Date Issued: </p>
+
+        <p>Date Returned:</p>
+
+
+
+{{ govukRadios({
+      classes: "govuk-radios--inline",
+       name: "copy",
+       fieldset: {
+         legend: {
+           text: "Have you copied this information into the claim form?",
+           isPageHeading: false,
+           classes: "govuk-fieldset__legend--m"
+         }
+       },
+       items: [
+         {
+           id: "yes",
+           value: "yes",
+           text: "Yes"
+         },
+         {
+          id: "no",
+           value: "no",
+           text: "No"
+         }
+       ]
+     }) }}
+
+{% endblock %}
