@@ -44,7 +44,7 @@
 
                         {{taskListItem(title="Check the evidence", link="5-payments/1", completed=(data['invoice'] == "yes"  ), cantStart=(phase == "interview" or phase == "waiting"))}}
 
-                        {{taskListItem(title="[Add invoice details]", link="5-payments/2", completed=((data['invoice-complete']) or data['transfer-back-payments'] == 'yes' ), cantStart=(not (data['invoice'] == "yes") ) )}}
+                        {{taskListItem(title="Add invoice details", link="5-payments/2", completed=((data['invoice-complete']) or data['transfer-back-payments'] == 'yes' ), cantStart=(not (data['invoice'] == "yes") ) )}}
 
                         {{taskListItem(title="Check the invoice amount", link="5-payments/3", completed=((data['check-amount'] == "yes" and not data['sent-email-amount']) or data['transfer-back-payments'] == 'yes' ), cantStart=(not (data['invoice'] == "yes" ) ) )}}
 
