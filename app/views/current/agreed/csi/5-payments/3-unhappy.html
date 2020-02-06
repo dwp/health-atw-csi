@@ -1,7 +1,7 @@
-{% set link = "2-1-confirmation" %}
+{% set link = "3-waiting" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "#"}] %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "../index-payments"}] %}
 {% set title =  "Contact the adviser to check the support cost" %}
 
 {% block csi %}
@@ -37,10 +37,7 @@
              id: "no",
              value: "no",
              text: "No",
-             checked: checked('sent-email-amount', "no"),
-             conditional: {
-               html: conditionalText
-             }
+             checked: checked('sent-email-amount', "no")
            }
          ]
        }) }}
