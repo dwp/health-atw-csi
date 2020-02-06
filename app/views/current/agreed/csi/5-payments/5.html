@@ -108,9 +108,52 @@
       }) }}
 
 
+      {% set paymentHtml %}
+      {{ govukInput({
+        id: "approve-payment",
+        name: "approve-payment",
+        type: "text",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "[insert content]]"
+        },
+        attributes: {
+          spellcheck: "false"
+        }
+      }) }}
+      {% endset -%}
 
+      {{ govukRadios({
+        idPrefix: "app-payment",
+        name: "app-payment",
+        fieldset: {
+          legend: {
+            text: "Do you want to approve the payment?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        hint: {
+          text: ""
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            checked: checked('app-payment', "yes"),
+            conditional: {
+              html: paymentHtml
+            }
+          },
+          {
+            value: "no",
+            text: "No",
+            checked: checked('app-payment', "no")
+          }
+        ]
+      }) }}
 
-{{ govukRadios({
+<!--{{ govukRadios({
   classes: "govuk-radios--inline",
   idPrefix: "payment",
   name: "payment",
@@ -138,7 +181,7 @@
       checked: checked('payment', "no")
     }
   ]
-}) }}
+}) }}-->
 
 
 {% endblock %}
