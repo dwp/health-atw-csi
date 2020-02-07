@@ -1,48 +1,72 @@
-{% set link = "5" %}
+{% set link = "payee-router" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "4-sop7-form"}] %}
 {% set title =  "Check payee details" %}
 
 
 {% block csi %}
 
-<p><a href="4" class="govuk-link">Search again</a></p>
-<br>
-
-{% macro defItem(key='', value='') %}
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key ">
-      {{key}}
-    </dt>
-    <dd class="govuk-summary-list__value">
-      <p>{{value}}</p>
-    </dd>
-
-  </div>
-{% endmacro %}
 
 
-<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
 
-{{ defItem(key='Name', value='Hedge BSL Services') }}
-{{ defItem(key='Address', value='11 Hill Street, B1 2HD') }}
-{{ defItem(key='Supplier code', value='4846738') }}
-{{ defItem(key='Bank name', value='HSBC') }}
-{{ defItem(key='Bank account number', value='38473927') }}
-{{ defItem(key='Sort code', value='40-75-37') }}
 
-</dl>
+{% set conditionalText %}
 
 
+{{ govukInput({
+  label: {
+    text: "Postcode"
+  },
+  hint: {
+    text: "[This is also known as the Site ID]"
+  },
+  classes: "govuk-input--width-10",
+  id: "payee-postcode",
+  name: "payee-postcode"
+}) }}
+
+{% endset -%}
 
 {{ govukRadios({
-  idPrefix: "correct-details",
-  name: "correct-details",
+       name: "address-match",
+       fieldset: {
+         legend: {
+           text: "[Does the address match?]",
+           isPageHeading: false,
+           classes: "govuk-fieldset__legend--m"
+         }
+       },
+       hint: {
+         html: ""
+  },
+       items: [
+         {
+           id: "yes",
+           value: "yes",
+           checked: checked('address-match', "yes"),
+           text: "Yes",
+           conditional: {
+             html: conditionalText
+           }
+
+         },
+         {
+           id: "no",
+           value: "no",
+           text: "No",
+           checked: checked('address-match', "no")
+
+         }
+       ]
+     }) }}
+
+{{ govukRadios({
+  idPrefix: "payee-details-match",
+  name: "payee-details-match",
   fieldset: {
     legend: {
-      text: "Do the details match the invoice?",
+      text: "[Do the other details match?]",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--m"
     }
@@ -51,14 +75,14 @@
     {
       id: "yes",
       value: "yes",
-      checked: checked('correct-details', "yes"),
+      checked: checked('payee-details-match', "yes"),
       text: "Yes"
     },
     {
       id: "no",
       value: "no",
-      checked: checked('correct-details', "no"),
-      text: "No, update details"
+      checked: checked('payee-details-match', "no"),
+      text: "No"
 
     }
   ]
