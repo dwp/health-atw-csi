@@ -108,21 +108,10 @@
       }) }}
 
 
-      {% set paymentHtml %}
-      {{ govukTextarea({
-        id: "approve-payment",
-        name: "approve-payment",
-        type: "text",
-        label: {
-          text: "Invoice description for remittance"
-        },
-        attributes: {
-          spellcheck: "false"
-        }
-      }) }}
-      {% endset -%}
+
 
       {{ govukRadios({
+        classes: "govuk-radios--inline",
         idPrefix: "app-payment",
         name: "app-payment",
         fieldset: {
