@@ -109,13 +109,12 @@
 
 
       {% set paymentHtml %}
-      {{ govukInput({
+      {{ govukTextarea({
         id: "approve-payment",
         name: "approve-payment",
         type: "text",
-        classes: "govuk-!-width-one-third",
         label: {
-          text: "[insert content]]"
+          text: "Invoice description for remittance"
         },
         attributes: {
           spellcheck: "false"
