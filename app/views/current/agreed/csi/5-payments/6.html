@@ -16,25 +16,10 @@
         rows: [
           {
             key: {
-              text: "Applicant name"
-            },
-            value: {
-              text: "Thomas Brown"
-            },
-            actions: {
-              items: [
-                {
-                  visuallyHiddenText: "name"
-                }
-              ]
-            }
-          },
-          {
-            key: {
               text: "Invoice reference"
             },
             value: {
-              text: "[reference]"
+              text: data['invoice-reference'] | default("123")
             },
             actions: {
               items: [
@@ -49,7 +34,9 @@
               text: "Invoice date"
             },
             value: {
-              text: "[date]"
+              text: data["invoice-date-day"] | default("31") + " " +
+     data["invoice-date-month"] | default("1") | toMonth +  " " +
+    data["invoice-date-year"] | default("2020")
             },
             actions: {
               items: [
@@ -61,30 +48,15 @@
           },
           {
             key: {
-              text: "Payee name"
+              text: "Payee postcode"
             },
             value: {
-              text: "Hedge BSL Services"
+              text: "[B1 3JF]"
             },
             actions: {
               items: [
                 {
-                  visuallyHiddenText: "date of birth"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Payee address"
-            },
-            value: {
-              html: "11 Hill Street<br>Birmingham<br>Midlands<br>B1 2HD"
-            },
-            actions: {
-              items: [
-                {
-                  visuallyHiddenText: "address"
+                  visuallyHiddenText: "name"
                 }
               ]
             }
@@ -95,6 +67,21 @@
             },
             value: {
               html: data['invoice-value'] | default("200") | toMoney | safe
+            },
+            actions: {
+              items: [
+                {
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "SOP supplier number"
+            },
+            value: {
+              html: data['supplier-reference'] | default("123456789")
             },
             actions: {
               items: [
