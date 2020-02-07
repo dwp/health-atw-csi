@@ -1,6 +1,7 @@
-{% set link = "4-request-evidence" %}
+{% set link = "4-sop7-form" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "4-request-bank"}] %}
 {% set title =  "Check the bank details" %}
 
 
@@ -9,12 +10,11 @@
 <p>Use Bank Wizard to check the bank details.</p>
 <br>
 
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {{ govukRadios({
   classes: "govuk-radios--inline",
-  idPrefix: "changed-name",
-  name: "changed-name",
+  idPrefix: "bank-details",
+  name: "bank-details",
   fieldset: {
     legend: {
       text: "Are the bank details valid?",
@@ -25,10 +25,12 @@
   items: [
     {
       value: "yes",
+      id: "yes",
       text: "Yes"
     },
     {
       value: "no",
+      id: "no",
       text: "No"
     }
   ]

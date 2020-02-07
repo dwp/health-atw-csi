@@ -1,7 +1,8 @@
-{% set link = "4-found" %}
+{% set link = "4-requested-bank" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set title =  "Request missing evidence" %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "../index-payment"}] %}
+{% set title =  "[Request bank details]" %}
 
 
 {% block csi %}
