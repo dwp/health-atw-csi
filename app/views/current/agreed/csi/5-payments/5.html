@@ -1,17 +1,18 @@
 {% set link = "6" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set paymentLink = true %}
-{% set title =  "[Add supplier ID]" %}
+{% set title =  "Add the Supplier ID" %}
 
 {% block csi %}
-
-<p>[This is on SOP.]</p>
 
 
 {{ govukInput({
   id: "supplier-reference",
   name: "supplier-reference",
-  classes: "govuk-input--width-20"
+  classes: "govuk-input--width-20",
+  hint: {
+    text: "You will find this on SOP"
+  }
 }) }}
 
 
