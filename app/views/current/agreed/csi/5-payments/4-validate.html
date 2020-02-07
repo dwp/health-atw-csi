@@ -1,6 +1,7 @@
-{% set link = "payee-router" %}
+{% set link = "5" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "4-sop7-form"}] %}
 {% set title =  "Check payee details" %}
 
 
@@ -8,65 +9,13 @@
 
 
 
-
-
-
-{% set conditionalText %}
-
-
-{{ govukInput({
-  label: {
-    text: "Postcode"
-  },
-  hint: {
-    text: "This is also known as the Site ID"
-  },
-  classes: "govuk-input--width-10",
-  id: "payee-postcode",
-  name: "payee-postcode"
-}) }}
-
-{% endset -%}
-
-{{ govukRadios({
-       name: "address-match",
-       fieldset: {
-         legend: {
-           text: "Does the address match?",
-           isPageHeading: false,
-           classes: "govuk-fieldset__legend--m"
-         }
-       },
-       hint: {
-         html: ""
-  },
-       items: [
-         {
-           id: "yes",
-           value: "yes",
-           checked: checked('address-match', "yes"),
-           text: "Yes",
-           conditional: {
-             html: conditionalText
-           }
-
-         },
-         {
-           id: "no",
-           value: "no",
-           text: "No",
-           checked: checked('address-match', "no")
-
-         }
-       ]
-     }) }}
-
 {{ govukRadios({
   idPrefix: "payee-details-match",
   name: "payee-details-match",
+    classes: "govuk-radios--inline",
   fieldset: {
     legend: {
-      text: "Do the other details match?",
+      text: "[Do the details match?]",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--m"
     }
