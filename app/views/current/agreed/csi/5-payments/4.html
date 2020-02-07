@@ -1,25 +1,65 @@
-{% set link = "4-found" %}
+{% set link = "4-validate" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set title =  "Find the payee" %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "4-bank"}] %}
 
 
 {% block csi %}
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
 
+<p>[Search on SOP for the payee.]</p>
+<p>[Use the bank details and the postcode on the invoice.]</p>
+
+
+{% set conditionalText %}
+
 {{ govukInput({
+  name: "supplier-id",
+  id: "supplier-id",
+  value: data['supplier-id'],
   label: {
-    text: "Postcode"
+    text: "[Add supplier ID]"
   },
-  hint: {
-    text: "You will find this on the invoice."
-  },
-  classes: "govuk-input--width-10",
-  id: "payee-search",
-  name: "payee-search"
+    classes: "govuk-input--width-10"
 }) }}
 
+{% endset -%}
 
-<p><a href="4-upload">Upload payee details from SOP</a></p>
+{{ govukRadios({
+       name: "find-payee",
+       fieldset: {
+         legend: {
+           text: "[Can you find the payee on SOP?]",
+           isPageHeading: false,
+           classes: "govuk-fieldset__legend--m"
+         }
+       },
+       hint: {
+         html: ""
+  },
+       items: [
+         {
+           id: "yes",
+           value: "yes",
+           checked: checked('find-payee', "yes"),
+           text: "Yes",
+           conditional: {
+             html: conditionalText
+           }
+
+         },
+         {
+           id: "no",
+           value: "no",
+           text: "No",
+           checked: checked('find-payee', "no")
+
+         }
+       ]
+     }) }}
+
+
+
 {% endblock %}

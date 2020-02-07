@@ -330,6 +330,36 @@ next();
 
 });
 
+
+// payee check boxes
+
+router.all('/agreed/csi/5-payments/payee-router', function(req, res, next){
+
+if (!req.session.data['address-match'] || ! req.session.data['payee-details-match'] ) {
+  return res.redirect ('4-validate');
+next();
+}
+
+else if ((req.session.data['address-match'] == "yes") && (req.session.data['payee-details-match'] == "yes") ) {
+  return res.redirect ('5');
+next();
+}
+
+
+// otherwise there's a discrepency so go to 'unhappy page'
+else  {
+  // if invoice valu
+  return res.redirect ('4-sop7-form');
+next();
+}
+
+next();
+
+});
+
+
+
+
 /// END PAYMENTS
 
 // searches
