@@ -9,25 +9,14 @@
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
 
-<p>Search SOP using the bank details from the invoice.</p>
+<p>[Search SOP using the postcode. [B1 F2C]]</p>
 <br>
 
-{% set conditionalText %}
 
-{{ govukInput({
-  name: "supplier-id",
-  id: "supplier-id",
-  value: data['supplier-id'],
-  label: {
-    text: "Supplier ID"
-  },
-    classes: "govuk-input--width-10"
-}) }}
-
-{% endset -%}
 
 {{ govukRadios({
        name: "find-payee",
+         classes: "govuk-radios--inline",
        fieldset: {
          legend: {
            text: "Is the payee on SOP?",
@@ -43,11 +32,7 @@
            id: "yes",
            value: "yes",
            checked: checked('find-payee', "yes"),
-           text: "Yes",
-           conditional: {
-             html: conditionalText
-           }
-
+           text: "Yes"
          },
          {
            id: "no",
