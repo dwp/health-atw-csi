@@ -9,9 +9,8 @@
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
 
-<p>[Search on SOP for the payee.]</p>
-<p>[Use the bank details and the postcode on the invoice.]</p>
-
+<p>Search SOP using the bank details from the invoice.</p>
+<br>
 
 {% set conditionalText %}
 
@@ -20,7 +19,7 @@
   id: "supplier-id",
   value: data['supplier-id'],
   label: {
-    text: "[Add supplier ID]"
+    text: "Supplier ID"
   },
     classes: "govuk-input--width-10"
 }) }}
@@ -31,7 +30,7 @@
        name: "find-payee",
        fieldset: {
          legend: {
-           text: "[Can you find the payee on SOP?]",
+           text: "Is the payee on SOP?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
