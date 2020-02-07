@@ -140,24 +140,6 @@
 {% endif %} <!-- end change -->
   </div>
 
-<!--
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Contact preferences
-    </dt>
-    <dd class="govuk-summary-list__value">
-      {{ data['csi-info'][1]['personal-contact-preference'] | string | capitalize }}
-    </dd>
-{% if not hideChange %}
-    <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="personal-details-change#personal-contact-preference">
-        Change
-        <span class="govuk-visually-hidden"></span>
-      </a>
-    </dd>
-{% endif %}
-  </div>
-  <!-- end change -->
 
 
   <div class="govuk-summary-list__row">
@@ -167,12 +149,16 @@
     <dd class="govuk-summary-list__value">
       {{ data['csi-info'][1]['contact-by-email'] }}
     </dd>
+    {% if not hideChange %}
+
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="personal-details-change#personal-contact-preference">
         Change
         <span class="govuk-visually-hidden"></span>
       </a>
     </dd>
+    {% endif %} <!-- end change -->
+
   </div>
 
   <div class="govuk-summary-list__row">
@@ -182,12 +168,15 @@
     <dd class="govuk-summary-list__value">
       {{ data['csi-info'][1]['contact-by-phone'] }}
     </dd>
+    {% if not hideChange %}
+
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="personal-details-change#personal-contact-preference">
         Change
         <span class="govuk-visually-hidden"></span>
       </a>
     </dd>
+    {% endif %}
   </div>
 
 
@@ -382,27 +371,7 @@
 {% endif %}
   </div>
 
-<!--
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Contact preferences
-    </dt>
-    <dd class="govuk-summary-list__value">
-      {{ data['csi-info'][1]['company-contact-preference'] | string | capitalize }}
-    </dd>
-  {% if not hideChange %}
-    <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="company-details-change#company-contact-preference">
-        Change
-        <span class="govuk-visually-hidden"></span>
-      </a>
-    </dd>
-  {% endif %}
-  </div>
 
- <!-- end change -->
-
-{% if "email" in  data['csi-info'][1]['company-contact-preference'] %}
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key ">
       Email
@@ -419,9 +388,7 @@
     </dd>
 {% endif %}
   </div>
-{% endif %}
 
-{% if "phone" in data['csi-info'][1]['company-contact-preference'] %}
 
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key ">
@@ -439,7 +406,7 @@
     </dd>
 {% endif %}
   </div>
-  {% endif %}
+
 
 
 </dl>
@@ -452,7 +419,7 @@
 {% if claim %}
   <h2 id="interview" class="govuk-heading-m govuk-!-margin-top-6">Job interview details</h2>
 
-  {% if data['interview'] == 'no'  and not (phase == "interview")  %}
+  {% if data['interview'] == 'no' and not (phase == "interview")  %}
 
 
 
