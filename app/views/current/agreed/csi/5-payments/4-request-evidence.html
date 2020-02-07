@@ -1,25 +1,49 @@
 {% set link = "4-found" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set title =  "Find the payee" %}
+{% set title =  "Request missing evidence" %}
 
 
 {% block csi %}
 
-{% from "govuk/components/input/macro.njk" import govukInput %}
+<p>[Return the evidence to the applicant and request the missing evidence.]<br></br>
+[Ask that they return by post both of the following:]  {text from the previous pattern notsure how relevant it is now???????}</p>
 
-{{ govukInput({
-  label: {
-    text: "Postcode"
-  },
-  hint: {
-    text: "You will find this on the invoice."
-  },
-  classes: "govuk-input--width-10",
-  id: "payee-search",
-  name: "payee-search"
-}) }}
+<p>[Send a cover note with the evidence to:]
+
+<div class="govuk-inset-text">
+  [Thomas Brown <br>
+  14 Kings Road <br>
+  Birmingham <br>
+  Midlands  <br>
+  B1 1EQ]  [Address???]
+</div>
 
 
-<p><a href="4-upload">Upload payee details from SOP</a></p>
+
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+       name: "request-evidence",
+       fieldset: {
+         legend: {
+           text: "Have you sent the evidence back?",
+           isPageHeading: false,
+           classes: "govuk-fieldset__legend--m"
+         }
+       },
+       items: [
+         {
+           id: "yes",
+           value: "yes",
+           text: "Yes"
+         },
+         {
+           id: "no",
+           value: "no",
+           text: "No"
+         }
+       ]
+     }) }}
+
+
 {% endblock %}
