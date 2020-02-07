@@ -1,12 +1,13 @@
 {% set link = "4-request-evidence" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set title =  "[Is the bank account valid?]" %}
+{% set title =  "Check the bank details" %}
 
 
 {% block csi %}
 
-<p>[Use the wizard to check]</p>
+<p>Use Bank Wizard to check the bank details.</p>
+<br>
 
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -16,9 +17,9 @@
   name: "changed-name",
   fieldset: {
     legend: {
-      text: "",
+      text: "Are the bank details valid?",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--xl"
+      classes: "govuk-fieldset__legend--m"
     }
   },
   items: [
