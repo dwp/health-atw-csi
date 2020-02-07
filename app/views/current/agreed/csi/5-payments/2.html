@@ -22,14 +22,17 @@ fieldset: {
   legend: {
     text: "Invoice date"
   }
-},
-hint: {
-  text: "For example, 29 12 2019"
 }
 }) }}
 
-
-
+{{ govukInput({
+  label: {
+    text: "Postcode"
+  },
+  id: "postcode",
+  name: "postcode",
+  classes: "govuk-input--width-10"
+}) }}
 
 
 <!-- trigger to set off event if we use this screen for task completion -->
