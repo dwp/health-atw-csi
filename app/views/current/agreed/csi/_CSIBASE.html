@@ -44,11 +44,17 @@
                   <li>
                     <a href="{% if not (page == 'task-list') %}index{% if phase %}-{{phase}}{% endif %}{% else %}" class="active" aria-current="section{% endif %}">Tasks to complete</a>
                   </li>
-{% if not payments %}
+{% if payments %}
+<li>
+  <a href="{% if not (page == 'invoice') %}invoice{% else %}" class="active" aria-current="section{% endif %}">[Invoice details]</a>
+</li>
+{% else  %}
                   <li>
                     <a href="{% if not (page == 'claim') %}claim{% if phase %}-{{phase}}{% endif %}{% else %}" class="active" aria-current="section{% endif %}">Case details</a>
                   </li>
 {% endif %}
+
+
 <!--                  <li>
                     <a href="#">Interview</a>
                   </li> -->
