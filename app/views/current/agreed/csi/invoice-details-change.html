@@ -9,80 +9,78 @@
 
 {% block csi %}
 
-{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+{% if data['invoice-reference'] or fullInvoice %}
+
+
+{{ govukInput({
+  label: {
+    text: "Invoice reference"
+  },
+  id: "invoice-reference",
+  name: "invoice-reference",
+  value: data['invoice-reference'],
+  classes: "govuk-input--width-20"
+}) }}
+
+{% endif %}
+
+
+{% if data['invoice-date-month'] or fullInvoice %}
 
 {{ govukDateInput({
-  id: "dob",
-  namePrefix: "interview-date-change",
-  fieldset: {
-    legend: {
-      text: "Interview date",
-      isPageHeading: true,
-      classes: "text"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      name: "day",
-      autocomplete: "bday-day",
-      value: data['csi-info'][1]['interview-date-day'],
-      classes: "govuk-input--width-2"
-    },
-    {
-      name: "month",
-      classes: "govuk-input--width-2",
-      autocomplete: "bday-month",
-      value: data['csi-info'][1]['interview-date-month']
-    },
-    {
-      name: "year",
-      classes: "govuk-input--width-4",
-      autocomplete: "bday-year",
-      value: data['csi-info'][1]['interview-date-year']
-    }
-  ]
+id: "invoice-date",
+namePrefix: "invoice-date",
+value: data['invoice-date'],
+fieldset: {
+  legend: {
+    text: "Invoice date"
+  }
+}
 }) }}
 
-{% from "govuk/components/input/macro.njk" import govukInput %}
+{% endif %}
+
+{% if data['invoice-postcode'] or fullInvoice %}
 
 {{ govukInput({
   label: {
-    text: "Condition"
+    text: "Postcode"
   },
-  id: "condition",
-  name: "condition-change",
-  value: data['csi-info'][1]['condition'],
-  classes: "govuk-input--width-20"
+  id: "invoice-postcode",
+  name: "invoice-postcode",
+  value: data['invoice-postcode'],
+  classes: "govuk-input--width-10"
+}) }}
+{% endif %}
+
+{% if data['invoice-value'] or fullInvoice %}
+
+
+{{ govukInput({
+label: {
+text: "Invoice value"
+},
+classes: "govuk-input--width-10",
+id: "invoice-value",
+name: "invoice-value",
+value: data['invoice-value']
 }) }}
 
-{% from "govuk/components/input/macro.njk" import govukInput %}
+{% endif %}
+
+{% if data['supplier-reference'] %}
 
 {{ govukInput({
   label: {
-    text: "Interview length"
+  text: "SOP supplier number"
   },
-  id: "interview-length",
-  name: "duration-change",
-  value: data['csi-info'][1]['duration'],
-  classes: "govuk-input--width-20"
-
+  id: "supplier-reference",
+  name: "supplier-reference",
+  value: data['supplier-reference'],
+  classes: "govuk-input--width-10"
 }) }}
 
-{% from "govuk/components/input/macro.njk" import govukInput %}
-
-{{ govukInput({
-  label: {
-    text: "Support cost"
-  },
-  id: "support-cost",
-  name: "support-worker-pay-change",
-  value: data['csi-info'][1]['support-worker-pay'] | safe,
-  classes: "govuk-input--width-20"
-}) }}
-
-
+{%endif %}
 
 {% endblock %}

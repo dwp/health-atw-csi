@@ -1,6 +1,6 @@
 {% set page = "task-list" %}
 {% set payments = true %}
-{% set phase = "payment" %}
+{% if not phase %}{% set phase = "payment" %}{% endif %} <!-- for overwrite with paymrnt not confirmed -->
 {% set title = "Payments index" %}
 {% extends "./_CSIBASE.html" %}
 
