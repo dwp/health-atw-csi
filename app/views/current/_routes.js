@@ -309,6 +309,14 @@ next();
 });
 
 
+router.all('/agreed/csi/5-payments/invoice-passthrough-router', function(req, res, next){
+
+  req.session.data['invoice-value'] = req.session.data['csi-info'][0]['support-worker-pay'];
+console.log("set invoice value as " + req.session.data['invoice-value'] );
+  return res.redirect('4');
+  next();
+});
+
 //router that manages support cost being confimred. This will hand off to the unhappy path if the cost is not matching or is incorrect
 router.all('/agreed/csi/5-payments/confirm-router', function(req, res, next){
 

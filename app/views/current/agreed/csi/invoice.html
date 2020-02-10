@@ -12,13 +12,17 @@
 <p class="govuk-body">[When invoice information is added to 'tasks to complete' you will be able to change them here.]</p>
 
 
-{% macro defItem(key='', value='') %}
+{% macro defItem(key='', value='', money='') %}
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key ">
       {{key}}
     </dt>
     <dd class="govuk-summary-list__value">
+      {%if money %}
+      <p>{{value | toMoney }}</p>
+      {% else %}
       <p>{{value}}</p>
+      {% endif %}
     </dd>
 
 <dd class="govuk-summary-list__actions">
@@ -46,7 +50,7 @@
   {{ defItem(key='Invoice reference', value=data['invoice-reference']) }}
   {{ defItem(key='Invoice date', value=date) }}
   {{ defItem(key='Payee postcode', value=data['invoice-postcode']) }}
-  {{ defItem(key='Payment amount', value=data['invoice-value']) }}
+  {{ defItem(key='Payment amount', value=data['invoice-value'], money="true") }}
   {{ defItem(key='SOP supplier number', value=data['supplier-reference']) }}
 
 

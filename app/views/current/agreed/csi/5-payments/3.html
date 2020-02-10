@@ -1,4 +1,4 @@
-{% set link = "4" %}
+{% set link = "invoice-passthrough-router" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "3-amount"}] %}
 {% set paymentLink = true %}
@@ -12,7 +12,7 @@
              name: "check-amount",
              fieldset: {
                legend: {
-                 text: "Is £"+  data['invoice-value'] | default('200') + " the amount on the invoice?",
+                 text: "Is £"+  data['csi-info'][0]['support-worker-pay'] + " the amount on the invoice?",
                  isPageHeading: false,
                  classes: "govuk-fieldset__legend--m"
                }

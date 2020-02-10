@@ -28,16 +28,34 @@
 
 {% if data['invoice-date-month'] or fullInvoice %}
 
+
 {{ govukDateInput({
-id: "invoice-date",
-namePrefix: "invoice-date",
-value: data['invoice-date'],
-fieldset: {
-  legend: {
-    text: "Invoice date"
-  }
-}
+  id: "invoice-date",
+  namePrefix: "invoice-date",
+  fieldset: {
+    legend: {
+      text: "Invoice date"
+    }
+  },
+  items: [
+    {
+      name: "day",
+      classes: "govuk-input--width-2",
+      value: data['invoice-date-day']
+    },
+    {
+      name: "month",
+      value: data['invoice-date-month'],
+      classes: "govuk-input--width-2"
+    },
+    {
+      name: "year",
+      value: data['invoice-date-year'],
+      classes: "govuk-input--width-4"
+    }
+  ]
 }) }}
+
 
 {% endif %}
 
