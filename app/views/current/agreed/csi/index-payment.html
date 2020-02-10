@@ -48,9 +48,9 @@
 
                         {{taskListItem(title="Check the invoice amount", link="5-payments/3", completed=((data['check-amount'] == "yes" and not data['sent-email-amount']) or data['transfer-back-payments'] == 'yes' ), cantStart=(not (data['invoice'] == "yes" ) ) )}}
 
-                        {{taskListItem(title="[Find the payee on SOP]", link="5-payments/4", completed=(data['payee-details-match'] == "yes" ), cantStart=( (data['sent-email-amount'] and not (data['transfer-back-payments'] == 'yes') ) or  not (data['check-amount'] == "yes") )) }}
+                        {{taskListItem(title="Find the payee on SOP", link="5-payments/4", completed=(data['payee-details-match'] == "yes" ), cantStart=( (data['sent-email-amount'] and not (data['transfer-back-payments'] == 'yes') ) or  not (data['check-amount'] == "yes") )) }}
 
-                        {{taskListItem(title="[Add supplier ID]", link="5-payments/5", completed=(data['supplier-id-complete']), cantStart=( not data['payee-details-match'] or (data['payee-details-match'] == 'no') )) }}
+                        {{taskListItem(title="Add SOP supplier number", link="5-payments/5", completed=(data['supplier-id-complete']), cantStart=( not data['payee-details-match'] or (data['payee-details-match'] == 'no') )) }}
 
                         {{taskListItem(title="Check payment details", link="5-payments/6", completed=(data['payment'] == "yes"), cantStart=(not data['supplier-id-complete']) )}}
 

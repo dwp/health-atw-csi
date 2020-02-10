@@ -1,7 +1,7 @@
 {% set link = "4-validate" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set title =  "Find the payee" %}
+{% set title =  "Find the payee on SOP" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "4-bank"}] %}
 
 
@@ -9,7 +9,7 @@
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
 
-<p>[Search SOP using the postcode. [B1 F2C]]</p>
+<p>Find the payee on SOP using the postcode <strong>B1 F2C</strong>.</p>
 <br>
 
 

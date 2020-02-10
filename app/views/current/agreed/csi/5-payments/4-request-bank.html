@@ -2,22 +2,22 @@
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "../index-payment"}] %}
-{% set title =  "[Request bank details]" %}
+{% set title =  "Request bank details" %}
 
 
 {% block csi %}
 
-<p>[Return the evidence to the applicant and request the missing evidence.]<br></br>
-[Ask that they return by post both of the following:]  {text from the previous pattern notsure how relevant it is now???????}</p>
+<p>Return all the evidence to the applicant and request valid bank details.
+  Ask them <br>to return all the evidence by post.</p>
 
-<p>[Send a cover note with the evidence to:]
+<p>Send a cover note with the evidence to:
 
 <div class="govuk-inset-text">
-  [Thomas Brown <br>
+  Thomas Brown <br>
   14 Kings Road <br>
   Birmingham <br>
   Midlands  <br>
-  B1 1EQ]  [Address???]
+  B1 1EQ
 </div>
 
 
