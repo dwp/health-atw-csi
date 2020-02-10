@@ -2,14 +2,14 @@
 {% set claim = "true" %}
 {% set payments = 'true' %}
 {% set phase = "payment" %}
-{% set title = "[Invoice details]" %}
+{% set title = "Invoice details" %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIBASE.html" %}
 
 {% block csi %}
 
 <br>
-<p class="govuk-body">[When invoice information is added to 'tasks to complete' you will be able to change them here.]</p>
+<p class="govuk-body">You can change invoice details here after you have added it in the tasks.</p>
 
 
 {% macro defItem(key='', value='', money='') %}
