@@ -1,8 +1,8 @@
 
 {% if data['appointee-contact-phone'] and not (data['appointee-email']) %}
-{% set link = "1-unhappy-phone" %}
+{% set link = "#" %}
 {% else %}
-{% set link = "1-unhappy" %}
+{% set link = "4-cancelation-fee" %}
 {% endif %}
 {% set interviewLink = "true" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
@@ -17,7 +17,62 @@
 <p>Confirm that Thomas Brown attended the interview with an interpreter or <br>
   support worker at Tesco on 1 November 2019.</p>
 
+{% set noHtml %}
+{{ govukInput({
+  id: "no-interview",
+  name: "no-interview",
+  type: "textarea",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "[Reason why?]"
+  }
+}) }}
+{% endset -%}
+
+{% set textHtml %}
+{{ govukInput({
+  id: "contact-by-text",
+  name: "contact-by-text",
+  type: "tel",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Mobile phone number"
+  }
+}) }}
+{% endset -%}
+
 {{ govukRadios({
+  idPrefix: "interview-happened",
+  name: "interview-happened",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes",
+      conditional: {
+        html: yesHtml
+      }
+    },
+    {
+      value: "no",
+      text: "No",
+      conditional: {
+        html: noHtml
+      }
+    }
+  ]
+}) }}
+
+<!--{{ govukRadios({
   classes: "govuk-radios--inline",
        idPrefix: "confirm",
        name: "confirm",
@@ -36,6 +91,6 @@
            text: "No"
          }
        ]
-     }) }}
+     }) }}-->
 
 {% endblock %}
