@@ -8,11 +8,16 @@
 {% block csi %}
 
 {{ govukPanel({
-       titleText: "Payment approved and tasks completed",
-       html: ""
+       titleText: "Payment approved",
+       html: "INV123456ACATW"
      }) }}
 <br>
-<p>The payment has been approved and all tasks completed.
+<p>Write the reference <strong>INV123456ACATW</strong> on the front of the paperwork.
+
+
+<p>Update the spreadsheet with mobile number <strong>07982727282</strong> so that a notification can be sent.</p>
+
+
 
 <p>     <a href="/{{folder}}/delete-and-continue-router?next=/{{folder}}/{{subfolder}}/search-payments" class="govuk-link">Search for another case</a></p>
 
