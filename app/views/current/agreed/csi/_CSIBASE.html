@@ -80,7 +80,7 @@
       <div class="govuk-grid-column-one-third">
 
         <h2 class="govuk-heading-m">[Other actions]</h2>
-      {% if not (phase == "closed") %}  <p><a  href="close-case">Close case</a></p>{% endif %}
+      {% if not (phase == "closed") and not ( phase == "payment-closed") and not (phase == "payment-cancelled") %}  <p><a  href="close-case">Close case</a></p>{% endif %}
         {% if (phase == "interview") or (phase == "waiting")  or (data['claim'] =="yes") or (phase == "payment-adviser") %}
                  <p><a  href="send/2">Print and send claim form again</a></p>
   <!--              {{ govukButton({
@@ -93,10 +93,53 @@
 -->
 
 {% else %}
-{% if phase == "closed" %}
-<p>[No other tasks]</p>
+{% if phase == "payment-cancelled" %}
+<p>[You have no further actions.]<p>
 {% endif %}
+
+{% if phase == "payment-closed" %}
+
+{% set stopPayment %}
+
+<form action="index-payment-cancelled" method="post" novalidate>
+
+<p>[Confirm that the payment has been stopped.]</p>
+
+<!--
+{{ govukInput({
+  label: {
+    text: ""
+  },
+  id: "payment-stopped",
+  name: "payment-stopped",
+  value: "true",
+  classes: 'govuk-radios__conditional--hidden'
+}) }}
+-->
+
+{{ govukButton({
+  text: "[Record]"
+}) }}
+
+</form>
+
+{% endset -%}
+
+
+
+
+
+{{ govukDetails({
+  summaryText: "[Record cancelled payment]",
+  html: stopPayment
+}) }}
+
+
+{% endif %}
+
         {% endif %}
+
+
 
 
         <h2 class="govuk-heading-m">Case history</h2>
@@ -114,6 +157,12 @@
 {% endmacro %}
 
 
+{% if phase == "payment-cancelled" %}
+
+{{timeline(title="[Payment cancelled]", date="12 February 2019 at 10:24am") }}
+
+{% endif %}
+
 {% if phase == "closed" %}
 
 {{timeline(title="[Case closed]", date="11 February 2019 at 10:24am") }}
@@ -121,7 +170,7 @@
 {% endif %}
 {% if payments %} <!-- section only after handoffs  -->
 
-{% if data['payment'] == "yes"  %}
+{% if data['payment'] == "yes" or data['payment-stopped'] or (phase == "payment-closed") or (phase == "payment") %}
   {{timeline(title="Payment approved", date="24 January 2019 at 10:24am") }}
 {% endif %}
 
