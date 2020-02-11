@@ -34,7 +34,7 @@
 {% endif %}
 {% endif %}
 
-{% if phase == "closed" %}
+{% if phase == "closed" or phase == "payment-closed" or phase == "payment-cancelled"  %}
 <br>
 <p>[You currently have no tasks.]</p>
 {% endif %}
@@ -49,30 +49,11 @@
 
 {% endif %}{% endif %}
 
-<!-- payments screen
-{% if (phase == "payments") %}
-{% if not (data['confirm']) and ((data['employer'] == 'no') or (data['sent-email'] == "yes")) %}
-<br>
-{{ govukWarningText({
-  html: "Information needed from the employer.",
-  iconFallbackText: "Warning"
-}) }}
-
-{% endif %}{% endif %}
-
-{% if not (phase == "payments" ) and not (phase == "waiting") %}
-{% if (data['personal'] == 'no') or (data['company'] == 'no') or (data['interview'] == "no") %}
-<br>
-{{ govukWarningText({
-  html: "Information needed from the applicant. Make changes in the Case details tab.",
-  iconFallbackText: "Warning"
-}) }}
-{% endif %} {% endif %}  -->
 
 
 
 <!-- Task list processing inital claim before payment -->
-{% if not (phase == "interview" ) and not (phase == "waiting") and not (phase == "payment-adviser" ) and not (phase == "closed")  %}
+{% if not (phase == "payment-cancelled") and not (phase == "payment-closed") and not (phase == "interview" ) and not (phase == "waiting") and not (phase == "payment-adviser" ) and not (phase == "closed")  %}
               <ol class="app-task-list">
                       <li>
                         <h2 class="app-task-list__section">
@@ -222,6 +203,14 @@
         {
           href: "index-closed",
           text: "Index closed"
+        },
+        {
+          href: "index-payment-complete",
+          text: "Index payment complete"
+        },
+        {
+          href: "index-payment-cancelled",
+          text: "Index payment cancelled"
         }
       ]
     }
