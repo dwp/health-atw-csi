@@ -1,0 +1,30 @@
+{% set page = "claim" %}
+{% set claim = "true" %}
+{% set link = "closed-case" %}
+{% set customNext = "Close case" %}
+{% set title = "[Close case]" %}
+
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+
+{% block csi %}
+
+{{ govukTextarea({
+  name: "close-reason",
+  id: "close-reason",
+  label: {
+    text: "[Reason for closing case]"
+  }
+}) }}
+
+<!-- hidden field to close case -->
+{{ govukInput({
+  label: {
+    text: ""
+  },
+  id: "closed-case",
+  name: "closed-case",
+  value: "true",
+  classes: 'govuk-radios__conditional--hidden'
+}) }}
+
+{% endblock %}

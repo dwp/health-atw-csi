@@ -34,6 +34,11 @@
 {% endif %}
 {% endif %}
 
+{% if phase == "closed" %}
+<br>
+<p>[You currently have no tasks.]</p>
+{% endif %}
+
 {% if (phase == "interview") %}
 {% if not (data['confirm']) and ((data['employer'] == 'no') or (data['sent-email'] == "yes")) %}
 <br>
@@ -67,7 +72,7 @@
 
 
 <!-- Task list processing inital claim before payment -->
-{% if not (phase == "interview" ) and not (phase == "waiting") and not (phase == "payment-adviser" )  %}
+{% if not (phase == "interview" ) and not (phase == "waiting") and not (phase == "payment-adviser" ) and not (phase == "closed")  %}
               <ol class="app-task-list">
                       <li>
                         <h2 class="app-task-list__section">
@@ -212,7 +217,11 @@
         },
         {
           href: "index-payment-adviser",
-          text: "Index payments for advisers (more information needed)"
+          text: "Index payments for advisers"
+        },
+        {
+          href: "index-closed",
+          text: "Index closed"
         }
       ]
     }
