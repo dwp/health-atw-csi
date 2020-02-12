@@ -1,4 +1,4 @@
-{% set link = "../closed-case" %}
+{% set link = "closed-case" %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "../index"}] %}
@@ -19,13 +19,13 @@
   following address:
 {% endif %}
 
-{{ govukInsetText({
-  text: "Thomas Brown <br>
-        11 Hill Street<br>
-        Birmingham<br>
-        Midlands<br>
-        B1 2HD"
-}) }}
+<div class="govuk-inset-text">
+  Thomas Brown <br>
+  14 Kings Road <br>
+  Birmingham <br>
+  Midlands  <br>
+  B1 1EQ
+</div>
 
 {% if data['searchlight'] == "no" %}
 <div class="govuk-inset-text">
@@ -139,7 +139,7 @@
      name: "asked-info-email",
        fieldset: {
          legend: {
-           text: "Have you sent the email?",
+           text: "[Have you sent the letter?]",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }

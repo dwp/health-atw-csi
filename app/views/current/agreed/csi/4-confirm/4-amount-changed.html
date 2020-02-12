@@ -1,0 +1,13 @@
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+{% if appointee %}{% set appointeeLink = "-appointee" %}{% else %}{% set appointeeLink = "" %}{% endif %}
+{% set interviewLink = "true" %}
+{% set link = "4-can-case-be-closed" %}
+{% set redirect = [{id : "email", page: "1-unhappy-email" + appointeeLink }, {id: "phone", page: link}] %}
+
+
+{% block csi %}
+
+<h1 class="govuk-heading-xl">[The amount on the claim form has been changed to xxxxx.]</h1>
+
+<br>
+{% endblock %}
