@@ -6,18 +6,22 @@
 {% if appointee %}
 {% set title =  "Email the applicant’s appointee" %}
 {% else %}
-{% set title =  "[Send letter]" %}
+{% set title =  "Send case closed letter" %}
 {% endif %}
 
 {% block csi %}
 
-{% if appointee %}
-<p>Send an email to {{data['appointee-name'] | default(appointeeDetails.name) | safe }} to ask for
-  more information about <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong>'s application.
-{% else %}
-<p>Send a letter to <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> at the
-  following address:
-{% endif %}
+<p>Download the form <strong>AtW03ACL Application closure letter</strong> and send it to the following address:</p>
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Get the letter",
+  classes: "govuk-button--secondary",
+  attributes:{'target':'_blank', 'rel' : 'noopener' },
+  href: "/" + folder + "/" + subfolder + "/intranet/letters"
+}) }}
+
 
 <div class="govuk-inset-text">
   Thomas Brown <br>
@@ -132,14 +136,12 @@
 
 {% endif %}
 
-<br>
-</br>
 {{ govukRadios({
     classes: "govuk-radios--inline",
      name: "asked-info-email",
        fieldset: {
          legend: {
-           text: "[Have you sent the letter?]",
+           text: "Have you printed and sent the letter?",
            isPageHeading: false,
            classes: "govuk-fieldset__legend--m"
          }
