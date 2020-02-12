@@ -15,14 +15,11 @@
 {% block csi %}
 
 {% if appointee %}
-
-    <P>Telephone <strong>{{data['appointee-name'] | default(appointeeDetails.name) | safe }}</strong> to tell them that we will not provide funding
-      because we do not think that {{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}’s interview took place on {{ data['csi-info'][1]['interview-date-day'] }} {{ data['csi-info'][1]['interview-date-month'] | toMonth }}
-      {{ data['csi-info'][1]['interview-date-year'] }} at {{ data['csi-info'][1]['company-name'] }}.</p>
+<p>Telephone {{data['appointee-name'] | default(appointeeDetails.name) | safe }} on <strong>{{data['appointee-contact-phone'] | default(appointeeDetails.phone) | safe }}</strong> to ask
+  for more information about <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong>’s application.</p>
 {% else %}
-<P>Telephone <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> to tell them that we will not provide funding
-  because we do not think that their interview took place on {{ data['csi-info'][1]['interview-date-day'] }} {{ data['csi-info'][1]['interview-date-month'] | toMonth }}
-  {{ data['csi-info'][1]['interview-date-year'] }} at {{ data['csi-info'][1]['company-name'] }}.</p>
+<p>Telephone <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> on <strong>{{ data['csi-info'][1]['contact-by-phone'] }}</strong> to ask
+  for more information about their application.</p>
 {% endif %}
 
 <br>
