@@ -5,23 +5,12 @@
 
 {% set page = "case-closed" %}
 {% set customNext = "Continue" %}
-{% set title = "[Can the case be closed?]" %}
+{% set title = "Do you want to close the case?" %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
 {% block csi %}
 
-{% set yesHtml %}
-{{ govukInput({
-  id: "case-closed",
-  name: "case-closed-reason",
-  type: "textarea",
-  classes: "govuk-!-width-one-third",
-  label: {
-    text: "[Reason why?]"
-  }
-}) }}
-{% endset -%}
 
 {% set textHtml %}
 {{ govukInput({
@@ -60,7 +49,7 @@
     {
       value: "no",
       id : "no",
-      text: "[No, contact citizen]"
+      text: "No, contact the applicant"
     }
   ]
 }) }}
