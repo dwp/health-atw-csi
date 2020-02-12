@@ -29,22 +29,29 @@
                             <a class="govuk-button"  href="/{{folder}}/agreed/search-payments">Start from payment role search</a>
   </p>
 
-<!--
-{{ govukDetails({
-          summaryText: "Searchlight prototype details",
-          html: '
-          <ul class="govuk-list">
-          <li>Prototype: <a href="https://dwp-searchlight.herokuapp.com/trace">https://dwp-searchlight.herokuapp.com/trace</a></li>
-          <li>Username and password on <a href="https://confluence.service.dwpcloud.uk/display/ATW/Useful+Links#UsefulLinks-AccesstoWorkCSI">Confluence</a></li>
-          </ul>
-          '
+  <div class="govuk-inset-text">
 
-                  }) }}
+<p>Jump to section on page:</p>
+  <ul class="govuk-list">
+    <li>
+      <a class="govuk-link" href="#new">New application</a>
+    </li>
+    <li>
+      <a class="govuk-link" href="#same-day">Same-day application only</a>
+    </li>
+    <li>
+      <a class="govuk-link" href="#after-interview">After interview</a>
+    </li>
+    <li>
+      <a class="govuk-link" href="#payments">Payments team journey</a>
+    </li>
+    <li>
+      <a class="govuk-link" href="#payment-adviser">Adviser journey when invoice is different from payment</a>
+    </li>
+  </ul>
+</div>
 
--->
-
-{% set adviserScreens %}
-                      <h3 class="govuk-heading-m">New application</h3>
+                      <h3 id="new" class="govuk-heading-m">New application</h3>
 
                       <ul class="govuk-list">
                       <li><a class="govuk-link" href="/{{folder}}/agreed/your-cases">Your cases</a> and <a class="govuk-link" href="/{{folder}}/agreed/search-payments">find a case and results</a> (on same screen) - payment person view</li>
@@ -88,15 +95,15 @@
                       <li><a class="govuk-link" href="/{{folder}}/agreed/your-cases-waiting">Your cases (waiting)</a>, <a class="govuk-link" href="/{{folder}}/agreed/csi/index-waiting">case index (waiting)</a> and <a class="govuk-link" href="/{{folder}}/agreed/csi/claim-waiting">claim (waiting)</a></li>
                       </ul>
 
-                      <h3 class="govuk-heading-m">Same-day application only</h3>
+                      <h3 id="same-day" class="govuk-heading-m">Same-day application only</h3>
 
                       <ul class="govuk-list">
                       <li><a class="govuk-link" href="/{{folder}}/agreed/your-cases-same-day">Your cases (same day)</a></li>
                         <li><a class="govuk-link" href="/{{folder}}/agreed/csi/index-same-day">Your tasks (same day)</a> and <a class="govuk-link" href="/{{folder}}/agreed/csi/claim-same-day">claim (same day)</a></li>
                       </ul>
 
-                      <h3 class="govuk-heading-m">After interview</h3>
-<p>Not added yet: journey for changing details</p>
+                      <h3 id="after-interview" class="govuk-heading-m">After interview</h3>
+
                       <ul class="govuk-list">
                       <li><a class="govuk-link" href="/{{folder}}/agreed/your-cases-interview">Your cases</a></li>
                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/index-interview">Your tasks</a>
@@ -135,22 +142,9 @@
 
                       </ul>
 
-                      <h3 class="govuk-heading-m">Intranet screens</h3>
 
-                      <ul class="govuk-list">
-                      <li><a class="govuk-link" href="/{{folder}}/agreed/intranet/forms">Forms</a></li>
-                      <li><a class="govuk-link" href="/{{folder}}/agreed/intranet/letters">Letters</a> with link to form (<a href="https://confluence.service.dwpcloud.uk/download/attachments/152748195/Blank%20CSI%20Form%20%28generated%20from%20DISC%29.rtf?api=v2">on Confluence</a> so sign in)</li>
 
-                      </ul>
-
-{% endset -%}
-
-{{ govukDetails({
-          summaryText: "Adviser screens for application and employer check (hidden for this sprint)",
-          html: adviserScreens
-
-                  }) }}
-                      <h3 class="govuk-heading-m">Payments team journey</h3>
+                      <h3 id="payments" class="govuk-heading-m">Payments team journey</h3>
 
                       <ul class="govuk-list">
 
@@ -190,7 +184,7 @@
 
                       </ul>
 
-                      <h3 class="govuk-heading-m">Adviser journey when invoice is different from payment</h3>
+                      <h3 id="payment-adviser" class="govuk-heading-m">Adviser journey when invoice is different from payment</h3>
 
                       <ul class="govuk-list">
                       <li><a class="govuk-link" href="/{{folder}}/agreed/your-cases-payment-adviser">Your cases</a></li>
@@ -198,7 +192,7 @@
                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/index-payment-adviser">Your tasks</a>
 
                       <ul class="govuk-list govuk-list--bullet">
-                        <li><a class="govuk-link" href="/{{folder}}/agreed/csi//-check/1">check difference</a> (unhappy annotated on screen) </li>
+                        <li><a class="govuk-link" href="/{{folder}}/agreed/csi/5a-check/-check/1">check difference</a> (unhappy annotated on screen) </li>
 
                         <li>unhappy path:
                         <ul class="govuk-list govuk-list--bullet">
