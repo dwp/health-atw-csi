@@ -1,17 +1,13 @@
-{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% if appointee %}{% set appointeeLink = "-appointee" %}{% else %}{% set appointeeLink = "" %}{% endif %}
 {% set interviewLink = "true" %}
 {% set link = "4-can-case-be-closed" %}
-{% set redirect = [{id : "email", page: "1-unhappy-email" + appointeeLink }, {id: "phone", page: link}] %}
+{% set redirect = [{id : "no", page: link }, {id: "yes", page: "4-amount-changed" }] %}
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
 
 {% block csi %}
 
-{% if appointee %}
-{% set headerText = "How do you want to contact the applicant's appointee?" %}
-{% else %}
-{% set headerText = "[Is the interpreter eligible for a cancelation fee?]" %}
-{% endif %}
+{% set headerText = "[Is the interpreter eligible for a cancellation fee?]" %}
 
 {{ govukRadios({
        classes: "govuk-radios--inline",

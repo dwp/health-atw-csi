@@ -1,8 +1,6 @@
-{% if data['interview-happened'] and not (data['appointee-email']) %}
-{% set link = "4-amount-changed" %}
-{% else %}
-{% set link = "4-cancelation-fee" %}
-{% endif %}
+
+{% set link = "4-cancellation-fee" %}
+
 {% set interviewLink = "true" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 <!--{% if data['appointee'] == 'yes' %}{% set appointeeLink = "-appointee" %}{% else %}{% set appointeeLink = "" %}{% endif %}-->
