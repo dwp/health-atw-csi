@@ -1,7 +1,7 @@
 {% set link = "../claim" %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% if appointee %}{% set appointeeLink = "-appointee" %}{% endif %}
+{% if appointee %}{% set appointeeLink = "-appointee" %}{% else %}{% set appointeeLink = "" %}{% endif %}
 
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "unhappy-phone-2" + appointeeLink }] %}
 
