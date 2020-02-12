@@ -2,11 +2,25 @@
 {% if appointee %}{% set appointeeLink = "-appointee" %}{% else %}{% set appointeeLink = "" %}{% endif %}
 {% set interviewLink = "true" %}
 {% set link = "complete" %}
-
+{% set interviewDetails =  true  %}
+{% set title =  "[The amount on the claim form has been changed to xxxxx.]" %}
+{% set hideChange = true %}
 
 {% block csi %}
 
-<h1 class="govuk-heading-xl">[The amount on the claim form has been changed to xxxxx.]</h1>
+{% include folder + "/" + subfolder + "/csi/_CLAIMDETAILS.html" %}
+
+
+<h2 class="govuk-heading-l">[What is the cancellation fee?]</h2>
+
+{{ govukInput({
+  label: {
+    text: "[cancellation fee]"
+  },
+  id: "canellation",
+  name: "canellation",
+  classes: "govuk-input--width-10"
+}) }}
 
 <br>
 {% endblock %}
