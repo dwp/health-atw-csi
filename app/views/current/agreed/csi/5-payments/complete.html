@@ -9,10 +9,10 @@
 
 {{ govukPanel({
        titleText: "Payment approved",
-       html: "INV123456ACATW"
+       html: "RSINV" + data['invoice-reference'] | default("123456") | safe
      }) }}
 <br>
-<p>Write the reference <strong>INV123456ACATW</strong> on the front of the paperwork.
+<p>Write the reference <strong>RSINV{{data['invoice-reference'] | default("123456") | safe}}</strong> on the front of the paperwork.
 
 
 <p>Update the spreadsheet with mobile number <strong>07982727282</strong> so that a notification can be sent.</p>
