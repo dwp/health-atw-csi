@@ -14,39 +14,15 @@
 <p>Confirm that Thomas Brown attended the interview with an interpreter or <br>
   support worker at Tesco on 1 November 2019.</p>
 
-{% set noHtml %}
-{{ govukInput({
-  id: "no-interview",
-  name: "no-interview",
-  type: "textarea",
-  classes: "govuk-!-width-one-third",
-  label: {
-    text: "Record the reason"
-  }
-}) }}
-{% endset -%}
 
-{% set textHtml %}
-{{ govukInput({
-  id: "contact-by-text",
-  name: "contact-by-text",
-  type: "tel",
-  classes: "govuk-!-width-one-third",
-  label: {
-    text: "Mobile phone number"
-  }
-}) }}
-{% endset -%}
 
 {{ govukRadios({
   idPrefix: "interview-happened",
   name: "interview-happened",
+
+  classes: "govuk-radios--inline",
   fieldset: {
-    legend: {
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--xl"
-    }
+
   },
   hint: {
     text: ""
@@ -54,17 +30,13 @@
   items: [
     {
       value: "yes",
-      text: "Yes",
-      conditional: {
-        html: yesHtml
-      }
+      id: "yes",
+      text: "Yes"
     },
     {
       value: "no",
-      text: "No",
-      conditional: {
-        html: noHtml
-      }
+      id: "no",
+      text: "No"
     }
   ]
 }) }}
