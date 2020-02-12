@@ -1,0 +1,65 @@
+<!--{% if appointee %}{% set appointeeLink = "-appointee" %}{% else %}{% set appointeeLink = "" %}{% endif %}-->
+{% set link = "../close-case" %}
+<!--{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}-->
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "4-contact-preference"}] %}
+
+{% set page = "case-closed" %}
+{% set customNext = "Continue" %}
+{% set title = "[Can the case be closed?]" %}
+
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+
+{% block csi %}
+
+{% set yesHtml %}
+{{ govukInput({
+  id: "case-closed",
+  name: "case-closed-reason",
+  type: "textarea",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "[Reason why?]"
+  }
+}) }}
+{% endset -%}
+
+{% set textHtml %}
+{{ govukInput({
+  id: "contact-by-text",
+  name: "contact-by-text",
+  type: "tel",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Mobile phone number"
+  }
+}) }}
+{% endset -%}
+
+{{ govukRadios({
+  idPrefix: "interview-happened",
+  name: "interview-happened",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes",
+      conditional: {
+        html: yesHtml
+      }
+    },
+    {
+      value: "no",
+      text: "[No, contact citizen]"
+    }
+  ]
+}) }}
+{% endblock %}

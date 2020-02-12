@@ -1,8 +1,7 @@
 {% if appointee %}{% set appointeeLink = "-appointee" %}{% else %}{% set appointeeLink = "" %}{% endif %}
 {% set interviewLink = "true" %}
-{% set link = "complete" %}
-{% set redirect = [{id : "yes", page: link  }, {id: "no", page: "1-unhappy" + appointeeLink }] %}
-
+{% set link = "4-can-case-be-closed" %}
+{% set redirect = [{id : "no", page: link }, {id: "yes", page: "4-amount-changed" }] %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
 

@@ -79,8 +79,8 @@
 
       <div class="govuk-grid-column-one-third">
 
-        <h2 class="govuk-heading-m">[Other actions]</h2>
-      {% if not (phase == "closed") and not ( phase == "payment-closed") and not (phase == "payment-cancelled") %}  <p><a  href="close-case">Close case</a></p>{% endif %}
+        <h2 class="govuk-heading-m"></h2>
+      {% if not (phase == "closed") and not ( phase == "payment-closed") and not (phase == "payment-cancelled") %}  <p><a  href="close-case">Close the case</a></p>{% endif %}
         {% if (phase == "interview") or (phase == "waiting")  or (data['claim'] =="yes") or (phase == "payment-adviser") %}
                  <p><a  href="send/2">Print and send claim form again</a></p>
   <!--              {{ govukButton({
@@ -94,7 +94,7 @@
 
 {% else %}
 {% if phase == "payment-cancelled" %}
-<p>[You have no further actions.]<p>
+<p>Stopped payment has been recorded.<p>
 {% endif %}
 
 {% if phase == "payment-closed" %}
@@ -103,7 +103,7 @@
 
 <form action="index-payment-cancelled" method="post" novalidate>
 
-<p>[Confirm that the payment has been stopped.]</p>
+<p>Confirm that the payment has been stopped.</p>
 
 <!--
 {{ govukInput({
@@ -118,7 +118,7 @@
 -->
 
 {{ govukButton({
-  text: "[Record]"
+  text: "Confirm"
 }) }}
 
 </form>
@@ -130,7 +130,7 @@
 
 
 {{ govukDetails({
-  summaryText: "[Record cancelled payment]",
+  summaryText: "Record stopped payment",
   html: stopPayment
 }) }}
 
@@ -159,13 +159,13 @@
 
 {% if phase == "payment-cancelled" %}
 
-{{timeline(title="[Payment cancelled]", date="12 February 2019 at 10:24am") }}
+{{timeline(title="Payment stopped", date="12 February 2019 at 10:24am") }}
 
 {% endif %}
 
 {% if phase == "closed" %}
 
-{{timeline(title="[Case closed]", date="11 February 2019 at 10:24am") }}
+{{timeline(title="Case closed", date="11 February 2019 at 10:24am") }}
 
 {% endif %}
 {% if payments %} <!-- section only after handoffs  -->
