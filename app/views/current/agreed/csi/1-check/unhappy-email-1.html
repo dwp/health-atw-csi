@@ -13,9 +13,9 @@
 
 {% if appointee %}
 <p>Send an email to {{data['appointee-name'] | default(appointeeDetails.name) | safe }} to ask for
-  more information about <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong>'s application.
+  more information about <strong>{{data['csi-info'][2]['firstname']}} {{data['csi-info'][2]['surname']}}</strong>'s application.
 {% else %}
-<p>Send an email to <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> to ask for
+<p>Send an email to <strong>{{data['csi-info'][2]['firstname']}} {{data['csi-info'][2]['surname']}}</strong> to ask for
   more information about their application.
 {% endif %}
 
@@ -26,16 +26,16 @@
   {{ govukButton({
     text: "Open new email",
     classes: "govuk-button--secondary",
-    href: "mailto:" + data['csi-info'][1]['email-for-user-research']
+    href: "mailto:" + data['csi-info'][2]['email-for-user-research']
   }) }}
 
 
 {% if data['searchlight'] == "no" %}
 <div class="govuk-inset-text">
-  {{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}
+  {{data['csi-info'][2]['firstname']}} {{data['csi-info'][2]['surname']}}
   <br>
-  {{ data['csi-info'][1]['dob-day'] | safe }} {{ data['csi-info'][1]['dob-month']| toMonth |  safe }}
-  {{ data['csi-info'][1]['dob-year'] | safe }}
+  {{ data['csi-info'][2]['dob-day'] | safe }} {{ data['csi-info'][2]['dob-month']| toMonth |  safe }}
+  {{ data['csi-info'][2]['dob-year'] | safe }}
   <br>B2 8FG
 </div>
 {% endif %}

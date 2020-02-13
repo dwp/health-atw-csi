@@ -4,12 +4,12 @@
 {% if appointeeChange %}{% set changeTitle = "Change" %}{% else %}{% set changeTitle = "Add" %}{% endif %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
-{% set title =  changeTitle  + " appointee details for " + data['csi-info'][1]['firstname'] +  " " +  data['csi-info'][1]['surname']  + "" %}
+{% set title =  changeTitle  + " appointee details for " + data['csi-info'][2]['firstname'] +  " " +  data['csi-info'][2]['surname']  + "" %}
 
 
 {% block csi %}
 {% if not appointeeChange %}
-<p>Copy information for {{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}’s appointee from Searchlight.</p>
+<p>Copy information for {{data['csi-info'][2]['firstname']}} {{data['csi-info'][2]['surname']}}’s appointee from Searchlight.</p>
 {% endif %}
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
