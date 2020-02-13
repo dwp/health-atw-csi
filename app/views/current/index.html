@@ -87,10 +87,7 @@
                       </ul>
                       </li>
                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/2-send/1">Send email</a> (and <a class="govuk-link" href="/{{folder}}/agreed/csi/2-send/1-appointee">option for appointee</a> screen) </li>
-                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/2-send/2">copy claim details</a> with <a class="govuk-link" href="/{{folder}}/agreed/csi/2-send/2-form">alternative with all fields for later auto-generate journey</a>
-                       (and <a class="govuk-link" href="/{{folder}}/agreed/csi/2-send/2-appointee">option for appointee</a> screen)
-                  and link to prototyped <a class="govuk-link" href="/{{folder}}/agreed/intranet/letters">intranet letters</a> with link to form <a href="https://confluence.service.dwpcloud.uk/download/attachments/152748195/Blank%20CSI%20Form%20%28generated%20from%20DISC%29.rtf?api=v2">on Confluence</a></li>
-                      <li> <a class="govuk-link" href="/{{folder}}/agreed/csi/2-send/3">print and send</a> (and <a class="govuk-link" href="/{{folder}}/agreed/csi/2-send/3-appointee">option for appointee</a> screen)</li>
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/2-send/2">print and send claim form</a>  (and <a class="govuk-link" href="/{{folder}}/agreed/csi/2-send/2-appointee">option for appointee</a> screen)</li>
 
                       <li><a class="govuk-link" href="/{{folder}}/agreed/your-cases-waiting">Your cases (waiting)</a>, <a class="govuk-link" href="/{{folder}}/agreed/csi/index-waiting">case index (waiting)</a> and <a class="govuk-link" href="/{{folder}}/agreed/csi/claim-waiting">claim (waiting)</a></li>
                       </ul>
@@ -119,29 +116,24 @@
                       <li>Update (goes to confirm)
                       </li>
 
-                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/1">Confirm interview took place</a>
+                      <li><a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/1">Did the interview happen?</a> and unhappy path:
+
+                       <ul class="govuk-list govuk-list--bullet">
+                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/4-cancellation-fee">Is the interpreter eligible for a cancellation fee?</a>
+                          <ul class="govuk-list govuk-list--bullet">
+                              <li>Yes: <a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/4-amount-changed">Add new amount</a> (continue to tasks complete)</li>
+                            </ul>
+                            <ul class="govuk-list govuk-list--bullet">
+                              <li>No: <a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/4-can-case-be-closed">Do you want to close the case?</a><br> Yes continues to close journey. No:
+                            <ul class="govuk-list govuk-list--bullet">
+                              <li><a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/4-contact-preference">How do you want to contact the applicant?</a> (and <a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/4-contact-preference-appointee">option for appointee</a> screen)</li>
+                              <li>Email: <a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/1-unhappy-email">Contact the applicant</a> (and <a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/1-unhappy-email-appointee">option for appointee</a> screen) and <a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/2-unhappy-email">email sent</a></li>
+                                  <li>Phone: <a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/1-unhappy-phone">Telephone the applicant</a> (and <a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/1-unhappy-phone-appointee">option for appointee</a> screen)</li> and <a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/2-unhappy-phone">telephone call made</a> (and <a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/2-unhappy-phone-appointee">option for appointee</a> screen)</li>
+</ul></li>
+</ul>
 
                        </li>
 
-                       <li>unhappy path:
-                       <ul class="govuk-list govuk-list--bullet">
-                         <li><a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/1-unhappy-email">Email applicant</a> (and <a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/1-unhappy-appointee">option for appointee</a> screen) </li>
-
-                       </ul></li>
-                       <li>unhappy path:
-
-                       <ul class="govuk-list govuk-list--bullet">
-                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/1">Did the interview happen</a></li>
-                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/4-cancellation-fee">Is the interpreter eligible for a cancellation fee</a></li>
-                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/4-amount-changed">Amount changed</a></li>
-                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/4-can-case-be-closed">Can case be closed</a></li>
-                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/close-case">Close case</a></li>
-                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/close-send-letter">Close send letter</a></li>
-                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/4-contact-preference">how do you want to contact the applicant?</a> (and <a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/4-contact-preference-appointee">option for appointee</a> screen)</li>
-                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/1-unhappy-email">send email</a> (and <a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/1-unhappy-email-appointee">option for appointee</a> screen)</li>
-                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/2-unhappy-email">email sentphoned</a></li>
-                       <li><a class="govuk-link" href="/{{folder}}/agreed/csi/index-payment">Payments index</a></li>
-                           <li><a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/1-unhappy-phone">phone applicant</a> (and <a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/1-unhappy-phone-appointee">option for appointee</a> screen)</li><li><a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/2-unhappy-phone">phone call made</a> (and <a class="govuk-link" href="/{{folder}}/agreed/csi/4-confirm/2-unhappy-phone-appointee">option for appointee</a> screen)</li>
                        </ul>
                        </li>
 
