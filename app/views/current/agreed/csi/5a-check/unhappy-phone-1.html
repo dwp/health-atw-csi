@@ -15,9 +15,9 @@
 
 {% if appointee %}
 <p>Telephone {{data['appointee-name'] | default(appointeeDetails.name) | safe }} on <strong>{{data['appointee-contact-phone'] | default(appointeeDetails.phone) | safe }}</strong> to ask
-  for more information about <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong>’s support cost.</p>
+  for more information about <strong>{{data['csi-info'][2]['firstname']}} {{data['csi-info'][2]['surname']}}</strong>’s support cost.</p>
 {% else %}
-<p>Telephone <strong>{{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}}</strong> on <strong>{{ data['csi-info'][1]['contact-by-phone'] }}</strong> to ask
+<p>Telephone <strong>{{data['csi-info'][2]['firstname']}} {{data['csi-info'][2]['surname']}}</strong> on <strong>{{ data['csi-info'][2]['contact-by-phone'] }}</strong> to ask
   for more information about their support cost.</p>
 {% endif %}
 

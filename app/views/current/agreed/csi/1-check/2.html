@@ -7,12 +7,12 @@
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: appointeeAddLink }, {id: "no", page: link }] %}
 
-{% set title =  "Does " + data['csi-info'][1]['firstname'] +  " " + data['csi-info'][1]['surname']  + " have an appointee?" %}
+{% set title =  "Does " + data['csi-info'][2]['firstname'] +  " " + data['csi-info'][2]['surname']  + " have an appointee?" %}
 
 
 {% block csi %}
 
-<p>Use Searchlight to check if {{data['csi-info'][1]['firstname']}} {{data['csi-info'][1]['surname']}} has an appointee.</p>
+<p>Use Searchlight to check if {{data['csi-info'][2]['firstname']}} {{data['csi-info'][2]['surname']}} has an appointee.</p>
 
 {% if appointeeAdd %} <!-- trigger to set off event if we use this screen from the claim section -->
 {{ govukInput({
