@@ -11,7 +11,7 @@
 
 {% block csi %}
 
-<p>Download the form <strong>AtW03ACL Application closure letter</strong> and send it to the following address:</p>
+<p>Download and complete <strong>AtW03ACL Application closure letter</strong>.</p>
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
@@ -22,6 +22,51 @@
   href: "/" + folder + "/" + subfolder + "/intranet/letters"
 }) }}
 
+{{ govukTable({
+  caption: "",
+  firstCellIsHeader: true,
+  head: [
+  {
+    text: "",
+    classes: 'govuk-!-width-one-third'
+  },
+  {
+    text: "",
+    classes: 'govuk-!-width-two-thirds'
+  }
+],
+  rows: [
+
+appointeeText  ,
+
+    [
+      {
+        text: "Applicant name"
+      },
+      {
+        text: data['csi-info'][1]['firstname'] +  " " +  data['csi-info'][1]['surname']
+      }
+    ],
+    [
+      {
+        text: "Application date"
+      },
+      {
+        text: "6 January 2020"
+      }
+    ],
+    [
+      {
+        text: "Reference"
+      },
+      {
+        text: "ATW34593DE"
+      }
+    ]
+  ]
+}) }}
+
+<p>Send the letter to the following address:</p>
 
 <div class="govuk-inset-text">
   Thomas Brown <br>
