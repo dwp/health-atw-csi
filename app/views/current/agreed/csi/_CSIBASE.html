@@ -170,13 +170,18 @@
 {% endif %}
 {% if payments %} <!-- section only after handoffs  -->
 
-{% if data['payment'] == "yes" or data['payment-stopped'] or (phase == "payment-closed") or (phase == "payment") %}
+{% if data['payment'] == "yes" or data['payment-stopped'] or (phase == "payment-closed") or (phase == "payment-cancelled") %}
   {{timeline(title="Payment approved", date="24 January 2019 at 10:24am") }}
 {% endif %}
 
 {% if data['correct-details']  %} <!-- found payee -->
   {{timeline(title="Payee found	", date="24 January 2019 at 10:24am") }}
 {% endif %}
+
+{% if data['transfer-back-payments']  %} <!-- found payee -->
+  {{timeline(title="(Case sent back to payments)", date="24 January 2019 at 10:24am") }}
+{% endif %}
+
 
   {% endif %} <!--  end if payments  -->
 
@@ -206,8 +211,8 @@
 
 {% if payments or (phase == "payment-adviser") %}
 
-{% if data['sop-transferred'] == "yes" or  (phase == "payment-adviser")  %}
-  {{timeline(title="Case transferred to add payee", date="24 January 2019 at 10:24am") }}
+{% if data['sop-transferred'] == "yes"  %}
+  {{timeline(title="(Request to add to SOP)", date="24 January 2019 at 10:24am") }}
 {% endif %}
 
 
