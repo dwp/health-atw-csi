@@ -3,22 +3,23 @@
 {% set interviewLink = "true" %}
 {% set link = "complete" %}
 {% set interviewDetails =  true  %}
-{% set title =  "[The amount on the claim form has been changed to xxxxx.]" %}
+{% set title =  "What is the cancellation fee?" %}
 {% set hideChange = true %}
 
 {% block csi %}
-
+<p>Check the guidance to find out what fees the support worker is eligible for.
+  <br>
+  </br>
 {% include folder + "/" + subfolder + "/csi/_CLAIMDETAILS.html" %}
 
 
-<h2 class="govuk-heading-l">[What is the cancellation fee?]</h2>
-
+<br>
 {{ govukInput({
   label: {
-    text: "[cancellation fee]"
+    text: "Cancellation fee"
   },
-  id: "canellation",
-  name: "canellation",
+  id: "cancellation",
+  name: "cancellation",
   classes: "govuk-input--width-10"
 }) }}
 
