@@ -159,24 +159,35 @@
 
 {% if phase == "payment-cancelled" %}
 
-{{timeline(title="Payment stopped", date="12 February 2019 at 10:24am") }}
+{{timeline(title="Payment stopped", date="12 February 2019 at 10:34am") }}
 
 {% endif %}
 
 {% if phase == "closed" %}
 
-{{timeline(title="Case closed", date="11 February 2019 at 10:24am") }}
+{{timeline(title="Case closed", date="11 February 2019 at 10:32am") }}
 
 {% endif %}
 {% if payments %} <!-- section only after handoffs  -->
 
-{% if data['payment'] == "yes" or data['payment-stopped'] or (phase == "payment-closed") or (phase == "payment") %}
-  {{timeline(title="Payment approved", date="24 January 2019 at 10:24am") }}
+{% if data['app-payment'] == "yes" or data['payment-stopped'] or (phase == "payment-closed") or (phase == "payment-cancelled") %}
+  {{timeline(title="Payment approved", date="24 January 2019 at 10:30am") }}
 {% endif %}
 
-{% if data['correct-details']  %} <!-- found payee -->
-  {{timeline(title="Payee found	", date="24 January 2019 at 10:24am") }}
+{% if data['payee-details-match'] == "yes"  %} <!-- Details match -->
+  {{timeline(title="Payee found	", date="24 January 2019 at 10:28am") }}
 {% endif %}
+
+{% if data['completed-sop'] =="yes"  %} <!-- found payee -->
+  {{timeline(title="SOP7 form sent", date="24 January 2019 at 10:26am") }}
+{% endif %}
+
+
+
+{% if data['transfer-back-payments']  %} <!-- found payee -->
+  {{timeline(title="(Case sent back to payments)", date="24 January 2019 at 10:24am") }}
+{% endif %}
+
 
   {% endif %} <!--  end if payments  -->
 
@@ -206,8 +217,8 @@
 
 {% if payments or (phase == "payment-adviser") %}
 
-{% if data['sop-transferred'] == "yes" or  (phase == "payment-adviser")  %}
-  {{timeline(title="Case transferred to add payee", date="24 January 2019 at 10:24am") }}
+{% if data['sop-transferred'] == "yes"  %}
+  {{timeline(title="(Request to add to SOP)", date="24 January 2019 at 10:24am") }}
 {% endif %}
 
 
@@ -215,7 +226,7 @@
   {{timeline(title="Case sent to adviser to check support cost", date="24 January 2019 at 10:24am") }}
 {% endif %}
 
-{% if data['signed-claim-form']  or  (phase == "payment-adviser") %} <!-- hack to show answer -->
+{% if data['invoice']  or  (phase == "payment-adviser") %} <!-- hack to show answer -->
   {{timeline(title="Evidence received", date="24 January 2019 at 10:24am") }}
 {% endif %}
 

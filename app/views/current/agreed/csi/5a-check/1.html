@@ -17,7 +17,7 @@
     Condition
   </dt>
   <dd class="govuk-summary-list__value">
-    <p>{{ data['csi-info'][1]['condition'] }}</p>
+    <p>{{ data['csi-info'][2]['condition'] }}</p>
   </dd>
 
 </div>
@@ -27,7 +27,7 @@
     Interview length
   </dt>
   <dd class="govuk-summary-list__value">
-    <p>{{ data['csi-info'][1]['duration'] }}
+    <p>{{ data['csi-info'][2]['duration'] }}
     </p>
   </dd>
 
@@ -52,7 +52,7 @@
   id: "difference-reason",
   value: data['difference-reason'],
   label: {
-    text: "Reason for approval (optional)"
+    text: "Reason for approval"
   }
 }) }}
 {% endset -%}

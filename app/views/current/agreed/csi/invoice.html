@@ -12,7 +12,7 @@
 <p class="govuk-body">You can change invoice details here after you have added it in the tasks.</p>
 
 
-{% macro defItem(key='', value='', money='') %}
+{% macro defItem(key='', value='', money='', hideChange='') %}
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key ">
       {{key}}
@@ -26,12 +26,12 @@
     </dd>
 
 <dd class="govuk-summary-list__actions">
-{% if value %}
+{% if value and not hideChange %}
   <a class="govuk-link" href="invoice-details-change">
     Change
     <span class="govuk-visually-hidden"></span>
   </a>
-  {%endif %}
+  {% endif %}
 
 </dd>
 
@@ -39,7 +39,16 @@
   </div>
 
 
+
+
 {% endmacro %}
+
+{% set dwpRef = "" %}
+{% if data['invoice-complete'] %}
+
+{% set dwpRef = "RSINV" +  data['invoice-reference'] | default(123456) | safe %}
+
+{% endif %}
 
 {% if not data["invoice-date-month"]  %}
 {% set date = "" %}
@@ -47,6 +56,7 @@
 {% set date = data["invoice-date-day"] + " " + data["invoice-date-month"] | toMonth +  " " + data["invoice-date-year"]   %}
 {% endif %}
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  {{ defItem(key='[DWP reference for invoice]', value=dwpRef, hideChange="true" ) }}
   {{ defItem(key='Invoice reference', value=data['invoice-reference']) }}
   {{ defItem(key='Invoice date', value=date) }}
   {{ defItem(key='Payee postcode', value=data['invoice-postcode']) }}

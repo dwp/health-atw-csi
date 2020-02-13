@@ -1,4 +1,4 @@
-{% set link = "../../search-payments" %}
+{% set link = "/" + folder + "/scenario-handover-to-adviser" %}
 {% set paymentLink = true %}
 {% set customNext = "Search for another case" %}
 {% set hideReturn = true %}
@@ -13,6 +13,6 @@
 
 <br>
 <!-- KLUGE - this will make the section complete once the user goes back to the section  -->
-<input type="hidden" name="transfer-back-payments" value="yes">
+<!-- <input type="hidden" name="transfer-back-payments" value="yes"> -->
 
 {% endblock %}
