@@ -6,7 +6,7 @@
 {% if appointee %}
 {% set title =  "Email the applicant’s appointee" %}
 {% else %}
-{% set title =  "Send case closed letter" %}
+{% set title =  "Send a letter to the applicant" %}
 {% endif %}
 
 {% block csi %}
@@ -31,8 +31,6 @@
   B1 1EQ
 </div>
 
-
-{% endif %}
 
 {{ govukRadios({
     classes: "govuk-radios--inline",
