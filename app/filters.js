@@ -52,7 +52,11 @@ module.exports = function (env) {
     }
 
     filters.toMoney = function(x){
+      if (x != undefined) {
       return("£" + x );
+    } else {
+      return("");
+    }
     }
     filters.firstName = function(x){
       return x.substr(0,x.indexOf(' ')); // "72"
