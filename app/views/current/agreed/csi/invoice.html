@@ -56,8 +56,8 @@
 {% set date = data["invoice-date-day"] + " " + data["invoice-date-month"] | toMonth +  " " + data["invoice-date-year"]   %}
 {% endif %}
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-  {{ defItem(key='[DWP reference for invoice]', value=dwpRef, hideChange="true" ) }}
-  {{ defItem(key='Invoice reference', value=data['invoice-reference']) }}
+  {{ defItem(key='DWP invoice reference', value=dwpRef, hideChange="true" ) }}
+  {{ defItem(key='Supplier invoice reference', value=data['invoice-reference']) }}
   {{ defItem(key='Invoice date', value=date) }}
   {{ defItem(key='Payee postcode', value=data['invoice-postcode']) }}
   {{ defItem(key='Payment amount', value=data['invoice-value'], money="true") }}
