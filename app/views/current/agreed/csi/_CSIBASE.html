@@ -191,6 +191,11 @@
   {% if phase == "payment-adviser" or ( payments and data['transfer-back-payments'] == 'yes' ) %}
 
 
+{% if ((data['unreasonable'] == "quote") and (data['difference'] == "no") ) %}
+{{timeline(title="Original quote approved", date="24 January 2019 at 10:24am") }}
+
+{% endif %}
+
 {% if data['difference'] == 'yes' %}
   {{timeline(title="Invoice amount approved", date="24 January 2019 at 10:24am") }}
 {% endif %}
