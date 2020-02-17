@@ -12,7 +12,7 @@
              name: "check-amount",
              fieldset: {
                legend: {
-                 text: "Is £"+  data['csi-info'][2]['support-worker-pay'] + " the amount on the invoice?",
+                 text: "Is £"+  data['csi-info'][2]['support-worker-pay'] + " the total amount on the invoice?",
                  isPageHeading: false,
                  classes: "govuk-fieldset__legend--m"
                }
@@ -30,7 +30,7 @@
                {
                  id: "no",
                  value: "no",
-                 text: "No, change amount",
+                 text: "No",
                  checked: checked('check-amount', "no")
                }
              ]
