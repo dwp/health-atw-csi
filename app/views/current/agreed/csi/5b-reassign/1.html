@@ -10,7 +10,15 @@
 
 
 
+{% if ((data['unreasonable'] == "quote") and (data['difference'] == "no"))  %}
+{% set amount = data['csi-info'][2]['support-worker-pay'] | toMoney %}
+
+{% else %}
+{% set amount = data['invoice-value'] | default(240) | toMoney %}
+{% endif  %}
+
 <p>Contact <strong>Richard Silver</strong> to tell them that they can continue processing the payment for this case.</p>
+
 
 
   {{ govukTable({
@@ -51,7 +59,7 @@ appointeeText  ,
           text: "Agreed support cost"
         },
         {
-          text: "£240"
+          text: amount
         }
       ]
     ]

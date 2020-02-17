@@ -7,7 +7,12 @@
 
 {% block csi %}
 
+{% if ((data['unreasonable'] == "quote") and (data['difference'] == "no") ) %}
+{% set amount = data['csi-info'][2]['support-worker-pay'] | toMoney %}
 
+{% else %}
+{% set amount = data['invoice-value'] | default(200) | toMoney %}
+{% endif %}
 
       <p class="govuk-body">Check the details before you approve the payment request.</p>
 
@@ -66,7 +71,7 @@
               text: "Payment amount"
             },
             value: {
-              html: data['invoice-value'] | default("200") | toMoney | safe
+              html: amount
             },
             actions: {
               items: [

@@ -10,21 +10,21 @@
 
 
 {{ govukRadios({
-       idPrefix: "unreasonable-action",
-       name: "unreasonable-action",
+       idPrefix: "unreasonable",
+       name: "unreasonable",
 
        items: [
        {
          id: "quote",
          value: "quote",
-         checked: checked('unreasonable-action', "quote"),
+         checked: checked('unreasonable', "quote"),
          text: "Use quote amount"
        },
          {
            id: "contact",
            value: "contact",
            text: "Contact applicant",
-           checked: checked('unreasonable-action', "contact")
+           checked: checked('unreasonable', "contact")
          }
        ]
      }) }}
