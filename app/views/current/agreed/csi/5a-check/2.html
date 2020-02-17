@@ -1,0 +1,32 @@
+{% set paymentAdviserLink = true %}
+{% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
+{% if appointee %}{% set appointeeLink  = "2-appointee" %}{% else %}{% set appointeeLink  = "" %}{% endif %}
+{% set link = "unhappy-2" + appointeeLink  %}
+{% set redirect = [{id : "quote", page: "../5b-reassign/1" }, {id: "contact", page: link }] %}
+
+{% set title =  "[What do you want to do?]" %}
+
+{% block csi %}
+
+
+{{ govukRadios({
+       idPrefix: "unreasonable-action",
+       name: "unreasonable-action",
+
+       items: [
+       {
+         id: "quote",
+         value: "quote",
+         checked: checked('unreasonable-action', "quote"),
+         text: "Use quote"
+       },
+         {
+           id: "contact",
+           value: "contact",
+           text: "Contact applicant",
+           checked: checked('unreasonable-action', "contact")
+         }
+       ]
+     }) }}
+
+{% endblock %}
