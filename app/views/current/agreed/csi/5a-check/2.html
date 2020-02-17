@@ -4,7 +4,7 @@
 {% set link = "unhappy-2" + appointeeLink  %}
 {% set redirect = [{id : "quote", page: "../5b-reassign/1" }, {id: "contact", page: link }] %}
 
-{% set title =  "[What do you want to do?]" %}
+{% set title =  "What do you want to do?" %}
 
 {% block csi %}
 
@@ -18,7 +18,7 @@
          id: "quote",
          value: "quote",
          checked: checked('unreasonable-action', "quote"),
-         text: "Use quote"
+         text: "Use quote amount"
        },
          {
            id: "contact",
