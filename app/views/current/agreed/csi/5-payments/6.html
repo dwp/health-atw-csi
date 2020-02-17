@@ -7,12 +7,12 @@
 
 {% block csi %}
 
-{% if ((data['unreasonable'] == "quote") and (data['difference'] == "no") ) %}
-{% set amount = data['csi-info'][2]['support-worker-pay'] | toMoney %}
+{% if data['agreed-amount']  %}
+{% set amount = data['agreed-amount'] | toMoney %}
 
 {% else %}
-{% set amount = data['invoice-value'] | default(200) | toMoney %}
-{% endif %}
+{% set amount = data['invoice-value'] | default(240) | toMoney %}
+{% endif  %}
 
       <p class="govuk-body">Check the details before you approve the payment request.</p>
 

@@ -2,29 +2,29 @@
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% if appointee %}{% set appointeeLink  = "2-appointee" %}{% else %}{% set appointeeLink  = "" %}{% endif %}
 {% set link = "unhappy-2" + appointeeLink  %}
-{% set redirect = [{id : "quote", page: "../5b-reassign/1" }, {id: "contact", page: link }] %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "3" }] %}
 
-{% set title =  "[What do you want to do?]" %}
+{% set title =  "[Do you need to contact the applicant for more details?]" %}
 
 {% block csi %}
 
 
 {{ govukRadios({
-       idPrefix: "unreasonable",
-       name: "unreasonable",
-
+       idPrefix: "differenceContact",
+       name: "differenceContact",
+       classes: "govuk-radios--inline",
        items: [
        {
-         id: "quote",
-         value: "quote",
-         checked: checked('unreasonable', "quote"),
-         text: "Use quote"
+         id: "yes",
+         value: "yes",
+         checked: checked('differenceContact', "yes"),
+         text: "Yes"
        },
          {
-           id: "contact",
-           value: "contact",
-           text: "Contact applicant",
-           checked: checked('unreasonable', "contact")
+           id: "no",
+           value: "no",
+           text: "No",
+           checked: checked('differenceContact', "no")
          }
        ]
      }) }}
