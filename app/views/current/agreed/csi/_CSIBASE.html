@@ -80,7 +80,7 @@
       <div class="govuk-grid-column-one-third">
 
         <h2 class="govuk-heading-m"></h2>
-      {% if not (phase == "closed") and not ( phase == "payment-closed") and not (phase == "payment-cancelled") %}  <p><a  href="close-case">Close the case</a></p>{% endif %}
+      {% if not (phase == "closed") and not ( phase == "payment-closed") and not (phase == "payment-cancelled") %}  <p><a  href="close-case">Reject the case</a></p>{% endif %}
         {% if (phase == "interview") or (phase == "waiting")  or (data['claim'] =="yes") or (phase == "payment-adviser") %}
                  <p><a  href="send/2">Print and send claim form again</a></p>
   <!--              {{ govukButton({
@@ -165,7 +165,7 @@
 
 {% if phase == "closed" %}
 
-{{timeline(title="Case closed", date="11 February 2019 at 10:32am") }}
+{{timeline(title="Case rejected", date="11 February 2019 at 10:32am") }}
 
 {% endif %}
 {% if payments %} <!-- section only after handoffs  -->
@@ -190,8 +190,9 @@
 
   {% if phase == "payment-adviser" or ( payments and data['transfer-back-payments'] == 'yes' ) %}
 
-{% if data['agreed-amount']  %}
-{{timeline(title="[Different amount approved]", date="24 January 2019 at 10:24am") }}
+
+{% if ((data['unreasonable'] == "quote") and (data['difference'] == "no") ) %}
+{{timeline(title="Original quote amount approved", date="24 January 2019 at 10:24am") }}
 
 {% endif %}
 
