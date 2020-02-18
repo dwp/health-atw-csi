@@ -2,7 +2,7 @@
 {% set link = "../5b-reassign/1" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set paymentLink = true %}
-{% set title =  "[What amount can be claimed?]" %}
+{% set title =  "What is the agreed support cost?" %}
 
 {% block csi %}
 
@@ -61,7 +61,7 @@
 
 {{ govukInput({
   label: {
-    text: "[Agreed amount]"
+    text: "Agreed amount to pay"
   },
   id: "agreed-amount",
   name: "agreed-amount",
@@ -72,10 +72,11 @@
 
 {{ govukTextarea({
   name: "difference-reason",
+  classes: "govuk-!-width-two-thirds",
   id: "difference-reason",
   value: data['difference-reason'],
   label: {
-    text: "[Reason for difference]"
+    text: "Reason for the agreed amount"
   }
 }) }}
 
