@@ -82,7 +82,7 @@
         <h2 class="govuk-heading-m"></h2>
       {% if not (phase == "closed") and not ( phase == "payment-closed") and not (phase == "payment-cancelled") %}  <p><a  href="close-case">Reject the case</a></p>{% endif %}
         {% if (phase == "interview") or (phase == "waiting")  or (data['claim'] =="yes") or (phase == "payment-adviser") %}
-                 <p><a  href="send/2">Print and send claim form again</a></p>
+                 <p><a  href="resend">Print and send claim form again</a></p>
   <!--              {{ govukButton({
                   text: "Print and send claim form again",
                   classes: "govuk-button--secondary",
@@ -258,6 +258,12 @@
 
   {% endif %} <!--  end if payments  -->
 
+
+  {% if (data['claim-resend'] =="yes") %}
+
+                {{timeline(title="[Claim form sent again]", date="7 January 2020 at 3:15pm") }}
+
+  {% endif %}
 
           {% if data['confirm'] == "no" %}
                     <li class="dwp-timeline__entry">
