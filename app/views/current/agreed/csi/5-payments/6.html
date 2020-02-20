@@ -1,9 +1,8 @@
 {% set link = "complete" %}
 {% set paymentLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "../index-payments"}] %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "../index-payment"}] %}
 {% set title = "Check and approve payment details" %}
-{% set customNext = "Approve payment" %}
 
 {% block csi %}
 
@@ -120,11 +119,13 @@
           {
             value: "yes",
             text: "Yes",
+            id: "yes",
             checked: checked('app-payment', "yes")
           },
           {
             value: "no",
             text: "No",
+            id: "no",
             checked: checked('app-payment', "no")
           }
         ]

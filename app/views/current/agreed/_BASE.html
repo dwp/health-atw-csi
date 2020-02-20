@@ -29,7 +29,7 @@
 
      </div>
      <div class="header-user-details">
-          {% if payments or paymentLink%}Richard Silver{% else %}John Goldsmith{% endif %}
+          {% if contactCentre %}Chris Connolly{% elif payments or paymentLink%}Richard Silver{% else %}John Goldsmith{% endif %}
          </div>
    </div>
  </header>
@@ -41,7 +41,7 @@
         <ul class="nav-pri">
           <li{% if yourCases %} class="active"{% endif %}>
 
-{% if (not payments) and (not paymentLink ) %}
+{% if (not contactCentre) and (not payments) and (not paymentLink ) %}
           <a href="/{{folder}}/{{subfolder}}/your-cases{% if phase == "interview" %}-interview{% elif phase == "empty" %}-empty{% elif phase == "waiting" or (data['claim'] == 'yes') %}-waiting{% elif phase == "payment-adviser" %}-payment-adviser{% else %}{% endif %}" class="active" aria-current="page">Your cases</a>
 
         </li>
@@ -49,7 +49,7 @@
 
 {% endif %}
 
-          <li{% if Search %} class="active"{% endif %}><a href="/{{folder}}/{{subfolder}}/search{% if payments or paymentLink%}-payments{% endif %}">Search</a></li>
+          <li{% if Search %} class="active"{% endif %}><a href="/{{folder}}/{{subfolder}}/search{% if contactCentre %}-contact{% elif payments or paymentLink%}-payments{% endif %}">Search</a></li>
         </ul>
       </div>
     </div>

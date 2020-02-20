@@ -50,13 +50,15 @@
     <p>{{ data['ni-number'] }}</p>
   </dd>
 
+
   <dd class="govuk-summary-list__actions">
+    {% if not contactCentre %}
     {% if data['ni-number']  %}
     <a class="govuk-link" href="personal-details-change#name">
       Change
       <span class="govuk-visually-hidden"></span>
     </a>
-    {% endif %}
+    {% endif %}{% endif %}
   </dd>
 
 
@@ -70,14 +72,16 @@
     <dd class="govuk-summary-list__value">
       <p>{{ data['csi-info'][2]['firstname'] | safe }}</p>
     </dd>
-{% if not hideChange %}
+
     <dd class="govuk-summary-list__actions">
+      {% if not hideChange and not contactCentre %}
       <a class="govuk-link" href="personal-details-change#name">
         Change
         <span class="govuk-visually-hidden"></span>
       </a>
+      {% endif %}
     </dd>
-{% endif %}
+
 
   </div>
 
@@ -88,15 +92,16 @@
     <dd class="govuk-summary-list__value">
       <p>{{ data['csi-info'][2]['surname'] | safe }}</p>
     </dd>
-{% if not hideChange %}
+
     <dd class="govuk-summary-list__actions">
+{% if not hideChange and not contactCentre %}
       <a class="govuk-link" href="personal-details-change#name">
         Change
         <span class="govuk-visually-hidden"></span>
       </a>
-    </dd>
-{% endif %}
 
+{% endif %}
+  </dd>
   </div>
 
   <div class="govuk-summary-list__row">
@@ -106,14 +111,16 @@
     <dd class="govuk-summary-list__value">
       <p>{{ data['csi-info'][2]['dob-day'] | safe }} {{ data['csi-info'][2]['dob-month']| toMonth | safe }} {{ data['csi-info'][2]['dob-year'] | safe }}</p>
     </dd>
-{% if not hideChange %}
+
     <dd class="govuk-summary-list__actions">
+{% if not hideChange and not contactCentre %}
       <a class="govuk-link" href="personal-details-change#dob-day">
         Change
         <span class="govuk-visually-hidden"></span>
       </a>
-    </dd>
 {% endif %}
+    </dd>
+
 
  </div>
     <div class="govuk-summary-list__row">
@@ -130,14 +137,16 @@
   </p>
 
     </dd>
-{% if not hideChange %}
+
     <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="personal-details-change#address-line-1">
+{% if not hideChange %}<!-- show for contact centre -->
+      <a class="govuk-link" href="personal-details-{% if contactCentre %}contact-{% endif %}change#address-line-1">
         Change
         <span class="govuk-visually-hidden"></span>
       </a>
-    </dd>
 {% endif %} <!-- end change -->
+    </dd>
+
   </div>
 
 
@@ -149,15 +158,17 @@
     <dd class="govuk-summary-list__value">
       {{ data['csi-info'][2]['contact-by-email'] }}
     </dd>
-    {% if not hideChange %}
+
 
     <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="personal-details-change#personal-contact-preference">
+      {% if not hideChange %}<!-- show for contact centre -->
+      <a class="govuk-link" href="personal-details-{% if contactCentre %}contact-{% endif %}change#personal-contact-preference">
         Change
         <span class="govuk-visually-hidden"></span>
       </a>
+        {% endif %} <!-- end change -->
     </dd>
-    {% endif %} <!-- end change -->
+
 
   </div>
 
@@ -168,15 +179,18 @@
     <dd class="govuk-summary-list__value">
       {{ data['csi-info'][2]['contact-by-phone'] }}
     </dd>
-    {% if not hideChange %}
+
 
     <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="personal-details-change#personal-contact-preference">
+      {% if not hideChange %}<!-- show for contact centre -->
+
+      <a class="govuk-link" href="personal-details-{% if contactCentre %}contact-{% endif %}change#personal-contact-preference">
         Change
         <span class="govuk-visually-hidden"></span>
       </a>
-    </dd>
     {% endif %}
+    </dd>
+
   </div>
 
 
@@ -238,7 +252,7 @@
       <dd class="govuk-summary-list__value">
         {{ data['appointee-citizen'] | default(appointeeDetails.contact) | string | capitalize }}
       </dd>
-    {% if not hideChange %}
+    {% if not hideChange and not contactCentre %}
       <dd class="govuk-summary-list__actions">
         <a class="govuk-link" href="appointee-details-change#appointee-citizen">
           Change
@@ -321,7 +335,7 @@
           <dd class="govuk-summary-list__value">
           {{ data['csi-info'][2]['company-name'] }}
           </dd>
-{% if not hideChange %}
+{% if not hideChange and not contactCentre %}
           <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="company-details-change#company-name">
           Change
@@ -344,7 +358,7 @@
         </p>
 
           </dd>
-{% if not hideChange %}
+{% if not hideChange and not contactCentre %}
           <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="company-details-change#address-line-1">
           Change
@@ -361,7 +375,7 @@
           <dd class="govuk-summary-list__value">
           {{ data['csi-info'][2]['interviewer-name'] }}
           </dd>
-{% if not hideChange %}
+{% if not hideChange and not contactCentre %}
           <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="company-details-change#company-contact">
           Change
@@ -379,7 +393,7 @@
     <dd class="govuk-summary-list__value">
       {{ data['csi-info'][2]['company-email-address'] }}
     </dd>
-{% if not hideChange %}
+{% if not hideChange and not contactCentre %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="company-details-change#email">
         Change
@@ -397,7 +411,7 @@
     <dd class="govuk-summary-list__value">
       {{ data['csi-info'][2]['company-phone'] }}
     </dd>
-{% if not hideChange %}
+{% if not hideChange and not contactCentre %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="company-details-change#Telephone">
         Change
@@ -450,7 +464,7 @@
       <p>{{ data['csi-info'][2]['interview-date-day'] }} {{ data['csi-info'][2]['interview-date-month'] | toMonth }} {{ data['csi-info'][2]['interview-date-year'] }}</p>
     </dd>
 
-{% if not hideChange %}
+{% if not hideChange and not contactCentre %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="job-details-change#dob-day">
         Change
@@ -467,7 +481,7 @@
     <dd class="govuk-summary-list__value">
       <p>{{ data['csi-info'][2]['condition'] }}</p>
     </dd>
-{% if not hideChange %}
+{% if not hideChange and not contactCentre %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="job-details-change#condition">
         Change
@@ -485,7 +499,7 @@
       <p>{{ data['csi-info'][2]['duration'] }}
       </p>
     </dd>
-{% if not hideChange %}
+{% if not hideChange and not contactCentre %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="job-details-change#interview-length">
         Change
@@ -504,7 +518,7 @@
         {{ data['csi-info'][2]['support-worker-pay'] | toMoney | safe }}
       </p>
     </dd>
-{% if not hideChange %}
+{% if not hideChange and not contactCentre %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="job-details-change#support-cost">
         Change

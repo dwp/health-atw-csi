@@ -328,7 +328,7 @@
                 <td class="govuk-table__cell">Allocated</td>
                 <td class="govuk-table__cell">24 January 2019 13:02</td>
                 <td class="govuk-table__cell">John Goldsmith</td>
-                <td class="govuk-table__cell"><a href="csi/index{% if payments %}-payment{% endif %}">View case</a></td>
+                <td class="govuk-table__cell"><a href="csi/{% if contactCentre %}claim-contact{% else %}index{% if payments %}-payment{% endif %}{% endif %}">View case</a></td>
               </tr>
 
         </tbody>
