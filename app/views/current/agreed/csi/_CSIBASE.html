@@ -94,7 +94,35 @@
 
 {% else %}
 {% if phase == "payment-cancelled" %}
-<p>Stopped payment has been recorded.<p>
+
+<p>Stopped payment has been recorded.</p>
+
+
+{% set stopPayment %}
+
+<form action="index-payment-cancelled" method="post" novalidate>
+
+<p>[Confirm that the payment has been resent.]</p>
+
+{{ govukButton({
+  text: "Confirm"
+}) }}
+
+</form>
+
+{% endset -%}
+
+
+
+
+
+{{ govukDetails({
+  summaryText: "[Record resent payment]",
+  html: stopPayment
+}) }}
+
+
+
 {% endif %}
 
 {% if phase == "payment-closed" %}
@@ -104,18 +132,6 @@
 <form action="index-payment-cancelled" method="post" novalidate>
 
 <p>Confirm that the payment has been stopped.</p>
-
-<!--
-{{ govukInput({
-  label: {
-    text: ""
-  },
-  id: "payment-stopped",
-  name: "payment-stopped",
-  value: "true",
-  classes: 'govuk-radios__conditional--hidden'
-}) }}
--->
 
 {{ govukButton({
   text: "Confirm"
@@ -160,6 +176,14 @@
 {% if phase == "payment-cancelled" %}
 
 {{timeline(title="Payment stopped", date="12 February 2019 at 10:34am") }}
+
+{% endif %}
+
+
+
+{% if (phase == "payment-closed") or (phase == "payment-cancelled") %}
+
+{{timeline(title="[Payment sent to SOP]", date="12 February 2019 at 11:59pm") }}
 
 {% endif %}
 
