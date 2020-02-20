@@ -1,7 +1,5 @@
 {% set  hideForm = true %}
 {% set hideBack = true %}
-{% set paymentAdviserLink = true %}
-
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set hideReturn  = true %}
 {% set title = "" %}
@@ -20,7 +18,7 @@
     <br>
 
 {{ govukButton({
-      href: "/" + folder + "/your-cases-waiting",
+      href: "/" + folder + "/" + subfolder + "/your-cases-empty",
           text: "Return to Your cases"
         }) }}
 

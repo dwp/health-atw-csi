@@ -1,7 +1,5 @@
 {% set  hideForm = true %}
 {% set hideBack = true %}
-{% set paymentAdviserLink = true %}
-
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set hideReturn  = true %}
 {% set title = "" %}
@@ -11,16 +9,16 @@
 
 
 {{ govukPanel({
-       titleText: "Tasks completed",
-       html: "All tasks have been completed and information saved."
+       titleText: "Case rejected",
+       html: ""
      }) }}
-
+     <br>
     <P>The case has been removed from <strong>Your priority cases</strong>.</p>
 
     <br>
 
 {{ govukButton({
-      href: "/" + folder + "/your-cases-waiting",
+      href: "/" + folder + "/" + subfolder + "/your-cases-empty",
           text: "Return to Your cases"
         }) }}
 

@@ -39,7 +39,8 @@ router.use('/sprint-8', require('./views/sprint-8/_routes'));
 router.use('/sprint-9', require('./views/sprint-9/_routes'));
 router.use('/sprint-10', require('./views/sprint-10/_routes'));
 router.use('/sprint-10b', require('./views/sprint-10b/_routes'));
-router.use('/sprint-10b', require('./views/sprint-11/_routes'));
+router.use('/sprint-11', require('./views/sprint-11/_routes'));
+router.use('/sprint-11b', require('./views/sprint-11b/_routes'));
 // current sprint, remember to add older sprint when adding a new folder!
 router.use('/current', require('./views/current/_routes'));
 module.exports = router
