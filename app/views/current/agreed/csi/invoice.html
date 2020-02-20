@@ -4,13 +4,18 @@
 {% set phase = "payment" %}
 {% set title = "Invoice details" %}
 
+{% if not contactCentre %}
+{% set contactCentre = "" %}
+{% endif %}
+
 {% extends folder + "/" + subfolder + "/csi/_CSIBASE.html" %}
 
 {% block csi %}
 
 <br>
+{% if not contactCentre %}
 <p class="govuk-body">You can change invoice details here after you have added it in the tasks.</p>
-
+{% endif %}
 
 {% macro defItem(key='', value='', money='', hideChange='') %}
   <div class="govuk-summary-list__row">
@@ -26,7 +31,7 @@
     </dd>
 
 <dd class="govuk-summary-list__actions">
-{% if value and not hideChange %}
+{% if value and not hideChange and not contactCentre %}
   <a class="govuk-link" href="invoice-details-change">
     Change
     <span class="govuk-visually-hidden"></span>
@@ -57,11 +62,11 @@
 {% endif %}
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
   {{ defItem(key='DWP invoice reference', value=dwpRef, hideChange="true" ) }}
-  {{ defItem(key='Supplier invoice reference', value=data['invoice-reference']) }}
-  {{ defItem(key='Invoice date', value=date) }}
-  {{ defItem(key='Payee postcode', value=data['invoice-postcode']) }}
-  {{ defItem(key='Payment amount', value=data['invoice-value'], money="true") }}
-  {{ defItem(key='SOP supplier number', value=data['supplier-reference']) }}
+  {{ defItem(key='Supplier invoice reference', value=data['invoice-reference'], hidechange=contactCentre) }}
+  {{ defItem(key='Invoice date', value=date, hidechange=contactCentre) }}
+  {{ defItem(key='Payee postcode', value=data['invoice-postcode'], hidechange=contactCentre) }}
+  {{ defItem(key='Payment amount', value=data['invoice-value'], money="true", hidechange=contactCentre) }}
+  {{ defItem(key='SOP supplier number', value=data['supplier-reference'], hidechange=contactCentre) }}
 
 
 </dl>

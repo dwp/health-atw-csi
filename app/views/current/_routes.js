@@ -371,11 +371,94 @@ router.get(`/agreed/search-payments`, (req, res) => {
   })
 })
 
+router.get(`/agreed/search-contact`, (req, res) => {
+  var search = req.query.search;
+  var type = req.query.type;
+  var caseID = req.query.caseID;
+  var adviser = req.query.adviser;
+
+  res.render(res.locals.folder + `/agreed/search-contact`, {
+    search: search,
+    adviser: adviser,
+    type: type,
+    caseID: caseID
+  })
+})
+
 router.get(`/delete-and-continue-router`, (req, res) => {
   var nextLink = req.query.next;
   delete req.session.data;
 
   return res.redirect (nextLink);
 })
+
+
+
+//CONTACT CENTRE PERSONAL DETAILS ROUTER
+
+router.all('/agreed/csi/personal-details-contact-router', function(req, res, next){
+
+req.session.data['personal-details-contact-changed'] = 'true';
+
+
+if (req.session.data['address-line-one-change'] ) {
+req.session.data['csi-info'][2]['address-line-one'] = req.session.data['address-line-one-change'];
+console.log('address-line-one changed to ' + req.session.data['address-line-one-change'] );
+delete req.session.data['address-line-one-change'];
+}
+
+if (req.session.data['address-town-change'] ) {
+req.session.data['csi-info'][2]['address-town'] = req.session.data['address-town-change'];
+console.log('address-town changed to ' + req.session.data['address-town-change'] );
+delete req.session.data['address-town-change'];
+}
+
+if (req.session.data['address-county-change'] ) {
+req.session.data['csi-info'][2]['address-county'] = req.session.data['address-county-change'];
+console.log('address-county changed to ' + req.session.data['address-county-change'] );
+delete req.session.data['address-county-change'];
+}
+
+if (req.session.data['address-postcode-change'] ) {
+req.session.data['csi-info'][2]['address-postcode'] = req.session.data['address-postcode-change'];
+console.log('address-postcode changed to ' + req.session.data['address-postcode-change'] );
+delete req.session.data['address-postcode-change'];
+}
+
+
+
+if (req.session.data['personal-contact-preference'] ) {
+req.session.data['csi-info'][2]['personal-contact-preference'] = req.session.data['personal-contact-preference'];
+console.log('contact-options changed to ' + req.session.data['personal-contact-preference'] );
+delete req.session.data['personal-contact-preference'];
+}
+
+if (req.session.data['contact-by-email-change'] ) {
+req.session.data['csi-info'][2]['contact-by-email'] = req.session.data['contact-by-email-change'];
+console.log('contact-by-email changed to ' + req.session.data['contact-by-email-change'] );
+delete req.session.data['contact-by-email-change'];
+}
+
+if (req.session.data['agree-email-terms-change'] ) {
+req.session.data['csi-info'][2]['agree-email-terms'] = req.session.data['agree-email-terms-change'];
+console.log('agree-email-terms changed to ' + req.session.data['agree-email-terms-change'] );
+delete req.session.data['agree-email-terms-change'];
+}
+
+if (req.session.data['contact-by-phone-change'] ) {
+req.session.data['csi-info'][2]['contact-by-phone'] = req.session.data['contact-by-phone-change'];
+console.log('contact-by-phone changed to ' + req.session.data['contact-by-phone-change'] );
+delete req.session.data['contact-by-phone-change'];
+}
+
+
+return res.redirect ('claim-contact');
+
+next();
+
+
+});
+
+
 
 module.exports = router

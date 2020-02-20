@@ -37,23 +37,30 @@
 
 <br>  -->
 
-
+{% if contactCentre %}
+<p>[Contact the adviser for any changes other than contact details.]</p>
+{% endif %}
 
         <nav class="navigation-secondary">
                 <ul>
-                  <li>
+
+{% if not contactCentre %}                  <li>
                     <a href="{% if not (page == 'task-list') %}index{% if phase %}-{{phase}}{% endif %}{% else %}" class="active" aria-current="section{% endif %}">Tasks to complete</a>
                   </li>
-{% if payments %}
-<li>
-  <a href="{% if not (page == 'invoice') %}invoice{% else %}" class="active" aria-current="section{% endif %}">Invoice details</a>
-</li>
-{% else  %}
-                  <li>
-                    <a href="{% if not (page == 'claim') %}claim{% if phase %}-{{phase}}{% endif %}{% else %}" class="active" aria-current="section{% endif %}">Case details</a>
-                  </li>
+
 {% endif %}
 
+
+{% if contactCentre or not payments  %}
+                  <li>
+                    <a href="{% if not (page == 'claim') %}claim{% if contactCentre %}-contact{% elif phase %}-{{phase}}{% endif %}{% else %}" class="active" aria-current="section{% endif %}">Case details</a>
+                  </li>
+{% endif %}
+{% if payments or contactCentre %}
+<li>
+  <a href="{% if not (page == 'invoice') %}invoice{% if contactCentre %}-contact{% endif %}{% else %}" class="active" aria-current="section{% endif %}">Invoice details</a>
+</li>
+{% endif %}
 
 <!--                  <li>
                     <a href="#">Interview</a>
@@ -79,7 +86,7 @@
 
       <div class="govuk-grid-column-one-third">
 
-
+{% if not contactCentre %} <!-- never shown for contact centre -->
         {% if phase == "payment-cancelled" %}
 
         <p>Stopped payment has been recorded.</p>
@@ -122,6 +129,8 @@
 {% endif %}
 
 {% endif %}
+
+{% endif %} <!-- end never shown for contact centre -->
 
 
 
@@ -167,6 +176,15 @@
 {{timeline(title="Case rejected", date="11 February 2019 at 10:32am") }}
 
 {% endif %}
+
+<!-- contct details   -->
+{% if data['personal-details-contact-changed'] %}
+
+{{timeline(title="[Contact details changed]", date="24 October 2019 at 10:24am")}}
+
+{% endif %}
+
+
 {% if payments %} <!-- section only after handoffs  -->
 
 {% if data['app-payment'] == "yes" or data['payment-stopped'] or (phase == "payment-closed") or (phase == "payment-cancelled") %}
