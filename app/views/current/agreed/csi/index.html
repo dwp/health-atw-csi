@@ -25,8 +25,10 @@
 
 {% endmacro %}
 
-
-{% if not (phase == "interview") %}
+{% if phase == "closed" or phase == "payment-closed" or phase == "payment-cancelled"  %}
+<br>
+<p>You currently have no tasks.</p>
+{% elif not (phase == "interview") %}
 {% if phase == "waiting" or (data['claim'] == "yes" and not (phase == "same-day") )%}
 <br><p>You currently have no tasks. The case will be available in <strong>Your priority cases</strong>
   after the interview date.</p>
@@ -34,10 +36,7 @@
 {% endif %}
 {% endif %}
 
-{% if phase == "closed" or phase == "payment-closed" or phase == "payment-cancelled"  %}
-<br>
-<p>You currently have no tasks.</p>
-{% endif %}
+
 
 {% if (phase == "interview") %}
 {% if not (data['confirm']) and ((data['employer'] == 'no') or (data['sent-email'] == "yes")) %}
