@@ -74,7 +74,7 @@
     </dd>
 
     <dd class="govuk-summary-list__actions">
-      {% if not hideChange and not contactCentre %}
+      {% if not hideChange %}
       <a class="govuk-link" href="personal-details-change#name">
         Change
         <span class="govuk-visually-hidden"></span>
@@ -94,7 +94,7 @@
     </dd>
 
     <dd class="govuk-summary-list__actions">
-{% if not hideChange and not contactCentre %}
+{% if not hideChange %}
       <a class="govuk-link" href="personal-details-change#name">
         Change
         <span class="govuk-visually-hidden"></span>
@@ -113,7 +113,7 @@
     </dd>
 
     <dd class="govuk-summary-list__actions">
-{% if not hideChange and not contactCentre %}
+{% if not hideChange %}
       <a class="govuk-link" href="personal-details-change#dob-day">
         Change
         <span class="govuk-visually-hidden"></span>
@@ -139,7 +139,7 @@
     </dd>
 
     <dd class="govuk-summary-list__actions">
-{% if not hideChange and not contactCentre %}
+{% if not hideChange %}
       <a class="govuk-link" href="personal-details-{% if contactCentre %}contact-{% endif %}change#address-line-1">
         Change
         <span class="govuk-visually-hidden"></span>
@@ -329,7 +329,7 @@
           <dd class="govuk-summary-list__value">
           {{ data['csi-info'][2]['company-name'] }}
           </dd>
-{% if not hideChange and not contactCentre %}
+{% if not hideChange %}
           <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="company-details-change#company-name">
           Change
@@ -352,7 +352,7 @@
         </p>
 
           </dd>
-{% if not hideChange and not contactCentre %}
+{% if not hideChange %}
           <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="company-details-change#address-line-1">
           Change
@@ -369,7 +369,7 @@
           <dd class="govuk-summary-list__value">
           {{ data['csi-info'][2]['interviewer-name'] }}
           </dd>
-{% if not hideChange and not contactCentre %}
+{% if not hideChange %}
           <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="company-details-change#company-contact">
           Change
@@ -387,7 +387,7 @@
     <dd class="govuk-summary-list__value">
       {{ data['csi-info'][2]['company-email-address'] }}
     </dd>
-{% if not hideChange and not contactCentre %}
+{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="company-details-change#email">
         Change
@@ -405,7 +405,7 @@
     <dd class="govuk-summary-list__value">
       {{ data['csi-info'][2]['company-phone'] }}
     </dd>
-{% if not hideChange and not contactCentre %}
+{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="company-details-change#Telephone">
         Change
@@ -458,7 +458,7 @@
       <p>{{ data['csi-info'][2]['interview-date-day'] }} {{ data['csi-info'][2]['interview-date-month'] | toMonth }} {{ data['csi-info'][2]['interview-date-year'] }}</p>
     </dd>
 
-{% if not hideChange and not contactCentre %}
+{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="job-details-change#dob-day">
         Change
@@ -475,7 +475,7 @@
     <dd class="govuk-summary-list__value">
       <p>{{ data['csi-info'][2]['condition'] }}</p>
     </dd>
-{% if not hideChange and not contactCentre %}
+{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="job-details-change#condition">
         Change
@@ -493,7 +493,7 @@
       <p>{{ data['csi-info'][2]['duration'] }}
       </p>
     </dd>
-{% if not hideChange and not contactCentre %}
+{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="job-details-change#interview-length">
         Change
@@ -512,7 +512,7 @@
         {{ data['csi-info'][2]['support-worker-pay'] | toMoney | safe }}
       </p>
     </dd>
-{% if not hideChange and not contactCentre %}
+{% if not hideChange %}
     <dd class="govuk-summary-list__actions">
       <a class="govuk-link" href="job-details-change#support-cost">
         Change
