@@ -139,7 +139,7 @@
     </dd>
 
     <dd class="govuk-summary-list__actions">
-{% if not hideChange %}<!-- show for contact centre -->
+{% if not hideChange and not contactCentre %}
       <a class="govuk-link" href="personal-details-{% if contactCentre %}contact-{% endif %}change#address-line-1">
         Change
         <span class="govuk-visually-hidden"></span>
@@ -221,7 +221,7 @@
       </dd>
       <dd class="govuk-summary-list__actions">
         {% if not contactCentre %}
-        <a class="govuk-link" href="appointee-details{{contactLink}}-change#name">
+        <a class="govuk-link" href="appointee-details-change#name">
           Change
           <span class="govuk-visually-hidden"></span>
         </a>
@@ -239,11 +239,12 @@
   <p>{{ data['address'] | default(appointeeDetails.address) | safe }}</p>
       </dd>
       <dd class="govuk-summary-list__actions">
-
-        <a class="govuk-link" href="appointee-details{{contactLink}}-change#address-line-1">
+{% if not contactCentre %}
+        <a class="govuk-link" href="appointee-details-change#address-line-1">
           Change
           <span class="govuk-visually-hidden"></span>
         </a>
+{% endif %}
       </dd>
     </div>
 
@@ -256,10 +257,12 @@
            {{ data['appointee-email'] }}
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="appointee-details{{contactLink}}-change#email">
+{% if not contactCentre %}
+        <a class="govuk-link" href="appointee-details-change#email">
           Change
           <span class="govuk-visually-hidden"></span>
         </a>
+{% endif %}
       </dd>
     </div>
     <div class="govuk-summary-list__row">
@@ -270,10 +273,13 @@
           {{ data['appointee-contact-phone'] | default(appointeeDetails.phone) }}
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="appointee-details{{contactLink}}-change#phone">
+        {% if not contactCentre %}
+
+        <a class="govuk-link" href="appointee-details-change#phone">
           Change
           <span class="govuk-visually-hidden"></span>
         </a>
+{% endif %}
       </dd>
 
     </div>

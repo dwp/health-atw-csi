@@ -84,15 +84,9 @@
   ]
 }) }}
 
-{% endif %}
 
-{% call govukFieldset({
-  legend: {
-    text: "",
-    classes: "govuk-fieldset__legend--xl",
-    isPageHeading: true
-  }
-}) %}
+
+
 
   {{ govukInput({
     label: {
@@ -146,6 +140,9 @@
     classes: "govuk-input--width-5"
 
   }) }}
+
+  {% endif %}
+  
 
 {% set emailHtml %}
 {{ govukInput({
@@ -232,12 +229,6 @@
 
 
 
-{% endcall %}
-
-
-{% if contactCentre %}
-<p>[Do we need a note box for changes?] </p>
-{% endif %}
 
 
 {% endblock %}
