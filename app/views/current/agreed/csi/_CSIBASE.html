@@ -56,9 +56,9 @@
                     <a href="{% if not (page == 'claim') %}claim{% if contactCentre %}-contact{% elif phase %}-{{phase}}{% endif %}{% else %}" class="active" aria-current="section{% endif %}">Case details</a>
                   </li>
 {% endif %}
-{% if payments or contactCentre %}
+{% if payments or contactCentre or (phase == "payment-adviser") %}
 <li>
-  <a href="{% if not (page == 'invoice') %}invoice{% if contactCentre %}-contact{% endif %}{% else %}" class="active" aria-current="section{% endif %}">Invoice details</a>
+  <a href="{% if not (page == 'invoice') %}invoice{%if phase == "payment-adviser" %}-payment-adviser{% endif %}{% if contactCentre %}-contact{% endif %}{% else %}" class="active" aria-current="section{% endif %}">Invoice details</a>
 </li>
 {% endif %}
 

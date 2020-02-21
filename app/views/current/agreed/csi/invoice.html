@@ -1,7 +1,10 @@
 {% set page = "invoice" %}
 {% set claim = "true" %}
+
+{% if not phase %}
 {% set payments = 'true' %}
 {% set phase = "payment" %}
+{% endif %}
 {% set title = "Invoice details" %}
 
 {% if not contactCentre %}
@@ -12,10 +15,17 @@
 
 {% block csi %}
 
-<br>
-{% if not contactCentre %}
-<p class="govuk-body">You can change invoice details here after you have added it in the tasks.</p>
+{% if phase == "payment-adviser" %}
+{% set contactCentre = true %}
 {% endif %}
+
+<br>
+{% if not contactCentre and not payment %}
+<p class="govuk-body">You can change invoice details here after you have added it in the tasks.</p>
+{% else %}
+<P>[holder that only a payment officer can edit invoice details?]</p>
+{% endif %}
+
 
 {% macro defItem(key='', value='', money='', hideChange='') %}
   <div class="govuk-summary-list__row">
