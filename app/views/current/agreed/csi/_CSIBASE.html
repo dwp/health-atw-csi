@@ -89,7 +89,7 @@
         <p>Stopped payment has been recorded.</p>
         {% set stopPayment %}
         <form action="index-payment-cancelled" method="post" novalidate>
-        <p>[Confirm that the payment has been resent.]</p>
+        <p>Confirm that the payment has been resent.</p>
         {{ govukButton({
           text: "Confirm"
         }) }}
@@ -97,7 +97,7 @@
 
         {% endset -%}
         {{ govukDetails({
-          summaryText: "[Record resent payment]",
+          summaryText: "Record resent payment",
           html: stopPayment
         }) }}
 
@@ -164,7 +164,7 @@
 
 {% if (phase == "payment-closed") or (phase == "payment-cancelled") %}
 
-{{timeline(title="[Payment sent to SOP]", date="12 February 2019 at 11:59pm") }}
+{{timeline(title="Payment sent to SOP", date="12 February 2019 at 11:59pm") }}
 
 {% endif %}
 
@@ -245,7 +245,7 @@
 
   {% if (data['claim-resend'] =="yes") %}
 
-                {{timeline(title="[Claim form sent again]", date="7 January 2020 at 3:15pm") }}
+                {{timeline(title="Claim form sent again", date="7 January 2020 at 3:15pm") }}
 
   {% endif %}
 
