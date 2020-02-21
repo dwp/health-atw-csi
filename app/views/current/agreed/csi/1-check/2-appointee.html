@@ -8,11 +8,12 @@
 
 
 {% block csi %}
-{% if not appointeeChange %}
+{% if not appointeeChange and not contactCentre %}
 <p>Copy information for {{data['csi-info'][2]['firstname']}} {{data['csi-info'][2]['surname']}}’s appointee from Searchlight.</p>
 {% endif %}
 
-{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% if not contactCentre %}
 
 {{ govukInput({
   label: {
@@ -24,8 +25,7 @@
   classes: "govuk-input--width-20"
 }) }}
 
-{% from "govuk/components/input/macro.njk" import govukInput %}
-{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% endif %}
 
 {% call govukFieldset({
   legend: {
@@ -45,6 +45,7 @@
     isPageHeading: true
   }
 }) %}
+
 
   {{ govukInput({
     label: {
@@ -101,9 +102,6 @@
 
 {% endcall %}
 
-
-  {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-  {% from "govuk/components/input/macro.njk" import govukInput %}
 
   {% set emailHtml %}
   {{ govukInput({
@@ -186,7 +184,19 @@
 {% endcall %}
 
 
-{% if appointeeChange %} <!-- trigger to set off event if we use this screen from the claim section -->
+{% if contactCentre %}
+
+{{ govukInput({
+  label: {
+    text: ""
+  },
+  id: "appointee-details-contact-changed",
+  name: "appointee-details-contact-changed",
+  value: "true",
+  classes: 'govuk-radios__conditional--hidden'
+}) }}
+
+{% elif appointeeChange %} <!-- trigger to set off event if we use this screen from the claim section -->
 {{ govukInput({
   label: {
     text: ""
