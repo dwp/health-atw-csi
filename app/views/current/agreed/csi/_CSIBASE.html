@@ -37,9 +37,6 @@
 
 <br>  -->
 
-{% if contactCentre %}
-<p>[Contact the adviser for any changes other than contact details.]</p>
-{% endif %}
 
         <nav class="navigation-secondary">
                 <ul>
@@ -177,13 +174,6 @@
 
 {% endif %}
 
-<!-- CONTACT CENTRE ONLY   -->
-
-{% if data['personal-details-contact-changed'] %}
-
-{{timeline(title="[Contact details changed]", date="24 October 2019 at 10:24am")}}
-
-{% endif %}
 
 
 {% if payments %} <!-- section only after handoffs  -->
@@ -246,7 +236,7 @@
 {% endif %}
 
 
-{% if data['invoice']  or  (phase == "payment-adviser") %} <!-- hack to show answer -->
+{% if data['invoice']  or  (phase == "payment-adviser") or contactCentre %} <!-- hack to show answer -->
   {{timeline(title="Evidence received", date="24 January 2019 at 10:24am") }}
 {% endif %}
 

@@ -4,7 +4,24 @@
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "../index"}] %}
 
 {% if appointee %}
-{% set title =  "Email the applicant’s appointee" %}
+
+{% set appointeeName = data['appointee-name'] | default(appointeeDetails.name) | safe   %}
+{% set appointeeText = [
+  {
+    text: "Appointee name"
+  },
+  {
+    text: "Mavis Brown"
+  }
+]
+%}
+
+{% else %}
+{% set appointeeText = '' %}
+{% endif %}
+
+{% if appointee %}
+{% set title =  "Send a letter to the applicant’s appointee" %}
 {% else %}
 {% set title =  "Send a letter to the applicant" %}
 {% endif %}
@@ -68,12 +85,21 @@ appointeeText  ,
 
 <p>Send the letter to the following address:</p>
 
+
+
+
 <div class="govuk-inset-text">
+  {% if appointee %}
+Mavis Brown<br>28 Cathedral Drive<br>Coventry<br>CV3 6JH
+{% else %}
+
   Thomas Brown <br>
   14 Kings Road <br>
   Birmingham <br>
   Midlands  <br>
   B1 1EQ
+{% endif %}
+
 </div>
 
 
