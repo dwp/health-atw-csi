@@ -206,8 +206,9 @@
 <!-- Appointee section -->
     <h2 id="appointee" class="govuk-heading-m govuk-!-margin-top-6">Appointee details</h2>
 
-{% if appointee or data['appointee-name'] %}
-
+{% if appointee or data['appointee-name'] or contactCentre %} <!-- default showing appointee details in contact centre journey for clarity -->
+{% set contactLink = "" %}
+{% if contactCentre %}{% set contactLink = "-contact" %}{% endif %}
 <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
 
@@ -216,13 +217,15 @@
         Name
       </dt>
       <dd class="govuk-summary-list__value">
-        <p>{{ data['appointee-name'] }}</p>
+        <p>{% if contactCentre and not data['appointee-name']  %}Mavis Brown{% else %}{{ data['appointee-name'] }}{% endif %}</p>
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="appointee-details-change#name">
+        {% if not contactCentre %}
+        <a class="govuk-link" href="appointee-details{{contactLink}}-change#name">
           Change
           <span class="govuk-visually-hidden"></span>
         </a>
+        {% endif %}
       </dd>
 
     </div>
@@ -236,32 +239,14 @@
   <p>{{ data['address'] | default(appointeeDetails.address) | safe }}</p>
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="appointee-details-change#address-line-1">
+
+        <a class="govuk-link" href="appointee-details{{contactLink}}-change#address-line-1">
           Change
           <span class="govuk-visually-hidden"></span>
         </a>
       </dd>
     </div>
 
-
-<!--
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-        Contact preferences
-      </dt>
-      <dd class="govuk-summary-list__value">
-        {{ data['appointee-citizen'] | default(appointeeDetails.contact) | string | capitalize }}
-      </dd>
-    {% if not hideChange and not contactCentre %}
-      <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="appointee-details-change#appointee-citizen">
-          Change
-          <span class="govuk-visually-hidden"></span>
-        </a>
-      </dd>
-    {% endif %}
-    </div>
--->
 
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key ">
@@ -271,7 +256,7 @@
            {{ data['appointee-email'] }}
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="appointee-details-change#email">
+        <a class="govuk-link" href="appointee-details{{contactLink}}-change#email">
           Change
           <span class="govuk-visually-hidden"></span>
         </a>
@@ -285,7 +270,7 @@
           {{ data['appointee-contact-phone'] | default(appointeeDetails.phone) }}
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="appointee-details-change#phone">
+        <a class="govuk-link" href="appointee-details{{contactLink}}-change#phone">
           Change
           <span class="govuk-visually-hidden"></span>
         </a>
@@ -294,10 +279,13 @@
     </div>
 </dl>
 
+  {% if not contactCentre %}
 <p><a href="appointee-remove">Remove appointee</a></p>
+{% endif %}
 {% else %}
 <p>No appointee</p>
-{% if data['appointee']  %}
+
+{% if data['appointee'] and not contactCentre  %}
 <p><a href="appointee-details-change">Add appointee</a></p>{% endif %}
 {% endif %}
 
