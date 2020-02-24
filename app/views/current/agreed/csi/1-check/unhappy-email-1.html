@@ -12,7 +12,7 @@
 {% block csi %}
 
 {% if appointee %}
-<p>Send an email to {{data['appointee-name'] | default(appointeeDetails.name) | safe }} to ask for
+<p>Send an email to <strong>{{data['appointee-name'] | default(appointeeDetails.name) | safe }}</strong> to ask for
   more information about <strong>{{data['csi-info'][2]['firstname']}} {{data['csi-info'][2]['surname']}}</strong>'s application.
 {% else %}
 <p>Send an email to <strong>{{data['csi-info'][2]['firstname']}} {{data['csi-info'][2]['surname']}}</strong> to ask for
