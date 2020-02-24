@@ -14,7 +14,7 @@
 {% block csi %}
 
 {% if appointee %}
-<p>Telephone {{data['appointee-name'] | default(appointeeDetails.name) | safe }} on <strong>01912365521</strong> to ask
+<p>Telephone <strong>{{data['appointee-name'] | default(appointeeDetails.name) | safe }}</strong> on  <strong>{{data['appointee-contact-phone'] | default(appointeeDetails.telephone) | safe }}</strong> to ask
   for more information about <strong>{{data['csi-info'][2]['firstname']}} {{data['csi-info'][2]['surname']}}</strong>’s support cost.</p>
 {% else %}
 <p>Telephone <strong>{{data['csi-info'][2]['firstname']}} {{data['csi-info'][2]['surname']}}</strong> on <strong>{{ data['csi-info'][2]['contact-by-phone'] }}</strong> to ask

@@ -7,17 +7,24 @@
 
 {% block csi %}
 
-<p>Return all the evidence to the applicant and request valid bank details.
+<p>Return all the evidence to the applicant{% if appointee %}’s appointee{% endif %} and request valid bank details.
   Ask them <br>to return all the evidence by post.</p>
 
 <p>Send a cover note with the evidence to:
 
-<div class="govuk-inset-text">
-  Thomas Brown <br>
-  14 Kings Road <br>
-  Birmingham <br>
-  Midlands  <br>
+
+  <div class="govuk-inset-text">
+{% if appointee %}
+{{data['appointee-name'] | default(appointeeDetails.name) | safe }}<br>
+{{appointeeDetails.address | safe }}
+{% else %}
+
+  Thomas Brown<br>
+  14 Kings Road<br>
+  Birmingham<br>
   B1 1EQ
+{% endif  %}
+
 </div>
 
 
