@@ -40,12 +40,15 @@
 
 {% if (phase == "interview") %}
 {% if not (data['confirm']) and ((data['employer'] == 'no') or (data['sent-email'] == "yes")) %}
+<!--
 <br>
+
 {{ govukWarningText({
   html: "Information needed from the employer.",
   iconFallbackText: "Warning"
 }) }}
 
+-->
 {% endif %}{% endif %}
 
 
