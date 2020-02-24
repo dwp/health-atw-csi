@@ -1,10 +1,9 @@
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% if appointee %}{% set appointeeLink = "-appointee" %}{% else %}{% set appointeeLink = "" %}{% endif %}
 {% set link = "1" %}
 {% set interviewLink = "true" %}
 
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "2-unhappy-phone" + appointeeLink }] %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "2-unhappy-phone" }] %}
 
 {% if appointee %}
 {% set title =  "Telephone the applicant’s appointee" %}
@@ -25,7 +24,7 @@
 </br>
 
 {% if appointee %}
-{% set telephoneText = "Has the appointee answered the telephone?" %}
+{% set telephoneText = "Has the applicant’s appointee answered the telephone?" %}
 {% else %}
 {% set telephoneText = "Has the applicant answered the telephone?" %}
 {% endif %}

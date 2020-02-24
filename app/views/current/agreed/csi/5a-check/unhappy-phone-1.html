@@ -1,9 +1,8 @@
 {% set link = "1" %}
 {% set paymentAdviserLink = true %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% if appointee %}{% set appointeeLink = "-appointee" %}{% endif %}
 
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "unhappy-phone-2" + appointeeLink }] %}
+{% set redirect = [{id : "yes", page: link }, {id: "no", page: "unhappy-phone-2" }] %}
 
 {% if appointee %}
 {% set title =  "Telephone the applicant’s appointee" %}
