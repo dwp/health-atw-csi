@@ -7,7 +7,7 @@
 
 {% block csi %}
 
-<p>Return the evidence to the applicant and request the missing evidence.<br></br>
+<p>Return the evidence to the applicant{% if appointee %}’s appointee{% endif %} and request the missing evidence.<br></br>
 Ask that they return by post both of the following:</p>
 
 <ul class="govuk-list govuk-list--bullet">
@@ -17,12 +17,19 @@ Ask that they return by post both of the following:</p>
 <br>
 <p>Send a cover note with the evidence to:
 
+
 <div class="govuk-inset-text">
+
+  {% if appointee %}
+  {{data['appointee-name'] | default(appointeeDetails.name) | safe }}<br>
+  {{appointeeDetails.address | safe }}
+  {% else %}
   Thomas Brown <br>
   14 Kings Road <br>
   Birmingham <br>
   Midlands  <br>
   B1 1EQ
+  {% endif %}
 </div>
 
 
