@@ -41,8 +41,8 @@
         <ul class="nav-pri">
           <li{% if yourCases %} class="active"{% endif %}>
 
-{% if contactCentre or ((not payments) and (not paymentLink )) %}
-          <a href="/{{folder}}/{{subfolder}}/your-cases{% if contactCentre %}-contact{% elif phase == "interview" %}-interview{% elif phase == "empty" %}-empty{% elif phase == "waiting" or (data['claim'] == 'yes') %}-waiting{% elif phase == "payment-adviser" %}-payment-adviser{% else %}{% endif %}" class="active" aria-current="page">Your cases</a>
+{% if (not contactCentre) and ((not payments) and (not paymentLink )) %}
+          <a href="/{{folder}}/{{subfolder}}/your-cases{% if phase == "interview" %}-interview{% elif phase == "empty" %}-empty{% elif phase == "waiting" or (data['claim'] == 'yes') %}-waiting{% elif phase == "payment-adviser" %}-payment-adviser{% else %}{% endif %}" class="active" aria-current="page">Your cases</a>
 
         </li>
   <!--      <li{% if Unallocated %} class="active"{% endif %}><a href="#">Unallocated</a></li> -->
