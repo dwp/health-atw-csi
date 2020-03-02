@@ -1,93 +1,52 @@
-{% set link = "complete"  %}
+{% set link = "../../your-cases-empty"  %}
 {% set paymentAdviserLink = true %}
+{% set customNext = '[Reallocate now]' %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "../index-payment"}] %}
 
-{% set title =  "Contact the payments team" %}
+{% set title =  "[Allocate the case to a payment adviser]" %}
 
 {% block csi %}
 
-
-
-{% if data['agreed-amount']  %}
-{% set amount = data['agreed-amount'] | toMoney %}
-
-{% else %}
-{% set amount = data['invoice-value'] | default(240) | toMoney %}
-{% endif  %}
-
-<p>Contact <strong>Richard Silver</strong> to tell them that they can continue processing the payment for this case.</p>
+<ol class="dwp-timeline">
 
 
 
-  {{ govukTable({
-    caption: "",
-    firstCellIsHeader: true,
-    head: [
-    {
-      text: "",
-      classes: 'govuk-!-width-one-third'
-    },
-    {
-      text: "",
-      classes: 'govuk-!-width-two-thirds'
-    }
-  ],
-    rows: [
+              <li class="dwp-timeline__entry">
+                <h3 class="govuk-heading-s dwp-timeline__title">Application allocated <span class="dwp-timeline__date">Rich Gold</span></h3>
+                <p class="dwp-timeline__info">
+                  <span class="dwp-timeline__date">2 November 2019 at 12:22pm</span>
+                </p
+              </li>
 
-appointeeText  ,
+            <li class="dwp-timeline__entry">
+              <h3 class="govuk-heading-s dwp-timeline__title">Application allocated <span class="dwp-timeline__date">John Goldsmith</span></h3>
+              <p class="dwp-timeline__info">
+                <span class="dwp-timeline__date">31 October 2019 at 12:22pm</span>
+              </p
+            </li>
 
-      [
-        {
-          text: "Applicant name"
-        },
-        {
-          text: data['csi-info'][2]['firstname'] +  " " +  data['csi-info'][2]['surname']
-        }
-      ],
-      [
-        {
-          text: "Reference"
-        },
-        {
-          text: "ATW34593DE"
-        }
-      ],
-      [
-        {
-          text: "Agreed support cost"
-        },
-        {
-          text: amount
-        }
-      ]
-    ]
-  }) }}
+</ol>
 
-</br>
-{{ govukRadios({
-    classes: "govuk-radios--inline",
-     name: "transfer-back-payments",
-       fieldset: {
-         legend: {
-           text: "Have you contacted the payments team?",
-           isPageHeading: false,
-           classes: "govuk-fieldset__legend--m"
-         }
-       },
-       items: [
-         {
-           id: "yes",
-           value: "yes",
-           text: "Yes"
-         },
-         {
-           id: "no",
-           value: "no",
-           text: "No"
-         }
-       ]
-     }) }}
+
+
+  <h3 id="update-adviser-heading" class="govuk-heading-m">[who do you want to allocate the case to?]</h3>
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="sort">
+        [Leave the adviser blank to send it to the unallocated queue]
+      </label>
+  <select id="adviser-list" class="govuk-select" aria-labelledby="update-adviser-heading">
+    <option value=""></option>
+    {% for adviser in data['advisers'] %}
+    <option value="{{ adviser }}">{{ adviser }}</option>
+    {% endfor %}
+  </select>
+</div>
+
+
+
+<!-- HIDDEN FOR TRIGGER  -->
+<input type="hidden" name="sent-email-amount" value="yes">
 
 {% endblock %}

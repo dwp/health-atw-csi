@@ -45,6 +45,17 @@
 </div>
 </dl>
 
+{{ govukErrorSummary({
+  titleText: "[Information from payment officer]",
+  classes: "not-error",
+  errorList: [
+    {
+      text: data['more-detail-payment'] | default("Amount was £200 without VAT. With VAT the amount is £240.") | safe
+    }
+  ]
+}) }}
+
+
 {% set conditionalText %}
 {{ govukTextarea({
   name: "difference-reason",

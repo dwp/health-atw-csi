@@ -1,8 +1,7 @@
-{% set link = "3-waiting" %}
+{% set link = "../search-payments" %}
 {% set paymentLink = true %}
 {% set customNext = "[Transfer now]" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set redirect = [{id : "yes", page: link }, {id: "no", page: "../index-payment"}] %}
 {% set title =  "[Allocate the case to an adviser]" %}
 
 {% block csi %}
@@ -57,6 +56,8 @@
   }
 }) }}
 
+<!-- HIDDEN FOR TRIGGER  -->
+<input type="hidden" name="sent-email-amount" value="yes">
 
 
 {% endblock %}
