@@ -167,10 +167,12 @@
 
 
         <ol class="dwp-timeline">
-{% macro timeline(title="", date="1 November 2019 at 4:30pm" ) %}
+{% macro timeline(title="", allocation="", date="1 November 2019 at 4:30pm" ) %}
           <li class="dwp-timeline__entry">
-            <h3 class="govuk-heading-s dwp-timeline__title">{{title}}</h3>
+            <h3 class="govuk-heading-s dwp-timeline__title">{{title}}  {% if allocation %}<span class="dwp-timeline__date">{{allocation}}</span>{% endif %}</h3>
+
             <p class="dwp-timeline__info">
+
               <span class="dwp-timeline__date">{{date}}</span>
             </p>
 </li>
@@ -262,6 +264,9 @@
 {% if data['invoice']  or  (phase == "payment-adviser") or contactCentre %} <!-- hack to show answer -->
   {{timeline(title="Evidence received", date="24 January 2019 at 10:24am") }}
 {% endif %}
+
+
+{{timeline(title="Application allocated", allocation="Rich Gold", date="6 January 2020 at 3:35pm")}}
 
   {% endif %} <!--  end if payments  -->
 
@@ -379,7 +384,7 @@
 
 {% endif %}
 
-{{timeline(title="Application allocated", date="6 January 2020 at 3:35pm")}}
+{{timeline(title="Application allocated", allocation="John Goldsmith", date="6 January 2020 at 3:35pm")}}
 
 {{timeline(title="Application received", date="6 January 2020 at 11:05am")}}
 
