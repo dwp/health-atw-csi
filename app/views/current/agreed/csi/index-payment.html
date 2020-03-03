@@ -27,7 +27,7 @@
 
 {% endmacro %}
 
-{% if phase == "payment-interview-not-confirmed" %}
+{% if phase == "payment-interview-not-confirmed"  or phase == "payment-interview-unallocated" %}
 
 {% block csiStatus %}
 {% endblock %}
