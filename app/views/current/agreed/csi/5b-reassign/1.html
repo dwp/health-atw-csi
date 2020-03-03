@@ -1,11 +1,11 @@
 {% set link = "../../your-cases-empty"  %}
 {% set paymentAdviserLink = true %}
-{% set customNext = '[Reallocate now]' %}
+{% set customNext = 'Allocate' %}
 
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "../index-payment"}] %}
 
-{% set title =  "[Allocate the case to a payment adviser]" %}
+{% set title =  "Allocate the case to a payment officer" %}
 
 {% block csi %}
 
@@ -31,10 +31,10 @@
 
 
 
-  <h3 id="update-adviser-heading" class="govuk-heading-m">[who do you want to allocate the case to?]</h3>
+  <h3 id="update-adviser-heading" class="govuk-heading-m">Which payment officer do you want to allocate the case to?</h3>
   <div class="govuk-form-group">
     <label class="govuk-label" for="sort">
-        [Leave the adviser blank to send it to the unallocated queue]
+        Leave blank to unallocate the case
       </label>
   <select id="adviser-list" class="govuk-select" aria-labelledby="update-adviser-heading">
     <option value=""></option>
