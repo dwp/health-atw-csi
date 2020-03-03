@@ -79,7 +79,7 @@
           </div>
 
           <div class="govuk-grid-column-one-quarter"{{ ' hidden' if unallocated == 'true' }}>
-            <span class="govuk-body-s">[Allocated to]</span><br>
+            <span class="govuk-body-s">Allocated to</span><br>
             <span class="govuk-body govuk-!-font-size-24 govuk-!-font-weight-bold" id="banner-adviser">{% if (payments or phase == "payments") and not ['payment-allocated']  %}{% elif data['payment-allocated'] and (data['amended-cost'] or not data['sent-email-amount']) %}Rich Gold{% else %}John Goldsmith{% endif %}</span>
           </div>
 
