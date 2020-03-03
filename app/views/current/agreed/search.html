@@ -315,7 +315,7 @@
               <th class="govuk-table__header">Case type</th>
               <th class="govuk-table__header">Status</th>
               <th class="govuk-table__header">Date submitted</th>
-              <th class="govuk-table__header">Adviser</th>
+              <th class="govuk-table__header">[Allocated to]</th>
               <th class="govuk-table__header"></th>
             </tr>
           </thead>
@@ -325,10 +325,10 @@
                 <td class="govuk-table__cell">{{ data['csi-info'][2]['firstname'] }} {{ data['csi-info'][2]['surname'] }}</td>
                 <td class="govuk-table__cell">CSI</td>
                 <td class="govuk-table__cell">CSI</td>
-                <td class="govuk-table__cell">Allocated</td>
+                <td class="govuk-table__cell">[Unallocated]</td>
                 <td class="govuk-table__cell">24 January 2019 13:02</td>
-                <td class="govuk-table__cell">John Goldsmith</td>
-                <td class="govuk-table__cell"><a href="csi/{% if contactCentre %}claim-contact{% else %}index{% if payments %}-payment-unallocated{% endif %}{% endif %}{% endif %}">View case</a></td>
+                <td class="govuk-table__cell">-</td>
+                <td class="govuk-table__cell"><a href="csi/{% if contactCentre %}claim-contact{% else %}index{% if payments %}-payment-unallocated{% endif %}{% endif %}">View case</a></td>
               </tr>
 
         </tbody>
@@ -336,7 +336,7 @@
 
 
 
-{% elif search == 'complete' %}
+{% elif (search == 'complete') %}
       <p>There are no cases that match your search</p>
 
 {% else %}
