@@ -1,8 +1,8 @@
 {% set link = "../search-payments" %}
 {% set paymentLink = true %}
-{% set customNext = "[Transfer now]" %}
+{% set customNext = "Allocate" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
-{% set title =  "[Allocate the case to an adviser]" %}
+{% set title =  "Allocate the case to an adviser" %}
 
 {% block csi %}
 
@@ -30,10 +30,10 @@
 
 
 
-  <h3 id="update-adviser-heading" class="govuk-heading-m">[who do you want to allocate the case to?]</h3>
+  <h3 id="update-adviser-heading" class="govuk-heading-m">Which adviser do you want to allocate the case to?</h3>
   <div class="govuk-form-group">
     <label class="govuk-label" for="sort">
-        [Leave the adviser blank to send it to the unallocated queue]
+        Leave blank to unallocate the case
       </label>
   <select id="adviser-list" class="govuk-select" aria-labelledby="update-adviser-heading">
     <option value=""></option>
@@ -46,13 +46,15 @@
 
 {{ govukTextarea({
   name: "more-detail-payment",
+  classes: "govuk-!-width-two-thirds",
   id: "more-detail",
   value: data['more-detail-payment'],
   label: {
-    text: "[Notes]"
+    text: "Information for the adviser"
   },
   hint: {
-    text: "[extra notes if needed]"
+    text: "Give details which might help the adviser make a decision about
+    the support cost."
   }
 }) }}
 
