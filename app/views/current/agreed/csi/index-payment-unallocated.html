@@ -3,7 +3,7 @@
 
 {% block csiStatus %}
 <br>
-<p>[You cannot start this case yet.]</p>
+<p>You will be able to complete the tasks once you have allocated the case.</p>
 
 
 <form action="index-payment" method="post">
@@ -11,7 +11,7 @@
   <input type="hidden" name="payment-allocated" value="yes">
 
   {{ govukButton({
-            text: "[Allocate to me]"
+            text: "Allocate to me"
           }) }}
 
 </form>
