@@ -266,7 +266,7 @@
 {% endif %}
 
 
-{% if (data['payment-allocated'] or (phase == "payment-adviser")) and not (phase == "payment-unallocated") %}
+{% if (data['payment-allocated'] or (phase == "payments") or (phase == "payment-adviser")) and not (phase == "payment-unallocated") %}
 {{timeline(title="Application allocated", allocation="Rich Gold", date="6 January 2020 at 3:35pm")}}
 {% endif %}
   {% endif %} <!--  end if payments  -->

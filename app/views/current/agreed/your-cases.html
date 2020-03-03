@@ -119,7 +119,7 @@
 
 <h2 class="govuk-heading-m">Your cases </h2>
 
-{% if not data['payment-allocated'] or (data['sent-email-amount'] and not data['amended-cost']  ) %}
+{% if not (data['payment-allocated'] or cases ) or (data['sent-email-amount'] and not data['amended-cost']  ) %}
 
 <p>You have no cases.</P>
 
