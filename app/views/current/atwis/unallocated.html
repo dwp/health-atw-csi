@@ -1,17 +1,35 @@
 {% extends "./_BASE.html" %}
+{% set Unallocated = true %}
+{% set cases = [{
+    name: "John Smith",
+    submitted: "2 March 2019 - 13:23",
+    interview: "10 March 2019",
+    status: "New"
+  },
+  {
+
+    name: "Desmond Smith",
+    submitted: "18 February 2019 - 13:23",
+    interview: "1 March 2019",
+    status: "Action needed"
+  }
+
+
+  ]
+  %}
 
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <h1 class="govuk-heading-l">Unallocated priority cases</h1>
+    <h1 class="govuk-heading-l">Unallocated communication support at interview cases</h1>
 
     <table class="govuk-table">
       <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th class="govuk-table__header">Name</th>
-            <th class="govuk-table__header">Specialism</th>
-            <th class="govuk-table__header">Case type</th>
             <th class="govuk-table__header">Date submitted</th>
+            <th class="govuk-table__header">Interview date</th>
+            <th class="govuk-table__header">[Status]</th>
             <th class="govuk-table__header"></th>
           </tr>
         </thead>
@@ -19,10 +37,10 @@
           {% for case in cases %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">{{ case.name }}</td>
-              <td class="govuk-table__cell">{{ case.specialism }}</td>
-              <td class="govuk-table__cell">{{ case.type }}</td>
-              <td class="govuk-table__cell">{{ case.date }}</td>
-              <td class="govuk-table__cell"><a href="case?n={{ case.name }}&ua=true">View case</a></td>
+              <td class="govuk-table__cell">{{ case.submitted }}</td>
+              <td class="govuk-table__cell">{{ case.interview }}</td>
+              <td class="govuk-table__cell">{{ case.status }}</td>
+              <td class="govuk-table__cell"><a href="case-csi">View case</a></td>
             </tr>
           {% endfor %}
       </tbody>
