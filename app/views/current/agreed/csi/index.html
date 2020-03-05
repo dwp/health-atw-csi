@@ -10,9 +10,9 @@
 
 <li class="app-task-list__item">
   <span class="app-task-list__task-name">
-  {% if not (cantStart or completed)  %}  <a href="{{link}}" aria-describedby="eligibility-completed"> {% endif %}
+  {% if not (cantStart or completed) and not (phase == "allocator") %}  <a href="{{link}}" aria-describedby="eligibility-completed"> {% endif %}
       {{title}}
-    {% if not (cantStart or completed)  %}   </a> {% endif %}
+    {% if not (cantStart or completed) and not (phase == "allocator")   %}   </a> {% endif %}
   </span>
 {% if completed %}
 <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>

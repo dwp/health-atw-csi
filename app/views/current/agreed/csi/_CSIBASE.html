@@ -89,8 +89,9 @@
         <div class="">
           <h3 id="update-adviser-heading" class="govuk-heading-m">Change adviser</h3>
           <select id="adviser-select" class="govuk-select govuk-!-margin-bottom-3" aria-labelledby="update-adviser-heading">
+<option value="" selected="selected"></option>
             {% for adviser in data['advisers'] %}
-            <option value="{{ adviser }}" {% if advisers == 'Pan disability' %}selected="selected"{% endif %}>{{ adviser }}</option>
+            <option value="{{ adviser }}">{{ adviser }}</option>
             {% endfor %}
           </select>
           {{ govukButton({
@@ -385,7 +386,9 @@
 
 {% endif %}
 
+{% if not (phase == "allocator") %}
 {{timeline(title="Application allocated", allocation="John Goldsmith", date="6 January 2020 at 3:35pm")}}
+{% endif %}
 
 {{timeline(title="Application received", date="6 January 2020 at 11:05am")}}
 
