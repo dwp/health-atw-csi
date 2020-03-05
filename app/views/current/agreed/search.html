@@ -327,7 +327,7 @@
                 <td class="govuk-table__cell">CSI</td>
                 <td class="govuk-table__cell">{% if adviser == "1"%}Allocated{% else %}Unallocated{% endif %}</td>
                 <td class="govuk-table__cell">24 January 2019 13:02</td>
-                <td class="govuk-table__cell">{% if adviser == "1"%}John Goldsmith{% elif allocated %}Rich Gold{% else %}{% endif %} </td>
+                <td class="govuk-table__cell">{% if adviser == "1"%}John Goldsmith{% elif allocated %}Rich Silver{% else %}{% endif %} </td>
                 <td class="govuk-table__cell"><a href="csi/{% if contactCentre %}claim-contact{% else %}index{% if payments %}-payment-{% if adviser == "1" %}unconfirmed{% else %}unallocated{% endif %}{% endif %}{% endif %}">View case</a></td>
               </tr>
 
