@@ -1,5 +1,6 @@
 {% if appointee %}{% set appointeeLink = "-appointee" %}{% else %}{% set appointeeLink = "" %}{% endif %}
-
+{% set customNext = "Return to tasks" %}
+{% set hideReturn = true %}
 {% set link = "../index" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 
