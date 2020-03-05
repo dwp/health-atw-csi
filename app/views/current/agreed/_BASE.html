@@ -29,7 +29,7 @@
 
      </div>
      <div class="header-user-details">
-          {% if contactCentre %}Chris Connolly{% elif payments or paymentLink %}Richard Silver{% else %}John Goldsmith{% endif %}
+          {% if contactCentre %}Chris Connolly{% elif phase == "allocator" %}Al Ó Catháin{% elif payments or paymentLink %}Richard Silver{% else %}John Goldsmith{% endif %}
          </div>
    </div>
  </header>
@@ -42,14 +42,15 @@
           <li{% if yourCases %} class="active"{% endif %}>
 
 {% if (not contactCentre)  %}
-          <a href="/{{folder}}/{{subfolder}}/your-cases{% if phase == "payments" or phase == "payment" or payments %}-payments{% elif phase == "interview" %}-interview{% elif phase == "payments" %}{% elif phase == "empty" %}-empty{% elif phase == "waiting" or (data['claim'] == 'yes') %}-waiting{% elif phase == "payment-adviser" %}-payment-adviser{% else %}{% endif %}" class="active" aria-current="page">Your cases</a>
+          <a href="/{{folder}}/{% if phase == "allocator"%}atwis{% else%}{{subfolder}}{% endif %}/your-cases{% if phase == "payments" or phase == "payment" or payments %}-payments{% elif phase == "interview" %}-interview{% elif phase == "payments" %}{% elif phase == "empty" %}-empty{% elif phase == "waiting" or (data['claim'] == 'yes') %}-waiting{% elif phase == "payment-adviser" %}-payment-adviser{% else %}{% endif %}" class="active" aria-current="page">Your cases</a>
 
         </li>
-  <!--      <li{% if Unallocated %} class="active"{% endif %}><a href="#">Unallocated</a></li> -->
+{% if phase == "allocator" %}<li ><a href="/{{folder}}/atwis/unallocated">Unallocated</a></li> {% endif %}
+
 
 {% endif %}
 
-          <li{% if Search %} class="active"{% endif %}><a href="/{{folder}}/{{subfolder}}/search{% if contactCentre %}-contact{% elif phase == "payments" or payments or paymentLink%}-payments{% endif %}">Search</a></li>
+          <li{% if Search %} class="active"{% endif %}><a href="/{{folder}}/{% if phase == "allocator"%}atwis{% else%}{{subfolder}}{% endif %}/search{% if contactCentre %}-contact{% elif phase == "payments" or payments or paymentLink%}-payments{% endif %}">Search</a></li>
         </ul>
       </div>
     </div>
@@ -80,7 +81,7 @@
 
           <div class="govuk-grid-column-one-quarter"{{ ' hidden' if unallocated == 'true' }}>
             <span class="govuk-body-s">Allocated to</span><br>
-            <span class="govuk-body govuk-!-font-size-24 govuk-!-font-weight-bold" id="banner-adviser">{% if phase == "payment-interview-unallocated"  %}{% elif (payments and not (phase == "payment-interview-not-confirmed" )) or (phase == "payment") %}Rich Gold{% else %}John Goldsmith{% endif %}</span>
+            <span class="govuk-body govuk-!-font-size-24 govuk-!-font-weight-bold" id="banner-adviser">{% if phase == "payment-interview-unallocated" or phase == "allocator"  %}{% elif (payments and not (phase == "payment-interview-not-confirmed" )) or (phase == "payment") %}Rich Gold{% else %}John Goldsmith{% endif %}</span>
           </div>
 
           <div class="govuk-grid-column-one-quarter">
