@@ -12,6 +12,22 @@
     submitted: "18 February 2019 - 13:23",
     interview: "1 March 2019",
     status: "Action needed"
+  },
+  {
+
+    name: "Sam Argentino",
+    submitted: "23 February 2019 - 13:23",
+    interview: "2 March 2019",
+    status: "Waiting"
+  }
+
+  ,
+  {
+
+    name: "Alex Jones",
+    submitted: "3 March 2019 - 13:23",
+    interview: "22 March 2019",
+    status: "No action needed"
   }
 
 
@@ -30,7 +46,7 @@
             <th class="govuk-table__header">Date submitted</th>
             <th class="govuk-table__header">Interview date</th>
             <th class="govuk-table__header">Status</th>
-            <th class="govuk-table__header"></th>
+            <th class="govuk-table__header">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -40,7 +56,7 @@
               <td class="govuk-table__cell">{{ case.submitted }}</td>
               <td class="govuk-table__cell">{{ case.interview }}</td>
               <td class="govuk-table__cell">{{ case.status }}</td>
-              <td class="govuk-table__cell"><a href="/{{folder}}/agreed/csi/index-allocator">View case</a></td>
+              <td class="govuk-table__cell"><a href="/{{folder}}/agreed/csi/index-allocator">Go to case</a></td>
             </tr>
           {% endfor %}
       </tbody>
@@ -69,7 +85,7 @@
             <th class="govuk-table__header">Specialism</th>
             <th class="govuk-table__header">Case type</th>
             <th class="govuk-table__header numeric">Date submitted</th>
-            <th class="govuk-table__header"></th>
+            <th class="govuk-table__header">Action</th>
           </tr>
         </thead>
         <tbody>
