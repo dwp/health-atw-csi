@@ -26,7 +26,7 @@
               <td class="govuk-table__cell">24 October 2019 13:02</td>
               <td class="govuk-table__cell">31 October 2019</td>
               <td class="govuk-table__cell">{% if phase == 'waiting' %}No action needed{% elif not phase and not data['searchlight'] %}New{% else %}Action needed{% endif %}
-              <td class="govuk-table__cell"><a href="csi/index{%if payment %}-payment{% else %}{% if phase == "interview" %}-interview{% elif phase == "waiting" %}-waiting{% elif phase == "same-day" %}-same-day{% elif phase == "payment-adviser" %}-payment-adviser{% endif %}{% endif %}">Go to case</a></td>
+              <td class="govuk-table__cell"><a href="csi/index{% if payment %}-payment{% else %}{% if phase == "interview" %}-interview{% elif phase == "waiting" %}-waiting{% elif phase == "same-day" %}-same-day{% elif phase == "payment-adviser" %}-payment-adviser{% endif %}{% endif %}">Go to case</a></td>
             </tr>
       </tbody>
     </table>
@@ -130,13 +130,16 @@
 
 <h2 class="govuk-heading-m">Your cases </h2>
 
-{% if not (data['payment-allocated'] or cases ) or (data['sent-email-amount'] and not data['amended-cost']  ) %}
+{% if cases %}
 
-<p>You have no cases.</P>
+{{statusTable(payment="true")}}
+
 
 {% else %}
 
-{{statusTable(payment="true")}}
+
+<p>You have no cases.</P>
+
 
 {% endif %}
 
@@ -167,8 +170,14 @@
 {% endblock %}
 
 {% block footer %}
+
+
+
+
   {{ govukFooter({
     meta: {
+      html: urFooterLink ,
+
       items: [
         {
           href: "https://govuk-prototype-kit.herokuapp.com/",
@@ -197,5 +206,9 @@
       ]
     }
   }) }}
+
+
+
+
 
 {% endblock %}
