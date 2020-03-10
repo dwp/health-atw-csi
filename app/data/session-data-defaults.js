@@ -241,13 +241,13 @@ module.exports = {
     'Capucine Michel',
     'Sarah Micheals',
     'Celise Mutton',
-    'Richard Oulton',
     'Ed Oxley',
     'Colin Partinigton',
     'Brigit Pardeux',
     'Lionel Phelps',
     'Anne Pinkton',
     'Lisa Punchton',
+    'Rich Silver',
     'Paul Rice'
   ],
 

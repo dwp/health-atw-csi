@@ -1,13 +1,14 @@
 {% set link = "invoice-passthrough-router" %}
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "3-amount"}] %}
+{% set payments = true %}
 {% set paymentLink = true %}
 {% set title =  "Check the invoice" %}
 
 {% block csi %}
 
       {{ govukRadios({
-        classes: "govuk-radios",
+          classes: "govuk-radios--inline",
              idPrefix: "check-amount",
              name: "check-amount",
              fieldset: {
@@ -17,9 +18,6 @@
                  classes: "govuk-fieldset__legend--m"
                }
              },
-             hint: {
-             html: ""
-        },
              items: [
              {
                id: "yes",
