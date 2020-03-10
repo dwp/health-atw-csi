@@ -129,14 +129,16 @@
 {% if phase == "payments" %}
 
 <h2 class="govuk-heading-m">Your cases </h2>
+{% if cases %}
 
-{% if not (data['payment-allocated'] or cases ) or (data['sent-email-amount'] and not data['amended-cost']  ) %}
+{{statusTable(payment="true")}}
 
-<p>You have no cases.</P>
 
 {% else %}
 
-{{statusTable(payment="true")}}
+
+<p>You have no cases.</P>
+
 
 {% endif %}
 
