@@ -42,7 +42,7 @@
           <li{% if yourCases %} class="active"{% endif %}>
 
 {% if (not contactCentre)  %}
-          <a href="/{{folder}}/{% if phase == "allocator"%}atwis{% else%}{{subfolder}}{% endif %}/your-cases{% if phase == "payments" or phase == "payment" or payments %}-payments{% elif phase == "interview" %}-interview{% elif phase == "payments" %}{% elif phase == "empty" %}-empty{% elif phase == "waiting" or (data['claim'] == 'yes') %}-waiting{% elif phase == "payment-adviser" %}-payment-adviser{% else %}{% endif %}" class="active" aria-current="page">Your cases</a>
+          <a href="/{{folder}}/{% if scenario %}{{scenario}}{% else %}{% if phase == "allocator"%}atwis{% else%}{{subfolder}}{% endif %}/your-cases{% if phase == "payments" or phase == "payment" or payments %}-payments{% elif phase == "interview" %}-interview{% elif phase == "payments" %}{% elif phase == "empty" %}-empty{% elif phase == "waiting" or (data['claim'] == 'yes') %}-waiting{% elif phase == "payment-adviser" %}-payment-adviser{% else %}{% endif %}{% endif %}" class="active" aria-current="page">Your cases</a>
 
         </li>
 {% if phase == "allocator" %}<li ><a href="/{{folder}}/atwis/unallocated">Unallocated</a></li> {% endif %}
@@ -50,7 +50,7 @@
 
 {% endif %}
 
-          <li{% if Search %} class="active"{% endif %}><a href="/{{folder}}/{% if phase == "allocator"%}atwis{% else%}{{subfolder}}{% endif %}/search{% if contactCentre %}-contact{% elif phase == "payments" or payments or paymentLink%}-payments{% endif %}">Search</a></li>
+          <li{% if Search %} class="active"{% endif %}><a href="/{{folder}}/{% if scenario  %}{{scenario}}{% else %}{% if phase == "allocator"%}atwis{% else%}{{subfolder}}{% endif %}/search{% if contactCentre %}-contact{% elif phase == "payments" or payments or paymentLink%}-payments{% endif %}{% endif %}">Search</a></li>
         </ul>
       </div>
     </div>
