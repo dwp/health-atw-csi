@@ -1,3 +1,36 @@
+{% set monthAndYear = "March 2020" %}
+
+  {% set cases = [
+    {
+      name: "Dereck Smith",
+      specialism: "Large business",
+      type: "Renewal",
+      date: "3  "  + monthAndYear +  " - 11:57"
+    },
+    {
+
+      name: "Maximillia Erdman",
+      specialism: "Pan disability",
+      type: "New application",
+      date: "3  "  + monthAndYear +  " - 10:22"
+    },
+    {
+      name: "Sonya Corkery",
+      specialism: "Large business",
+      type: "Renewal",
+      date: "2  "  + monthAndYear +  " - 09:23"
+    },
+    {
+      name: "Adaline Mann",
+      specialism: "Pan disability",
+      type: "New application",
+      date: "2  "  + monthAndYear +  " - 16:23"
+    }
+
+    ]
+    %}
+
+
 {% extends "layout.html" %}
 
 {% block pageTitle %}
@@ -75,7 +108,7 @@
           </div>
           <div class="govuk-grid-column-one-quarter">
             <span class="govuk-body-s">Interview date</span><br>
-            <span class="govuk-body govuk-!-font-size-24 govuk-!-font-weight-bold" id="banner-condition">{{ data['csi-info'][2]['interview-date-day'] }} {{ data['csi-info'][2]['interview-date-month'] | toMonth }} {{ data['csi-info'][2]['interview-date-year'] }}</span>
+            <span class="govuk-body govuk-!-font-size-24 govuk-!-font-weight-bold" id="banner-condition">{{ data['csi-info'][3]['interview-date-day'] }} {{ data['csi-info'][3]['interview-date-month'] | toMonth }} {{ data['csi-info'][3]['interview-date-year'] }}</span>
 
           </div>
 
