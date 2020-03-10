@@ -7,15 +7,15 @@
   {
 
     name: "Desmond Smith",
-    submitted: "18 February 2019 - 13:23",
-    interview: "1 March 2019",
+    submitted: "18 February 2020 - 04:23",
+    interview: "1 March 2020",
     status: "Action needed"
   },
   {
 
     name: "Sam Argentino",
-    submitted: "23 February 2019 - 13:23",
-    interview: "2 March 2019",
+    submitted: "23 February 2020 - 13:23",
+    interview: "2 March 2020",
     status: "Waiting for response"
   }
 
@@ -49,9 +49,11 @@ Unallocated cases
         <tbody>
 {% if not data['payment-allocated'] %}
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Thomas Brown</td>
-            <td class="govuk-table__cell">24 October 2019 13:02	</td>
-            <td class="govuk-table__cell">1 November 2019</td>
+            <td class="govuk-table__cell">{{ data['csi-info'][3]['firstname'] }} {{ data['csi-info'][3]['surname'] }}</td>
+
+            <td class="govuk-table__cell">{{data['csi-info'][3]['submission-date']}}</td>
+            <td class="govuk-table__cell">{{ data['csi-info'][3]['interview-date-day'] }} {{ data['csi-info'][3]['interview-date-month'] | toMonth }} {{ data['csi-info'][3]['interview-date-year'] }}</td>
+
             <td class="govuk-table__cell">New</td>
             <td class="govuk-table__cell"><a href="csi/index-payment-unallocated">Go to case</a></td>
           </tr>

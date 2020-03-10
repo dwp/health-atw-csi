@@ -32,7 +32,7 @@
             text: "Employer name"
           },
           {
-            text: data['csi-info'][2]['interviewer-name']
+            text: data['csi-info'][3]['interviewer-name']
           }
         ],
         [
@@ -40,7 +40,7 @@
             text: "Applicant name"
           },
           {
-            text: data['csi-info'][2]['firstname'] +  " " +  data['csi-info'][2]['surname']
+            text: data['csi-info'][3]['firstname'] +  " " +  data['csi-info'][3]['surname']
           }
         ],
         [
@@ -48,7 +48,7 @@
             text: "Company name"
           },
           {
-            text: data['csi-info'][2]['company-name']
+            text: data['csi-info'][3]['company-name']
           }
         ]
         ,
@@ -57,7 +57,7 @@
             text: "Interview date"
           },
           {
-            text:( data['csi-info'][2]['interview-date-day'] + " " + data['csi-info'][2]['interview-date-month']
+            text:( data['csi-info'][3]['interview-date-day'] + " " + data['csi-info'][3]['interview-date-month']
             | toMonth ) | safe
           }
         ]
@@ -68,7 +68,7 @@
   {{ govukButton({
     text: "Open new email",
     classes: "govuk-button--secondary",
-    href: "mailto:" + data['csi-info'][2]['email-for-user-research']
+    href: "mailto:" + data['csi-info'][3]['email-for-user-research']
   }) }}
 
 <br>
