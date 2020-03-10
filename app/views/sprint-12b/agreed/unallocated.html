@@ -3,20 +3,20 @@
 
 {% set Unallocated = true %}
 
-{% set cases = [
+{% set unallocated = [
   {
 
     name: "Desmond Smith",
-    submitted: "18 February 2020 - 04:23",
+    submitted: "27 February 2020 - 04:23",
     interview: "1 March 2020",
-    status: "Action needed"
+    status: "New"
   },
   {
 
     name: "Sam Argentino",
     submitted: "23 February 2020 - 13:23",
     interview: "2 March 2020",
-    status: "Waiting for response"
+    status: "Action needed"
   }
 
   ]
@@ -58,7 +58,7 @@ Unallocated cases
             <td class="govuk-table__cell"><a href="csi/index-payment-unallocated">Go to case</a></td>
           </tr>
   {% endif %}
-          {% for case in cases %}
+          {% for case in unallocated %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">{{ case.name }}</td>
               <td class="govuk-table__cell">{{ case.submitted }}</td>
