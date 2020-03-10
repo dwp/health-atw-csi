@@ -217,6 +217,9 @@
 {% endif %}
 
 
+{% if data['transfer-back-payments'] == "yes"  %}
+{{timeline(title="Application allocated", allocation="John Goldsmith", date="6 January 2020 at 3:35pm")}}
+{% endif %}
 
   {% endif %} <!--  end if payments  -->
 
@@ -250,6 +253,10 @@
 
 {% if payments or (phase == "payment-adviser") %}
 
+{% if data['sent-email-amount'] == "yes" or  (phase == "payment-adviser")  %}
+
+{{timeline(title="Application allocated", allocation="John Goldsmith", date="6 January 2020 at 3:35pm")}}
+{% endif %}
 
 {% if data['sent-email-amount'] == "yes" or  (phase == "payment-adviser")  %}
   {{timeline(title="Invoice amount different to quote", date="24 January 2019 at 10:24am") }}
