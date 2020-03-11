@@ -54,7 +54,7 @@ Unallocated cases
             <td class="govuk-table__cell">{{data['csi-info'][3]['submission-date']}}</td>
             <td class="govuk-table__cell">{{ data['csi-info'][3]['interview-date-day'] }} {{ data['csi-info'][3]['interview-date-month'] | toMonth }} {{ data['csi-info'][3]['interview-date-year'] }}</td>
 
-            <td class="govuk-table__cell">New</td>
+            <td class="govuk-table__cell">{% if payments %}Ready{% else %}New{% endif %}</td>
             <td class="govuk-table__cell"><a href="csi/index-payment-unallocated">Go to case</a></td>
           </tr>
   {% endif %}
@@ -63,7 +63,7 @@ Unallocated cases
               <td class="govuk-table__cell">{{ case.name }}</td>
               <td class="govuk-table__cell">{{ case.submitted }}</td>
               <td class="govuk-table__cell">{{ case.interview }}</td>
-              <td class="govuk-table__cell">{{ case.status }}</td>
+              <td class="govuk-table__cell">{% if payments and case.status == 'New' %}Ready{% else %}{{ case.status }}{% endif %}</td>
               <td class="govuk-table__cell"><a href="#">Go to case</a></td>
             </tr>
           {% endfor %}
