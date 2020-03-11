@@ -325,14 +325,16 @@
                 <td class="govuk-table__cell">{{ data['csi-info'][3]['firstname'] }} {{ data['csi-info'][3]['surname'] }}</td>
                 <td class="govuk-table__cell">CSI</td>
                 <td class="govuk-table__cell">CSI</td>
-                <td class="govuk-table__cell">{% if adviser == "1"%}Allocated{% else %}Unallocated{% endif %}</td>
+                <td class="govuk-table__cell">Allocated</td>
                 <td class="govuk-table__cell">{{data['csi-info'][3]['submission-date']}}</td>
-                <td class="govuk-table__cell">{% if adviser == "1"%}John Goldsmith{% elif allocated %}Rich Silver{% else %}{% endif %} </td>
-                <td class="govuk-table__cell"><a href="csi/{% if contactCentre %}claim-contact{% else %}index{% if payments %}-payment-{% if adviser == "1" %}unconfirmed{% else %}unallocated{% endif %}{% endif %}{% endif %}">View case</a></td>
+                <td class="govuk-table__cell">John Goldsmith</td>
+                <td class="govuk-table__cell"><a href="csi/{% if contactCentre %}claim-contact{% else %}index{% if payments %}-payment-unconfirmed{% endif %}{% endif %}">View case</a></td>
               </tr>
 
         </tbody>
       </table>
+
+
 
 
 {% elif (search == 'complete') %}
