@@ -67,7 +67,7 @@
     <h2 class="govuk-heading-m">Your Communication Support at Interview cases</h2>
 
 
-{% if (phase == "empty")  %}
+{% if (phase == "empty" or phase == "allocator")  %}
 <p>You have no cases.</P>
 
 {% else %}
@@ -79,7 +79,9 @@
 
     <h2 class="govuk-heading-m">Your DiSC cases </h2>
 
-
+{% if phase == "allocator" %}
+<p>You have no cases.</P>
+{% else %}
     <table class="govuk-table">
       <thead class="govuk-table__head">
           <tr class="govuk-table__row">
@@ -108,7 +110,7 @@
       </tbody>
     </table>
 
-
+{% endif %}
       {% endset -%}
 
 

@@ -75,15 +75,15 @@
           <li{% if yourCases %} class="active"{% endif %}>
 
 {% if (not contactCentre)  %}
-          <a href="/{{folder}}/{% if scenario %}{{scenario}}{% else %}{% if phase == "allocator"%}atwis{% else%}{{subfolder}}{% endif %}/your-cases{% if phase == "payments" or phase == "payment" or payments %}-payments{% elif phase == "interview" %}-interview{% elif phase == "payments" %}{% elif phase == "empty" %}-empty{% elif phase == "waiting" or (data['claim'] == 'yes') %}-waiting{% elif phase == "payment-adviser" %}-payment-adviser{% else %}{% endif %}{% endif %}" class="active" aria-current="page">Your cases</a>
+          <a href="/{{folder}}/{% if scenario %}{{scenario}}{% else %}{{subfolder}}/your-cases{% if phase == "payments" or phase == "payment" or payments %}-payments{% elif phase == "interview" %}-interview{% elif phase == "allocator" %}-allocator{% elif phase == "payments" %}{% elif phase == "empty" %}-empty{% elif phase == "waiting" or (data['claim'] == 'yes') %}-waiting{% elif phase == "payment-adviser" %}-payment-adviser{% else %}{% endif %}{% endif %}" class="active" aria-current="page">Your cases</a>
 
         </li>
-{% if phase == "allocator" or payments %}<li{% if Unallocated %} class="active"{% endif %}><a href="/{{folder}}/{{subfolder}}/unallocated{% if payments %}-payments{% endif %}">Unallocated</a></li> {% endif %}
+{% if phase == "allocator" or Unallocated or payments %}<li{% if Unallocated %} class="active"{% endif %}><a href="/{{folder}}/{{subfolder}}/unallocated{% if payments %}-payments{% endif %}">Unallocated</a></li> {% endif %}
 
 
 {% endif %}
 
-          <li{% if Search %} class="active"{% endif %}><a href="/{{folder}}/{% if scenario  %}{{scenario}}{% else %}{% if phase == "allocator"%}atwis{% else%}{{subfolder}}{% endif %}/search{% if contactCentre %}-contact{% elif phase == "payments" or payments or paymentLink%}-payments{% endif %}{% endif %}">Search</a></li>
+          <li{% if Search %} class="active"{% endif %}><a href="{% if phase == "allocator" %}#{% else %}/{{folder}}/{% if scenario  %}{{scenario}}{% else %}{% if phase == "allocator"%}-allocator{% else%}{{subfolder}}{% endif %}/search{% if contactCentre %}-contact{% elif phase == "payments" or payments or paymentLink%}-payments{% endif %}{% endif %}{% endif %}">Search</a></li>
         </ul>
       </div>
     </div>

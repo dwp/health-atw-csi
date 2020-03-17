@@ -1,6 +1,11 @@
 {% extends "./_BASE.html" %}
 {% set hideBanner = true %}
 
+{% if not phase %}
+{% set phase = "allocator" %}
+
+{% endif %}
+
 {% set Unallocated = true %}
 
 {% set unallocated = [
@@ -66,7 +71,7 @@
             <td class="govuk-table__cell">{{ data['csi-info'][3]['interview-date-day'] }} {{ data['csi-info'][3]['interview-date-month'] | toMonth }} {{ data['csi-info'][3]['interview-date-year'] }}</td>
 
             <td class="govuk-table__cell">{% if payments %}Ready{% else %}New{% endif %}</td>
-            <td class="govuk-table__cell"><a href="csi/index-payment-unallocated">Go to case</a></td>
+            <td class="govuk-table__cell"><a href="csi/index{% if payments %}-payment-unallocated{% else %}-allocator{% endif %}">Go to case</a></td>
           </tr>
   {% endif %}
           {% for case in unallocated %}
