@@ -190,7 +190,7 @@
 
 {% if (phase == "payment-closed") or (phase == "payment-cancelled") %}
 
-{{timeline(title="Payment sent to SOP", stage="payment", date="16 "  + monthAndYear +  " at 11:59pm") }}
+{{timeline(title="Payment sent to SOP", stage="unallocated", date="16 "  + monthAndYear +  " at 11:59pm") }}
 
 {% endif %}
 
@@ -205,6 +205,10 @@
 {% if payments %} <!-- section only after handoffs  -->
 
 {% if data['app-payment'] == "yes" or data['payment-stopped'] or (phase == "payment-closed") or (phase == "payment-cancelled") %}
+
+{{timeline(title="Application unallocated", stage="unallocated", date="16 "  + monthAndYear +  " at 10:30am") }}
+
+
   {{timeline(title="Payment approved", stage="payment", date="16 "  + monthAndYear +  " at 10:30am") }}
 {% endif %}
 
@@ -295,6 +299,9 @@
           {% endif %}
 
 {% if phase == "payment-adviser" or (payments and not (phase == "payment-interview-not-confirmed") ) or ( data['confirm'] == "yes") %}
+
+{{timeline(title="Application unallocated", stage="unallocated", date="10 "  + monthAndYear +  " at 10:20am") }}
+
 
             {{timeline(title="Interview confirmed", date="10 "  + monthAndYear +  " at 10:20am") }}
 {% endif %}
