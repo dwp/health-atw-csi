@@ -168,7 +168,7 @@
 
 
         <ol class="dwp-timeline">
-{% macro timeline(title="", allocation="", date="1 November 2019 at 4:30pm" ) %}
+{% macro timeline(title="", allocation="", date="1 "  + monthAndYear +  " at 4:30pm" ) %}
           <li class="dwp-timeline__entry">
             <h3 class="govuk-heading-s dwp-timeline__title">{{title}}  {% if allocation %}<span class="dwp-timeline__date">{{allocation}}</span>{% endif %}</h3>
 
@@ -182,7 +182,7 @@
 
 {% if phase == "payment-cancelled" %}
 
-{{timeline(title="Payment stopped", date="12 February 2019 at 10:34am") }}
+{{timeline(title="Payment stopped", date="16 "  + monthAndYear +  " at 10:34am") }}
 
 {% endif %}
 
@@ -190,13 +190,13 @@
 
 {% if (phase == "payment-closed") or (phase == "payment-cancelled") %}
 
-{{timeline(title="Payment sent to SOP", date="12 February 2019 at 11:59pm") }}
+{{timeline(title="Payment sent to SOP", date="16 "  + monthAndYear +  " at 11:59pm") }}
 
 {% endif %}
 
 {% if phase == "closed" %}
 
-{{timeline(title="Case rejected", date="11 February 2019 at 10:32am") }}
+{{timeline(title="Case rejected", date="16 "  + monthAndYear +  " at 10:32am") }}
 
 {% endif %}
 
@@ -205,47 +205,44 @@
 {% if payments %} <!-- section only after handoffs  -->
 
 {% if data['app-payment'] == "yes" or data['payment-stopped'] or (phase == "payment-closed") or (phase == "payment-cancelled") %}
-  {{timeline(title="Payment approved", date="24 January 2019 at 10:30am") }}
+  {{timeline(title="Payment approved", date="16 "  + monthAndYear +  " at 10:30am") }}
 {% endif %}
 
 {% if data['payee-details-match'] == "yes"  %} <!-- Details match -->
-  {{timeline(title="Payee found", date="24 January 2019 at 10:28am") }}
+  {{timeline(title="Payee found", date="16 "  + monthAndYear +  " at 10:28am") }}
 {% endif %}
 
 {% if data['completed-sop'] =="yes"  %} <!-- found payee -->
-  {{timeline(title="SOP7 form sent", date="24 January 2019 at 10:26am") }}
+  {{timeline(title="SOP7 form sent", date="16 "  + monthAndYear +  " at 10:26am") }}
 {% endif %}
 
 
-{% if data['transfer-back-payments'] == "yes"  %}
-{{timeline(title="Application allocated", allocation="John Goldsmith", date="6 January 2020 at 3:35pm")}}
-{% endif %}
 
   {% endif %} <!--  end if payments  -->
 
 
 
-  {% if phase == "payment-adviser" or ( payments and data['transfer-back-payments'] == 'yes' ) %}
+  {% if phase == "payment-adviser" or ( payments and data['transfer-to-payments'] == 'yes' ) %}
 
 
   {% if data['agreed-amount']  %}
-  {{timeline(title="[Different amount approved]", date="24 January 2019 at 10:24am") }}
+  {{timeline(title="[Different amount approved]", date="16 "  + monthAndYear +  " at 10:24am") }}
 {% endif %}
 
-{% if data['difference'] == 'yes' %}
-  {{timeline(title="Invoice amount approved", date="24 January 2019 at 10:24am") }}
+{% if data['transfer-to-payments'] == 'yes' %}
+  {{timeline(title="Invoice amount approved", date="16 "  + monthAndYear +  " at 10:24am") }}
 {% endif %}
 
 {% if data['difference-asked-phone'] == 'yes'  %}
-  {{timeline(title="Telephoned applicant", date="8 January 2020 at 10:24am") }}
+  {{timeline(title="Telephoned applicant", date="16 "  + monthAndYear +  " at 10:24am") }}
   {% endif %}
 
   {% if data['difference-asked-phone'] == 'no'  %}
-  {{timeline(title="Attempted to telephone applicant", date="24 October 2019 at 10:24am") }}
+  {{timeline(title="Attempted to telephone applicant", date="16 "  + monthAndYear +  " at 10:24am") }}
 {% endif %}
 
 {% if data['difference-asked-email'] == 'yes' %}
-  {{timeline(title="Email sent for further information", date="24 October 2019 at 10:24am") }}
+  {{timeline(title="Email sent for further information", date="16 "  + monthAndYear +  " at 10:24am") }}
   {% endif %}
 
   {% endif %} <!-- end if phase payment-adviser -->
@@ -253,36 +250,32 @@
 
 {% if payments or (phase == "payment-adviser") %}
 
-{% if data['sent-email-amount'] == "yes" or  (phase == "payment-adviser")  %}
-
-{{timeline(title="Application allocated", allocation="John Goldsmith", date="6 January 2020 at 3:35pm")}}
-{% endif %}
 
 {% if data['sent-email-amount'] == "yes" or  (phase == "payment-adviser")  %}
-  {{timeline(title="Invoice amount different to quote", date="24 January 2019 at 10:24am") }}
+  {{timeline(title="Invoice amount different to quote", date="16 "  + monthAndYear +  " at 10:24am") }}
 {% endif %}
 
 
 
 {% if data['send-invoice-back'] == "yes" or  (phase == "payment-adviser")  %}
-  {{timeline(title="More evidence requested", date="24 January 2019 at 10:24am") }}
+  {{timeline(title="More evidence requested", date="16 "  + monthAndYear +  " at 10:24am") }}
 {% endif %}
 
 
 {% if data['invoice']  or  (phase == "payment-adviser") or contactCentre %} <!-- hack to show answer -->
-  {{timeline(title="Evidence received", date="24 January 2019 at 10:24am") }}
+  {{timeline(title="Evidence received", date="16 "  + monthAndYear +  " at 10:24am") }}
 {% endif %}
 
 
 {% if (data['payment-allocated'] or (phase == "payments") or (phase == "payment-adviser")) and not (phase == "payment-unallocated") %}
-{{timeline(title="Application allocated", allocation="Rich Silver", date="6 January 2020 at 3:35pm")}}
+{{timeline(title="Application allocated", allocation="Rich Silver", date="16 "  + monthAndYear +  " at 3:35pm")}}
 {% endif %}
   {% endif %} <!--  end if payments  -->
 
 
   {% if (data['claim-resend'] =="yes") %}
 
-                {{timeline(title="Claim form sent again", date="7 January 2020 at 3:15pm") }}
+                {{timeline(title="Claim form sent again", date="10 "  + monthAndYear +  " at 3:15pm") }}
 
   {% endif %}
 
@@ -290,48 +283,48 @@
                     <li class="dwp-timeline__entry">
                       <h3 class="govuk-heading-s dwp-timeline__title">Waiting for interview confirmation</h3>
                       <p class="dwp-timeline__info">
-                        <span class="dwp-timeline__date">1 November 2019 at 4:30pm</span>
+                        <span class="dwp-timeline__date">10 "  + monthAndYear +  " at 4:30pm</span>
                       </p>
                       </li>
           {% endif %}
 
 {% if phase == "payment-adviser" or (payments and not (phase == "payment-interview-not-confirmed") ) or ( data['confirm'] == "yes") %}
 
-            {{timeline(title="Interview confirmed", date="24 January 2020 at 10:20am") }}
+            {{timeline(title="Interview confirmed", date="10 "  + monthAndYear +  " at 10:20am") }}
 {% endif %}
 
 {% if phase == "payment-adviser" or payments or  data['employer-phone'] == 'no' %}
 
-          {{timeline(title="Attempted to contact employer", date="24 January 2020 at 10:15am") }}
+          {{timeline(title="Attempted to contact employer", date="10 "  + monthAndYear +  " at 10:15am") }}
 {% endif %}
 
 {% if phase == "payment-adviser" or payments or  data['sent-email'] == "yes" %}
 
-            {{timeline(title="Email sent to employer", date="22 January 2020 at 10.00am") }}
+            {{timeline(title="Email sent to employer", date="10 "  + monthAndYear +  " at 10.00am") }}
 {% endif %}
 
 {% if phase == "payment-adviser" or payments or (phase == "interview") or (phase == "waiting")  or (data['claim'] =="yes") %}
 
-              {{timeline(title="Claim form sent", date="7 January 2020 at 3:15pm") }}
+              {{timeline(title="Claim form sent", date="2 "  + monthAndYear +  " at 3:15pm") }}
 
 {% endif %}
 
 {% if phase == "payment-adviser" or payments or (phase == "interview") or (phase == "waiting")  or (data['send'] =="yes") %}
 
-             {{timeline(title="Confirmation sent", date="7 January 2020 at 3:05pm") }}
+             {{timeline(title="Confirmation sent", date="2 "  + monthAndYear +  " at 3:05pm") }}
 
 {% endif %}
 
 {% if phase == "payment-adviser" or payments or (phase == "interview") or (phase == "waiting")  or (data['interview'] == "yes") %}
 
-             {{timeline(title="Application checked", date="7 January 2020 at 3:00pm") }}
+             {{timeline(title="Application checked", date="2 "  + monthAndYear +  " at 3:00pm") }}
 {% endif %}
 
 {% if phase == "payment-adviser" or payments or (phase == "interview") or (phase == "waiting")  or data['asked-info-phone'] %}
           <li class="dwp-timeline__entry">
             <h3 class="govuk-heading-s dwp-timeline__title">{% if  data['asked-info-phone'] == "no" %} Attempted to telephone applicant{% else %}Telephoned applicant{% endif %}</h3>
             <p class="dwp-timeline__info">
-              <span class="dwp-timeline__date">7 January 2020 at 11:05am</span>
+              <span class="dwp-timeline__date">2  {{monthAndYear}} at 11:05am</span>
             </p>
           </li>
 {% endif %}
@@ -340,7 +333,7 @@
           <li class="dwp-timeline__entry">
             <h3 class="govuk-heading-s dwp-timeline__title">Email sent for further information</h3>
             <p class="dwp-timeline__info">
-              <span class="dwp-timeline__date">6 January 2020 at 3:45pm</span>
+              <span class="dwp-timeline__date">2 {{monthAndYear}} at 3:45pm</span>
             </p>
           </li>
 {% endif %}
@@ -350,7 +343,7 @@
           <li class="dwp-timeline__entry">
             <h3 class="govuk-heading-s dwp-timeline__title">Appointee details changed</h3>
             <p class="dwp-timeline__info">
-              <span class="dwp-timeline__date">24 October 2019 at 10:29am</span>
+              <span class="dwp-timeline__date">2 "  + monthAndYear +  " at 10:29am</span>
             </p>
           </li>
 {% endif %}
@@ -360,7 +353,7 @@
           <li class="dwp-timeline__entry">
             <h3 class="govuk-heading-s dwp-timeline__title">Appointee status changed</h3>
             <p class="dwp-timeline__info">
-              <span class="dwp-timeline__date">24 October 2019 at 10:26am</span>
+              <span class="dwp-timeline__date">2 "  + monthAndYear +  " at 10:26am</span>
             </p>
           </li>
 {% endif %}
@@ -369,7 +362,7 @@
 <!--timeline section for editing personal details  -->
 {% if data['personal-details-changed'] %}
 
-{{timeline(title="Personal details changed", date="24 October 2019 at 10:24am")}}
+{{timeline(title="Personal details changed", date="2 "  + monthAndYear +  " at 10:24am")}}
 
 {% endif %}
 
@@ -378,7 +371,7 @@
 <!--timeline section for editing company details-->
 {% if data['company-details-changed'] %}
 
-{{timeline(title="Company details changed", date="24 October 2019 at 10:24am")}}
+{{timeline(title="Company details changed", date="2 "  + monthAndYear +  " at 10:24am")}}
 
 {% endif %}
 
@@ -389,15 +382,15 @@
 <!--timeline section for editing job details-->
 {% if data['job-details-changed'] %}
 
-{{timeline(title="Interview details changed", date="24 October 2019 at 10:30am")}}
+{{timeline(title="Interview details changed", date="2 "  + monthAndYear +  " at 10:30am")}}
 
 {% endif %}
 
 {% if not (phase == "allocator") %}
-{{timeline(title="Application allocated", allocation="John Goldsmith", date="6 January 2020 at 3:35pm")}}
+{{timeline(title="Application allocated", allocation="John Goldsmith", date="2 "  + monthAndYear +  " at 3:35pm")}}
 {% endif %}
 
-{{timeline(title="Application received", date="6 January 2020 at 11:05am")}}
+{{timeline(title="Application received", date="2 "  + monthAndYear +  " at 11:05am")}}
 
         </ol>
       </div>

@@ -28,9 +28,9 @@
 
 {% if appointee %}
 <p>Send an email to <strong>{{data['appointee-name'] | default(appointeeDetails.name) | safe}}</strong> to confirm
-  that  <strong>{{data['csi-info'][2]['firstname']}} {{data['csi-info'][2]['surname']}}</strong>’s application has been approved.</p>
+  that  <strong>{{data['csi-info'][3]['firstname']}} {{data['csi-info'][3]['surname']}}</strong>’s application has been approved.</p>
 {% else %}
-<p>Send an email to <strong>{{data['csi-info'][2]['firstname']}} {{data['csi-info'][2]['surname']}}</strong> to confirm
+<p>Send an email to <strong>{{data['csi-info'][3]['firstname']}} {{data['csi-info'][3]['surname']}}</strong> to confirm
   that their application has been approved.</p>
 {% endif %}
   {{ govukTable({
@@ -55,7 +55,7 @@ appointeeText  ,
           text: "Applicant name"
         },
         {
-          text: data['csi-info'][2]['firstname'] +  " " +  data['csi-info'][2]['surname']
+          text: data['csi-info'][3]['firstname'] +  " " +  data['csi-info'][3]['surname']
         }
       ],
       [
@@ -63,7 +63,7 @@ appointeeText  ,
           text: "Support cost"
         },
         {
-          text: data['csi-info'][2]['support-worker-pay'] | toMoney | safe
+          text: data['csi-info'][3]['support-worker-pay'] | toMoney | safe
         }
       ],
       [
@@ -71,7 +71,7 @@ appointeeText  ,
           text: "Interview date"
         },
         {
-          text:( data['csi-info'][2]['interview-date-day'] + " " + data['csi-info'][2]['interview-date-month']
+          text:( data['csi-info'][3]['interview-date-day'] + " " + data['csi-info'][3]['interview-date-month']
           | toMonth ) | safe
         }
       ],
@@ -80,7 +80,7 @@ appointeeText  ,
           text: "Company name"
         },
         {
-          text: data['csi-info'][2]['company-name']
+          text: data['csi-info'][3]['company-name']
         }
       ],
       [
@@ -106,7 +106,7 @@ appointeeText  ,
   {{ govukButton({
     text: "Open new email",
     classes: "govuk-button--secondary",
-    href: "mailto:" + data['csi-info'][2]['email-for-user-research']
+    href: "mailto:" + data['csi-info'][3]['email-for-user-research']
   }) }}
 
 
