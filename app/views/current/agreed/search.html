@@ -242,7 +242,7 @@
       id: "status",
       name: "status",
       label: {
-        text: "Select a status (optional)"
+        text: "Select allocation (optional)"
       },
       items: [
       {
@@ -271,7 +271,7 @@
       id: "type",
       name: "type",
       label: {
-        text: "Select a case type (optional)"
+        text: "Select case type (optional)"
       },
       items: [
       {
@@ -317,7 +317,7 @@
               <th class="govuk-table__header">Name</th>
               <th class="govuk-table__header">Specialism</th>
               <th class="govuk-table__header">Case type</th>
-              <th class="govuk-table__header">Status</th>
+              <th class="govuk-table__header">Allocation</th>
               <th class="govuk-table__header">Date submitted</th>
               <th class="govuk-table__header">Allocated to</th>
               <th class="govuk-table__header"></th>
@@ -338,7 +338,7 @@
                 <td class="govuk-table__cell">{{ data['csi-info'][3]['firstname'] }} {{ data['csi-info'][3]['surname'] }}</td>
                 <td class="govuk-table__cell">CSI</td>
                 <td class="govuk-table__cell">CSI (DiSC)</td>
-                <td class="govuk-table__cell">Allocated</td>
+                <td class="govuk-table__cell">In DiSC</td>
                 <td class="govuk-table__cell">10 September 2019 - 09:57</td>
                 <td class="govuk-table__cell">John Goldsmith</td>
                 <td class="govuk-table__cell"><a href="csi-disc/index{% if phase == "allocator" %}-allocator{% endif %}">View case</a></td>
