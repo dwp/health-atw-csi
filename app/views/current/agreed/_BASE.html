@@ -1,3 +1,36 @@
+{% set monthAndYear = "March 2020" %}
+
+  {% set cases = [
+    {
+      name: "Dereck Smith",
+      specialism: "Large business",
+      type: "Renewal",
+      date: "3  "  + monthAndYear +  " - 11:57"
+    },
+    {
+
+      name: "Maximillia Erdman",
+      specialism: "Pan disability",
+      type: "New application",
+      date: "3  "  + monthAndYear +  " - 10:22"
+    },
+    {
+      name: "Sonya Corkery",
+      specialism: "Large business",
+      type: "Renewal",
+      date: "2  "  + monthAndYear +  " - 09:23"
+    },
+    {
+      name: "Adaline Mann",
+      specialism: "Pan disability",
+      type: "New application",
+      date: "2  "  + monthAndYear +  " - 16:23"
+    }
+
+    ]
+    %}
+
+
 {% extends "layout.html" %}
 
 {% block pageTitle %}
@@ -42,15 +75,15 @@
           <li{% if yourCases %} class="active"{% endif %}>
 
 {% if (not contactCentre)  %}
-          <a href="/{{folder}}/{% if phase == "allocator"%}atwis{% else%}{{subfolder}}{% endif %}/your-cases{% if phase == "payments" or phase == "payment" or payments %}-payments{% elif phase == "interview" %}-interview{% elif phase == "payments" %}{% elif phase == "empty" %}-empty{% elif phase == "waiting" or (data['claim'] == 'yes') %}-waiting{% elif phase == "payment-adviser" %}-payment-adviser{% else %}{% endif %}" class="active" aria-current="page">Your cases</a>
+          <a href="/{{folder}}/{% if scenario %}{{scenario}}{% else %}{% if phase == "allocator"%}atwis{% else%}{{subfolder}}{% endif %}/your-cases{% if phase == "payments" or phase == "payment" or payments %}-payments{% elif phase == "interview" %}-interview{% elif phase == "payments" %}{% elif phase == "empty" %}-empty{% elif phase == "waiting" or (data['claim'] == 'yes') %}-waiting{% elif phase == "payment-adviser" %}-payment-adviser{% else %}{% endif %}{% endif %}" class="active" aria-current="page">Your cases</a>
 
         </li>
-{% if phase == "allocator" %}<li ><a href="/{{folder}}/atwis/unallocated">Unallocated</a></li> {% endif %}
+{% if phase == "allocator" or payments %}<li{% if Unallocated %} class="active"{% endif %}><a href="/{{folder}}/{{subfolder}}/unallocated{% if payments %}-payments{% endif %}">Unallocated</a></li> {% endif %}
 
 
 {% endif %}
 
-          <li{% if Search %} class="active"{% endif %}><a href="/{{folder}}/{% if phase == "allocator"%}atwis{% else%}{{subfolder}}{% endif %}/search{% if contactCentre %}-contact{% elif phase == "payments" or payments or paymentLink%}-payments{% endif %}">Search</a></li>
+          <li{% if Search %} class="active"{% endif %}><a href="/{{folder}}/{% if scenario  %}{{scenario}}{% else %}{% if phase == "allocator"%}atwis{% else%}{{subfolder}}{% endif %}/search{% if contactCentre %}-contact{% elif phase == "payments" or payments or paymentLink%}-payments{% endif %}{% endif %}">Search</a></li>
         </ul>
       </div>
     </div>
@@ -75,13 +108,13 @@
           </div>
           <div class="govuk-grid-column-one-quarter">
             <span class="govuk-body-s">Interview date</span><br>
-            <span class="govuk-body govuk-!-font-size-24 govuk-!-font-weight-bold" id="banner-condition">{{ data['csi-info'][2]['interview-date-day'] }} {{ data['csi-info'][2]['interview-date-month'] | toMonth }} {{ data['csi-info'][2]['interview-date-year'] }}</span>
+            <span class="govuk-body govuk-!-font-size-24 govuk-!-font-weight-bold" id="banner-condition">{{ data['csi-info'][3]['interview-date-day'] }} {{ data['csi-info'][3]['interview-date-month'] | toMonth }} {{ data['csi-info'][3]['interview-date-year'] }}</span>
 
           </div>
 
           <div class="govuk-grid-column-one-quarter"{{ ' hidden' if unallocated == 'true' }}>
             <span class="govuk-body-s">Allocated to</span><br>
-            <span class="govuk-body govuk-!-font-size-24 govuk-!-font-weight-bold" id="banner-adviser">{% if phase == "payment-interview-unallocated" or phase == "allocator"  %}{% elif ( (payments or paymentLink)  and not (phase == "payment-interview-not-confirmed" )) or (phase == "payment") %}Rich Silver{% else %}John Goldsmith{% endif %}</span>
+            <span class="govuk-body govuk-!-font-size-24 govuk-!-font-weight-bold" id="banner-adviser">{% if phase == "payment-interview-unallocated" or phase == "allocator"  %}{% elif (payments and not (phase == "payment-interview-not-confirmed" )) or (phase == "payment") %}Rich Silver{% else %}John Goldsmith{% endif %}</span>
           </div>
 
           <div class="govuk-grid-column-one-quarter">
