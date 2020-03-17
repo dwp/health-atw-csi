@@ -289,6 +289,10 @@
         {
           value: "CSI",
           text: "CSI"
+        },
+        {
+          value: "CSI (DiSC)",
+          text: "CSI (DiSC)"
         }
       ]
     }) }}
@@ -305,7 +309,7 @@
     </form>
 
 {% if adviser or type or caseID or status %}
-<p>1 case found</p>
+<p>2 cases found</p>
 <!-- <p>Showing 1 to 1 of 1 case.</P> -->
       <table class="govuk-table">
         <thead class="govuk-table__head">
@@ -330,7 +334,15 @@
                 <td class="govuk-table__cell">John Goldsmith</td>
                 <td class="govuk-table__cell"><a href="csi/{% if contactCentre %}claim-contact{% else %}index{% if payments %}-payment-unconfirmed{% endif %}{% endif %}">View case</a></td>
               </tr>
-
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">{{ data['csi-info'][3]['firstname'] }} {{ data['csi-info'][3]['surname'] }}</td>
+                <td class="govuk-table__cell">CSI</td>
+                <td class="govuk-table__cell">CSI (DiSC)</td>
+                <td class="govuk-table__cell">Allocated</td>
+                <td class="govuk-table__cell">10 September 2019 - 09:57</td>
+                <td class="govuk-table__cell">John Goldsmith</td>
+                <td class="govuk-table__cell"><a href="csi-disc/index{% if phase == "allocator" %}-allocator{% endif %}">View case</a></td>
+              </tr>
         </tbody>
       </table>
 
