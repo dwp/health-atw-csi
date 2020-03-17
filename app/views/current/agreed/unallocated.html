@@ -34,7 +34,18 @@ Unallocated cases
       Unallocated Communication Support at Interview cases
 
 {% endif  %}
+
+
     </h1>
+
+    {% if empty %}
+    {% if payments %}
+    <p>[text for unallocated cases for payments]</p>
+    {% else %}
+    <p>[text for unallocated cases for an adviser]</p>
+    {% endif %}
+
+    {% else %}
 
     <table class="govuk-table">
       <thead class="govuk-table__head">
@@ -71,6 +82,8 @@ Unallocated cases
     </table>
   </div>
 </div>
+
+{% endif %}
 
 {% if not payments %}
 <div class="column-full">
