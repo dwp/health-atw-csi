@@ -289,10 +289,6 @@
         {
           value: "CSI",
           text: "CSI"
-        },
-        {
-          value: "CSI DiSC",
-          text: "CSI DiSC"
         }
       ]
     }) }}
@@ -309,8 +305,14 @@
     </form>
 
 {% if adviser or type or caseID or status %}
-<p>2 cases found</p>
+
+  <h2 class="govuk-heading-m">Communication Support at Interview cases</h2>
+
+<p>1 case found</p>
 <!-- <p>Showing 1 to 1 of 1 case.</P> -->
+
+
+
       <table class="govuk-table">
         <thead class="govuk-table__head">
             <tr class="govuk-table__row">
@@ -334,23 +336,56 @@
                 <td class="govuk-table__cell">John Goldsmith</td>
                 <td class="govuk-table__cell"><a href="csi/{% if contactCentre %}claim-contact{% else %}index{% if payments %}-payment-unconfirmed{% endif %}{% endif %}">View case</a></td>
               </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">{{ data['csi-info'][3]['firstname'] }} {{ data['csi-info'][3]['surname'] }}</td>
-                <td class="govuk-table__cell">CSI</td>
-                <td class="govuk-table__cell">CSI DiSC</td>
-                <td class="govuk-table__cell">In DiSC</td>
-                <td class="govuk-table__cell">10 September 2019 - 09:57</td>
-                <td class="govuk-table__cell">John Goldsmith</td>
-                <td class="govuk-table__cell"><a href="csi-disc/index{% if phase == "allocator" %}-allocator{% endif %}">View case</a></td>
-              </tr>
+
         </tbody>
       </table>
 
 
 
+      <h2 class="govuk-heading-m">Other cases</h2>
+
+
+      <p>1 case found</p>
+      <!-- <p>Showing 1 to 1 of 1 case.</P> -->
+
+
+
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th class="govuk-table__header">Name</th>
+                    <th class="govuk-table__header">Specialism</th>
+                    <th class="govuk-table__header">Case type</th>
+                    <th class="govuk-table__header">Allocation</th>
+                    <th class="govuk-table__header">Date submitted</th>
+                    <th class="govuk-table__header">Allocated to</th>
+                    <th class="govuk-table__header"></th>
+                  </tr>
+                </thead>
+                <tbody>
+
+
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">{{ data['csi-info'][3]['firstname'] }} {{ data['csi-info'][3]['surname'] }}</td>
+                      <td class="govuk-table__cell">CSI</td>
+                      <td class="govuk-table__cell">CSI</td>
+                      <td class="govuk-table__cell">In DiSC</td>
+                      <td class="govuk-table__cell">10 September 2019 - 09:57</td>
+                      <td class="govuk-table__cell">John Goldsmith</td>
+                      <td class="govuk-table__cell"><a href="csi-disc/index{% if phase == "allocator" %}-allocator{% endif %}">View case</a></td>
+                    </tr>
+              </tbody>
+            </table>
+
 
 {% elif (search == 'complete') %}
+<h2 class="govuk-heading-m">Communication Support at Interview cases</h2>
+
       <p>There are no cases that match your search</p>
+
+      <h2 class="govuk-heading-m">Other cases</h2>
+      <p>There are no cases that match your search</p>
+
 
 {% else %}
 {% endif %}
