@@ -196,6 +196,8 @@
 
 {% if phase == "closed" %}
 
+{{timeline(title="Case unallocated",  stage="unallocated", date="16 "  + monthAndYear +  " at 10:32am") }}
+
 {{timeline(title="Case rejected", date="16 "  + monthAndYear +  " at 10:32am") }}
 
 {% endif %}
@@ -206,13 +208,13 @@
 
 {% if data['app-payment'] == "yes" or data['payment-stopped'] or (phase == "payment-closed") or (phase == "payment-cancelled") %}
 
-{{timeline(title="Application unallocated", stage="unallocated", date="16 "  + monthAndYear +  " at 10:30am") }}
+{{timeline(title="Case unallocated", stage="unallocated", date="16 "  + monthAndYear +  " at 10:30am") }}
 
 
   {{timeline(title="Payment approved", stage="payment", date="16 "  + monthAndYear +  " at 10:30am") }}
 {% endif %}
 
-{% if data['payee-details-match'] == "yes"  %} <!-- Details match -->
+{% if data['payee-details-match'] == "yes"   or data['payment-stopped'] or (phase == "payment-closed") or (phase == "payment-cancelled") %}
   {{timeline(title="Payee found", stage="payment", date="16 "  + monthAndYear +  " at 10:28am") }}
 {% endif %}
 
@@ -272,13 +274,13 @@
 {% endif %}
 
 
-{% if data['invoice']  or  (phase == "payment-adviser") or contactCentre %} <!-- hack to show answer -->
+{% if data['invoice']  or  (phase == "payment-adviser") or contactCentre  or data['payment-stopped'] or (phase == "payment-closed") or (phase == "payment-cancelled") %}
   {{timeline(title="Evidence received", stage="payment", date="16 "  + monthAndYear +  " at 10:24am") }}
 {% endif %}
 
 
 {% if (data['payment-allocated'] or (phase == "payments") or (phase == "payment-adviser")) and not (phase == "payment-unallocated") %}
-{{timeline(title="Application allocated", stage="payment", allocation="Rich Silver", date="16 "  + monthAndYear +  " at 3:35pm")}}
+{{timeline(title="Case allocated", stage="payment", allocation="Rich Silver", date="16 "  + monthAndYear +  " at 10:24am")}}
 {% endif %}
   {% endif %} <!--  end if payments  -->
 
@@ -300,7 +302,7 @@
 
 {% if phase == "payment-adviser" or (payments and not (phase == "payment-interview-not-confirmed") ) or ( data['confirm'] == "yes") %}
 
-{{timeline(title="Application unallocated", stage="unallocated", date="10 "  + monthAndYear +  " at 10:20am") }}
+{{timeline(title="Case unallocated", stage="unallocated", date="10 "  + monthAndYear +  " at 10:20am") }}
 
 
             {{timeline(title="Interview confirmed", date="10 "  + monthAndYear +  " at 10:20am") }}
@@ -332,6 +334,9 @@
 
              {{timeline(title="Application checked", date="2 "  + monthAndYear +  " at 3:00pm") }}
 {% endif %}
+
+
+
 
 {% if phase == "payment-adviser" or payments or (phase == "interview") or (phase == "waiting")  or data['asked-info-phone'] %}
           <li class="dwp-timeline__entry">
@@ -388,7 +393,7 @@
 <!--timeline section for editing company details-->
 {% if data['company-details-changed'] %}
 
-{{timeline(title="Company details changed", date="2 "  + monthAndYear +  " at 10:24am")}}
+{{timeline(title="Company details changed", date="3 "  + monthAndYear +  " at 10:24am")}}
 
 {% endif %}
 
@@ -402,6 +407,14 @@
 {{timeline(title="Interview details changed", date="2 "  + monthAndYear +  " at 10:30am")}}
 
 {% endif %}
+
+{% if phase == "payment-adviser" or payments or (phase == "interview") or (phase == "waiting")  or data['ni-number'] %}
+
+
+{{timeline(title="National Insurance number added	", date="2 "  + monthAndYear +  " at 3:00pm") }}
+
+{% endif %}
+
 
 {% if not (phase == "allocator") %}
 {{timeline(title="Application allocated", stage="allocator", allocation="John Goldsmith", date="2 "  + monthAndYear +  " at 3:35pm")}}
