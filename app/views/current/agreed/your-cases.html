@@ -129,7 +129,7 @@
 
 <h2 class="govuk-heading-m">Your cases </h2>
 
-{% if cases == "true" or (data['payment-allocated'] and not data['transfer-to-adviser']) or ( data['transfer-to-adviser'] and data['transfer-to-payments'] ) %}
+{% if (allocatedCase == "true" ) or (data['payment-allocated'] and not data['transfer-to-adviser']) or ( data['transfer-to-adviser'] and data['transfer-to-payments'] ) %}
 
 {{statusTable(payment="true")}}
 
