@@ -1,5 +1,6 @@
 {% set link = "unhappy-email-2"  %}
 
+
 {% extends folder + "/" + subfolder + "/csi/_CSIQUESTION.html" %}
 {% set redirect = [{id : "yes", page: link }, {id: "no", page: "../index"}] %}
 
@@ -61,6 +62,10 @@
 
 {% set claimDetails %}
 {% set personalDetails = true %}
+
+
+{% set hideChange = true %}
+
 {% include folder + "/" + subfolder + "/csi/_CLAIMDETAILS.html" %}
 {% endset -%}
 
