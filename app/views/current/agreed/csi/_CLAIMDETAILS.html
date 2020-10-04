@@ -53,7 +53,7 @@
 
   <dd class="govuk-summary-list__actions">
 
-    {% if data['ni-number'] or contactCentre %}
+    {% if (data['ni-number'] or contactCentre) and not hideChange %}
     <a class="govuk-link" href="personal-details-change#name">
       Change
       <span class="govuk-visually-hidden"></span>
